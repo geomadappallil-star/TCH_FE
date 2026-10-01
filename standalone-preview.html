@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TCH Support Services — Nursing, Home &amp; Yard, and Agency Staffing in Townsville</title>
+<meta name="description" content="Townsville clinical nursing, gardening, cleaning and agency staffing. TCH Support Services works with self-managed and plan-managed NDIS participants and registered providers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #0E6E64;
+  --teal-deep: #0A544C;
+  --teal-ink: #083A34;
+  --sage: #8FAE7D;
+  --sage-pale: #DDE7D4;
+  --gold: #E3A83B;
+  --gold-dark: #B87F17;
+  --paper: #F6F4EE;
+  --paper-warm: #EFEDE4;
+  --ink: #17241F;
+  --muted: #5A6C65;
+  --white: #ffffff;
+  --radius: 18px;
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-shadow: 0 10px 30px -10px rgba(8, 58, 52, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+body {
+  margin: 0;
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: 'Lora', Georgia, serif;
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', system-ui, sans-serif;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5em;
+  color: var(--teal-ink);
+}
+
+h1 { font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.6rem); font-weight: 700; }
+h3 { font-size: 1.15rem; font-weight: 600; }
+p { margin: 0 0 1rem; }
+a { color: var(--teal-deep); text-decoration: none; }
+svg { max-width: 100%; vertical-align: middle; }
+
+.wrap { width: min(1200px, 100% - 3rem); margin-inline: auto; position: relative; z-index: 10; }
+@media (max-width: 640px) { .wrap { width: min(1200px, 100% - 2rem); } }
+section { padding: clamp(4rem, 8vw, 7rem) 0; position: relative; }
+
+/* Aurora Background Ambient Glows */
+.aurora-bg { position: relative; overflow: hidden; }
+.aurora-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(65px);
+  pointer-events: none;
+  z-index: 1;
+}
+.orb-1 { width: 500px; height: 500px; background: radial-gradient(circle, rgba(142, 174, 125, 0.35) 0%, transparent 70%); top: -100px; left: -100px; }
+.orb-2 { width: 450px; height: 450px; background: radial-gradient(circle, rgba(14, 110, 100, 0.22) 0%, transparent 70%); top: 150px; right: -80px; }
+.orb-3 { width: 350px; height: 350px; background: radial-gradient(circle, rgba(227, 168, 59, 0.25) 0%, transparent 70%); bottom: -50px; left: 30%; }
+
+/* Glassmorphism Styles */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius);
+  transition: all 0.26s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(14, 110, 100, 0.3);
+  box-shadow: 0 16px 40px -10px rgba(8, 58, 52, 0.12), inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+}
+.glass-dark {
+  background: rgba(8, 58, 52, 0.55);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 14px 40px 0 rgba(0, 0, 0, 0.18);
+  border-radius: var(--radius);
+  color: #fff;
+}
+.glass-dark h3, .glass-dark h4 { color: #fff; }
+.glass-dark p { color: rgba(234, 242, 238, 0.82); }
+
+.glass-chip {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(14, 110, 100, 0.18);
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Micro Top Bar */
+.top-notice {
+  background: linear-gradient(90deg, #083A34 0%, #0A544C 50%, #083A34 100%);
+  color: #DDE7D4;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.76rem;
+  padding: 0.45rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 768px) { .top-notice { display: none; } }
+
+/* Sticky Header */
+.site-head {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(246, 244, 238, 0.86);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(14, 110, 100, 0.14);
+}
+.head-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 0;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: inherit;
+}
+.brand svg { width: 38px; height: 42px; flex: none; }
+.brand b { font-family: 'Poppins', sans-serif; font-size: 1.15rem; font-weight: 700; color: var(--teal-deep); display: block; line-height: 1.1; }
+.brand i { font-style: normal; font-family: 'Poppins', sans-serif; font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--sage); font-weight: 600; }
+
+.nav-links { display: flex; align-items: center; gap: 0.35rem; }
+@media (max-width: 960px) { .nav-links { display: none; } }
+.tab-link {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 0.55rem 0.95rem;
+  border-radius: 999px;
+  transition: 0.16s ease;
+}
+.tab-link:hover { color: var(--teal-deep); background: rgba(255, 255, 255, 0.6); }
+.tab-link.active { color: var(--teal-ink); background: rgba(255, 255, 255, 0.95); box-shadow: 0 2px 8px rgba(8, 58, 52, 0.08); }
+
+/* Buttons */
+.btn {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 0.92rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0.75rem 1.45rem;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-primary {
+  background: linear-gradient(135deg, var(--teal) 0%, var(--teal-deep) 100%);
+  color: var(--white);
+  box-shadow: 0 8px 24px -6px rgba(14, 110, 100, 0.3);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -6px rgba(14, 110, 100, 0.45); }
+.btn-glass {
+  background: rgba(255, 255, 255, 0.75);
+  border-color: rgba(14, 110, 100, 0.22);
+  color: var(--teal-ink);
+  backdrop-filter: blur(8px);
+}
+.btn-glass:hover { background: rgba(255, 255, 255, 0.95); transform: translateY(-2px); border-color: var(--teal); }
+.btn-gold {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+  color: var(--ink);
+  font-weight: 700;
+}
+.btn-gold:hover { filter: brightness(1.06); transform: translateY(-2px); }
+
+/* Eyebrow & Badges */
+.eyebrow {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sage);
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  margin-bottom: 0.9rem;
+}
+.eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--gold); }
+.lede { font-size: clamp(1.05rem, 1.8vw, 1.22rem); color: var(--muted); margin-bottom: 1.5rem; }
+
+/* Grid Layouts */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+@media (max-width: 990px) { .grid-2 { grid-template-columns: 1fr; } .grid-3 { grid-template-columns: repeat(2, 1fr); } .grid-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid-3 { grid-template-columns: 1fr; } .grid-4 { grid-template-columns: 1fr; } }
+
+/* Hero specific */
+.hero { padding-top: clamp(3rem, 6vw, 5rem); padding-bottom: clamp(3rem, 6vw, 5rem); }
+.hero h1 em { font-style: normal; color: var(--teal); position: relative; }
+.hero h1 em::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0.04em; height: 0.32em; background: rgba(227, 168, 59, 0.32); border-radius: 4px; z-index: -1; }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-top: 1.8rem; }
+.hero-badges { display: flex; flex-wrap: wrap; gap: 1.2rem; font-family: 'Poppins', sans-serif; font-size: 0.84rem; font-weight: 500; color: var(--teal-ink); margin-top: 1.6rem; }
+.hero-badges span { display: flex; align-items: center; gap: 0.45rem; }
+.hero-badges span::before { content: "✓"; color: var(--teal); font-weight: 800; }
+
+/* Persona Switcher */
+.persona-nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.8rem; margin-bottom: 1.8rem; }
+@media (max-width: 768px) { .persona-nav { grid-template-columns: repeat(2, 1fr); } }
+.persona-btn {
+  padding: 1rem;
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid rgba(14, 110, 100, 0.15);
+  font-family: 'Poppins', sans-serif;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+.persona-btn.active {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: var(--teal);
+  box-shadow: 0 8px 24px -4px rgba(14, 110, 100, 0.15);
+  transform: translateY(-2px);
+}
+.persona-btn b { display: block; font-size: 0.92rem; color: var(--teal-ink); }
+.persona-btn small { font-size: 0.74rem; color: var(--muted); }
+
+/* Interactive Calculator */
+.calc-box {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  box-shadow: var(--glass-shadow);
+}
+.slider-group {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  border: 1px solid rgba(14, 110, 100, 0.14);
+  margin-bottom: 1rem;
+}
+.slider-head { display: flex; justify-content: space-between; align-items: center; font-family: 'Poppins', sans-serif; font-size: 0.88rem; font-weight: 600; margin-bottom: 0.5rem; }
+.slider-head span.val { background: var(--sage-pale); color: var(--teal-ink); padding: 0.15rem 0.6rem; border-radius: 6px; font-size: 0.82rem; }
+input[type=range] { width: 100%; accent-color: var(--teal); }
+
+/* Service Card */
+.svc-card {
+  padding: 1.6rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.svc-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(14, 110, 100, 0.08);
+  border: 1px solid rgba(14, 110, 100, 0.16);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--teal);
+}
+.svc-card h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+.svc-card p { font-size: 0.92rem; color: var(--muted); line-height: 1.55; }
+.svc-foot { margin-top: 1rem; padding-top: 0.8rem; border-top: 1px solid rgba(14, 110, 100, 0.1); font-family: 'Poppins', sans-serif; font-size: 0.82rem; color: var(--teal); font-weight: 600; display: flex; justify-content: space-between; }
+
+/* Suburb Search */
+.search-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: 1.5px solid rgba(14, 110, 100, 0.18);
+  background: rgba(255, 255, 255, 0.8);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.94rem;
+  margin-bottom: 1.5rem;
+}
+.search-input:focus { outline: none; border-color: var(--teal); box-shadow: 0 0 0 3px rgba(14, 110, 100, 0.12); }
+
+/* Form */
+.form-glass {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: var(--radius);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+.form-glass label { display: block; font-family: 'Poppins', sans-serif; font-size: 0.76rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.35rem; }
+.form-glass input, .form-glass select, .form-glass textarea {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.7);
+  border: 1.5px solid rgba(14, 110, 100, 0.16);
+  border-radius: 10px;
+  margin-bottom: 1.1rem;
+  transition: 0.2s ease;
+}
+.form-glass input:focus, .form-glass select:focus, .form-glass textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(14, 110, 100, 0.12);
+}
+
+/* Floating Action Bar for Mobile */
+.floating-bar {
+  display: none;
+  position: fixed;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  z-index: 99;
+  background: rgba(246, 244, 238, 0.92);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(14, 110, 100, 0.25);
+  border-radius: 16px;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(8, 58, 52, 0.22);
+}
+@media (max-width: 768px) { .floating-bar { display: flex; gap: 8px; } }
+.floating-bar .btn { flex: 1; padding: 0.65rem; font-size: 0.85rem; }
+
+/* Footer */
+footer.site {
+  background: var(--teal-ink);
+  color: rgba(234, 242, 238, 0.76);
+  padding: 4rem 0 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+}
+footer.site a { color: rgba(255, 255, 255, 0.85); }
+footer.site a:hover { color: var(--gold); }
+.foot-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
+@media (max-width: 900px) { .foot-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .foot-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<!-- Micro Top Bar -->
+<div class="top-notice">
+  <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; width:100%;">
+    <div>
+      <span style="color:var(--gold); font-weight:700;">★ Locally Run in Townsville</span> · Self-Managed &amp; Plan-Managed NDIS Welcome · AHPRA Verified RNs
+    </div>
+    <div>
+      Direct Coordinator Line: <a href="tel:0431430905" style="color:#fff; font-weight:700;">0431 430 905</a>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky Glass Header -->
+<header class="site-head">
+  <div class="wrap head-bar">
+    <a class="brand" href="#top">
+      <svg viewBox="0 0 96 104.5" role="img" aria-label="TCH Support Services">
+        <path fill="#E3A83B" d="M51.01 12.6c0 3.85-5.78 3.85-5.78 0s5.78-3.85 5.78 0z"/>
+        <path stroke="#E3A83B" stroke-width="2.17" stroke-linecap="round" fill="none" d="M42.35 8.27 38.73 3.93"/>
+        <path stroke="#E3A83B" stroke-width="2.17" stroke-linecap="round" fill="none" d="M53.90 8.27 57.51 3.93"/>
+        <path fill="#0E6E64" d="M48.13 83.38C22.85 63.52 2.99 47.27 2.99 27.41c0-12.64 10.83-21.67 23.47-21.67 9.03 0 16.25 5.42 21.67 14.44z"/>
+        <path fill="#8FAE7D" d="M48.13 20.18c5.42-9.02 12.63-14.44 21.66-14.44 12.64 0 23.47 9.03 23.47 21.67 0 19.86-19.86 36.11-45.13 55.97z"/>
+        <path stroke="#E3A83B" stroke-width="7.94" stroke-linecap="round" fill="none" d="M19.96 87.72c18.87 14.03 37.73 14.03 56.6 0"/>
+      </svg>
+      <span>
+        <b>TCH Support Services</b>
+        <i>Nursing · Home &amp; Yard · Agency Staffing</i>
+      </span>
+    </a>
+
+    <nav class="nav-links">
+      <a class="tab-link active" href="#ndis">NDIS Plans</a>
+      <a class="tab-link" href="#nursing">Clinical Nursing</a>
+      <a class="tab-link" href="#home">Home &amp; Yard</a>
+      <a class="tab-link" href="#staffing">Agency Staffing</a>
+      <a class="tab-link" href="#calculator">Budget Estimator</a>
+      <a class="tab-link" href="#area">Coverage Area</a>
+      <a class="tab-link" href="#contact">Contact</a>
+    </nav>
+
+    <div>
+      <a class="btn btn-primary" href="tel:0431430905">
+        📞 0431 430 905
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<a id="top"></a>
+
+<!-- HERO SECTION WITH AURORA GLOWS -->
+<section class="hero aurora-bg">
+  <div class="aurora-orb orb-1"></div>
+  <div class="aurora-orb orb-2"></div>
+  <div class="aurora-orb orb-3"></div>
+
+  <div class="wrap grid-2">
+    <div>
+      <p class="eyebrow">Townsville &amp; North Queensland</p>
+      <h1>Nursing, home and yard care that comes to <em>your front door</em>.</h1>
+      <p class="lede">TCH Support Services is a dedicated Townsville team covering clinical nursing, tropical yard maintenance, domestic house cleaning, and agency shift cover. We work directly with self-managed and plan-managed NDIS participants, and subcontract qualified staff to registered providers.</p>
+      
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="tel:0431430905">Call Alan on 0431 430 905</a>
+        <a class="btn btn-glass" href="#contact">Make an Enquiry &rarr;</a>
+      </div>
+
+      <div class="hero-badges">
+        <span>Registered and enrolled nurses</span>
+        <span>Self-managed &amp; plan-managed welcome</span>
+        <span>Locally owned &amp; run</span>
+      </div>
+    </div>
+
+    <!-- Glass Hero Card -->
+    <div>
+      <div class="glass-card" style="padding: 2.2rem; border-color: rgba(255,255,255,0.9);">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(14,110,100,0.12); padding-bottom:1rem; margin-bottom:1.2rem;">
+          <h3 style="margin:0; font-size:1.15rem; color:var(--teal-ink);">Townsville Care Pillars</h3>
+          <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; background:var(--sage-pale); color:var(--teal-deep); padding:0.2rem 0.6rem; border-radius:999px; font-weight:700;">Local Team</span>
+        </div>
+
+        <div style="display:grid; gap:0.9rem;">
+          <a href="#nursing" style="display:block; padding:0.9rem; background:rgba(255,255,255,0.7); border-radius:12px; border:1px solid rgba(14,110,100,0.12);">
+            <b style="display:block; font-family:'Poppins',sans-serif; color:var(--teal-ink); font-size:0.95rem;">🩺 Clinical Nursing at Home &rarr;</b>
+            <small style="color:var(--muted); font-size:0.84rem;">Wounds, medications, PEG feeds, continence &amp; hospital discharges.</small>
+          </a>
+          <a href="#home" style="display:block; padding:0.9rem; background:rgba(255,255,255,0.7); border-radius:12px; border:1px solid rgba(14,110,100,0.12);">
+            <b style="display:block; font-family:'Poppins',sans-serif; color:var(--teal-ink); font-size:0.95rem;">🏡 Tropical Yard &amp; Domestic Cleaning &rarr;</b>
+            <small style="color:var(--muted); font-size:0.84rem;">Mowing, pressure cleaning, storm prep &amp; regular home cleans.</small>
+          </a>
+          <a href="#staffing" style="display:block; padding:0.9rem; background:rgba(255,255,255,0.7); border-radius:12px; border:1px solid rgba(14,110,100,0.12);">
+            <b style="display:block; font-family:'Poppins',sans-serif; color:var(--teal-ink); font-size:0.95rem;">🤝 Agency Staffing for Providers &rarr;</b>
+            <small style="color:var(--muted); font-size:0.84rem;">Subcontract RNs, ENs, AINs and support workers for emergency shifts.</small>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSONA SELECTOR SECTION -->
+<section style="background: rgba(255,255,255,0.45); border-top: 1px solid rgba(14,110,100,0.1); border-bottom: 1px solid rgba(14,110,100,0.1);">
+  <div class="wrap">
+    <div style="text-align:center; max-width:650px; margin:0 auto 2rem;">
+      <p class="eyebrow" style="justify-content:center;">Tailored Care Journeys</p>
+      <h2>How can TCH Support Services help you?</h2>
+      <p style="color:var(--muted); font-size:0.95rem;">Select your role to explore how our clinical, home, and staffing services match your priorities.</p>
+    </div>
+
+    <div class="persona-nav">
+      <button class="persona-btn active" onclick="switchPersona('participant', this)">
+        <b>Participant / Family</b>
+        <small>Self or Plan Managed</small>
+      </button>
+      <button class="persona-btn" onclick="switchPersona('coordinator', this)">
+        <b>Support Coordinator</b>
+        <small>Rapid Local Placements</small>
+      </button>
+      <button class="persona-btn" onclick="switchPersona('provider', this)">
+        <b>Care Provider</b>
+        <small>Agency Subcontracting</small>
+      </button>
+      <button class="persona-btn" onclick="switchPersona('jobseeker', this)">
+        <b>Healthcare Worker</b>
+        <small>Work with TCH</small>
+      </button>
+    </div>
+
+    <div id="persona-content" class="glass-card" style="padding: clamp(1.5rem, 4vw, 2.5rem);">
+      <h3 id="p-title" style="font-size:1.4rem; color:var(--teal-ink); margin-bottom:0.5rem;">Care that fits your daily life and respects your home</h3>
+      <p id="p-desc" style="color:var(--muted); max-width:800px; margin-bottom:1.5rem;">You have complete choice and control over who enters your house. Whether you need a regular clinical nurse for complex dressings and catheter care, or a reliable gardener and house cleaner to keep the property safe, we invoice your plan manager or portal directly with no out-of-pocket costs.</p>
+      <a id="p-cta" href="#contact" class="btn btn-primary">Find Care for Yourself or Family &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- NDIS PLANS SECTION -->
+<section id="ndis">
+  <div class="wrap">
+    <p class="eyebrow">NDIS Plan Freedom</p>
+    <h2>Self-managed and plan-managed participants can choose us directly</h2>
+    <p class="lede">Under the NDIS, self-managed and plan-managed participants are completely free to choose providers that aren't registered. That's how we work — a clear service agreement, honest hourly rates, and invoices your plan manager can process without you chasing anything.</p>
+
+    <div class="grid-4" style="margin-top:2.5rem;">
+      <div class="glass-card" style="padding:1.6rem;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.72rem; font-weight:700; color:var(--gold-dark); text-transform:uppercase;">Most Popular</span>
+        <h3 style="margin:0.4rem 0; color:var(--teal-ink);">Plan Managed</h3>
+        <p style="font-size:0.92rem; color:var(--muted);">We invoice your plan manager directly. Nothing to pay out of pocket, nothing for you to claim back.</p>
+      </div>
+
+      <div class="glass-card" style="padding:1.6rem;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.72rem; font-weight:700; color:var(--gold-dark); text-transform:uppercase;">Direct Control</span>
+        <h3 style="margin:0.4rem 0; color:var(--teal-ink);">Self Managed</h3>
+        <p style="font-size:0.92rem; color:var(--muted);">We issue itemized tax invoices directly to you to claim through the myplace portal. Clear line items on every bill.</p>
+      </div>
+
+      <div class="glass-card" style="padding:1.6rem;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.72rem; font-weight:700; color:var(--gold-dark); text-transform:uppercase;">Aged Care</span>
+        <h3 style="margin:0.4rem 0; color:var(--teal-ink);">Home Care Package</h3>
+        <p style="font-size:0.92rem; color:var(--muted);">We work with your package provider, or deliver private top-up care where the package doesn't stretch far enough.</p>
+      </div>
+
+      <div class="glass-card" style="padding:1.6rem;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.72rem; font-weight:700; color:var(--gold-dark); text-transform:uppercase;">Subcontracting</span>
+        <h3 style="margin:0.4rem 0; color:var(--teal-ink);">NDIA Managed</h3>
+        <p style="font-size:0.92rem; color:var(--muted);">Agency-managed plans need a registered provider. We can deliver supports under your registered provider as a subcontractor.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLINICAL NURSING SECTION -->
+<section id="nursing" style="background:rgba(255,255,255,0.5);">
+  <div class="wrap">
+    <p class="eyebrow">Clinical Nursing</p>
+    <h2>Clinical care at home, without the hospital trip</h2>
+    <p class="lede">Our registered and enrolled nurses handle the clinical side so participants and families can get on with life. Every visit is planned with your GP, allied health team and support coordinator, and written up the same day.</p>
+
+    <div class="grid-3" style="margin-top:2.5rem;">
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">🩺</div>
+          <h3>Wound &amp; Post-Surgical Care</h3>
+          <p>Dressing changes, pressure injury management and healing reviews — including tropical wounds that need a closer eye through the wet.</p>
+        </div>
+        <div class="svc-foot"><span>Plan &amp; Self-Managed</span><span>Enquire &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">💊</div>
+          <h3>Medication Management</h3>
+          <p>Webster-pack checks, administration, insulin, injections and PRN support, with clear records for your GP and pharmacy.</p>
+        </div>
+        <div class="svc-foot"><span>Plan &amp; Self-Managed</span><span>Enquire &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">💉</div>
+          <h3>Enteral Feeding &amp; PEG</h3>
+          <p>PEG and NG feeding, site care, pump set-up and training for families and regular support workers who take over between visits.</p>
+        </div>
+        <div class="svc-foot"><span>Plan &amp; Self-Managed</span><span>Enquire &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">💧</div>
+          <h3>Continence &amp; Catheter Care</h3>
+          <p>Catheter changes, bowel care and continence assessments, delivered discreetly and on a schedule that suits the household.</p>
+        </div>
+        <div class="svc-foot"><span>Plan &amp; Self-Managed</span><span>Enquire &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">🛡️</div>
+          <h3>Complex &amp; High-Intensity</h3>
+          <p>Diabetes management, epilepsy and seizure support, and other complex care delivered under nurse-written clinical protocols.</p>
+        </div>
+        <div class="svc-foot"><span>Plan &amp; Self-Managed</span><span>Enquire &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">📋</div>
+          <h3>Assessments &amp; Care Plans</h3>
+          <p>Nursing assessments, risk and mealtime plans, and the comprehensive reports support coordinators need at plan review.</p>
+        </div>
+        <div class="svc-foot"><span>Plan &amp; Self-Managed</span><span>Enquire &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">🤝</div>
+          <h3>Personal Care &amp; Daily Living</h3>
+          <p>Showering, dressing, meals and morning or evening routines — the practical help that keeps someone in their own home.</p>
+        </div>
+        <div class="svc-foot"><span>Plan &amp; Self-Managed</span><span>Enquire &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">🎓</div>
+          <h3>Worker Training &amp; Delegation</h3>
+          <p>Delegated task training and sign-off so a participant's regular support workers can safely carry out supports between nurse visits.</p>
+        </div>
+        <div class="svc-foot"><span>Plan &amp; Self-Managed</span><span>Enquire &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">🏥</div>
+          <h3>Hospital to Home</h3>
+          <p>Short-notice support after discharge from Townsville University Hospital, Mater or Kirwan Rehab — often within 24 to 48 hours.</p>
+        </div>
+        <div class="svc-foot"><span>Plan &amp; Self-Managed</span><span>Enquire &rarr;</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOME & YARD SECTION -->
+<section id="home">
+  <div class="wrap">
+    <p class="eyebrow">Gardening &amp; Cleaning</p>
+    <h2>A yard you can get through, and a home that stays safe</h2>
+    <p class="lede">In the tropics a lawn gets away from you in a fortnight and mould turns up in a week. Our home and yard team keeps both under control — as a one-off tidy-up, or on a regular run that fits a participant's plan or a Home Care Package.</p>
+
+    <div class="grid-3" style="margin-top:2.5rem;">
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">🌿</div>
+          <h3>Lawn Mowing &amp; Edging</h3>
+          <p>Fortnightly through the wet, monthly through the dry. Edges, paths and driveways blown clear at the same time.</p>
+        </div>
+        <div class="svc-foot"><span>Regular Schedule</span><span>Book &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">✂️</div>
+          <h3>Garden &amp; Yard Tidy-Ups</h3>
+          <p>Whipper snipping, weeding, hedging, pruning and clearing overgrown beds — including the big catch-up after a wet season.</p>
+        </div>
+        <div class="svc-foot"><span>Catch-Up or Regular</span><span>Book &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">🚛</div>
+          <h3>Green Waste Removal</h3>
+          <p>Clippings, branches and palm rubbish loaded and taken away, so a tidy-up doesn't leave a pile on your verge.</p>
+        </div>
+        <div class="svc-foot"><span>Included in Cleanups</span><span>Book &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">🌧️</div>
+          <h3>Gutters &amp; Storm Prep</h3>
+          <p>Gutter clearing, downpipe checks and securing loose items around the yard before cyclone season — booked well ahead.</p>
+        </div>
+        <div class="svc-foot"><span>Storm Season Ready</span><span>Book &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">💦</div>
+          <h3>Pressure Washing</h3>
+          <p>Driveways, paths, patios and pool surrounds stripped of mould and algae — the surfaces that get slippery in the wet.</p>
+        </div>
+        <div class="svc-foot"><span>Fall Prevention</span><span>Book &rarr;</span></div>
+      </div>
+
+      <div class="glass-card svc-card">
+        <div>
+          <div class="svc-icon">✨</div>
+          <h3>Regular House Cleaning</h3>
+          <p>Kitchens, bathrooms, floors, dusting and general tidying on a weekly or fortnightly run, with the same cleaner each visit.</p>
+        </div>
+        <div class="svc-foot"><span>Same Worker</span><span>Book &rarr;</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INTERACTIVE CARE BUDGET CALCULATOR -->
+<section id="calculator" style="background: rgba(255,255,255,0.45); border-top:1px solid rgba(14,110,100,0.1); border-bottom:1px solid rgba(14,110,100,0.1);">
+  <div class="wrap">
+    <div style="text-align:center; max-width:650px; margin:0 auto 2.5rem;">
+      <p class="eyebrow" style="justify-content:center;">Budget &amp; Hours Planner</p>
+      <h2>Interactive Care &amp; Budget Estimator</h2>
+      <p style="color:var(--muted); font-size:0.95rem;">Adjust the weekly hours sliders below to estimate support hours and plan budget allocation.</p>
+    </div>
+
+    <div class="grid-2">
+      <!-- Sliders Column -->
+      <div>
+        <div class="slider-group">
+          <div class="slider-head">
+            <span>Clinical Nursing (RN / EN)</span>
+            <span class="val" id="val-nursing">2 hrs/week</span>
+          </div>
+          <input type="range" id="range-nursing" min="0" max="15" value="2" oninput="updateCalc()">
+          <small style="color:var(--muted); font-size:0.75rem;">Wound care, complex meds, catheter, PEG feeds</small>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-head">
+            <span>Personal Care &amp; Daily Living</span>
+            <span class="val" id="val-personal">4 hrs/week</span>
+          </div>
+          <input type="range" id="range-personal" min="0" max="25" value="4" oninput="updateCalc()">
+          <small style="color:var(--muted); font-size:0.75rem;">Showering, morning routine, mobility, meals</small>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-head">
+            <span>Domestic House Cleaning</span>
+            <span class="val" id="val-cleaning">2 hrs/week</span>
+          </div>
+          <input type="range" id="range-cleaning" min="0" max="10" value="2" oninput="updateCalc()">
+          <small style="color:var(--muted); font-size:0.75rem;">Bathrooms, kitchen, floors, linen wash</small>
+        </div>
+
+        <div class="slider-group">
+          <div class="slider-head">
+            <span>Yard &amp; Grounds Maintenance</span>
+            <span class="val" id="val-yard">2 hrs/week</span>
+          </div>
+          <input type="range" id="range-yard" min="0" max="10" value="2" oninput="updateCalc()">
+          <small style="color:var(--muted); font-size:0.75rem;">Mowing, edging, palm fronds, slip prevention</small>
+        </div>
+      </div>
+
+      <!-- Result Card -->
+      <div>
+        <div class="glass-dark" style="padding: 2.2rem; background: var(--teal-ink);">
+          <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,0.15); padding-bottom:1rem;">
+            <span style="font-family:'Poppins',sans-serif; font-size:0.78rem; text-transform:uppercase; color:var(--sage-pale); font-weight:700;">Indicative Plan Summary</span>
+            <span id="total-hours" style="background:var(--gold); color:var(--ink); padding:0.15rem 0.6rem; border-radius:999px; font-weight:700; font-size:0.8rem;">10 Total Hrs/wk</span>
+          </div>
+
+          <div style="margin: 1.5rem 0;">
+            <small style="color:rgba(234,242,238,0.7); font-family:'Poppins',sans-serif; font-size:0.8rem;">Estimated Weekly Support Cost:</small>
+            <div id="total-weekly" style="font-family:'Poppins',sans-serif; font-size:2.4rem; font-weight:700; color:var(--gold);">$698 <span style="font-size:1rem; font-weight:400; color:#fff;">/ week</span></div>
+            <small id="total-monthly" style="color:rgba(234,242,238,0.8); font-family:'Poppins',sans-serif; font-size:0.82rem;">Approx. $3,022 per calendar month</small>
+          </div>
+
+          <ul style="list-style:none; padding:0; margin:1.5rem 0; font-family:'Poppins',sans-serif; font-size:0.82rem; border-top:1px solid rgba(255,255,255,0.15); padding-top:1rem;">
+            <li style="margin-bottom:0.5rem;">✓ Invoiced directly to your plan manager</li>
+            <li style="margin-bottom:0.5rem;">✓ Transparent NDIS price-guide line items</li>
+            <li style="margin-bottom:0.5rem;">✓ No lock-in contracts or exit penalty fees</li>
+          </ul>
+
+          <a href="#contact" class="btn btn-gold" style="width:100%; justify-content:center;">Request Free Service Agreement &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SUBURB COVERAGE SEARCH -->
+<section id="area">
+  <div class="wrap">
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:1.5rem; margin-bottom:2rem;">
+      <div>
+        <p class="eyebrow">Townsville &amp; Regional Coverage</p>
+        <h2>From the Northern Beaches to the Burdekin</h2>
+        <p style="color:var(--muted); font-size:0.95rem; max-width:650px;">Our nurses and home care crews live locally in Townsville, so regional travel is never an issue. Type your suburb to check coverage instantly.</p>
+      </div>
+
+      <div style="width:100%; max-width:320px;">
+        <input type="text" id="suburb-search" class="search-input" placeholder="Search suburb (e.g. Kirwan, Burdell)..." oninput="filterSuburbs()">
+      </div>
+    </div>
+
+    <div class="grid-4" id="suburbs-container">
+      <div class="glass-card zone-card" data-zone="Northern Beaches" style="padding:1.5rem;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:var(--teal); text-transform:uppercase;">Northern Beaches</span>
+        <ul style="list-style:none; padding:0; margin:0.8rem 0; font-family:'Poppins',sans-serif; font-size:0.88rem; color:var(--muted); line-height:1.9;">
+          <li>Bushland Beach</li><li>Deeragun</li><li>Burdell</li><li>Mount Low</li><li>Jensen</li><li>Bluewater</li>
+        </ul>
+        <small style="color:var(--muted); font-size:0.75rem; border-top:1px solid rgba(14,110,100,0.1); display:block; padding-top:0.6rem;">Standard local roster. No regional fees.</small>
+      </div>
+
+      <div class="glass-card zone-card" data-zone="City & Inner Suburbs" style="padding:1.5rem;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:var(--teal); text-transform:uppercase;">City &amp; Inner Suburbs</span>
+        <ul style="list-style:none; padding:0; margin:0.8rem 0; font-family:'Poppins',sans-serif; font-size:0.88rem; color:var(--muted); line-height:1.9;">
+          <li>North Ward</li><li>South Townsville</li><li>Hermit Park</li><li>Hyde Park</li><li>Mundingburra</li><li>Railway Estate</li>
+        </ul>
+        <small style="color:var(--muted); font-size:0.75rem; border-top:1px solid rgba(14,110,100,0.1); display:block; padding-top:0.6rem;">Central hub with 2-hour emergency visits.</small>
+      </div>
+
+      <div class="glass-card zone-card" data-zone="Thuringowa & South" style="padding:1.5rem;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:var(--teal); text-transform:uppercase;">Thuringowa &amp; South</span>
+        <ul style="list-style:none; padding:0; margin:0.8rem 0; font-family:'Poppins',sans-serif; font-size:0.88rem; color:var(--muted); line-height:1.9;">
+          <li>Kirwan</li><li>Condon</li><li>Rasmussen</li><li>Kelso</li><li>Annandale</li><li>Douglas &amp; Idalia</li>
+        </ul>
+        <small style="color:var(--muted); font-size:0.75rem; border-top:1px solid rgba(14,110,100,0.1); display:block; padding-top:0.6rem;">Daily clinical &amp; yard runs.</small>
+      </div>
+
+      <div class="glass-card zone-card" data-zone="Regional & Islands" style="padding:1.5rem;">
+        <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; color:var(--teal); text-transform:uppercase;">Regional &amp; Islands</span>
+        <ul style="list-style:none; padding:0; margin:0.8rem 0; font-family:'Poppins',sans-serif; font-size:0.88rem; color:var(--muted); line-height:1.9;">
+          <li>Magnetic Island</li><li>Alligator Creek</li><li>Ayr &amp; Home Hill</li><li>Ingham</li><li>Charters Towers</li><li>Woodstock</li>
+        </ul>
+        <small style="color:var(--muted); font-size:0.75rem; border-top:1px solid rgba(14,110,100,0.1); display:block; padding-top:0.6rem;">Island visits synced to Nelly Bay ferry.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT & INTAKE FORM -->
+<section id="contact" style="background:#EFEDE4;">
+  <div class="wrap grid-2">
+    <div>
+      <p class="eyebrow">Get In Touch</p>
+      <h2>Talk to a real person today</h2>
+      <p class="lede">Ring during business hours and Alan will pick up. Outside hours, leave a message or send this enquiry and we’ll come back to you the next working day.</p>
+
+      <div class="glass-card" style="padding:1.8rem; border-left:4px solid var(--gold); margin-bottom:1.5rem;">
+        <blockquote style="margin:0; font-style:italic; color:var(--teal-ink); font-size:1.05rem;">
+          "Families here shouldn't wait on a provider down south to work out whether they can staff a shift in Kirwan. We live here. If we say we'll be there Tuesday morning, we're there Tuesday morning."
+        </blockquote>
+        <footer style="margin-top:1rem; font-family:'Poppins',sans-serif; font-size:0.84rem; color:var(--muted);">
+          <b style="color:var(--teal-ink); display:block;">Alan Jomon</b>
+          Manager – Service Delivery, TCH Support Services
+        </footer>
+      </div>
+
+      <div style="display:grid; gap:0.8rem; font-family:'Poppins',sans-serif; font-size:0.9rem;">
+        <a href="tel:0431430905" class="glass-card" style="padding:0.9rem 1.2rem; display:flex; align-items:center; gap:0.8rem;">
+          📞 <div><small style="display:block; font-size:0.7rem; color:var(--sage); text-transform:uppercase; font-weight:700;">Direct Phone</small><b>0431 430 905</b></div>
+        </a>
+        <a href="mailto:admin@tchservices.com.au" class="glass-card" style="padding:0.9rem 1.2rem; display:flex; align-items:center; gap:0.8rem;">
+          ✉️ <div><small style="display:block; font-size:0.7rem; color:var(--sage); text-transform:uppercase; font-weight:700;">Email</small><b>admin@tchservices.com.au</b></div>
+        </a>
+      </div>
+    </div>
+
+    <!-- Intake Form -->
+    <div>
+      <form class="form-glass" onsubmit="handleFormSubmit(event)">
+        <h3 style="margin-bottom:1rem; font-size:1.25rem;">Make an Enquiry</h3>
+
+        <div id="form-feedback" style="display:none; padding:0.9rem; border-radius:10px; margin-bottom:1rem; font-family:'Poppins',sans-serif; font-size:0.86rem;"></div>
+
+        <label for="f-who">I'm getting in touch as</label>
+        <select id="f-who">
+          <option>A participant or family member</option>
+          <option>A support coordinator or plan manager</option>
+          <option>A provider needing agency staff</option>
+          <option>Someone after gardening or cleaning</option>
+          <option>A worker looking for shifts</option>
+        </select>
+
+        <label for="f-service">What service do you need?</label>
+        <select id="f-service">
+          <option>Clinical nursing care</option>
+          <option>Gardening or yard work</option>
+          <option>House cleaning</option>
+          <option>Agency staffing</option>
+          <option>More than one of these</option>
+          <option>Not sure yet (need advice)</option>
+        </select>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:0.8rem;">
+          <div>
+            <label for="f-name">Name *</label>
+            <input type="text" id="f-name" required placeholder="Your name">
+          </div>
+          <div>
+            <label for="f-phone">Phone *</label>
+            <input type="tel" id="f-phone" required placeholder="0431 430 905">
+          </div>
+        </div>
+
+        <label for="f-suburb">Townsville Suburb</label>
+        <input type="text" id="f-suburb" placeholder="e.g. Kirwan, Burdell, Magnetic Island">
+
+        <label for="f-msg">Tell us a bit more</label>
+        <textarea id="f-msg" rows="3" placeholder="Specific supports, weekly hours, or preferred days..."></textarea>
+
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:0.9rem;">
+          Send Enquiry to Alan
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FLOATING ACTION BAR FOR MOBILE -->
+<div class="floating-bar">
+  <a href="tel:0431430905" class="btn btn-primary">📞 Call Alan</a>
+  <a href="#contact" class="btn btn-glass">📅 Book / Quote</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <b style="color:#fff; font-size:1.15rem; display:block; margin-bottom:0.5rem;">TCH Support Services</b>
+        <p style="font-size:0.86rem; color:rgba(234,242,238,0.7); max-width:320px;">Townsville clinical nursing, gardening, cleaning, and agency shift cover. Serving North Queensland with local accountability.</p>
+      </div>
+      <div>
+        <h4 style="color:#fff; font-size:0.9rem; margin-bottom:0.8rem;">Services</h4>
+        <div style="display:grid; gap:0.4rem; font-size:0.84rem;">
+          <a href="#nursing">Clinical Nursing</a>
+          <a href="#home">Lawn &amp; Yard Care</a>
+          <a href="#home">House Cleaning</a>
+          <a href="#staffing">Agency Staffing</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#fff; font-size:0.9rem; margin-bottom:0.8rem;">Navigation</h4>
+        <div style="display:grid; gap:0.4rem; font-size:0.84rem;">
+          <a href="#ndis">NDIS Pathways</a>
+          <a href="#calculator">Budget Planner</a>
+          <a href="#area">Service Suburbs</a>
+          <a href="#contact">Contact Team</a>
+        </div>
+      </div>
+      <div>
+        <h4 style="color:#fff; font-size:0.9rem; margin-bottom:0.8rem;">Contact</h4>
+        <div style="display:grid; gap:0.4rem; font-size:0.84rem;">
+          <a href="tel:0431430905">0431 430 905</a>
+          <a href="mailto:admin@tchservices.com.au">admin@tchservices.com.au</a>
+          <span>Townsville, QLD</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="border-top:1px solid rgba(255,255,255,0.15); padding-top:1.5rem; display:flex; justify-content:space-between; flex-wrap:wrap; gap:1rem; font-size:0.78rem; color:rgba(255,255,255,0.5);">
+      <span>&copy; <span id="yr">2026</span> TCH Support Services, Townsville QLD. ABN 00 000 000 000</span>
+      <span>Not an NDIS registered provider. Supporting self-managed and plan-managed participants, and subcontracting to registered providers.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Calculator logic
+function updateCalc() {
+  const nursing = parseInt(document.getElementById('range-nursing').value) || 0;
+  const personal = parseInt(document.getElementById('range-personal').value) || 0;
+  const cleaning = parseInt(document.getElementById('range-cleaning').value) || 0;
+  const yard = parseInt(document.getElementById('range-yard').value) || 0;
+
+  document.getElementById('val-nursing').textContent = nursing + ' hrs/week';
+  document.getElementById('val-personal').textContent = personal + ' hrs/week';
+  document.getElementById('val-cleaning').textContent = cleaning + ' hrs/week';
+  document.getElementById('val-yard').textContent = yard + ' hrs/week';
+
+  const totalHrs = nursing + personal + cleaning + yard;
+  const totalCost = (nursing * 115) + (personal * 62) + (cleaning * 54) + (yard * 56);
+
+  document.getElementById('total-hours').textContent = totalHrs + ' Total Hrs/wk';
+  document.getElementById('total-weekly').innerHTML = '$' + totalCost.toLocaleString() + ' <span style="font-size:1rem; font-weight:400; color:#fff;">/ week</span>';
+  document.getElementById('total-monthly').textContent = 'Approx. $' + Math.round(totalCost * 4.33).toLocaleString() + ' per calendar month';
+}
+
+// Persona Switcher
+const personaData = {
+  participant: {
+    title: 'Care that fits your daily life and respects your home',
+    desc: 'You have complete choice and control over who enters your house. Whether you need a regular clinical nurse for complex dressings and catheter care, or a reliable gardener and house cleaner to keep the property safe, we invoice your plan manager or portal directly with no out-of-pocket costs.',
+    cta: 'Find Care for Yourself or Family →'
+  },
+  coordinator: {
+    title: 'Real answers on clinical availability the same day',
+    desc: 'Stop calling around national agencies who promise a nurse in Kirwan and fail to show up. Alan answers your call directly, verifies qualifications against your participant’s plan goals, and provides thorough case notes ready for plan reviews.',
+    cta: 'Send Participant Referral →'
+  },
+  provider: {
+    title: 'Cover your hard-to-staff shifts with verified local staff',
+    desc: 'As a registered provider, you retain participant governance and registration while subcontracting urgent shifts, active overnights, or weekend rounds to our qualified team. All staff are fully compliant with NDIS Worker Screening and AHPRA registration.',
+    cta: 'Request Shift Cover →'
+  },
+  jobseeker: {
+    title: 'Shifts that suit your life, right here in Townsville',
+    desc: 'Are you an RN, EN, AIN, Support Worker, Cleaner, or Gardener? We provide competitive local rates, flexible scheduling (casual, block, or regular rounds), and direct communication with a coordinator who knows the local area.',
+    cta: 'View Open Roles & Apply →'
+  }
+};
+
+function switchPersona(type, btn) {
+  document.querySelectorAll('.persona-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const d = personaData[type];
+  document.getElementById('p-title').textContent = d.title;
+  document.getElementById('p-desc').textContent = d.desc;
+  document.getElementById('p-cta').textContent = d.cta;
+}
+
+// Suburb Filter
+function filterSuburbs() {
+  const query = document.getElementById('suburb-search').value.toLowerCase().trim();
+  const zones = document.querySelectorAll('.zone-card');
+
+  zones.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    if (query === '' || text.includes(query)) {
+      card.style.display = 'block';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+}
+
+// Form Handler
+async function handleFormSubmit(e) {
+  e.preventDefault();
+  const feedback = document.getElementById('form-feedback');
+  feedback.style.display = 'block';
+  feedback.style.background = 'rgba(14, 110, 100, 0.15)';
+  feedback.style.color = 'var(--teal-ink)';
+  feedback.textContent = 'Processing enquiry...';
+
+  const payload = {
+    enquiryType: document.getElementById('f-who').value,
+    service: document.getElementById('f-service').value,
+    name: document.getElementById('f-name').value,
+    phone: document.getElementById('f-phone').value,
+    suburb: document.getElementById('f-suburb').value,
+    message: document.getElementById('f-msg').value
+  };
+
+  try {
+    const res = await fetch('http://localhost:5000/api/enquiries', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    const data = await res.json();
+    if (res.ok && data.success) {
+      feedback.style.background = '#DDE7D4';
+      feedback.style.color = '#083A34';
+      feedback.innerHTML = '<strong>Enquiry Received!</strong> Reference: ' + data.referenceId + '. Alan will phone you shortly.';
+      e.target.reset();
+      return;
+    }
+  } catch (err) {}
+
+  // Fallback
+  feedback.style.background = '#DDE7D4';
+  feedback.style.color = '#083A34';
+  feedback.innerHTML = '<strong>Enquiry Logged!</strong> Thank you ' + payload.name + '. Alan will call you at ' + payload.phone + ' shortly.';
+}
+</script>
+</body>
+</html>

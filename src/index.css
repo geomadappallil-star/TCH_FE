@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --teal: #0E6E64;
+    --teal-deep: #0A544C;
+    --teal-ink: #083A34;
+    --sage: #8FAE7D;
+    --sage-pale: #DDE7D4;
+    --gold: #E3A83B;
+    --paper: #F6F4EE;
+    --paper-warm: #EFEDE4;
+    --ink: #17241F;
+    --muted: #5A6C65;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 110px;
+  }
+
+  body {
+    background-color: #F6F4EE;
+    color: #17241F;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, sans-serif;
+  }
+}
+
+@layer components {
+  /* ========================================================
+     GLASSMORPHISM DESIGN SYSTEM (Glassy UI)
+     ======================================================== */
+
+  /* Primary Glass Surface */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.68);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px -10px rgba(8, 58, 52, 0.08), 
+                inset 0 1px 1px 0 rgba(255, 255, 255, 0.75);
+    border-radius: 18px;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .glass-card:hover {
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(14, 110, 100, 0.25);
+    box-shadow: 0 18px 40px -12px rgba(8, 58, 52, 0.14),
+                inset 0 1px 2px 0 rgba(255, 255, 255, 0.9);
+    transform: translateY(-2px);
+  }
+
+  /* Deep Glass Surface (for dark/teal sections) */
+  .glass-card-dark {
+    background: rgba(8, 58, 52, 0.45);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.18),
+                inset 0 1px 1px 0 rgba(255, 255, 255, 0.15);
+    border-radius: 18px;
+    transition: all 0.28s ease;
+  }
+
+  .glass-card-dark:hover {
+    background: rgba(8, 58, 52, 0.58);
+    border-color: rgba(227, 168, 59, 0.35);
+    box-shadow: 0 18px 45px 0 rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+  }
+
+  /* Sticky Glass Navbar */
+  .glass-nav {
+    background: rgba(246, 244, 238, 0.82);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(14, 110, 100, 0.12);
+    box-shadow: 0 4px 20px -2px rgba(8, 58, 52, 0.05);
+  }
+
+  /* Form Inputs with Glass finish */
+  .glass-input {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1.5px solid rgba(14, 110, 100, 0.16);
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+
+  .glass-input:focus {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: #0E6E64;
+    box-shadow: 0 0 0 4px rgba(14, 110, 100, 0.12),
+                inset 0 1px 2px rgba(0, 0, 0, 0.03);
+    outline: none;
+  }
+
+  /* Glass Badge & Chips */
+  .glass-chip {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(14, 110, 100, 0.15);
+    border-radius: 9999px;
+  }
+
+  /* Glowing Aurora Orb effects in background */
+  .aurora-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .aurora-orb-1 {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(142, 174, 125, 0.32) 0%, rgba(221, 231, 212, 0.05) 70%, transparent 100%);
+    filter: blur(50px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .aurora-orb-2 {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(14, 110, 100, 0.18) 0%, rgba(10, 84, 76, 0.04) 70%, transparent 100%);
+    filter: blur(60px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .aurora-orb-gold {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(227, 168, 59, 0.22) 0%, rgba(227, 168, 59, 0.03) 70%, transparent 100%);
+    filter: blur(45px);
+    pointer-events: none;
+    z-index: 0;
+  }
+}
