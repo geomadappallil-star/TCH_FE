@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ master, main ]
+    branches: [ master, main, maintenance ]
   workflow_dispatch:
 
 permissions:
