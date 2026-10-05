@@ -1,6 +1,7 @@
 import React from 'react';
 import { MaintenanceNavbar } from './components/MaintenanceNavbar.js';
 import { MaintenanceHero } from './components/MaintenanceHero.js';
+import { PropertyShowcase } from './components/PropertyShowcase.js';
 import { Footer } from './components/Footer.js';
 import { QuickActionBar } from './components/QuickActionBar.js';
 
@@ -17,9 +18,10 @@ export function App() {
       {/* Glass Header (Matching Brand & Theme) */}
       <MaintenanceNavbar />
 
-      {/* Main Maintenance Glass Experience */}
+      {/* Main Experience */}
       <main id="main-content" className="flex-grow">
         <MaintenanceHero />
+        <PropertyShowcase />
       </main>
 
       {/* Glass Footer (Matching Brand & Theme) */}

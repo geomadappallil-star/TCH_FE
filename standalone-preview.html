@@ -219,7 +219,7 @@ footer.site a { color: #fff; }
         </span>
         <h1 style="margin:0.5rem 0;">We’re preparing our updated web experience.</h1>
         <p style="color:var(--muted); font-size:1.05rem; line-height:1.6;">
-          Our digital portal is currently undergoing scheduled enhancements. <strong>Our clinical nursing, home &amp; yard care, and agency shift cover services are completely active</strong> across Townsville.
+          Our main website is currently in maintenance mode for system upgrades. In the meantime, <strong>our everyday clinical nursing, yard care, and agency staffing operations are 100% active</strong> across Townsville.
         </p>
       </div>
 
@@ -276,6 +276,113 @@ footer.site a { color: #fff; }
 
   </div>
 </main>
+
+<!-- PROPERTY SHOWCASE SECTION (HOUSING & ACCOMMODATION) -->
+<section id="housing" style="padding: clamp(3rem, 6vw, 5rem) 0; background: rgba(255,255,255,0.4); border-top: 1px solid rgba(14,110,100,0.1);">
+  <div class="wrap">
+    
+    <div style="text-align:center; max-width:750px; margin:0 auto 2.5rem;">
+      <span style="display:inline-block; background:rgba(227,168,59,0.18); color:var(--gold-dark); border:1px solid rgba(227,168,59,0.4); padding:0.25rem 0.85rem; border-radius:999px; font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.8rem;">
+        ★ 4 Units Available Now · Townsville
+      </span>
+      <h2 style="margin:0 0 0.5rem; font-size:clamp(1.8rem, 3.5vw, 2.6rem);">Four tidy units, ready to move into.</h2>
+      <p style="color:var(--muted); font-size:1.05rem; line-height:1.6;">
+        Four tidy units have just come up in Townsville. Besser block construction keeps them cool through the build-up, there is air conditioning and ceiling fans throughout, carpet through the living areas and bedrooms, and a modern bathroom with a glass shower screen.
+      </p>
+    </div>
+
+    <!-- Glass Showcase Card -->
+    <div class="glass-card" style="padding: clamp(1.5rem, 4vw, 2.5rem); margin-bottom:2rem;">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:2.5rem; align-items:center;">
+        
+        <!-- Slideshow Container -->
+        <div>
+          <div style="position:relative; border-radius:16px; overflow:hidden; box-shadow:0 8px 24px rgba(8,58,52,0.15); background:#083A34; aspect-ratio:16/10;">
+            <img id="ss-img" src="./images/units/unit-exterior.jpg" alt="Unit Photo" style="width:100%; height:100%; object-fit:cover; display:block; transition:all 0.5s ease;">
+            
+            <!-- Slide Caption Overlay -->
+            <div style="position:absolute; bottom:0; inset-x:0; background:linear-gradient(to top, rgba(8,58,52,0.92) 0%, rgba(8,58,52,0.6) 60%, transparent 100%); color:#fff; padding:1.2rem; font-family:'Poppins',sans-serif;">
+              <span id="ss-tag" style="background:var(--gold); color:#17241F; font-size:0.7rem; font-weight:700; padding:0.15rem 0.5rem; border-radius:999px; text-transform:uppercase;">Exterior &amp; Access</span>
+              <h4 id="ss-title" style="margin:0.3rem 0 0.1rem; color:#fff; font-size:1.05rem;">Private Deck &amp; Step-Free Ramp Access</h4>
+              <p id="ss-desc" style="margin:0; font-size:0.8rem; color:#DDE7D4; font-family:'Lora',serif;">Besser block construction keeping cool, with step-free mobility access.</p>
+            </div>
+
+            <!-- Prev / Next Controls -->
+            <button onclick="prevSlide()" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.8); border:none; width:36px; height:36px; border-radius:50%; font-weight:700; cursor:pointer; font-size:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.2);">‹</button>
+            <button onclick="nextSlide()" style="position:absolute; right:12px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,0.8); border:none; width:36px; height:36px; border-radius:50%; font-weight:700; cursor:pointer; font-size:1rem; box-shadow:0 2px 8px rgba(0,0,0,0.2);">›</button>
+          </div>
+
+          <!-- Thumbnails -->
+          <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; margin-top:10px;">
+            <img src="./images/units/unit-exterior.jpg" onclick="setSlide(0)" class="thumb active" style="width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:8px; cursor:pointer; border:2px solid var(--gold);">
+            <img src="./images/units/unit-living.jpg" onclick="setSlide(1)" class="thumb" style="width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:8px; cursor:pointer; border:2px solid transparent; opacity:0.6;">
+            <img src="./images/units/unit-bedroom.jpg" onclick="setSlide(2)" class="thumb" style="width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:8px; cursor:pointer; border:2px solid transparent; opacity:0.6;">
+            <img src="./images/units/unit-robes.jpg" onclick="setSlide(3)" class="thumb" style="width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:8px; cursor:pointer; border:2px solid transparent; opacity:0.6;">
+            <img src="./images/units/unit-bathroom.jpg" onclick="setSlide(4)" class="thumb" style="width:100%; aspect-ratio:16/10; object-fit:cover; border-radius:8px; cursor:pointer; border:2px solid transparent; opacity:0.6;">
+          </div>
+        </div>
+
+        <!-- Features & Inspection Details -->
+        <div>
+          <span style="font-family:'Poppins',sans-serif; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.14em; color:var(--sage);">At a Glance</span>
+          <h3 style="margin:0.3rem 0 1rem; font-size:1.35rem;">High-Quality Townsville Living</h3>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:0.6rem; font-family:'Poppins',sans-serif; font-size:0.84rem; margin-bottom:1.5rem;">
+            <div style="background:rgba(255,255,255,0.7); padding:0.6rem 0.8rem; border-radius:10px; border:1px solid rgba(14,110,100,0.12);">✓ Air con &amp; ceiling fans</div>
+            <div style="background:rgba(255,255,255,0.7); padding:0.6rem 0.8rem; border-radius:10px; border:1px solid rgba(14,110,100,0.12);">✓ Mirrored built-in robes</div>
+            <div style="background:rgba(255,255,255,0.7); padding:0.6rem 0.8rem; border-radius:10px; border:1px solid rgba(14,110,100,0.12);">✓ Modern glass shower</div>
+            <div style="background:rgba(255,255,255,0.7); padding:0.6rem 0.8rem; border-radius:10px; border:1px solid rgba(14,110,100,0.12);">✓ Carpeted living &amp; beds</div>
+            <div style="background:rgba(255,255,255,0.7); padding:0.6rem 0.8rem; border-radius:10px; border:1px solid rgba(14,110,100,0.12);">✓ Security screens</div>
+            <div style="background:rgba(255,255,255,0.7); padding:0.6rem 0.8rem; border-radius:10px; border:1px solid rgba(14,110,100,0.12);">✓ Step-free deck &amp; ramp</div>
+            <div style="background:rgba(255,255,255,0.7); padding:0.6rem 0.8rem; border-radius:10px; border:1px solid rgba(14,110,100,0.12);">✓ Off-street parking</div>
+            <div style="background:rgba(255,255,255,0.7); padding:0.6rem 0.8rem; border-radius:10px; border:1px solid rgba(14,110,100,0.12);">✓ Low maintenance yard</div>
+          </div>
+
+          <div style="background:rgba(14,110,100,0.08); border-left:4px solid var(--teal); padding:1rem; border-radius:0 12px 12px 0; margin-bottom:1.5rem;">
+            <b style="font-family:'Poppins',sans-serif; color:var(--teal-ink); font-size:0.92rem; display:block;">NDIS Participants Welcome</b>
+            <small style="color:var(--muted); font-size:0.85rem;">Our own team can take care of personal care, nursing, cleaning and the yard, so the supports are sorted before you move in.</small>
+          </div>
+
+          <div style="background:var(--teal-ink); color:#fff; padding:1.2rem; border-radius:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+            <div>
+              <small style="display:block; font-size:0.75rem; color:var(--sage-pale); font-family:'Poppins',sans-serif; text-transform:uppercase;">Rent, Address &amp; Inspections</small>
+              <span style="font-family:'Poppins',sans-serif; font-size:0.95rem; font-weight:700;">Ring Alan on 0431 430 905</span>
+            </div>
+            <a href="tel:0431430905" class="btn btn-primary" style="background:var(--gold); color:#17241F; font-weight:700;">Book Inspection</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+const slides = [
+  { src: './images/units/unit-exterior.jpg', tag: 'Exterior & Access', title: 'Private Deck & Step-Free Ramp Access', desc: 'Besser block construction keeping cool, with step-free mobility access.' },
+  { src: './images/units/unit-living.jpg', tag: 'Living Space', title: 'Air-Conditioned Open Living Area', desc: 'Carpeted living room with ceiling fans, security screens, and natural light.' },
+  { src: './images/units/unit-bedroom.jpg', tag: 'Bedroom', title: 'Comfortable & Quiet Bedroom', desc: 'Generous private bedroom with split-system air conditioning and ceiling fans.' },
+  { src: './images/units/unit-robes.jpg', tag: 'Storage', title: 'Built-in Robes with Mirrored Doors', desc: 'Full-height built-in storage with mirrored sliding wardrobe doors.' },
+  { src: './images/units/unit-bathroom.jpg', tag: 'Bathroom', title: 'Modern Bathroom & Glass Shower', desc: 'Contemporary tiled bathroom with clear glass shower and step-free layout.' }
+];
+let cur = 0;
+function updateSlideView() {
+  document.getElementById('ss-img').src = slides[cur].src;
+  document.getElementById('ss-tag').textContent = slides[cur].tag;
+  document.getElementById('ss-title').textContent = slides[cur].title;
+  document.getElementById('ss-desc').textContent = slides[cur].desc;
+  const thumbs = document.querySelectorAll('.thumb');
+  thumbs.forEach((t, i) => {
+    if (i === cur) { t.style.borderColor = 'var(--gold)'; t.style.opacity = '1'; }
+    else { t.style.borderColor = 'transparent'; t.style.opacity = '0.6'; }
+  });
+}
+function nextSlide() { cur = (cur + 1) % slides.length; updateSlideView(); }
+function prevSlide() { cur = (cur === 0 ? slides.length - 1 : cur - 1); updateSlideView(); }
+function setSlide(i) { cur = i; updateSlideView(); }
+setInterval(nextSlide, 5000);
+</script>
 
 <footer class="site">
   <div class="wrap" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">

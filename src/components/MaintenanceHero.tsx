@@ -100,7 +100,7 @@ export const MaintenanceHero: React.FC = () => {
                 .
               </h1>
               <p className="font-serif text-base sm:text-lg text-muted max-w-2xl mx-auto leading-relaxed">
-                Our main website is temporarily in maintenance mode while we finalize client approvals and system upgrades. In the meantime, <strong>our everyday clinical nursing, yard care, and agency staffing operations are 100% active</strong> across Townsville.
+                Our main website is currently in maintenance mode for system upgrades. In the meantime, <strong>our everyday clinical nursing, yard care, and agency staffing operations are 100% active</strong> across Townsville.
               </p>
             </div>
 
