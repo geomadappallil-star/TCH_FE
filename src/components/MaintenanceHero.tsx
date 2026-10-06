@@ -12,7 +12,8 @@ import {
   Home, 
   Users,
   AlertTriangle,
-  Stethoscope
+  Stethoscope,
+  Facebook
 } from 'lucide-react';
 
 export const MaintenanceHero: React.FC = () => {
@@ -183,6 +184,23 @@ export const MaintenanceHero: React.FC = () => {
                     <div>
                       <span className="block text-[11px] text-muted uppercase tracking-wider font-bold">Email Inquiries</span>
                       <span className="font-bold text-xs text-teal-deep">admin@tchservices.com.au</span>
+                    </div>
+                  </a>
+
+                  <a
+                    href="https://www.facebook.com/share/18R5gx47UT/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-3.5 rounded-xl bg-white/80 border border-teal/15 text-teal-ink hover:bg-white transition-all group"
+                  >
+                    <div className="w-9 h-9 rounded-lg bg-[#1877F2]/10 text-[#1877F2] flex items-center justify-center flex-shrink-0 group-hover:bg-[#1877F2] group-hover:text-white transition-colors">
+                      <Facebook className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <span className="block text-[11px] text-muted uppercase tracking-wider font-bold">Facebook Page</span>
+                      <span className="font-bold text-xs text-[#1877F2] flex items-center gap-1">
+                        TCH Support Services &rarr;
+                      </span>
                     </div>
                   </a>
 

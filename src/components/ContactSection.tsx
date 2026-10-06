@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, Globe, MapPin, Send, CheckCircle2, Clock, ShieldCheck } from 'lucide-react';
+import { Phone, Mail, Globe, MapPin, Send, CheckCircle2, Clock, ShieldCheck, Facebook } from 'lucide-react';
 import { EnquiryPayload } from '../types.js';
 
 export const ContactSection: React.FC = () => {
@@ -134,6 +134,23 @@ export const ContactSection: React.FC = () => {
                 <div>
                   <span className="block text-xs uppercase tracking-wider text-muted font-bold">Email Address</span>
                   <span className="font-bold text-sm text-teal-deep">admin@tchservices.com.au</span>
+                </div>
+              </a>
+
+              <a
+                href="https://www.facebook.com/share/18R5gx47UT/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-3 p-3.5 rounded-xl glass-card hover:bg-white/90 border border-teal/15 transition-all text-teal-ink group"
+              >
+                <div className="w-9 h-9 rounded-lg bg-[#1877F2]/10 text-[#1877F2] flex items-center justify-center flex-shrink-0 group-hover:bg-[#1877F2] group-hover:text-white transition-colors">
+                  <Facebook className="w-4 h-4" />
+                </div>
+                <div>
+                  <span className="block text-xs uppercase tracking-wider text-muted font-bold">Facebook Page</span>
+                  <span className="font-bold text-sm text-[#1877F2] flex items-center gap-1">
+                    TCH Support Services &rarr;
+                  </span>
                 </div>
               </a>
 

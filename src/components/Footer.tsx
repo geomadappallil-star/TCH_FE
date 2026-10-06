@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail, MapPin, Heart, ShieldAlert } from 'lucide-react';
+import { Phone, Mail, MapPin, Heart, ShieldAlert, Facebook } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -72,6 +72,15 @@ export const Footer: React.FC = () => {
               <a href="mailto:admin@tchservices.com.au" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Mail className="w-4 h-4 text-gold" />
                 <span>admin@tchservices.com.au</span>
+              </a>
+              <a
+                href="https://www.facebook.com/share/18R5gx47UT/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-white transition-colors group"
+              >
+                <Facebook className="w-4 h-4 text-gold group-hover:text-[#1877F2] transition-colors" />
+                <span className="group-hover:underline">Facebook: TCH Support Services</span>
               </a>
               <div className="flex items-start gap-2 text-teal-200">
                 <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />

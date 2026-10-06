@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Phone, Menu, X, ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import { Phone, Menu, X, ArrowRight, ShieldCheck, Sparkles, Facebook } from 'lucide-react';
 
 interface NavbarProps {
   activeSection: string;
@@ -102,8 +102,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             })}
           </nav>
 
-          {/* Call & Intake CTA Button */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Call & Social CTA Buttons */}
+          <div className="hidden sm:flex items-center gap-2.5">
+            <a
+              href="https://www.facebook.com/share/18R5gx47UT/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="TCH Support Services Facebook Page"
+              title="Visit our Facebook Page"
+              className="p-2.5 rounded-full bg-white/80 hover:bg-white text-teal hover:text-[#1877F2] border border-teal/15 shadow-sm transition-all duration-200 hover:-translate-y-0.5"
+            >
+              <Facebook className="w-4 h-4 text-[#1877F2]" />
+            </a>
             <a
               href="tel:0431430905"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-teal to-teal-deep text-white font-sans font-semibold text-sm px-4 py-2.5 rounded-full shadow-glass-teal hover:shadow-lg hover:from-teal-deep hover:to-teal transition-all duration-200 hover:-translate-y-0.5"
