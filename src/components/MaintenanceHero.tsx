@@ -20,6 +20,7 @@ export const MaintenanceHero: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
+    email: '',
     service: 'Clinical nursing care',
     suburb: '',
     message: ''
@@ -45,10 +46,10 @@ export const MaintenanceHero: React.FC = () => {
       if (res.ok && data.success) {
         setFeedback({
           success: true,
-          message: 'Thank you! Your message was received. Alan will call you directly.',
+          message: 'Thank you! Your message was received. An acknowledgment has been sent to your email.',
           refId: data.referenceId
         });
-        setFormData({ name: '', phone: '', service: 'Clinical nursing care', suburb: '', message: '' });
+        setFormData({ name: '', phone: '', email: '', service: 'Clinical nursing care', suburb: '', message: '' });
       } else {
         setFeedback({
           success: false,
@@ -276,20 +277,15 @@ export const MaintenanceHero: React.FC = () => {
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
-                      <label className="block text-muted font-bold uppercase tracking-wider mb-1">Service Needed</label>
-                      <select
-                        value={formData.service}
-                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      <label className="block text-muted font-bold uppercase tracking-wider mb-1">Email Address *</label>
+                      <input
+                        type="email"
+                        required
+                        value={formData.email}
+                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                        placeholder="your.email@example.com"
                         className="glass-input w-full p-2.5 text-teal-ink"
-                      >
-                        <option>Clinical nursing care</option>
-                        <option>Allied health (OT, Physio, Psychology)</option>
-                        <option>NDIS everyday supports &amp; personal care</option>
-                        <option>Gardening or yard work</option>
-                        <option>House cleaning</option>
-                        <option>Housing &amp; accommodation</option>
-                        <option>Combined supports</option>
-                      </select>
+                      />
                     </div>
                     <div>
                       <label className="block text-muted font-bold uppercase tracking-wider mb-1">Townsville Suburb</label>
@@ -301,6 +297,23 @@ export const MaintenanceHero: React.FC = () => {
                         className="glass-input w-full p-2.5 text-teal-ink"
                       />
                     </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-muted font-bold uppercase tracking-wider mb-1">Service Needed</label>
+                    <select
+                      value={formData.service}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                      className="glass-input w-full p-2.5 text-teal-ink"
+                    >
+                      <option>Clinical nursing care</option>
+                      <option>Allied health (OT, Physio, Psychology)</option>
+                      <option>NDIS everyday supports &amp; personal care</option>
+                      <option>Gardening or yard work</option>
+                      <option>House cleaning</option>
+                      <option>Housing &amp; accommodation</option>
+                      <option>Combined supports</option>
+                    </select>
                   </div>
 
                   <div>
