@@ -1,0 +1,266 @@
+import nodemailer from 'nodemailer';
+
+const SMTP_HOST = process.env.SMTP_HOST || 'smtp.gmail.com';
+const SMTP_PORT = parseInt(process.env.SMTP_PORT || '465', 10);
+const SMTP_USER = process.env.SMTP_USER || 'admin@tchservices.com.au';
+const rawPass = process.env.SMTP_PASS || 'zshd tpdx nvzh hlpj';
+const SMTP_PASS = rawPass.replace(/["'\s]/g, '');
+const FORWARD_TO_EMAIL = process.env.FORWARD_TO_EMAIL || 'abeymanoj007@gmail.com';
+const FROM_EMAIL = process.env.FROM_EMAIL || 'admin@tchservices.com.au';
+
+function createTransporter() {
+  return nodemailer.createTransport({
+    host: SMTP_HOST,
+    port: SMTP_PORT,
+    secure: SMTP_PORT === 465,
+    auth: {
+      user: SMTP_USER,
+      pass: SMTP_PASS
+    }
+  });
+}
+
+function generateForwardingEmailHtml(data) {
+  const dateFormatted = new Date().toLocaleString('en-AU', {
+    timeZone: 'Australia/Brisbane',
+    dateStyle: 'full',
+    timeStyle: 'short'
+  });
+
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>New TCH Support Services Enquiry</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #F6F4EE; margin: 0; padding: 20px; color: #17241F; }
+    .container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(8, 58, 52, 0.08); border: 1px solid rgba(14, 110, 100, 0.15); }
+    .header { background: linear-gradient(135deg, #083A34 0%, #0E6E64 100%); padding: 30px 24px; text-align: center; color: #ffffff; }
+    .header h1 { margin: 0 0 6px; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+    .header p { margin: 0; font-size: 13px; color: #DDE7D4; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; }
+    .badge { display: inline-block; background: #E3A83B; color: #17241F; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 700; margin-top: 12px; text-transform: uppercase; }
+    .content { padding: 28px 24px; }
+    .section-title { font-size: 15px; font-weight: 700; color: #083A34; margin: 0 0 16px; border-bottom: 2px solid #DDE7D4; padding-bottom: 8px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .info-table { width: 100%; border-collapse: collapse; margin-bottom: 24px; font-size: 14px; }
+    .info-table td { padding: 10px 12px; border-bottom: 1px solid #F0EEE6; }
+    .info-table td.label { font-weight: 600; color: #5A6C65; width: 34%; }
+    .info-table td.value { color: #17241F; font-weight: 500; }
+    .message-box { background: #F6F4EE; border-left: 4px solid #0E6E64; padding: 16px; border-radius: 0 10px 10px 0; margin-bottom: 24px; font-size: 14px; line-height: 1.6; }
+    .actions { text-align: center; margin: 28px 0 10px; }
+    .btn { display: inline-block; background: #0E6E64; color: #ffffff !important; text-decoration: none; padding: 12px 24px; border-radius: 999px; font-weight: 700; font-size: 14px; margin: 0 6px 10px; }
+    .footer { background: #083A34; padding: 20px 24px; text-align: center; font-size: 12px; color: rgba(221, 231, 212, 0.7); }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <p>TCH Support Services · Townsville</p>
+      <h1>New Website Enquiry Received</h1>
+      <span class="badge">Ref: ${data.referenceId}</span>
+    </div>
+
+    <div class="content">
+      <div class="section-title">Enquiry Details</div>
+      <table class="info-table">
+        <tr>
+          <td class="label">Date &amp; Time:</td>
+          <td class="value">${dateFormatted}</td>
+        </tr>
+        <tr>
+          <td class="label">Contact Name:</td>
+          <td class="value"><strong>${data.name}</strong></td>
+        </tr>
+        <tr>
+          <td class="label">Phone:</td>
+          <td class="value"><a href="tel:${data.phone}" style="color:#0E6E64; font-weight:700;">${data.phone}</a></td>
+        </tr>
+        <tr>
+          <td class="label">Email:</td>
+          <td class="value">${data.email ? `<a href="mailto:${data.email}">${data.email}</a>` : '<em>Not provided</em>'}</td>
+        </tr>
+        <tr>
+          <td class="label">Townsville Suburb:</td>
+          <td class="value">${data.suburb || '<em>Not provided</em>'}</td>
+        </tr>
+        <tr>
+          <td class="label">Service Required:</td>
+          <td class="value"><strong style="color:#0E6E64;">${data.service}</strong></td>
+        </tr>
+        <tr>
+          <td class="label">Enquiry Category:</td>
+          <td class="value">${data.enquiryType || 'General Enquiry'}</td>
+        </tr>
+        <tr>
+          <td class="label">Funding Arrangement:</td>
+          <td class="value">${data.fundingType || 'Unspecified'}</td>
+        </tr>
+      </table>
+
+      <div class="section-title">Message / Client Notes</div>
+      <div class="message-box">
+        ${data.message ? data.message.replace(/\n/g, '<br>') : '<em>No additional message provided.</em>'}
+      </div>
+
+      ${data.email ? `
+      <div class="actions">
+        <a href="mailto:${data.email}?subject=Regarding%20your%20TCH%20Support%20Services%20Enquiry%20(${data.referenceId})" class="btn">✉️ Reply via Email</a>
+      </div>
+      ` : ''}
+    </div>
+
+    <div class="footer">
+      <p style="margin:0;">TCH Support Services · Alan Jomon (0431 430 905) · Townsville | Ingham | Charters Towers</p>
+    </div>
+  </div>
+</body>
+</html>
+  `.trim();
+}
+
+function generateClientAcknowledgmentHtml(data) {
+  return `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Thank you for contacting TCH Support Services</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background-color: #F6F4EE; margin: 0; padding: 20px; color: #17241F; }
+    .container { max-width: 580px; margin: 0 auto; background: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(8, 58, 52, 0.08); }
+    .header { background: #0E6E64; padding: 26px 20px; text-align: center; color: #ffffff; }
+    .content { padding: 24px; font-size: 15px; line-height: 1.65; }
+    .footer { background: #083A34; padding: 18px 20px; text-align: center; font-size: 12px; color: #DDE7D4; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1 style="margin:0; font-size:20px;">TCH Support Services</h1>
+      <p style="margin:6px 0 0; font-size:13px; color:#DDE7D4;">Townsville · Ingham · Charters Towers</p>
+    </div>
+    <div class="content">
+      <p>Hello <strong>${data.name}</strong>,</p>
+      <p style="font-size:16px; font-weight:600; color:#083A34; margin:16px 0;">Thanks for reaching out to us, our support team will get back to assist you.</p>
+      <p>We have received your callback request regarding <strong>${data.service}</strong> (Reference: <strong>${data.referenceId}</strong>). Our local team will contact you shortly at <strong>${data.phone}</strong>.</p>
+      <p>If your enquiry is urgent, you can also reach Alan directly at <a href="tel:0431430905" style="color:#0E6E64; font-weight:700;">0431 430 905</a>.</p>
+      <br>
+      <p style="margin:0;">Warm regards,<br><strong>TCH Support Services Team</strong><br>Townsville · Ingham · Charters Towers</p>
+    </div>
+    <div class="footer">
+      &copy; 2026 TCH Support Services · Townsville QLD · <a href="https://www.tchservices.com.au" style="color:#E3A83B;">www.tchservices.com.au</a>
+    </div>
+  </div>
+</body>
+</html>
+  `.trim();
+}
+
+export default async function handler(req, res) {
+  // CORS support
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
+  if (req.method === 'GET') {
+    return res.status(200).json({
+      status: 'ok',
+      service: 'TCH Health Enquiry API',
+      timestamp: new Date().toISOString()
+    });
+  }
+
+  if (req.method !== 'POST') {
+    return res.status(405).json({
+      success: false,
+      message: 'Method Not Allowed'
+    });
+  }
+
+  try {
+    let body = req.body;
+    if (typeof body === 'string') {
+      try {
+        body = JSON.parse(body);
+      } catch (parseErr) {
+        return res.status(400).json({
+          success: false,
+          message: 'Invalid JSON payload'
+        });
+      }
+    }
+
+    const {
+      name,
+      phone,
+      email,
+      suburb,
+      enquiryType = 'Website Enquiry',
+      service = 'General Enquiry',
+      message = '',
+      fundingType
+    } = body || {};
+
+    if (!name || !phone) {
+      return res.status(400).json({
+        success: false,
+        message: 'Name and contact phone number are required.'
+      });
+    }
+
+    const referenceId = `TCH-${Math.floor(100000 + Math.random() * 900000)}`;
+    const enquiryData = {
+      referenceId,
+      name,
+      phone,
+      email,
+      suburb,
+      enquiryType,
+      service,
+      message,
+      fundingType
+    };
+
+    // Send emails via SMTP
+    const transporter = createTransporter();
+
+    // 1. Forward lead to abeymanoj007@gmail.com
+    await transporter.sendMail({
+      from: `"TCH Support Services" <${FROM_EMAIL}>`,
+      to: FORWARD_TO_EMAIL,
+      replyTo: email || FROM_EMAIL,
+      subject: `[New TCH Enquiry] ${service} - ${name} (${suburb || 'Townsville'}) [${referenceId}]`,
+      html: generateForwardingEmailHtml(enquiryData)
+    });
+
+    // 2. Client acknowledgment
+    if (email && email.includes('@')) {
+      try {
+        await transporter.sendMail({
+          from: `"TCH Support Services" <${FROM_EMAIL}>`,
+          to: email,
+          subject: `Thanks for reaching out - TCH Support Services [${referenceId}]`,
+          html: generateClientAcknowledgmentHtml(enquiryData)
+        });
+      } catch (clientErr) {
+        console.warn('Could not send client acknowledgment copy:', clientErr);
+      }
+    }
+
+    return res.status(200).json({
+      success: true,
+      message: 'Enquiry submitted successfully. Our team will contact you shortly.',
+      referenceId
+    });
+  } catch (error) {
+    console.error('Error processing enquiry:', error);
+    return res.status(500).json({
+      success: false,
+      message: 'An error occurred while processing your enquiry. Please call Alan on 0431 430 905.'
+    });
+  }
+}

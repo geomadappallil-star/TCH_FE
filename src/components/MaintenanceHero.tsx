@@ -33,8 +33,10 @@ export const MaintenanceHero: React.FC = () => {
     setIsSubmitting(true);
     setFeedback(null);
 
+    const apiBaseUrl = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+
     try {
-      const res = await fetch('/api/enquiries', {
+      const res = await fetch(`${apiBaseUrl}/api/enquiries`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -58,9 +60,8 @@ export const MaintenanceHero: React.FC = () => {
       }
     } catch {
       setFeedback({
-        success: true,
-        message: 'Thank you! Alan has received your details and will phone you shortly.',
-        refId: `TCH-${Math.floor(1000 + Math.random() * 9000)}`
+        success: false,
+        message: 'Could not connect to service. Please call Alan directly on 0431 430 905.'
       });
     } finally {
       setIsSubmitting(false);

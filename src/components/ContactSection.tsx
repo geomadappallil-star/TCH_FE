@@ -26,8 +26,10 @@ export const ContactSection: React.FC = () => {
     setSubmitting(true);
     setFeedback(null);
 
+    const apiBaseUrl = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+
     try {
-      const response = await fetch('/api/enquiries', {
+      const response = await fetch(`${apiBaseUrl}/api/enquiries`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
