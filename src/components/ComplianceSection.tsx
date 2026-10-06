@@ -74,7 +74,7 @@ export const ComplianceSection: React.FC = () => {
                   <strong>TCH Support Services is not an NDIS registered provider</strong>, and we don’t pretend otherwise. Registration is not legally required to support self-managed and plan-managed participants, or to work as an approved subcontractor for a registered provider — which covers everything we do.
                 </p>
                 <p>
-                  If a participant is NDIA agency-managed, or requires a specific support category that must legally originate from a registered entity, we will be completely transparent on our first phone call. We can either work under an established registered provider or connect you with one of our trusted local partners.
+                  If a participant is NDIA-managed, or requires a specific support category that must legally originate from a registered entity, we will be completely transparent on our first phone call. We can either work under an established registered provider or connect you with one of our trusted local partners.
                 </p>
                 <p className="text-teal-ink font-sans font-medium bg-teal-50/70 p-3 rounded-xl border border-teal/15 text-xs">
                   All of our nurses, carers, cleaners, and yard staff are strictly bound by the Australian NDIS Code of Conduct and relevant professional standards.

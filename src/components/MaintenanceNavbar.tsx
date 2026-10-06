@@ -48,7 +48,7 @@ export const MaintenanceNavbar: React.FC = () => {
                 TCH Support Services
               </span>
               <span className="block font-sans text-[11px] font-semibold uppercase tracking-wider text-sage-700">
-                Nursing · Home &amp; Yard · Staffing
+                Nursing · Allied Health · Home &amp; Yard
               </span>
             </div>
           </a>
@@ -56,7 +56,7 @@ export const MaintenanceNavbar: React.FC = () => {
           {/* Service Status Notice */}
           <div className="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 border border-teal/15 text-xs font-sans text-teal-900">
             <span className="w-2 h-2 rounded-full bg-teal animate-pulse"></span>
-            <span className="font-semibold">All In-Home Services &amp; Shift Rosters Operational</span>
+            <span className="font-semibold">Allied Health, Nursing &amp; Home Supports Operational</span>
           </div>
 
           {/* Direct Phone Call Button */}

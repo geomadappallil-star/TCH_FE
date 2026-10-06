@@ -197,7 +197,7 @@ export const ContactSection: React.FC = () => {
                     >
                       <option>A participant or family member</option>
                       <option>A support coordinator or plan manager</option>
-                      <option>A provider needing agency staff</option>
+                      <option>A healthcare provider needing clinical or allied health support</option>
                       <option>Someone after gardening or cleaning</option>
                       <option>A healthcare worker looking for shifts</option>
                     </select>
@@ -213,9 +213,11 @@ export const ContactSection: React.FC = () => {
                       className="glass-input w-full p-3 font-sans text-teal-ink"
                     >
                       <option>Clinical nursing care</option>
+                      <option>Allied health (OT, Physio, Psychology)</option>
+                      <option>NDIS everyday supports &amp; personal care</option>
+                      <option>Housing &amp; accommodation</option>
                       <option>Gardening &amp; yard maintenance</option>
                       <option>Domestic house cleaning</option>
-                      <option>Agency shift cover</option>
                       <option>Combined nursing + home care</option>
                       <option>Not sure yet (need advice)</option>
                     </select>
@@ -291,7 +293,7 @@ export const ContactSection: React.FC = () => {
                       <option>Plan Managed (NDIS)</option>
                       <option>Self Managed (NDIS)</option>
                       <option>Home Care Package (HCP)</option>
-                      <option>Agency Managed (NDIA)</option>
+                      <option>NDIA Managed</option>
                       <option>Private / Self-Funded</option>
                       <option>Registered Provider Subcontract</option>
                     </select>

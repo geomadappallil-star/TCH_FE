@@ -11,7 +11,8 @@ import {
   Activity, 
   Home, 
   Users,
-  AlertTriangle
+  AlertTriangle,
+  Stethoscope
 } from 'lucide-react';
 
 export const MaintenanceHero: React.FC = () => {
@@ -77,7 +78,7 @@ export const MaintenanceHero: React.FC = () => {
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-card border border-teal/20 text-xs sm:text-sm font-sans font-semibold text-teal-800 shadow-sm">
             <span className="w-2.5 h-2.5 rounded-full bg-gold animate-pulse"></span>
-            <span>Site Update in Progress · All Care &amp; Staffing Services Active</span>
+            <span>Site Update in Progress · Allied Health, Nursing &amp; Home Care Active</span>
           </div>
         </div>
 
@@ -89,7 +90,7 @@ export const MaintenanceHero: React.FC = () => {
             {/* Header Content */}
             <div className="text-center space-y-3">
               <span className="text-xs uppercase tracking-widest font-sans font-bold text-sage-700">
-                TCH Support Services · Townsville &amp; North Queensland
+                TCH Support Services · Townsville | Ingham | Charters Towers
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans text-teal-ink tracking-tight">
                 We’re putting the finishing touches on{' '}
@@ -100,7 +101,7 @@ export const MaintenanceHero: React.FC = () => {
                 .
               </h1>
               <p className="font-serif text-base sm:text-lg text-muted max-w-2xl mx-auto leading-relaxed">
-                Our main website is currently in maintenance mode for system upgrades. In the meantime, <strong>our everyday clinical nursing, yard care, and agency staffing operations are 100% active</strong> across Townsville.
+                Our main website is currently in maintenance mode for system upgrades. In the meantime, <strong>our everyday allied health, nursing care, and home care operations are 100% active</strong> across Townsville, Ingham, and Charters Towers.
               </p>
             </div>
 
@@ -115,8 +116,21 @@ export const MaintenanceHero: React.FC = () => {
                     <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse"></span> Live
                   </span>
                 </div>
-                <h3 className="font-sans font-bold text-sm text-teal-ink">Clinical Nursing</h3>
-                <p className="font-serif text-xs text-muted">Daily rounds for wounds, medications, PEG feeds &amp; hospital discharges.</p>
+                <h3 className="font-sans font-bold text-sm text-teal-ink">Nursing Services</h3>
+                <p className="font-serif text-xs text-muted">Wound care, medications, PEG feeding, continence and complex clinical supports.</p>
+              </div>
+
+              <div className="p-4 rounded-xl bg-white/70 border border-teal/15 space-y-2">
+                <div className="flex items-center justify-between">
+                  <div className="w-8 h-8 rounded-lg bg-gold/15 text-gold-dark flex items-center justify-center">
+                    <Stethoscope className="w-4 h-4" />
+                  </div>
+                  <span className="flex items-center gap-1 text-[11px] font-sans font-bold text-teal bg-teal-50 px-2 py-0.5 rounded-full border border-teal/20">
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse"></span> Active
+                  </span>
+                </div>
+                <h3 className="font-sans font-bold text-sm text-teal-ink">Allied Health</h3>
+                <p className="font-serif text-xs text-muted">Occupational therapy, physiotherapy, psychology and plan review reports.</p>
               </div>
 
               <div className="p-4 rounded-xl bg-white/70 border border-teal/15 space-y-2">
@@ -129,20 +143,7 @@ export const MaintenanceHero: React.FC = () => {
                   </span>
                 </div>
                 <h3 className="font-sans font-bold text-sm text-teal-ink">Home &amp; Yard Care</h3>
-                <p className="font-serif text-xs text-muted">Lawn mowing, wet season tidy-ups, gutters &amp; regular domestic cleans.</p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/70 border border-teal/15 space-y-2">
-                <div className="flex items-center justify-between">
-                  <div className="w-8 h-8 rounded-lg bg-gold/15 text-gold-dark flex items-center justify-center">
-                    <Users className="w-4 h-4" />
-                  </div>
-                  <span className="flex items-center gap-1 text-[11px] font-sans font-bold text-teal bg-teal-50 px-2 py-0.5 rounded-full border border-teal/20">
-                    <span className="w-1.5 h-1.5 rounded-full bg-teal animate-pulse"></span> Roster Open
-                  </span>
-                </div>
-                <h3 className="font-sans font-bold text-sm text-teal-ink">Agency Staffing</h3>
-                <p className="font-serif text-xs text-muted">Subcontracted RNs, ENs, AINs and support workers for provider cover.</p>
+                <p className="font-serif text-xs text-muted">Lawn mowing, wet season tidy-ups, gutters &amp; regular domestic house cleaning.</p>
               </div>
             </div>
 
@@ -155,7 +156,7 @@ export const MaintenanceHero: React.FC = () => {
                   Speak Directly With Alan
                 </h3>
                 <p className="font-serif text-xs sm:text-sm text-muted leading-relaxed">
-                  Whether you are an NDIS participant, family member, support coordinator, or healthcare provider needing urgent cover:
+                  Whether you are an NDIS participant, family member, support coordinator, or seeking allied health and nursing supports:
                 </p>
 
                 <div className="space-y-3 font-sans text-xs">
@@ -264,9 +265,11 @@ export const MaintenanceHero: React.FC = () => {
                         className="glass-input w-full p-2.5 text-teal-ink"
                       >
                         <option>Clinical nursing care</option>
+                        <option>Allied health (OT, Physio, Psychology)</option>
+                        <option>NDIS everyday supports &amp; personal care</option>
                         <option>Gardening or yard work</option>
                         <option>House cleaning</option>
-                        <option>Agency shift cover</option>
+                        <option>Housing &amp; accommodation</option>
                         <option>Combined supports</option>
                       </select>
                     </div>
@@ -288,7 +291,7 @@ export const MaintenanceHero: React.FC = () => {
                       rows={2}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Supports needed, start date, or shift details..."
+                      placeholder="Supports needed, preferred start date, or specific goals..."
                       className="glass-input w-full p-2.5 font-serif text-teal-ink"
                     />
                   </div>

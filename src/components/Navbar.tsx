@@ -20,8 +20,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const navLinks = [
     { name: 'NDIS Plans', href: '#ndis' },
     { name: 'Clinical Nursing', href: '#nursing' },
+    { name: 'Allied Health', href: '#allied-health' },
     { name: 'Home & Yard', href: '#home' },
-    { name: 'Agency Staffing', href: '#staffing' },
     { name: 'Coverage Area', href: '#area' },
     { name: 'Careers', href: '#jobs' },
     { name: 'Contact', href: '#contact' },
@@ -77,7 +77,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 TCH Support Services
               </span>
               <span className="block font-sans text-[11px] font-semibold uppercase tracking-wider text-sage-700">
-                Nursing · Home &amp; Yard · Staffing
+                Nursing · Allied Health · Home &amp; Yard
               </span>
             </div>
           </a>

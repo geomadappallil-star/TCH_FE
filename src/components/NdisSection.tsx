@@ -22,10 +22,10 @@ export const NdisSection: React.FC = () => {
       action: 'Package Coordinated'
     },
     {
-      title: 'NDIA Agency Managed',
-      badge: 'Subcontract Model',
-      desc: 'Agency-managed plans require a registered provider. We will be upfront on your first call, and can seamlessly deliver care under your registered provider as an approved subcontractor.',
-      action: 'Subcontracting Allowed'
+      title: 'NDIA Managed Plans',
+      badge: 'Provider Partner Model',
+      desc: 'NDIA-managed plans require a registered provider. We will be upfront on your first call, and can deliver allied health and care under your registered provider as an approved subcontractor or partner.',
+      action: 'Partnership Permitted'
     }
   ];
 

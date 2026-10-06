@@ -3,7 +3,7 @@ export type PersonaType = 'participant' | 'coordinator' | 'provider' | 'jobseeke
 export interface ServiceDetail {
   id: string;
   title: string;
-  category: 'nursing' | 'home' | 'staffing';
+  category: 'nursing' | 'home' | 'allied-health' | 'staffing';
   description: string;
   iconName: string;
   badge?: string;

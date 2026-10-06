@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
 
             {/* Lede text */}
             <p className="text-base sm:text-lg md:text-xl text-muted font-serif leading-relaxed max-w-2xl">
-              TCH Support Services is a dedicated Townsville team delivering clinical nursing, gardening, cleaning, and agency shift cover. We work directly with self-managed and plan-managed NDIS participants, and subcontract qualified staff to registered providers.
+              TCH Support Services is a dedicated local team delivering clinical nursing, allied health therapies, home &amp; yard maintenance, and housing supports across Townsville, Ingham, and Charters Towers.
             </p>
 
             {/* Action Buttons with Glass finish */}
@@ -67,7 +67,7 @@ export const Hero: React.FC = () => {
               </div>
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-4 h-4 text-teal flex-shrink-0" />
-                <span>Subcontracting to Providers</span>
+                <span>Allied Health &amp; Therapies</span>
               </div>
             </div>
 
@@ -131,17 +131,17 @@ export const Hero: React.FC = () => {
                     </div>
                   </a>
 
-                  <a href="#staffing" className="block p-3.5 rounded-xl bg-white/60 hover:bg-white/95 border border-teal/10 hover:border-teal/30 transition-all group">
+                  <a href="#allied-health" className="block p-3.5 rounded-xl bg-white/60 hover:bg-white/95 border border-teal/10 hover:border-teal/30 transition-all group">
                     <div className="flex items-start gap-3">
                       <div className="p-2 rounded-lg bg-gold/15 text-gold-dark group-hover:bg-gold group-hover:text-ink transition-colors">
                         <Users className="w-5 h-5" />
                       </div>
                       <div>
                         <div className="font-sans font-semibold text-sm text-teal-ink group-hover:text-teal flex items-center justify-between">
-                          <span>Agency Staffing for Providers</span>
+                          <span>Allied Health &amp; Therapy Services</span>
                           <span className="text-xs text-teal font-normal group-hover:translate-x-0.5 transition-transform">&rarr;</span>
                         </div>
-                        <p className="text-xs text-muted font-serif mt-0.5">Subcontracted RNs, ENs, AINs and support workers for emergency &amp; block shifts.</p>
+                        <p className="text-xs text-muted font-serif mt-0.5">Occupational therapy, physiotherapy, psychology and comprehensive reports.</p>
                       </div>
                     </div>
                   </a>
@@ -149,9 +149,9 @@ export const Hero: React.FC = () => {
 
                 {/* Direct Coordinator Quote Box */}
                 <div className="p-3.5 rounded-xl bg-teal-50/70 border border-teal/15 text-xs text-teal-900 font-sans flex items-center justify-between">
-                  <span>Need an emergency RN shift covered?</span>
+                  <span>Need clinical nursing or allied health support?</span>
                   <a href="#contact" className="font-bold text-teal hover:text-teal-deep underline">
-                    Request Cover &rarr;
+                    Get Support &rarr;
                   </a>
                 </div>
 

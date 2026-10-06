@@ -1,6 +1,6 @@
 # TCH Health Frontend (TCH_FE)
 
-Modern, responsive web application for **TCH Support Services (TCH Health)** — Townsville & North Queensland clinical nursing, tropical yard maintenance, domestic house cleaning, and agency shift cover.
+Modern, responsive web application for **TCH Support Services (TCH Health)** — Townsville & North Queensland clinical nursing, allied health therapies, tropical yard maintenance, domestic house cleaning, and housing supports.
 
 ## Features & Glassmorphic UI
 

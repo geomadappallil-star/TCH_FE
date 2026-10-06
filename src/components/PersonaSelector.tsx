@@ -41,18 +41,18 @@ export const PersonaSelector: React.FC = () => {
     {
       id: 'provider' as PersonaType,
       title: 'Care Provider / Facility',
-      subtitle: 'Agency Subcontracting',
+      subtitle: 'Allied Health & Nursing',
       icon: Building2,
-      heading: 'Cover your hard-to-staff shifts with verified local staff',
-      description: 'As a registered provider, you retain participant governance and registration while subcontracting urgent shifts, active overnights, or weekend rounds to our qualified team. All staff are fully compliant with NDIS Worker Screening and AHPRA registration.',
+      heading: 'Partner with verified clinical nurses and allied health practitioners',
+      description: 'As a registered provider, you retain participant governance and registration while collaborating with our qualified nursing and allied health team. All staff are fully compliant with NDIS Worker Screening and AHPRA registration.',
       keyPoints: [
-        'Subcontracting permitted under NDIS regulations',
-        'RNs, ENs, AINs, and experienced Disability Support Workers',
-        'Notes completed in your organization’s format',
-        'Rapid surge cover and ongoing block placements'
+        'Collaborative partnerships permitted under NDIS regulations',
+        'RNs, ENs, OTs, Physiotherapists & Psychologists',
+        'Comprehensive notes completed in your organization’s format',
+        'Rapid capacity assessments and ongoing care plans'
       ],
-      ctaText: 'Request Shift Cover',
-      ctaHref: '#staffing'
+      ctaText: 'Request Allied Health & Care',
+      ctaHref: '#allied-health'
     },
     {
       id: 'jobseeker' as PersonaType,
@@ -86,7 +86,7 @@ export const PersonaSelector: React.FC = () => {
             How can TCH Support Services help you today?
           </h2>
           <p className="text-sm sm:text-base text-muted font-serif mt-2">
-            Select your role to explore how our clinical, home, and staffing models align with your specific goals.
+            Select your role to explore how our clinical, home, and allied health models align with your specific goals.
           </p>
         </div>
 

@@ -22,7 +22,7 @@ export const CareersSection: React.FC = () => {
 
   const perks = [
     'Choose your own availability — casual, block, or ongoing rounds',
-    'Community & in-home clinical care, not stressful agency hospital ward shifts',
+    'Community & in-home clinical care, allied health therapy, and supportive nursing',
     'You know the participant, clinical history, and property layout before you arrive',
     'A local Townsville coordinator who answers the phone, not an anonymous app portal'
   ];

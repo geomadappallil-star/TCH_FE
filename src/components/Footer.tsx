@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="font-serif text-teal-200/90 text-sm leading-relaxed max-w-sm">
-              Delivering high-standard clinical nursing, tropical yard maintenance, domestic house cleaning, and rapid agency staffing. Locally based in Townsville.
+              Delivering high-standard clinical nursing, allied health therapies, home &amp; yard care, and housing support. Local team based in Townsville, Ingham &amp; Charters Towers.
             </p>
 
             <div className="pt-2 text-xs text-teal-300">
@@ -42,11 +42,11 @@ export const Footer: React.FC = () => {
             <h4 className="font-bold text-white uppercase tracking-wider text-xs">Our Services</h4>
             <ul className="space-y-2">
               <li><a href="#nursing" className="hover:text-gold transition-colors">Clinical Nursing at Home</a></li>
-              <li><a href="#nursing" className="hover:text-gold transition-colors">Wound &amp; Catheter Care</a></li>
-              <li><a href="#home" className="hover:text-gold transition-colors">Lawn Mowing &amp; Edging</a></li>
+              <li><a href="#allied-health" className="hover:text-gold transition-colors">Allied Health (OT, Physio, Psych)</a></li>
+              <li><a href="#ndis" className="hover:text-gold transition-colors">NDIS Everyday Supports</a></li>
+              <li><a href="#housing" className="hover:text-gold transition-colors">Housing &amp; Accommodation</a></li>
+              <li><a href="#home" className="hover:text-gold transition-colors">Lawn Mowing &amp; Yard Care</a></li>
               <li><a href="#home" className="hover:text-gold transition-colors">Domestic House Cleaning</a></li>
-              <li><a href="#home" className="hover:text-gold transition-colors">Storm Season &amp; Gutter Prep</a></li>
-              <li><a href="#staffing" className="hover:text-gold transition-colors">Agency Staffing for Providers</a></li>
             </ul>
           </div>
 
@@ -56,7 +56,7 @@ export const Footer: React.FC = () => {
             <ul className="space-y-2">
               <li><a href="#ndis" className="hover:text-gold transition-colors">NDIS Funding Pathways</a></li>
               <li><a href="#area" className="hover:text-gold transition-colors">Service Area &amp; Suburbs</a></li>
-              <li><a href="#jobs" className="hover:text-gold transition-colors">Careers &amp; Open Shifts</a></li>
+              <li><a href="#jobs" className="hover:text-gold transition-colors">Careers &amp; Join Our Team</a></li>
               <li><a href="#contact" className="hover:text-gold transition-colors">Make an Enquiry</a></li>
             </ul>
           </div>
