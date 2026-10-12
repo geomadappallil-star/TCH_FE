@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Phone, Mail, Globe, MapPin, Send, CheckCircle2, Clock, ShieldCheck, Facebook } from 'lucide-react';
 import { EnquiryPayload } from '../types.js';
+import { submitEnquiry } from '../services/enquiryService.js';
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState<EnquiryPayload>({
@@ -26,26 +27,15 @@ export const ContactSection: React.FC = () => {
     setSubmitting(true);
     setFeedback(null);
 
-    const apiBaseUrl = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
-
     try {
-      const response = await fetch(`${apiBaseUrl}/api/enquiries`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
+      const result = await submitEnquiry(formData);
+      setFeedback({
+        success: result.success,
+        message: result.message,
+        referenceId: result.referenceId
       });
 
-      const data = await response.json();
-
-      if (response.ok && data.success) {
-        setFeedback({
-          success: true,
-          message: data.message || 'Enquiry successfully submitted!',
-          referenceId: data.referenceId
-        });
-        // Clear input form
+      if (result.success) {
         setFormData({
           name: '',
           phone: '',
@@ -56,18 +46,11 @@ export const ContactSection: React.FC = () => {
           fundingType: 'Plan Managed',
           message: ''
         });
-      } else {
-        setFeedback({
-          success: false,
-          message: data.message || 'There was an issue processing your enquiry. Please give Alan a call on 0431 430 905.'
-        });
       }
     } catch {
-      // In case backend is not running or dev mode fallback
       setFeedback({
-        success: true,
-        message: 'Your enquiry has been noted! Alan will review your details and phone you directly.',
-        referenceId: `TCH-${Math.floor(1000 + Math.random() * 9000)}`
+        success: false,
+        message: 'There was an issue processing your enquiry. Please give Alan a call on 0431 430 905.'
       });
     } finally {
       setSubmitting(false);
