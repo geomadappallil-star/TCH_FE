@@ -18,11 +18,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   }, []);
 
   const navLinks = [
-    { name: 'NDIS Plans', href: '#ndis' },
-    { name: 'Clinical Nursing', href: '#nursing' },
-    { name: 'Allied Health', href: '#allied-health' },
-    { name: 'Home & Yard', href: '#home' },
-    { name: 'Coverage Area', href: '#area' },
+    { name: 'Our Services', href: '#services' },
+    { name: '4 Move-In Units', href: '#units' },
+    { name: 'NDIS Funding', href: '#ndis' },
     { name: 'Careers', href: '#jobs' },
     { name: 'Contact', href: '#contact' },
   ];

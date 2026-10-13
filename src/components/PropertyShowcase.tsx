@@ -92,7 +92,8 @@ export const PropertyShowcase: React.FC = () => {
   ];
 
   return (
-    <section id="housing" className="py-14 sm:py-20 relative overflow-hidden">
+    <section id="units" className="scroll-mt-20 py-14 sm:py-20 relative overflow-hidden">
+      <div id="housing" className="scroll-mt-20"></div>
       
       {/* Background Aurora Glow */}
       <div className="aurora-orb-1 top-10 right-[-100px] opacity-40"></div>

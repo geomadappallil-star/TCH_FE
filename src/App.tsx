@@ -1,13 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar.js';
 import { PhotoHero } from './components/PhotoHero.js';
-import { PersonaSelector } from './components/PersonaSelector.js';
 import { ServicesSection } from './components/ServicesSection.js';
 import { PropertyShowcase } from './components/PropertyShowcase.js';
-import { CostCalculator } from './components/CostCalculator.js';
 import { NdisSection } from './components/NdisSection.js';
-import { AreaChecker } from './components/AreaChecker.js';
-import { ComplianceSection } from './components/ComplianceSection.js';
 import { CareersSection } from './components/CareersSection.js';
 import { ContactSection } from './components/ContactSection.js';
 import { Footer } from './components/Footer.js';
@@ -18,7 +14,7 @@ export function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['top', 'ndis', 'nursing', 'allied-health', 'home', 'housing', 'area', 'jobs', 'contact'];
+      const sections = ['top', 'services', 'units', 'ndis', 'jobs', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -42,48 +38,36 @@ export function App() {
     <div id="top" className="min-h-screen flex flex-col bg-[#F8F7F3] text-[#192B27]">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-teal text-white px-4 py-2 rounded-lg font-sans font-bold shadow-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-[#2D6A5D] text-white px-4 py-2 rounded-lg font-bold shadow-lg"
       >
         Skip to main content
       </a>
 
-      {/* Main Glass Navigation Bar */}
+      {/* Main Navigation Bar */}
       <Navbar activeSection={activeSection} />
 
       {/* Main Content Area */}
       <main id="main-content" className="flex-grow">
-        {/* 1. Soothing Photo Banner Hero with Crisp Bullet Highlights */}
+        {/* 1. High-Contrast Photo Banner Hero with Crisp Bullet Highlights */}
         <PhotoHero />
 
-        {/* 2. Interactive Persona Switcher (Condensed Bullet Cards) */}
-        <PersonaSelector />
-
-        {/* 3. Core Clinical, Allied Health & Home Services (Shortened Bullets) */}
+        {/* 2. Core Services: Clinical Nursing, Allied Health & Home Maintenance (Primary Focus #1) */}
         <ServicesSection />
 
-        {/* 4. Housing & Accommodation Flyer Highlights (Elevated in 2nd Half) */}
+        {/* 3. Townsville 4 Move-In Units & Accommodation Flyer Highlights (Primary Focus #2) */}
         <PropertyShowcase />
 
-        {/* 5. Interactive NDIS Care Hours & Budget Estimator */}
-        <CostCalculator />
-
-        {/* 6. NDIS Funding Pathways (Self-Managed, Plan-Managed, HCP) */}
+        {/* 4. Streamlined NDIS Plan Funding & Regional Coverage Bar */}
         <NdisSection />
 
-        {/* 7. Townsville & Regional Coverage Area Checker */}
-        <AreaChecker />
-
-        {/* 8. Safeguards & Credential Verification */}
-        <ComplianceSection />
-
-        {/* 9. Careers Page Module with Transparent Banner & PDF Resume Upload */}
+        {/* 5. Careers Section with Transparent Banner & PDF Resume Upload */}
         <CareersSection />
 
-        {/* 10. Direct Online Enquiry & Booking Form */}
+        {/* 6. Direct Online Enquiry & Booking Form */}
         <ContactSection />
       </main>
 
-      {/* Global Glass Footer */}
+      {/* Global Footer */}
       <Footer />
 
       {/* Sticky Mobile/Tablet 1-Tap Quick Action Bar */}

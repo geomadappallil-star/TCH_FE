@@ -1,313 +1,167 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
-  Activity, 
   Stethoscope, 
-  Pill, 
-  Syringe, 
-  ClipboardList, 
-  ShieldAlert, 
+  Activity, 
   Home, 
-  Trees, 
-  Sparkles, 
-  Trash2, 
-  CloudRain, 
-  Droplets, 
-  Bed, 
-  Shield, 
-  UserCheck, 
-  Building,
-  CheckCircle,
+  CheckCircle2, 
+  ArrowRight,
+  ShieldCheck,
   Clock,
-  ArrowRight
+  Pill,
+  Syringe,
+  ClipboardList,
+  Sparkles,
+  Phone
 } from 'lucide-react';
 
 export const ServicesSection: React.FC = () => {
-  const [activeTab, setActiveTab] = useState<'all' | 'nursing' | 'home'>('all');
-
-  const nursingServices = [
+  const servicePillars = [
     {
-      title: 'Wound & Post-Surgical Care',
+      id: 'nursing',
+      icon: Stethoscope,
+      title: 'Clinical Nursing Care',
+      tagline: 'Registered Nurse (RN) led clinical treatments at home',
+      bullets: [
+        'Complex wound dressings & post-surgical care reviews',
+        'Subcutaneous medication administration & injection charts',
+        'Enteral feeding management (PEG / NG tube care & hygiene)',
+        'Continence assessments & urinary catheter care (IDC / SPC)',
+        'Rapid hospital discharge transitions (within 24–48 hours)'
+      ],
+      badge: 'AHPRA Registered RNs',
+      cta: 'Book Clinical Visit'
+    },
+    {
+      id: 'allied-health',
       icon: Activity,
-      desc: 'Dressing changes, surgical wound care & tropical wound reviews across Townsville.'
+      title: 'Allied Health Therapies',
+      tagline: 'Functional capacity, independence & therapy support',
+      bullets: [
+        'Occupational Therapy (OT) comprehensive home assessments',
+        'Assistive technology & home modification recommendations',
+        'Physiotherapy mobility plans & active fall prevention',
+        'Detailed NDIS review justification & clinical progress reports',
+        'Direct multidisciplinary collaboration with your GP & team'
+      ],
+      badge: 'NDIS Plan Reports',
+      cta: 'Enquire About Therapy'
     },
     {
-      title: 'Medication Management',
-      icon: Pill,
-      desc: 'Webster-pack monitoring, insulin titration, injections & documented GP logs.'
-    },
-    {
-      title: 'Enteral Feeding & PEG Care',
-      icon: Syringe,
-      desc: 'PEG/NG feeding, stoma site hygiene, pump calibration & carer delegation training.'
-    },
-    {
-      title: 'Continence & Catheter Care',
-      icon: Droplets,
-      desc: 'IDC/SPC catheter changes, bowel regimes & respectful continence assessments.'
-    },
-    {
-      title: 'Complex High-Intensity Supports',
-      icon: ShieldAlert,
-      desc: 'Diabetes protocols, seizure management & nurse-governed clinical interventions.'
-    },
-    {
-      title: 'Assessments & Care Plans',
-      icon: ClipboardList,
-      desc: 'Health assessments, mealtime plans & clinical reports for NDIS plan reviews.'
-    },
-    {
-      title: 'Personal Care & Daily Living',
-      icon: UserCheck,
-      desc: 'Dignified showering, dressing, transfers & morning/evening home routines.'
-    },
-    {
-      title: 'Carer Training & Delegation',
-      icon: ShieldCheck,
-      desc: 'Task delegation so regular support workers safely handle clinical routines.'
-    },
-    {
-      title: 'Rapid Hospital Discharge',
-      icon: Clock,
-      desc: 'Fast transition from Townsville University Hospital with nurses in 24–48 hours.'
-    }
-  ];
-
-  const homeServices = [
-    {
-      title: 'Lawn Mowing & Edging',
-      icon: Trees,
-      desc: 'Fortnightly wet season runs, edge trimming & paths blown clean.'
-    },
-    {
-      title: 'Garden & Yard Tidy-Ups',
-      icon: Trees,
-      desc: 'Whipper snipping, weeding, tree hedging & clearing tropical growth.'
-    },
-    {
-      title: 'Green Waste & Rubbish Removal',
-      icon: Trash2,
-      desc: 'Heavy palms, branches and debris hauled away to keep verges tidy and safe.'
-    },
-    {
-      title: 'Gutters & Storm Season Prep',
-      icon: CloudRain,
-      desc: 'Gutter clearing & securing loose items before tropical storm season.'
-    },
-    {
-      title: 'High-Pressure Surface Washing',
-      icon: Droplets,
-      desc: 'Concrete footpaths & patios stripped of dangerous slippery black mould.'
-    },
-    {
-      title: 'Regular House Cleaning',
-      icon: Sparkles,
-      desc: 'Sanitised bathrooms, kitchens, vacuuming & mopping on regular weekly rounds.'
-    },
-    {
-      title: 'Laundry, Linen & Bed Changes',
-      icon: Bed,
-      desc: 'Washing, line drying, folding & fitted sheet changes for mobility comfort.'
-    },
-    {
-      title: 'Deep & Spring Cleans',
+      id: 'home-care',
       icon: Home,
-      desc: 'Ovens, windows, tracks & ceiling fans reset before tenancy/NDIS reviews.'
-    },
-    {
-      title: 'Trip Hazard & Safety Audits',
-      icon: Shield,
-      desc: 'Clearing obstructed walkways & checking non-slip ramp safety.'
+      title: 'Home & Yard Maintenance',
+      tagline: 'Keeping Townsville homes safe, accessible & hazard-free',
+      bullets: [
+        'Fortnightly lawn mowing, whipper snipping & edge clearing',
+        'Tropical wet season tidy-ups & cyclone debris removal',
+        'High-pressure washing of slippery mouldy concrete paths',
+        'Domestic decluttering & hygiene routines for fall prevention',
+        'Reliable local crew with full background police screening'
+      ],
+      badge: 'Screened Local Crews',
+      cta: 'Schedule Yard Care'
     }
   ];
-
-  function ShieldCheck(props: any) {
-    return <Shield {...props} />;
-  }
 
   return (
-    <div className="space-y-16">
-      
-      {/* NURSING SECTION */}
-      <section id="nursing" className="scroll-mt-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-sans font-bold tracking-widest text-sage-700 uppercase mb-2">
-                <span className="w-6 h-0.5 bg-gold"></span>
-                <span>Clinical Nursing at Home</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-sans text-teal-ink">
-                Clinical care at home, without the hospital trip
-              </h2>
-              <p className="text-muted font-serif text-base sm:text-lg max-w-2xl mt-2">
-                Our registered and enrolled nurses handle the complex clinical tasks so participants and families can enjoy life. Every visit is coordinated with your GP and allied health team.
-              </p>
-            </div>
-
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-teal hover:text-teal-deep border-b border-teal/30 hover:border-teal pb-1"
-            >
-              <span>Book a free clinical consultation</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
+    <section id="services" className="py-16 md:py-24 bg-[#F8F7F3] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Section Header */}
+        <div className="max-w-3xl mb-12">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2D6A5D]/10 text-[#2D6A5D] text-xs font-bold uppercase tracking-wider mb-3">
+            <Sparkles className="w-3.5 h-3.5 text-[#D4A359]" />
+            <span>Our Core Capabilities</span>
           </div>
-
-          {/* Grid of Nursing Glass Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {nursingServices.map((svc, i) => {
-              const Icon = svc.icon;
-              return (
-                <div key={i} className="glass-card p-6 border border-white/80 shadow-glass flex flex-col justify-between">
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-teal-50 border border-teal/15 flex items-center justify-center text-teal mb-4">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <h3 className="font-sans font-bold text-base sm:text-lg text-teal-ink mb-2">
-                      {svc.title}
-                    </h3>
-                    <p className="font-serif text-xs sm:text-sm text-muted leading-relaxed">
-                      {svc.desc}
-                    </p>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-teal/10 flex items-center justify-between text-xs font-sans text-teal">
-                    <span className="font-medium">Plan &amp; Self-Managed</span>
-                    <a href="#contact" className="hover:underline font-bold">Enquire &rarr;</a>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-
-          {/* 3 Step Clinical Care Process (Glass Banner) */}
-          <div className="mt-12 glass-card p-6 sm:p-8 border border-white/90 shadow-glass">
-            <h3 className="text-lg font-sans font-bold text-teal-ink mb-6 text-center">
-              How our clinical home nursing starts in 3 straightforward steps:
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 relative">
-              <div className="p-4 rounded-xl bg-white/60 border border-teal/10 relative">
-                <span className="text-2xl font-sans font-bold text-gold block mb-1">01</span>
-                <h4 className="font-sans font-bold text-teal-ink text-base mb-1">Tell us what is needed</h4>
-                <p className="font-serif text-xs sm:text-sm text-muted">
-                  Call or email us with the situation, funding type, and start date. No endless administrative forms to chase.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/60 border border-teal/10 relative">
-                <span className="text-2xl font-sans font-bold text-gold block mb-1">02</span>
-                <h4 className="font-sans font-bold text-teal-ink text-base mb-1">Free in-home assessment</h4>
-                <p className="font-serif text-xs sm:text-sm text-muted">
-                  A registered nurse visits, formulates the care plan, and issues a transparent quote matched to NDIS line items within 2 business days.
-                </p>
-              </div>
-
-              <div className="p-4 rounded-xl bg-white/60 border border-teal/10 relative">
-                <span className="text-2xl font-sans font-bold text-gold block mb-1">03</span>
-                <h4 className="font-sans font-bold text-teal-ink text-base mb-1">Care starts, notes follow</h4>
-                <p className="font-serif text-xs sm:text-sm text-muted">
-                  We assign a consistent nurse, execute the service agreement, and send thorough case notes to your coordinator.
-                </p>
-              </div>
-            </div>
-          </div>
-
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#163932] leading-tight">
+            High-standard clinical care and home support, built for North Queensland.
+          </h2>
+          <p className="text-base sm:text-lg text-[#3A5049] mt-3 font-normal leading-relaxed">
+            From complex clinical nurse interventions to maintaining safe, slip-free homes, we provide hands-on local care for self-managed and plan-managed participants.
+          </p>
         </div>
-      </section>
 
-      {/* HOME & YARD SECTION */}
-      <section id="home" className="scroll-mt-24 py-12 bg-white/30 border-y border-teal/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-sans font-bold tracking-widest text-sage-700 uppercase mb-2">
-                <span className="w-6 h-0.5 bg-gold"></span>
-                <span>Gardening &amp; Cleaning</span>
-              </div>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold font-sans text-teal-ink">
-                A yard you can enjoy, and a home that stays safe
-              </h2>
-              <p className="text-muted font-serif text-base sm:text-lg max-w-2xl mt-2">
-                In tropical North Queensland, a lawn gets out of hand in a fortnight and mould appears in days. Our home and yard crew keeps both under control on a schedule that fits your plan.
-              </p>
-            </div>
-
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 text-sm font-sans font-semibold text-teal hover:text-teal-deep border-b border-teal/30 hover:border-teal pb-1"
-            >
-              <span>Get a yard or clean quote</span>
-              <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
-
-          {/* Grid of Home & Yard Glass Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {homeServices.map((svc, i) => {
-              const Icon = svc.icon;
-              return (
-                <div key={i} className="glass-card p-6 border border-white/80 shadow-glass flex flex-col justify-between">
-                  <div>
-                    <div className="w-12 h-12 rounded-xl bg-sage-pale/60 border border-teal/15 flex items-center justify-center text-teal mb-4">
-                      <Icon className="w-6 h-6" />
+        {/* 3 Prominent Service Pillars */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {servicePillars.map((pillar) => {
+            const Icon = pillar.icon;
+            return (
+              <div 
+                key={pillar.id}
+                className="bg-white rounded-3xl p-7 sm:p-8 border-2 border-[#2D6A5D]/15 shadow-sm hover:shadow-xl hover:border-[#2D6A5D]/30 transition-all duration-300 flex flex-col justify-between"
+              >
+                <div>
+                  {/* Icon & Badge */}
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-14 h-14 rounded-2xl bg-[#2D6A5D]/10 flex items-center justify-center text-[#2D6A5D]">
+                      <Icon className="w-7 h-7" />
                     </div>
-                    <h3 className="font-sans font-bold text-base sm:text-lg text-teal-ink mb-2">
-                      {svc.title}
-                    </h3>
-                    <p className="font-serif text-xs sm:text-sm text-muted leading-relaxed">
-                      {svc.desc}
-                    </p>
+                    <span className="px-3 py-1 rounded-full bg-[#EFECE4] text-[#163932] text-xs font-bold border border-[#2D6A5D]/20">
+                      {pillar.badge}
+                    </span>
                   </div>
-                  <div className="mt-4 pt-3 border-t border-teal/10 flex items-center justify-between text-xs font-sans text-teal">
-                    <span className="font-medium">One-off or Recurring</span>
-                    <a href="#contact" className="hover:underline font-bold">Book Visit &rarr;</a>
-                  </div>
+
+                  {/* Title & Tagline */}
+                  <h3 className="text-2xl font-bold text-[#163932] mb-2">
+                    {pillar.title}
+                  </h3>
+                  <p className="text-sm font-medium text-[#2D6A5D] mb-6">
+                    {pillar.tagline}
+                  </p>
+
+                  {/* Crisp Bullets */}
+                  <ul className="space-y-3 mb-8">
+                    {pillar.bullets.map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-sm text-[#192B27]">
+                        <CheckCircle2 className="w-4 h-4 text-[#2D6A5D] flex-shrink-0 mt-0.5" />
+                        <span className="leading-snug">{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              );
-            })}
-          </div>
 
-          {/* Why a nursing provider mows lawns callout */}
-          <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center glass-card p-6 sm:p-8 border border-white/90 shadow-glass">
-            <div className="lg:col-span-7 space-y-3">
-              <span className="text-xs uppercase tracking-wider font-sans font-bold text-gold-dark">
-                The Townsville Difference
-              </span>
-              <h3 className="text-xl sm:text-2xl font-bold font-sans text-teal-ink">
-                Why does a nursing provider also mow lawns?
-              </h3>
-              <p className="font-serif text-sm sm:text-base text-muted leading-relaxed">
-                Because the two challenges usually arrive together. A participant who cannot easily manage their garden often struggles with safe bathroom access, and a slippery mossy footpath is an injury waiting to happen for someone we already treat for wound care.
-              </p>
-              <p className="font-serif text-sm sm:text-base text-muted leading-relaxed">
-                Having the same trusted local team handle both means <strong>one point of contact</strong>, <strong>one transparent invoice</strong>, and workers who immediately notice when a client’s health or mobility needs have changed.
-              </p>
-            </div>
-
-            <div className="lg:col-span-5 bg-white/70 p-5 rounded-2xl border border-teal/15 space-y-2.5">
-              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-sans font-medium text-teal-ink">
-                <CheckCircle className="w-4 h-4 text-teal flex-shrink-0" />
-                <span>One-off catch-up tidy or regular fortnightly runs</span>
+                {/* Card CTA */}
+                <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-2 text-sm font-bold text-[#2D6A5D] hover:text-[#163932] group"
+                  >
+                    <span>{pillar.cta}</span>
+                    <ArrowRight className="w-4 h-4 text-[#D4A359] group-hover:translate-x-1 transition-transform" />
+                  </a>
+                  <a
+                    href="tel:0431430905"
+                    className="text-xs font-semibold text-gray-500 hover:text-[#163932] flex items-center gap-1"
+                  >
+                    <Phone className="w-3 h-3 text-[#2D6A5D]" />
+                    <span>0431 430 905</span>
+                  </a>
+                </div>
               </div>
-              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-sans font-medium text-teal-ink">
-                <CheckCircle className="w-4 h-4 text-teal flex-shrink-0" />
-                <span>Properties quoted in person before anyone starts</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-sans font-medium text-teal-ink">
-                <CheckCircle className="w-4 h-4 text-teal flex-shrink-0" />
-                <span>The same familiar worker who knows your gates and pets</span>
-              </div>
-              <div className="flex items-center gap-2.5 text-xs sm:text-sm font-sans font-medium text-teal-ink">
-                <CheckCircle className="w-4 h-4 text-teal flex-shrink-0" />
-                <span>Private self-funded clients welcome without any plan needed</span>
-              </div>
-            </div>
-          </div>
-
+            );
+          })}
         </div>
-      </section>
 
-    </div>
+        {/* Quick Clinical Assurance Strip */}
+        <div className="mt-12 p-6 rounded-2xl bg-white border border-[#2D6A5D]/15 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#D4A359]/20 flex items-center justify-center text-[#8C631B] flex-shrink-0">
+              <Clock className="w-5 h-5" />
+            </div>
+            <div>
+              <h4 className="font-bold text-[#163932] text-sm">Need urgent nurse visit or discharge cover?</h4>
+              <p className="text-xs text-gray-600">Townsville University Hospital transitions arranged within 24–48 hours.</p>
+            </div>
+          </div>
+          <a
+            href="tel:0431430905"
+            className="inline-flex items-center gap-2 bg-[#2D6A5D] hover:bg-[#204E44] text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all flex-shrink-0"
+          >
+            <span>Call Alan Direct: 0431 430 905</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
   );
 };

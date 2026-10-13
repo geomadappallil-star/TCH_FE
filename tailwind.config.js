@@ -44,8 +44,8 @@ export default {
         muted: '#5A6C65'
       },
       fontFamily: {
-        serif: ['Lora', 'Georgia', 'serif'],
-        sans: ['Poppins', 'system-ui', '-apple-system', 'sans-serif']
+        sans: ['"Plus Jakarta Sans"', 'Poppins', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Poppins', 'system-ui', 'sans-serif'],
       },
       backdropBlur: {
         xs: '2px',
