@@ -26,8 +26,20 @@ export const NdisSection: React.FC = () => {
   ];
 
   return (
-    <section id="ndis" className="py-14 bg-[#EFECE4]/50 border-y border-[#2D6A5D]/15">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="ndis" className="scroll-mt-20 py-16 sm:py-20 relative overflow-hidden bg-[#FAF9F5] text-[#192B27] border-y border-[#2D6A5D]/15">
+      
+      {/* Background Banner Photo with Soft Regional / Healthcare Wash */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none mix-blend-multiply"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1920&q=85')`
+        }}
+      />
+      
+      {/* Soft Alabaster Wash Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FAF9F5] via-[#FAF9F5]/90 to-[#EFECE4]/80 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Header */}
         <div className="text-center max-w-2xl mx-auto mb-10">
@@ -45,7 +57,7 @@ export const NdisSection: React.FC = () => {
         {/* 3 Compact Funding Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {fundingTypes.map((item, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-2xl border border-[#2D6A5D]/20 shadow-sm flex flex-col justify-between">
+            <div key={idx} className="bg-white p-6 rounded-2xl border-2 border-[#2D6A5D]/15 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
               <div>
                 <span className="inline-block px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#2D6A5D]/10 text-[#2D6A5D] mb-3">
                   {item.badge}

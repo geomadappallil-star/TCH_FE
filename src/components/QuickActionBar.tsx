@@ -15,11 +15,11 @@ export const QuickActionBar: React.FC = () => {
         </a>
 
         <a
-          href="#contact"
+          href="#top"
           className="flex-1 inline-flex items-center justify-center gap-2 bg-white/90 hover:bg-white text-teal-ink font-sans font-bold text-xs sm:text-sm py-3 px-3 rounded-xl border border-teal/20 active:scale-95 transition-all shadow-sm"
         >
           <CalendarPlus className="w-4 h-4 text-teal" />
-          <span>Book or Quote</span>
+          <span>Request Callback</span>
         </a>
 
       </div>

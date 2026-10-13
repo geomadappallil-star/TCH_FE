@@ -64,8 +64,20 @@ export const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="py-16 md:py-24 bg-[#F8F7F3] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="scroll-mt-20 py-16 md:py-24 bg-[#F8F7F3] relative overflow-hidden">
+      
+      {/* Background Banner with Soft In-Home Care Photo */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none mix-blend-multiply"
+        style={{
+          backgroundImage: `url('https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1920&q=80')`
+        }}
+      />
+      
+      {/* Soft Alabaster Wash Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F8F7F3] via-[#F8F7F3]/95 to-[#EFECE4]/90 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="max-w-3xl mb-12">
@@ -123,7 +135,7 @@ export const ServicesSection: React.FC = () => {
                 {/* Card CTA */}
                 <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
                   <a
-                    href="#contact"
+                    href="#top"
                     className="inline-flex items-center gap-2 text-sm font-bold text-[#2D6A5D] hover:text-[#163932] group"
                   >
                     <span>{pillar.cta}</span>

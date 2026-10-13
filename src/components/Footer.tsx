@@ -41,12 +41,10 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="font-bold text-white uppercase tracking-wider text-xs">Our Services</h4>
             <ul className="space-y-2">
-              <li><a href="#nursing" className="hover:text-gold transition-colors">Clinical Nursing at Home</a></li>
-              <li><a href="#allied-health" className="hover:text-gold transition-colors">Allied Health (OT, Physio, Psych)</a></li>
-              <li><a href="#ndis" className="hover:text-gold transition-colors">NDIS Everyday Supports</a></li>
-              <li><a href="#housing" className="hover:text-gold transition-colors">Housing &amp; Accommodation</a></li>
-              <li><a href="#home" className="hover:text-gold transition-colors">Lawn Mowing &amp; Yard Care</a></li>
-              <li><a href="#home" className="hover:text-gold transition-colors">Domestic House Cleaning</a></li>
+              <li><a href="#services" className="hover:text-gold transition-colors">Clinical Nursing at Home</a></li>
+              <li><a href="#services" className="hover:text-gold transition-colors">Allied Health Therapies</a></li>
+              <li><a href="#services" className="hover:text-gold transition-colors">Home &amp; Yard Maintenance</a></li>
+              <li><a href="#units" className="hover:text-gold transition-colors">4 Move-In Units (Townsville)</a></li>
             </ul>
           </div>
 
@@ -54,10 +52,11 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="font-bold text-white uppercase tracking-wider text-xs">Navigation</h4>
             <ul className="space-y-2">
+              <li><a href="#services" className="hover:text-gold transition-colors">Our Services</a></li>
+              <li><a href="#units" className="hover:text-gold transition-colors">4 Move-In Units</a></li>
               <li><a href="#ndis" className="hover:text-gold transition-colors">NDIS Funding Pathways</a></li>
-              <li><a href="#area" className="hover:text-gold transition-colors">Service Area &amp; Suburbs</a></li>
               <li><a href="#jobs" className="hover:text-gold transition-colors">Careers &amp; Join Our Team</a></li>
-              <li><a href="#contact" className="hover:text-gold transition-colors">Make an Enquiry</a></li>
+              <li><a href="#top" className="hover:text-gold transition-colors">Request a Callback</a></li>
             </ul>
           </div>
 

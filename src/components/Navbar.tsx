@@ -22,7 +22,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
     { name: '4 Move-In Units', href: '#units' },
     { name: 'NDIS Funding', href: '#ndis' },
     { name: 'Careers', href: '#jobs' },
-    { name: 'Contact', href: '#contact' },
   ];
 
   return (
@@ -166,11 +165,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 <span>Call Alan: 0431 430 905</span>
               </a>
               <a
-                href="#contact"
+                href="#top"
                 onClick={() => setMobileMenuOpen(false)}
                 className="w-full inline-flex items-center justify-center gap-2 glass-card font-sans font-semibold text-teal-ink py-3 rounded-xl border border-teal/20"
               >
-                <span>Submit Online Enquiry</span>
+                <span>Request a Callback</span>
               </a>
             </div>
           </nav>

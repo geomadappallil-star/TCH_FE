@@ -5,7 +5,6 @@ import { ServicesSection } from './components/ServicesSection.js';
 import { PropertyShowcase } from './components/PropertyShowcase.js';
 import { NdisSection } from './components/NdisSection.js';
 import { CareersSection } from './components/CareersSection.js';
-import { ContactSection } from './components/ContactSection.js';
 import { Footer } from './components/Footer.js';
 import { QuickActionBar } from './components/QuickActionBar.js';
 
@@ -14,7 +13,7 @@ export function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['top', 'services', 'units', 'ndis', 'jobs', 'contact'];
+      const sections = ['top', 'services', 'units', 'ndis', 'jobs'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -46,25 +45,22 @@ export function App() {
       {/* Main Navigation Bar */}
       <Navbar activeSection={activeSection} />
 
-      {/* Main Content Area */}
+      {/* Main Content Area: Alternating Background Banners */}
       <main id="main-content" className="flex-grow">
-        {/* 1. High-Contrast Photo Banner Hero with Crisp Bullet Highlights */}
+        {/* 1. [DARK BANNER] High-Contrast Photo Hero with Quick Callback Card */}
         <PhotoHero />
 
-        {/* 2. Core Services: Clinical Nursing, Allied Health & Home Maintenance (Primary Focus #1) */}
+        {/* 2. [LIGHT BANNER] Core Clinical, Allied Health & Home Services */}
         <ServicesSection />
 
-        {/* 3. Townsville 4 Move-In Units & Accommodation Flyer Highlights (Primary Focus #2) */}
+        {/* 3. [DARK BANNER] Townsville 4 Move-In Units Photo Showcase & Flyer Highlights */}
         <PropertyShowcase />
 
-        {/* 4. Streamlined NDIS Plan Funding & Regional Coverage Bar */}
+        {/* 4. [LIGHT BANNER] NDIS Plan Funding Pathways & Suburb Coverage Strip */}
         <NdisSection />
 
-        {/* 5. Careers Section with Transparent Banner & PDF Resume Upload */}
+        {/* 5. [DARK BANNER] Careers Section with Mentorship Prospects & PDF Resume Upload */}
         <CareersSection />
-
-        {/* 6. Direct Online Enquiry & Booking Form */}
-        <ContactSection />
       </main>
 
       {/* Global Footer */}
