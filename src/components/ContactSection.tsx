@@ -152,32 +152,32 @@ export const ContactSection: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Interactive Glass Intake Form */}
+          {/* Right Column: Interactive Intake Form */}
           <div className="lg:col-span-7">
-            <div className="glass-card p-6 sm:p-10 border border-white/90 shadow-glass">
+            <div className="bg-white p-6 sm:p-10 rounded-3xl border border-gray-200 shadow-xl text-[#192B27]">
               
-              <div className="border-b border-teal/10 pb-4 mb-6">
-                <h3 className="text-xl sm:text-2xl font-bold font-sans text-teal-ink">
+              <div className="border-b border-gray-200 pb-4 mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-[#163932]">
                   Send an Enquiry or Referral
                 </h3>
-                <p className="text-xs sm:text-sm text-muted font-serif mt-1">
+                <p className="text-xs sm:text-sm text-gray-600 mt-1">
                   Tell us a bit about your situation, the supports required, and your timeline.
                 </p>
               </div>
 
               {feedback && (
                 <div
-                  className={`p-4 rounded-xl mb-6 font-sans text-xs sm:text-sm flex items-start gap-3 ${
+                  className={`p-4 rounded-xl mb-6 text-xs sm:text-sm flex items-start gap-3 ${
                     feedback.success
-                      ? 'bg-teal-50/90 text-teal-900 border border-teal/20'
-                      : 'bg-rose-50 text-rose-800 border border-rose-200'
+                      ? 'bg-emerald-50 text-emerald-900 border border-emerald-300'
+                      : 'bg-rose-50 text-rose-800 border border-rose-300'
                   }`}
                 >
-                  <CheckCircle2 className="w-5 h-5 text-teal flex-shrink-0 mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-bold">{feedback.message}</p>
                     {feedback.referenceId && (
-                      <p className="text-xs mt-1 text-teal-700">
+                      <p className="text-xs mt-1 text-emerald-700">
                         Reference ID: <span className="font-mono font-bold">{feedback.referenceId}</span>
                       </p>
                     )}
@@ -185,39 +185,39 @@ export const ContactSection: React.FC = () => {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="space-y-4 font-sans text-xs sm:text-sm">
+              <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-bold text-muted uppercase tracking-wider text-xs mb-1.5">
+                    <label className="block font-bold text-gray-700 uppercase tracking-wider text-xs mb-1.5">
                       I am getting in touch as:
                     </label>
                     <select
                       value={formData.enquiryType}
                       onChange={(e) => setFormData({ ...formData, enquiryType: e.target.value })}
-                      className="glass-input w-full p-3 font-sans text-teal-ink"
+                      className="w-full p-3 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
                     >
                       <option>A participant or family member</option>
                       <option>A support coordinator or plan manager</option>
-                      <option>A healthcare provider needing clinical or allied health support</option>
+                      <option>A healthcare provider needing clinical support</option>
                       <option>Someone after gardening or cleaning</option>
                       <option>A healthcare worker looking for shifts</option>
                     </select>
                   </div>
 
                   <div>
-                    <label className="block font-bold text-muted uppercase tracking-wider text-xs mb-1.5">
+                    <label className="block font-bold text-gray-700 uppercase tracking-wider text-xs mb-1.5">
                       Service of Interest:
                     </label>
                     <select
                       value={formData.service}
                       onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                      className="glass-input w-full p-3 font-sans text-teal-ink"
+                      className="w-full p-3 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
                     >
                       <option>Clinical nursing care</option>
-                      <option>Allied health (OT, Physio, Psychology)</option>
+                      <option>Allied health (OT, Physio)</option>
                       <option>NDIS everyday supports &amp; personal care</option>
-                      <option>Housing &amp; accommodation</option>
+                      <option>Housing &amp; accommodation (4 Units)</option>
                       <option>Gardening &amp; yard maintenance</option>
                       <option>Domestic house cleaning</option>
                       <option>Combined nursing + home care</option>
@@ -228,7 +228,7 @@ export const ContactSection: React.FC = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div>
-                    <label className="block font-bold text-muted uppercase tracking-wider text-xs mb-1.5">
+                    <label className="block font-bold text-gray-700 uppercase tracking-wider text-xs mb-1.5">
                       Your Name *
                     </label>
                     <input
@@ -237,12 +237,12 @@ export const ContactSection: React.FC = () => {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="e.g. David Miller"
-                      className="glass-input w-full p-3 font-sans text-teal-ink"
+                      className="w-full p-3 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-muted uppercase tracking-wider text-xs mb-1.5">
+                    <label className="block font-bold text-gray-700 uppercase tracking-wider text-xs mb-1.5">
                       Phone Number *
                     </label>
                     <input
@@ -251,12 +251,12 @@ export const ContactSection: React.FC = () => {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="0412 345 678"
-                      className="glass-input w-full p-3 font-sans text-teal-ink"
+                      className="w-full p-3 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-muted uppercase tracking-wider text-xs mb-1.5">
+                    <label className="block font-bold text-gray-700 uppercase tracking-wider text-xs mb-1.5">
                       Townsville Suburb
                     </label>
                     <input
@@ -264,14 +264,14 @@ export const ContactSection: React.FC = () => {
                       value={formData.suburb}
                       onChange={(e) => setFormData({ ...formData, suburb: e.target.value })}
                       placeholder="e.g. Kirwan or Burdell"
-                      className="glass-input w-full p-3 font-sans text-teal-ink"
+                      className="w-full p-3 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
                     />
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block font-bold text-muted uppercase tracking-wider text-xs mb-1.5">
+                    <label className="block font-bold text-gray-700 uppercase tracking-wider text-xs mb-1.5">
                       Email Address (Optional)
                     </label>
                     <input
@@ -279,18 +279,18 @@ export const ContactSection: React.FC = () => {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder="david@example.com"
-                      className="glass-input w-full p-3 font-sans text-teal-ink"
+                      className="w-full p-3 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
                     />
                   </div>
 
                   <div>
-                    <label className="block font-bold text-muted uppercase tracking-wider text-xs mb-1.5">
+                    <label className="block font-bold text-gray-700 uppercase tracking-wider text-xs mb-1.5">
                       Funding Arrangement
                     </label>
                     <select
                       value={formData.fundingType}
                       onChange={(e) => setFormData({ ...formData, fundingType: e.target.value })}
-                      className="glass-input w-full p-3 font-sans text-teal-ink"
+                      className="w-full p-3 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
                     >
                       <option>Plan Managed (NDIS)</option>
                       <option>Self Managed (NDIS)</option>
@@ -303,7 +303,7 @@ export const ContactSection: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="block font-bold text-muted uppercase tracking-wider text-xs mb-1.5">
+                  <label className="block font-bold text-gray-700 uppercase tracking-wider text-xs mb-1.5">
                     How can we assist you?
                   </label>
                   <textarea
@@ -311,7 +311,7 @@ export const ContactSection: React.FC = () => {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Tell us about the supports needed, preferred days, or specific clinical care requirements..."
-                    className="glass-input w-full p-3 font-serif text-teal-ink"
+                    className="w-full p-3 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
                   ></textarea>
                 </div>
 
@@ -319,9 +319,9 @@ export const ContactSection: React.FC = () => {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal to-teal-deep text-white font-sans font-bold text-base py-3.5 px-6 rounded-xl shadow-glass-teal hover:opacity-95 transition-all"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#2D6A5D] hover:bg-[#204E44] text-white font-bold text-base py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all"
                   >
-                    <Send className="w-4 h-4 text-gold" />
+                    <Send className="w-4 h-4 text-[#D4A359]" />
                     <span>{submitting ? 'Submitting Enquiry...' : 'Send Enquiry to Alan'}</span>
                   </button>
                 </div>
