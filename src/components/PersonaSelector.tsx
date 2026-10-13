@@ -12,10 +12,10 @@ export const PersonaSelector: React.FC = () => {
       subtitle: 'Self or Plan Managed',
       icon: User,
       heading: 'Care that fits your daily life and respects your home',
-      description: 'You have complete choice and control over who enters your house. Whether you need a regular clinical nurse for complex dressings and catheter changes, or a reliable gardener and house cleaner to keep the property safe, we invoice your plan manager or portal directly with no out-of-pocket costs.',
+      description: 'Direct invoicing to your plan manager or portal with zero out-of-pocket costs. Combine clinical nursing, therapies, and yard care under one friendly local team.',
       keyPoints: [
         'Direct invoicing to your plan manager or NDIA portal',
-        'Same friendly face visiting every week',
+        'Same friendly clinical faces visiting every week',
         'Combined clinical nursing + yard care under one agreement',
         'Free in-home initial nurse assessment within 48 hours'
       ],
@@ -28,12 +28,12 @@ export const PersonaSelector: React.FC = () => {
       subtitle: 'Fast Local Placement',
       icon: ClipboardCheck,
       heading: 'Real answers on clinical availability the same day',
-      description: 'Stop calling around national agencies who promise a nurse in Kirwan and fail to show up. Alan answers your call directly, verifies qualifications against your participant’s plan goals, and provides thorough case notes ready for plan reviews.',
+      description: 'Fast local placement without national call center delays. Alan verifies qualifications against plan goals and delivers thorough case notes.',
       keyPoints: [
         'Quotes & service agreements provided upfront within 24 hours',
         'Detailed case notes and clinical reports written for plan review',
         'Budget-aware scheduling so participants never run out of funds',
-        'Short-notice hospital discharge support from Townsville University Hospital'
+        'Short-notice hospital discharge support in Townsville'
       ],
       ctaText: 'Send Participant Referral',
       ctaHref: '#contact'
@@ -44,11 +44,11 @@ export const PersonaSelector: React.FC = () => {
       subtitle: 'Allied Health & Nursing',
       icon: Building2,
       heading: 'Partner with verified clinical nurses and allied health practitioners',
-      description: 'As a registered provider, you retain participant governance and registration while collaborating with our qualified nursing and allied health team. All staff are fully compliant with NDIS Worker Screening and AHPRA registration.',
+      description: 'Collaborate with qualified AHPRA nurses, occupational therapists, and physiotherapists to support complex participant needs.',
       keyPoints: [
-        'Collaborative partnerships permitted under NDIS regulations',
+        'Compliant subcontracts under NDIS Commission guidelines',
         'RNs, ENs, OTs, Physiotherapists & Psychologists',
-        'Comprehensive notes completed in your organization’s format',
+        'Comprehensive clinical notes completed in your format',
         'Rapid capacity assessments and ongoing care plans'
       ],
       ctaText: 'Request Allied Health & Care',
@@ -60,11 +60,11 @@ export const PersonaSelector: React.FC = () => {
       subtitle: 'Work with TCH',
       icon: Briefcase,
       heading: 'Shifts that suit your life, right here in Townsville',
-      description: 'Are you an RN, EN, AIN, Support Worker, Cleaner, or Gardener? We provide competitive local rates, flexible scheduling (casual, block, or regular rounds), and direct communication with a coordinator who knows the local area.',
+      description: 'Flexible local shifts, supportive leadership, and clear career progression for RNs, ENs, support workers, cleaners, and gardeners.',
       keyPoints: [
-        'Meaningful community & in-home work, not hospital rush',
-        'Full briefing and property safety check before your shift',
-        'Supportive local coordination team that answers the phone',
+        'Meaningful community & in-home care without the hospital rush',
+        'Full handover briefing before every shift',
+        'Clinical skill mentorship & professional development pathways',
         'Casual, regular part-time, or weekend block shifts'
       ],
       ctaText: 'View Open Roles & Apply',

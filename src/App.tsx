@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar.js';
-import { VideoHero } from './components/VideoHero.js';
-import { CareVideoShowcase } from './components/CareVideoShowcase.js';
+import { PhotoHero } from './components/PhotoHero.js';
 import { PersonaSelector } from './components/PersonaSelector.js';
 import { ServicesSection } from './components/ServicesSection.js';
+import { PropertyShowcase } from './components/PropertyShowcase.js';
 import { CostCalculator } from './components/CostCalculator.js';
 import { NdisSection } from './components/NdisSection.js';
 import { AreaChecker } from './components/AreaChecker.js';
 import { ComplianceSection } from './components/ComplianceSection.js';
-import { StaffingSection } from './components/StaffingSection.js';
 import { CareersSection } from './components/CareersSection.js';
 import { ContactSection } from './components/ContactSection.js';
-import { PropertyShowcase } from './components/PropertyShowcase.js';
 import { Footer } from './components/Footer.js';
 import { QuickActionBar } from './components/QuickActionBar.js';
 
@@ -20,7 +18,7 @@ export function App() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['top', 'ndis', 'nursing', 'allied-health', 'home', 'area', 'jobs', 'contact'];
+      const sections = ['top', 'ndis', 'nursing', 'allied-health', 'home', 'housing', 'area', 'jobs', 'contact'];
       const scrollPosition = window.scrollY + 200;
 
       for (const sectionId of sections) {
@@ -41,7 +39,7 @@ export function App() {
   }, []);
 
   return (
-    <div id="top" className="min-h-screen flex flex-col bg-[#F6F4EE] text-[#17241F]">
+    <div id="top" className="min-h-screen flex flex-col bg-[#F8F7F3] text-[#192B27]">
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-teal text-white px-4 py-2 rounded-lg font-sans font-bold shadow-lg"
@@ -54,17 +52,17 @@ export function App() {
 
       {/* Main Content Area */}
       <main id="main-content" className="flex-grow">
-        {/* 1. Cinematic Video Hero with Open-Licensed Nurse & Elder Video */}
-        <VideoHero />
+        {/* 1. Soothing Photo Banner Hero with Crisp Bullet Highlights */}
+        <PhotoHero />
 
-        {/* 2. Visual Care Story & Video Showcase */}
-        <CareVideoShowcase />
-
-        {/* 3. Interactive Persona Switcher (Participant, Coordinator, Provider, Jobseeker) */}
+        {/* 2. Interactive Persona Switcher (Condensed Bullet Cards) */}
         <PersonaSelector />
 
-        {/* 4. Complete Services Showcase (Clinical Nursing, Allied Health, Home & Yard) */}
+        {/* 3. Core Clinical, Allied Health & Home Services (Shortened Bullets) */}
         <ServicesSection />
+
+        {/* 4. Housing & Accommodation Flyer Highlights (Elevated in 2nd Half) */}
+        <PropertyShowcase />
 
         {/* 5. Interactive NDIS Care Hours & Budget Estimator */}
         <CostCalculator />
@@ -78,16 +76,10 @@ export function App() {
         {/* 8. Safeguards & Credential Verification */}
         <ComplianceSection />
 
-        {/* 9. Multidisciplinary Allied Health & Nursing Portal */}
-        <StaffingSection />
-
-        {/* 10. Local Healthcare Careers & Onboarding */}
+        {/* 9. Careers Page Module with Transparent Banner & PDF Resume Upload */}
         <CareersSection />
 
-        {/* 11. Housing & Accommodation Showcase */}
-        <PropertyShowcase />
-
-        {/* 12. Full Online Contact & Referral Booking Form */}
+        {/* 10. Direct Online Enquiry & Booking Form */}
         <ContactSection />
       </main>
 

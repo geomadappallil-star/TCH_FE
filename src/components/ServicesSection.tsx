@@ -28,47 +28,47 @@ export const ServicesSection: React.FC = () => {
     {
       title: 'Wound & Post-Surgical Care',
       icon: Activity,
-      desc: 'Dressing changes, surgical wound care, pressure injury prevention and healing reviews — including tropical wounds that require close inspection through the Townsville wet season.'
+      desc: 'Dressing changes, surgical wound care & tropical wound reviews across Townsville.'
     },
     {
       title: 'Medication Management',
       icon: Pill,
-      desc: 'Webster-pack checks, timely administration, insulin titration, subcutaneous/intramuscular injections, and PRN protocols with clear documentation for your GP and pharmacy.'
+      desc: 'Webster-pack monitoring, insulin titration, injections & documented GP logs.'
     },
     {
       title: 'Enteral Feeding & PEG Care',
       icon: Syringe,
-      desc: 'PEG and NG tube feeding, daily stoma site hygiene, infusion pump calibration, and hands-on sign-off training for family members and support staff taking over between visits.'
+      desc: 'PEG/NG feeding, stoma site hygiene, pump calibration & carer delegation training.'
     },
     {
       title: 'Continence & Catheter Care',
       icon: Droplets,
-      desc: 'Indwelling and suprapubic catheter maintenance, discrete bag changes, bowel care programs, and comprehensive continence assessments on a respectful household schedule.'
+      desc: 'IDC/SPC catheter changes, bowel regimes & respectful continence assessments.'
     },
     {
-      title: 'Complex & High-Intensity Supports',
+      title: 'Complex High-Intensity Supports',
       icon: ShieldAlert,
-      desc: 'Specialized clinical plans for diabetes management, severe epilepsy and seizure protocols, dysphasia/choking risks, and autonomous nurse-governed interventions.'
+      desc: 'Diabetes protocols, seizure management & nurse-governed clinical interventions.'
     },
     {
       title: 'Assessments & Care Plans',
       icon: ClipboardList,
-      desc: 'Formal nursing health assessments, risk matrices, mealtime management plans, and evidence-backed clinical progress reports required for annual NDIS plan reviews.'
+      desc: 'Health assessments, mealtime plans & clinical reports for NDIS plan reviews.'
     },
     {
       title: 'Personal Care & Daily Living',
       icon: UserCheck,
-      desc: 'Assisted showering, dignified dressing, mobility transfers, and morning or evening routines delivered with empathy to keep participants comfortable in their own home.'
+      desc: 'Dignified showering, dressing, transfers & morning/evening home routines.'
     },
     {
-      title: 'Training & Delegation for Support Workers',
+      title: 'Carer Training & Delegation',
       icon: ShieldCheck,
-      desc: 'Delegated task training and competency assessments so a participant\'s regular support workers can safely handle specific clinical tasks between our visits.'
+      desc: 'Task delegation so regular support workers safely handle clinical routines.'
     },
     {
-      title: 'Rapid Hospital-to-Home Discharge',
+      title: 'Rapid Hospital Discharge',
       icon: Clock,
-      desc: 'Short-notice clinical transition from Townsville University Hospital, Mater Health, or Kirwan Rehab — often arranged with nursing staff on site within 24 to 48 hours.'
+      desc: 'Fast transition from Townsville University Hospital with nurses in 24–48 hours.'
     }
   ];
 
@@ -76,47 +76,47 @@ export const ServicesSection: React.FC = () => {
     {
       title: 'Lawn Mowing & Edging',
       icon: Trees,
-      desc: 'Fortnightly runs during the tropical wet season and monthly during dry periods. Edge trimming, driveways blown down, and paths kept completely clear.'
+      desc: 'Fortnightly wet season runs, edge trimming & paths blown clean.'
     },
     {
       title: 'Garden & Yard Tidy-Ups',
       icon: Trees,
-      desc: 'Whipper snipping, weeding, tree hedging, branch pruning, and clearing overgrown garden beds — especially after rapid summer vegetation growth.'
+      desc: 'Whipper snipping, weeding, tree hedging & clearing tropical growth.'
     },
     {
       title: 'Green Waste & Rubbish Removal',
       icon: Trash2,
-      desc: 'All clippings, heavy palms, and garden debris loaded into our trailer and hauled to the transfer station so your verge remains tidy and safe.'
+      desc: 'Heavy palms, branches and debris hauled away to keep verges tidy and safe.'
     },
     {
       title: 'Gutters & Storm Season Prep',
       icon: CloudRain,
-      desc: 'Roof gutter clearing, downpipe unclogging, and securing loose outdoor items before cyclone and monsoonal storm season in North Queensland.'
+      desc: 'Gutter clearing & securing loose items before tropical storm season.'
     },
     {
       title: 'High-Pressure Surface Washing',
       icon: Droplets,
-      desc: 'Concrete driveways, stone footpaths, patios, and pool surrounds stripped of dangerous slippery black mould and algae.'
+      desc: 'Concrete footpaths & patios stripped of dangerous slippery black mould.'
     },
     {
       title: 'Regular House Cleaning',
       icon: Sparkles,
-      desc: 'Kitchens, sanitised bathrooms, vacuuming, mopping, dusting, and general housekeeping on a weekly or fortnightly schedule with the same regular cleaner.'
+      desc: 'Sanitised bathrooms, kitchens, vacuuming & mopping on regular weekly rounds.'
     },
     {
       title: 'Laundry, Linen & Bed Changes',
       icon: Bed,
-      desc: 'Washing, line drying, folding, and fitted sheet changes as part of your scheduled clean, or booked independently for participants with mobility needs.'
+      desc: 'Washing, line drying, folding & fitted sheet changes for mobility comfort.'
     },
     {
       title: 'Deep & Spring Cleans',
       icon: Home,
-      desc: 'Complete reset: ovens, rangehoods, window tracks, ceiling fans, and skirting boards before NDIS inspections or tenancy reviews.'
+      desc: 'Ovens, windows, tracks & ceiling fans reset before tenancy/NDIS reviews.'
     },
     {
-      title: 'Home Safety & Trip Hazard Audits',
+      title: 'Trip Hazard & Safety Audits',
       icon: Shield,
-      desc: 'Clearing obstructed walkways, checking exterior lighting, ensuring ramps are non-slip, and flagging emerging mobility risks to family and coordinators.'
+      desc: 'Clearing obstructed walkways & checking non-slip ramp safety.'
     }
   ];
 
