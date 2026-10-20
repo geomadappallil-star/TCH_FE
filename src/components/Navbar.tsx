@@ -19,7 +19,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
   const navLinks = [
     { name: 'Our Services', href: '#services' },
-    { name: '4 Move-In Units', href: '#units' },
+    { name: 'Home & Living Units', href: '#units' },
     { name: 'NDIS Funding', href: '#ndis' },
     { name: 'Careers', href: '#jobs' },
   ];

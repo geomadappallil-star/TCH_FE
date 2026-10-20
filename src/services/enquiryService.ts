@@ -34,6 +34,39 @@ function getApiBaseUrl(): string {
 }
 
 /**
+ * Direct client-side dispatch to Google Sheets Webhook
+ */
+async function dispatchGoogleSheetSync(payload: any): Promise<void> {
+  const webhookUrl = (import.meta.env.VITE_GOOGLE_SHEET_WEBHOOK_URL || '').trim();
+  if (!webhookUrl) return;
+
+  try {
+    // Google Apps Script redirects with 302; mode 'no-cors' works across browsers without CORS blocking
+    await fetch(webhookUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toLocaleString('en-AU', { timeZone: 'Australia/Brisbane' }),
+        referenceId: payload.referenceId,
+        name: payload.name,
+        phone: payload.phone,
+        email: payload.email || '',
+        suburb: payload.suburb || '',
+        service: payload.service,
+        enquiryType: payload.enquiryType,
+        fundingType: payload.fundingType || '',
+        message: payload.message || ''
+      })
+    });
+  } catch (err) {
+    console.info('[Client Google Sheet Dispatch]', err);
+  }
+}
+
+/**
  * Dispatches an enquiry to Supabase and email notification backend
  */
 export async function submitEnquiry(payload: EnquiryPayload): Promise<ApiResponse> {
@@ -88,6 +121,8 @@ export async function submitEnquiry(payload: EnquiryPayload): Promise<ApiRespons
 
     if (res.ok) {
       const data = await res.json();
+      // Also dispatch direct Google Sheet sync if configured
+      dispatchGoogleSheetSync(sanitized);
       return {
         success: true,
         message: data.message || 'Enquiry successfully submitted.',
@@ -99,6 +134,7 @@ export async function submitEnquiry(payload: EnquiryPayload): Promise<ApiRespons
   }
 
   // Fallback confirmation for local / offline mode
+  dispatchGoogleSheetSync(sanitized);
   return {
     success: true,
     message: 'Enquiry received. Our clinical support team will contact you shortly.',

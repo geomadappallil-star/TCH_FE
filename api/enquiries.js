@@ -7,6 +7,42 @@ const rawPass = process.env.SMTP_PASS || 'zshd tpdx nvzh hlpj';
 const SMTP_PASS = rawPass.replace(/["'\s]/g, '');
 const FORWARD_TO_EMAIL = process.env.FORWARD_TO_EMAIL || 'abeymanoj007@gmail.com';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'admin@tchservices.com.au';
+const GOOGLE_SHEET_WEBHOOK_URL = process.env.GOOGLE_SHEET_WEBHOOK_URL || process.env.VITE_GOOGLE_SHEET_WEBHOOK_URL || '';
+
+async function syncToGoogleSheet(data) {
+  if (!GOOGLE_SHEET_WEBHOOK_URL) {
+    return;
+  }
+  try {
+    const res = await fetch(GOOGLE_SHEET_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toLocaleString('en-AU', {
+          timeZone: 'Australia/Brisbane',
+          dateStyle: 'short',
+          timeStyle: 'medium'
+        }),
+        referenceId: data.referenceId,
+        name: data.name,
+        phone: data.phone,
+        email: data.email || '',
+        suburb: data.suburb || '',
+        service: data.service,
+        enquiryType: data.enquiryType,
+        fundingType: data.fundingType || '',
+        message: data.message || ''
+      })
+    });
+    if (!res.ok) {
+      console.warn('[Google Sheets Sync HTTP Warning]', res.status, res.statusText);
+    }
+  } catch (err) {
+    console.warn('[Google Sheets Sync Error]', err.message || err);
+  }
+}
 
 function createTransporter() {
   return nodemailer.createTransport({
@@ -250,6 +286,9 @@ export default async function handler(req, res) {
         console.warn('Could not send client acknowledgment copy:', clientErr);
       }
     }
+
+    // 3. Sync referral / callback to Google Sheet
+    await syncToGoogleSheet(enquiryData);
 
     return res.status(200).json({
       success: true,

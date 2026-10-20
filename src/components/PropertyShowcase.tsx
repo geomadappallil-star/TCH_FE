@@ -112,7 +112,7 @@ export const PropertyShowcase: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#D4A359] mb-3">
             <span className="w-2 h-2 rounded-full bg-[#D4A359] animate-pulse"></span>
-            <span>4 Units Available Now · Townsville</span>
+            <span>Home &amp; Living Support · Townsville</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
@@ -123,7 +123,7 @@ export const PropertyShowcase: React.FC = () => {
           </h2>
 
           <p className="text-sm sm:text-base text-teal-100 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
-            Four tidy units have just come up in Townsville. Besser block construction keeps them cool through the tropical build-up, with air conditioning throughout, carpeted living and bedrooms, and modern glass-screen bathrooms.
+            Home and living support with units available for participants to live independently. Besser block construction keeps them cool through the tropical build-up, with air conditioning throughout, carpeted living and bedrooms, and modern glass-screen bathrooms.
           </p>
         </div>
 
@@ -230,8 +230,11 @@ export const PropertyShowcase: React.FC = () => {
                 Flyer Highlights
               </span>
               <h3 className="font-bold text-xl sm:text-2xl text-[#163932]">
-                Designed for Cool, Safe &amp; Independent Living
+                Home &amp; Living Support with Units Available
               </h3>
+              <p className="text-xs text-[#5C726B] mt-1 font-medium">
+                Home and living support with units available for participants to live independently.
+              </p>
             </div>
 
             {/* 8 Features Grid */}
@@ -259,7 +262,7 @@ export const PropertyShowcase: React.FC = () => {
                 <span>NDIS Participants Welcome</span>
               </div>
               <p className="text-gray-600 leading-relaxed">
-                Personal care, clinical nursing, cleaning, and yard maintenance can be arranged before moving in.
+                Home and living support, personal care, clinical nursing, cleaning, and yard maintenance can be arranged before moving in.
               </p>
             </div>
 

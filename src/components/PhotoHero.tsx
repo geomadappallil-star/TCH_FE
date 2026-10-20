@@ -68,8 +68,8 @@ export const PhotoHero: React.FC = () => {
     },
     {
       icon: Building2,
-      title: '4 Accessible Units Ready Now',
-      detail: 'Move into cool Besser block units with split-system air-con, ramp access & glass showers in Townsville.'
+      title: 'Home & Living Support',
+      detail: 'Home and living support with units available for participants to live independently in Townsville.'
     }
   ];
 
@@ -92,7 +92,7 @@ export const PhotoHero: React.FC = () => {
         {/* Top Eyebrow Chip */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-emerald-200 mb-6 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-[#D4A359] animate-pulse"></span>
-          <span>Townsville · Ingham · Charters Towers Healthcare &amp; Accommodation</span>
+          <span>Townsville · Ingham · Charters Towers Healthcare &amp; Living Support</span>
         </div>
 
         {/* Hero 2-Column Grid */}
@@ -265,7 +265,7 @@ export const PhotoHero: React.FC = () => {
                   >
                     <option>Clinical nursing care</option>
                     <option>Allied health (OT, Physio)</option>
-                    <option>Housing &amp; accommodation (4 Units Available)</option>
+                    <option>Home and living support with units available for participants to live independently</option>
                     <option>Home &amp; yard maintenance</option>
                     <option>Personal care &amp; everyday living</option>
                     <option>Combined clinical &amp; home supports</option>

@@ -44,7 +44,7 @@ export const Footer: React.FC = () => {
               <li><a href="#services" className="hover:text-gold transition-colors">Clinical Nursing at Home</a></li>
               <li><a href="#services" className="hover:text-gold transition-colors">Allied Health Therapies</a></li>
               <li><a href="#services" className="hover:text-gold transition-colors">Home &amp; Yard Maintenance</a></li>
-              <li><a href="#units" className="hover:text-gold transition-colors">4 Move-In Units (Townsville)</a></li>
+              <li><a href="#units" className="hover:text-gold transition-colors">Home &amp; Living Support (Units)</a></li>
             </ul>
           </div>
 
@@ -53,7 +53,7 @@ export const Footer: React.FC = () => {
             <h4 className="font-bold text-white uppercase tracking-wider text-xs">Navigation</h4>
             <ul className="space-y-2">
               <li><a href="#services" className="hover:text-gold transition-colors">Our Services</a></li>
-              <li><a href="#units" className="hover:text-gold transition-colors">4 Move-In Units</a></li>
+              <li><a href="#units" className="hover:text-gold transition-colors">Home &amp; Living Support</a></li>
               <li><a href="#ndis" className="hover:text-gold transition-colors">NDIS Funding Pathways</a></li>
               <li><a href="#jobs" className="hover:text-gold transition-colors">Careers &amp; Join Our Team</a></li>
               <li><a href="#top" className="hover:text-gold transition-colors">Request a Callback</a></li>
