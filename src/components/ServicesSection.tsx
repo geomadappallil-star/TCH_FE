@@ -19,47 +19,47 @@ export const ServicesSection: React.FC = () => {
     {
       id: 'nursing',
       icon: Stethoscope,
-      title: 'Clinical Nursing Care',
-      tagline: 'Registered Nurse (RN) led clinical treatments at home',
+      title: 'Nursing Supports & Care',
+      tagline: 'Nurse reviews for aged care, clinical treatments & assessments',
       bullets: [
+        'Nurse review for aged care & comprehensive clinical assessments',
         'Complex wound dressings & post-surgical care reviews',
         'Subcutaneous medication administration & injection charts',
         'Enteral feeding management (PEG / NG tube care & hygiene)',
-        'Continence assessments & urinary catheter care (IDC / SPC)',
-        'Rapid hospital discharge transitions (within 24–48 hours)'
+        'Continence assessments & urinary catheter care (IDC / SPC)'
       ],
       badge: 'AHPRA Registered RNs',
-      cta: 'Book Clinical Visit'
+      cta: 'Book Nurse Review'
     },
     {
       id: 'allied-health',
       icon: Activity,
-      title: 'Allied Health Therapies',
-      tagline: 'Functional capacity, independence & therapy support',
+      title: 'Allied Health Services',
+      tagline: 'OT, Physio, Counselling & 2-week FCA assessment reports',
       bullets: [
+        'FCA reports: Functional Capacity Assessments available in 2 weeks',
         'Occupational Therapy (OT) comprehensive home assessments',
-        'Assistive technology & home modification recommendations',
-        'Physiotherapy mobility plans & active fall prevention',
-        'Detailed NDIS review justification & clinical progress reports',
-        'Direct multidisciplinary collaboration with your GP & team'
+        'Physiotherapy (Physio) mobility plans & active fall prevention',
+        'Counselling services & psychosocial emotional well-being',
+        'NDIS review justification & multidisciplinary clinical reports'
       ],
-      badge: 'NDIS Plan Reports',
-      cta: 'Enquire About Therapy'
+      badge: 'FCA Reports in 2 Weeks',
+      cta: 'Book Allied Health'
     },
     {
       id: 'home-care',
       icon: Home,
-      title: 'Home & Yard Maintenance',
-      tagline: 'Keeping Townsville homes safe, accessible & hazard-free',
+      title: 'Gardening & Cleaning Services',
+      tagline: 'Available for Private, NDIS, and VHC (Veterans\' Home Care)',
       bullets: [
+        'Gardening and cleaning services available private, NDIS & VHC',
         'Fortnightly lawn mowing, whipper snipping & edge clearing',
-        'Tropical wet season tidy-ups & cyclone debris removal',
+        'Tropical wet season yard cleanups & palm debris removal',
         'High-pressure washing of slippery mouldy concrete paths',
-        'Domestic decluttering & hygiene routines for fall prevention',
-        'Reliable local crew with full background police screening'
+        'Regular domestic house cleaning, bathroom sanitising & mopping'
       ],
-      badge: 'Screened Local Crews',
-      cta: 'Schedule Yard Care'
+      badge: 'Private · NDIS · VHC',
+      cta: 'Schedule Yard / Cleaning'
     }
   ];
 
@@ -86,10 +86,10 @@ export const ServicesSection: React.FC = () => {
             <span>Our Core Capabilities</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#163932] leading-tight">
-            High-standard clinical care and home support, built for North Queensland.
+            High-standard clinical care, allied health and home supports.
           </h2>
           <p className="text-base sm:text-lg text-[#3A5049] mt-3 font-normal leading-relaxed">
-            From complex clinical nurse interventions to maintaining safe, slip-free homes, we provide hands-on local care for self-managed and plan-managed participants.
+            From 2-week FCA assessment reports and nurse aged care reviews to gardening and cleaning across Private, NDIS, and VHC, we deliver reliable local care in North Queensland.
           </p>
         </div>
 

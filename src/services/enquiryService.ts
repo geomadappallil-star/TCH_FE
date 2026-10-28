@@ -121,8 +121,8 @@ export async function submitEnquiry(payload: EnquiryPayload): Promise<ApiRespons
 
     if (res.ok) {
       const data = await res.json();
-      // Also dispatch direct Google Sheet sync if configured
-      dispatchGoogleSheetSync(sanitized);
+      // Google Sheet sync disabled for now:
+      // dispatchGoogleSheetSync(sanitized);
       return {
         success: true,
         message: data.message || 'Enquiry successfully submitted.',
@@ -134,7 +134,7 @@ export async function submitEnquiry(payload: EnquiryPayload): Promise<ApiRespons
   }
 
   // Fallback confirmation for local / offline mode
-  dispatchGoogleSheetSync(sanitized);
+  // dispatchGoogleSheetSync(sanitized);
   return {
     success: true,
     message: 'Enquiry received. Our clinical support team will contact you shortly.',

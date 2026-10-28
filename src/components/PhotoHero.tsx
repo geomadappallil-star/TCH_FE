@@ -8,7 +8,9 @@ import {
   Home,
   Building2,
   Send, 
-  Clock
+  Clock,
+  FileText,
+  Sparkles
 } from 'lucide-react';
 import { submitQuickCallback } from '../services/enquiryService.js';
 
@@ -52,24 +54,24 @@ export const PhotoHero: React.FC = () => {
 
   const coreBullets = [
     {
-      icon: Stethoscope,
-      title: 'Clinical Nursing Care',
-      detail: 'AHPRA verified RNs for wound dressings, subcutaneous injections, PEG feeding & catheter routines.'
-    },
-    {
-      icon: Activity,
-      title: 'Allied Health Therapies',
-      detail: 'Occupational therapy, physiotherapy mobility assessments & comprehensive NDIS reports.'
-    },
-    {
-      icon: Home,
-      title: 'Home & Yard Maintenance',
-      detail: 'Lawn mowing, high-pressure path cleaning & domestic hygiene to prevent dangerous falls.'
+      icon: FileText,
+      title: 'FCA Reports in 2 Weeks',
+      detail: 'Functional Capacity Assessment (FCA) reports available in 2 weeks. Fast turnaround by certified OTs.'
     },
     {
       icon: Building2,
-      title: 'Home & Living Support',
-      detail: 'Home and living support with units available for participants to live independently in Townsville.'
+      title: '1 & 2-Bed Units Immediate',
+      detail: 'One-bedroom and two-bedroom units available immediately for independent living in Townsville.'
+    },
+    {
+      icon: Sparkles,
+      title: 'Gardening & Cleaning Services',
+      detail: 'Lawn mowing, yard care & housekeeping available for Private, NDIS, and VHC (Veterans\' Home Care).'
+    },
+    {
+      icon: Stethoscope,
+      title: 'Nursing & Allied Health',
+      detail: 'Nurse reviews for aged care & clinical assessments. Allied health services including OT, Physio & Counselling.'
     }
   ];
 
@@ -92,7 +94,7 @@ export const PhotoHero: React.FC = () => {
         {/* Top Eyebrow Chip */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-emerald-200 mb-6 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-[#D4A359] animate-pulse"></span>
-          <span>Townsville · Ingham · Charters Towers Healthcare &amp; Living Support</span>
+          <span>Townsville · Ingham · Charters Towers | Private, NDIS &amp; VHC Approved</span>
         </div>
 
         {/* Hero 2-Column Grid */}
@@ -107,7 +109,7 @@ export const PhotoHero: React.FC = () => {
                 <span className="text-[#D4A359] block mt-1 font-extrabold">at your doorstep.</span>
               </h1>
               <p className="text-sm sm:text-base text-teal-100 mt-3 max-w-xl font-normal leading-relaxed">
-                Locally owned and based in Townsville. Supporting self-managed and plan-managed participants with personalized clinical care and independent home living.
+                Locally owned and based in Townsville. Supporting self-managed, plan-managed NDIS, private, and VHC participants with prompt clinical nursing, 2-week FCA reports, and independent living.
               </p>
             </div>
 
@@ -150,7 +152,7 @@ export const PhotoHero: React.FC = () => {
                 href="#units"
                 className="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 text-white font-semibold text-sm sm:text-base px-5 py-3.5 rounded-full hover:-translate-y-0.5 transition-all"
               >
-                <span>View 4 Move-In Units</span>
+                <span>View 1 &amp; 2-Bed Units</span>
                 <ArrowRight className="w-4 h-4 text-[#D4A359]" />
               </a>
             </div>
@@ -158,13 +160,16 @@ export const PhotoHero: React.FC = () => {
             {/* Trust Footer line */}
             <div className="flex flex-wrap items-center gap-4 text-xs text-teal-200/90 pt-1">
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#D4A359]" /> AHPRA Registered RNs
+                <CheckCircle2 className="w-4 h-4 text-[#D4A359]" /> 2-Week FCA Reports
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#D4A359]" /> NDIS Self &amp; Plan-Managed
+                <CheckCircle2 className="w-4 h-4 text-[#D4A359]" /> 1 &amp; 2 Bed Units Ready
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#D4A359]" /> Direct Clinician Contact
+                <CheckCircle2 className="w-4 h-4 text-[#D4A359]" /> Private, NDIS &amp; VHC
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-[#D4A359]" /> Nurse Aged Care Reviews
               </span>
             </div>
 
@@ -263,11 +268,12 @@ export const PhotoHero: React.FC = () => {
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                     className="w-full p-2.5 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
                   >
-                    <option>Clinical nursing care</option>
-                    <option>Allied health (OT, Physio)</option>
+                    <option>FCA Report (Functional Capacity Assessment - 2 Weeks)</option>
+                    <option>Allied Health (OT, Physio, Counselling)</option>
+                    <option>Nursing Supports &amp; Aged Care Reviews</option>
+                    <option>One &amp; Two-Bedroom Units (Immediate Move-In)</option>
+                    <option>Gardening &amp; Cleaning (Private, NDIS, VHC)</option>
                     <option>Home and living support with units available for participants to live independently</option>
-                    <option>Home &amp; yard maintenance</option>
-                    <option>Personal care &amp; everyday living</option>
                     <option>Combined clinical &amp; home supports</option>
                   </select>
                 </div>

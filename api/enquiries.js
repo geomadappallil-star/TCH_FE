@@ -5,7 +5,7 @@ const SMTP_PORT = parseInt(process.env.SMTP_PORT || '465', 10);
 const SMTP_USER = process.env.SMTP_USER || 'admin@tchservices.com.au';
 const rawPass = process.env.SMTP_PASS || 'zshd tpdx nvzh hlpj';
 const SMTP_PASS = rawPass.replace(/["'\s]/g, '');
-const FORWARD_TO_EMAIL = process.env.FORWARD_TO_EMAIL || 'abeymanoj007@gmail.com';
+const FORWARD_TO_EMAIL = process.env.FORWARD_TO_EMAIL || 'admin@tchservices.com.au';
 const FROM_EMAIL = process.env.FROM_EMAIL || 'admin@tchservices.com.au';
 const GOOGLE_SHEET_WEBHOOK_URL = process.env.GOOGLE_SHEET_WEBHOOK_URL || process.env.VITE_GOOGLE_SHEET_WEBHOOK_URL || '';
 
@@ -264,7 +264,7 @@ export default async function handler(req, res) {
     // Send emails via SMTP
     const transporter = createTransporter();
 
-    // 1. Forward lead to abeymanoj007@gmail.com
+    // 1. Forward lead to admin@tchservices.com.au
     await transporter.sendMail({
       from: `"TCH Support Services" <${FROM_EMAIL}>`,
       to: FORWARD_TO_EMAIL,
@@ -287,8 +287,8 @@ export default async function handler(req, res) {
       }
     }
 
-    // 3. Sync referral / callback to Google Sheet
-    await syncToGoogleSheet(enquiryData);
+    // 3. Sync referral / callback to Google Sheet (disabled for now)
+    // await syncToGoogleSheet(enquiryData);
 
     return res.status(200).json({
       success: true,

@@ -14,9 +14,14 @@ export const NdisSection: React.FC = () => {
       desc: 'Clear itemized tax invoices with NDIS line items for fast 24h reimbursement via the NDIA myplace portal.'
     },
     {
-      title: 'Home Care Packages (HCP)',
-      badge: 'Aged Care & Private',
-      desc: 'Delivered in partnership with your approved package provider, or private top-up care when packages fall short.'
+      title: 'VHC (Veterans\' Home Care)',
+      badge: 'DVA & Veterans',
+      desc: 'Gardening, yard care, and domestic cleaning supports approved for eligible veterans and families.'
+    },
+    {
+      title: 'Private & Home Care (HCP)',
+      badge: 'Private & Aged Care',
+      desc: 'Direct self-funded support or in partnership with your approved Home Care Package provider.'
     }
   ];
 
@@ -47,15 +52,15 @@ export const NdisSection: React.FC = () => {
             Funding Pathways &amp; Coverage
           </span>
           <h2 className="text-2xl sm:text-3xl font-bold text-[#163932]">
-            Self-Managed &amp; Plan-Managed NDIS Welcome
+            Private, NDIS, HCP &amp; VHC Welcome
           </h2>
           <p className="text-sm text-gray-600 mt-2">
-            Complete freedom to choose your local nurses, therapists, and home support workers with zero paperwork delays.
+            Complete freedom to choose your local nurses, therapists, gardening and cleaning teams with zero paperwork delays.
           </p>
         </div>
 
-        {/* 3 Compact Funding Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        {/* 4 Compact Funding Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           {fundingTypes.map((item, idx) => (
             <div key={idx} className="bg-white p-6 rounded-2xl border-2 border-[#2D6A5D]/15 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
               <div>

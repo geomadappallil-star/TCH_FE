@@ -323,7 +323,7 @@ export const CareersSection: React.FC = () => {
                 >
                   <option>Registered Nurse (RN)</option>
                   <option>Enrolled Nurse (EN)</option>
-                  <option>Allied Health (OT / Physio / Psychology)</option>
+                  <option>Allied Health (OT / Physio / Counselling)</option>
                   <option>Disability Support Worker</option>
                   <option>Domestic House Cleaner</option>
                   <option>Lawn Mower &amp; Yard Care Specialist</option>

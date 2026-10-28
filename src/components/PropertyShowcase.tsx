@@ -81,6 +81,7 @@ export const PropertyShowcase: React.FC = () => {
   };
 
   const propertyFeatures = [
+    { icon: Home, title: '1-Bedroom & 2-Bedroom layouts' },
     { icon: Wind, title: 'Air conditioning & ceiling fans throughout' },
     { icon: Layers, title: 'Built-in robes with mirrored doors' },
     { icon: Sparkles, title: 'Modern bathroom with glass shower' },
@@ -88,7 +89,6 @@ export const PropertyShowcase: React.FC = () => {
     { icon: ShieldCheck, title: 'Security screens throughout' },
     { icon: Accessibility, title: 'Step-free deck and ramp access' },
     { icon: Car, title: 'Dedicated off-street parking' },
-    { icon: Trees, title: 'Low maintenance, peaceful yard' },
   ];
 
   return (
@@ -112,18 +112,18 @@ export const PropertyShowcase: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#D4A359] mb-3">
             <span className="w-2 h-2 rounded-full bg-[#D4A359] animate-pulse"></span>
-            <span>Home &amp; Living Support · Townsville</span>
+            <span>1 &amp; 2-Bedroom Units Available Immediately · Townsville</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
-            Four tidy units,{' '}
+            One &amp; two-bedroom units,{' '}
             <span className="text-[#D4A359]">
-              ready to move into.
+              available immediately.
             </span>
           </h2>
 
           <p className="text-sm sm:text-base text-teal-100 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
-            Home and living support with units available for participants to live independently. Besser block construction keeps them cool through the tropical build-up, with air conditioning throughout, carpeted living and bedrooms, and modern glass-screen bathrooms.
+            Home and living support with units available for participants to live independently. One-bedroom and two-bedroom layouts ready for immediate move-in in Townsville. Besser block construction keeps them cool through the tropical build-up, with air conditioning throughout, carpeted living and bedrooms, and modern glass-screen bathrooms.
           </p>
         </div>
 
@@ -230,10 +230,10 @@ export const PropertyShowcase: React.FC = () => {
                 Flyer Highlights
               </span>
               <h3 className="font-bold text-xl sm:text-2xl text-[#163932]">
-                Home &amp; Living Support with Units Available
+                1 &amp; 2-Bedroom Units Available Immediately
               </h3>
               <p className="text-xs text-[#5C726B] mt-1 font-medium">
-                Home and living support with units available for participants to live independently.
+                Home and living support with one-bedroom and two-bedroom units available immediately for participants to live independently.
               </p>
             </div>
 

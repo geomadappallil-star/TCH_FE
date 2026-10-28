@@ -19,8 +19,8 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
   const navLinks = [
     { name: 'Our Services', href: '#services' },
-    { name: 'Home & Living Units', href: '#units' },
-    { name: 'NDIS Funding', href: '#ndis' },
+    { name: '1 & 2-Bed Units', href: '#units' },
+    { name: 'NDIS & Funding', href: '#ndis' },
     { name: 'Careers', href: '#jobs' },
   ];
 
@@ -38,7 +38,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               <Sparkles className="w-3.5 h-3.5" /> Locally Owned &amp; Based in Townsville
             </span>
             <span className="text-teal-400">|</span>
-            <span>Self-Managed &amp; Plan-Managed NDIS Welcome</span>
+            <span>NDIS, Private &amp; VHC Approved</span>
             <span className="text-teal-400">|</span>
             <span className="flex items-center gap-1 text-sage-200">
               <ShieldCheck className="w-3.5 h-3.5 text-sage-pale" /> AHPRA Verified RNs &amp; Screened Crews
