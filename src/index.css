@@ -226,4 +226,63 @@
   .animate-cyclic:hover {
     animation-play-state: paused;
   }
+
+  /* Smooth horizontal ticker (Right-to-Left) */
+  @keyframes tickerRTL {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  /* Smooth horizontal ticker (Left-to-Right) */
+  @keyframes tickerLTR {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+
+  .animate-ticker-rtl {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: tickerRTL 16s linear infinite;
+  }
+  .animate-ticker-rtl:hover {
+    animation-play-state: paused;
+  }
+
+  .animate-ticker-ltr {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: tickerLTR 16s linear infinite;
+  }
+  .animate-ticker-ltr:hover {
+    animation-play-state: paused;
+  }
+
+  /* Butterflow-style ultra-smooth cubic-bezier transition */
+  .transition-butterflow {
+    transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Depth of field background image animation */
+  @keyframes depthBackdropZoom {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.06);
+    }
+  }
+
+  .backdrop-zoom-subtle {
+    animation: depthBackdropZoom 12s ease-in-out infinite alternate;
+  }
 }

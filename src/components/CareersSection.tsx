@@ -168,9 +168,9 @@ export const CareersSection: React.FC = () => {
   return (
     <section id="jobs" className="py-20 sm:py-28 relative overflow-hidden bg-[#0A241F] text-white">
       
-      {/* 1. Real Project Clinical Team Background Photo (Clear & sharp) */}
+      {/* 1. Real Project Clinical Team Background Photo with Butterflow Depth Motion */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 pointer-events-none mix-blend-luminosity scale-105"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 pointer-events-none mix-blend-luminosity scale-105 backdrop-zoom-subtle transition-butterflow duration-1000"
         style={{
           backgroundImage: `url('./images/careers-bg.jpg')`
         }}
@@ -345,23 +345,23 @@ export const CareersSection: React.FC = () => {
 
           </div>
 
-          {/* Right Column (5 cols): Handcrafted Application Console */}
-          <div className="lg:col-span-5 bg-white p-6 sm:p-8 rounded-3xl shadow-2xl border-t-4 border-[#D4A359] border-x border-b border-gray-100 text-[#182823] space-y-5">
+          {/* Right Column (5 cols): Handcrafted Application Console (No AI Box) */}
+          <div className="lg:col-span-5 bg-[#FCFAF7] border border-[#E2DBD0] p-6 sm:p-7 rounded-2xl shadow-xl text-[#182823] space-y-5">
             
             {/* Form Header */}
-            <div>
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs uppercase tracking-widest font-bold text-[#164E43] block">
+            <div className="border-b border-[#E8E2D7] pb-3.5">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest font-bold text-[#164E43] block">
                   Expression of Interest
                 </span>
-                <span className="px-2.5 py-0.5 rounded-full bg-[#FAF3E7] text-[#9E6C1F] text-[11px] font-bold border border-[#E8D1A7]">
+                <span className="px-2.5 py-0.5 rounded-md bg-[#FAF3E7] text-[#9E6C1F] text-[11px] font-bold border border-[#E8D1A7]">
                   Confidential
                 </span>
               </div>
               <h3 className="font-bold text-2xl text-[#0E352D] tracking-tight leading-snug">
                 Submit Your Expression of Interest &amp; Resume
               </h3>
-              <p className="text-xs sm:text-sm text-gray-600 mt-1.5 leading-relaxed">
+              <p className="text-xs sm:text-sm text-stone-600 mt-1.5 leading-relaxed font-medium">
                 Upload your CV and cover letter below. Alan reviews all applications directly.
               </p>
             </div>

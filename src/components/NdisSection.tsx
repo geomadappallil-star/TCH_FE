@@ -56,25 +56,25 @@ export const NdisSection: React.FC = () => {
           </p>
         </div>
 
-        {/* 4 Compact Funding Cards */}
+        {/* 4 Compact Funding Columns (Refined Architectural Styling) */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {fundingTypes.map((item, idx) => (
             <div 
               key={idx} 
-              className="care-card p-6 sm:p-7 flex flex-col justify-between"
+              className="bg-[#FCFAF7] border border-[#E2DBD0] p-6 sm:p-7 rounded-2xl flex flex-col justify-between shadow-sm hover:shadow-md hover:border-[#164E43]/40 transition-all"
             >
               <div>
-                <span className={`inline-block px-3 py-1 rounded-full text-[11px] font-bold border mb-4 ${item.badgeStyle}`}>
+                <span className={`inline-block px-3 py-1 rounded-md text-[11px] font-bold border mb-4 ${item.badgeStyle}`}>
                   {item.badge}
                 </span>
-                <h3 className="font-bold text-lg text-[#0E352D] mb-2.5">
+                <h3 className="font-bold text-lg text-[#0E352D] mb-2.5 tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-xs sm:text-sm text-gray-600 leading-relaxed">
+                <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
                   {item.desc}
                 </p>
               </div>
-              <div className="mt-6 pt-4 border-t border-gray-100 flex items-center gap-2 text-xs font-semibold text-[#164E43]">
+              <div className="mt-6 pt-4 border-t border-[#E8E2D7] flex items-center gap-2 text-xs font-semibold text-[#164E43]">
                 <CheckCircle2 className="w-4 h-4 text-[#D4A359]" />
                 <span>Zero Hidden Fees</span>
               </div>

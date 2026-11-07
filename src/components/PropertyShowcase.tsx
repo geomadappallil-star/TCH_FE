@@ -14,7 +14,6 @@ import {
   Accessibility, 
   Calendar,
   Layers,
-  MapPin,
   CheckCircle2,
   Clock,
   Eye
@@ -112,19 +111,17 @@ export const PropertyShowcase: React.FC = () => {
     <section id="units" className="scroll-mt-20 py-20 sm:py-28 relative overflow-hidden bg-[#0A2620] text-white">
       <div id="housing" className="scroll-mt-20"></div>
       
-      {/* 1. Real Unit Exterior Photo Atmospheric Layer */}
+      {/* 1. Dynamic Room Photo Atmospheric Background Layer (Transitions smoothly with active room) */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 pointer-events-none mix-blend-luminosity scale-105 transition-transform duration-1000"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 pointer-events-none mix-blend-luminosity scale-105 transition-butterflow duration-1000"
         style={{
-          backgroundImage: `url('./images/units/unit-exterior.jpg')`
+          backgroundImage: `url('${slides[currentSlide].src}')`
         }}
       />
       
-      {/* 2. Deep Eucalyptus Gradient Overlays for High-Contrast Readability */}
+      {/* 2. Deep Eucalyptus Gradient Overlays */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0A2620] via-[#0E352D]/95 to-[#081F1A] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,rgba(22,78,67,0.35),transparent)] pointer-events-none" />
-      
-      {/* 3. Subtle Tactile Grid Pattern */}
       <div className="absolute inset-0 pattern-grid-dark opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -132,7 +129,7 @@ export const PropertyShowcase: React.FC = () => {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
           
-          {/* Eyebrow Pill with Pulsing Live Status */}
+          {/* Eyebrow Pill */}
           <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-[#E5B56A] mb-5 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-[#E5B56A] animate-pulse"></span>
             <span>1 &amp; 2-Bedroom Units Available Immediately · Townsville</span>
@@ -195,10 +192,12 @@ export const PropertyShowcase: React.FC = () => {
                   onClick={() => setCurrentSlide(idx)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${
                     currentSlide === idx
-                      
+                      ? 'bg-[#D4A359] text-[#0A2620] shadow-md font-bold'
+                      : 'bg-white/10 text-teal-100/80 hover:bg-white/15 hover:text-white border border-white/10'
                   }`}
                 >
-                  
+                  <span className={`w-1.5 h-1.5 rounded-full ${currentSlide === idx ? 'bg-[#0A2620]' : 'bg-[#D4A359]'}`} />
+                  <span>{s.tag}</span>
                 </button>
               ))}
             </div>
@@ -209,7 +208,7 @@ export const PropertyShowcase: React.FC = () => {
               {/* Active Image */}
               <img
                 src={slides[currentSlide].src}
-                
+                alt={slides[currentSlide].title}
                 className="w-full h-full object-cover cursor-pointer transition-transform duration-700 group-hover:scale-105"
                 onClick={() => setModalImage(slides[currentSlide].src)}
               />
@@ -289,11 +288,13 @@ export const PropertyShowcase: React.FC = () => {
                       : 'border-white/15 opacity-65 hover:opacity-100 hover:border-white/40'
                   }`}
                 >
-                  <img src={s.src}  className="w-full h-full object-cover" />
+                  <img src={s.src} alt={s.title} className="w-full h-full object-cover" />
                   <div className={`absolute inset-0 transition-opacity ${
                     currentSlide === idx ? 'bg-transparent' : 'bg-black/30 group-hover:bg-transparent'
                   }`} />
-                 
+                  <span className="absolute bottom-1 inset-x-1 text-[9px] sm:text-[10px] font-bold text-white text-center truncate bg-black/60 backdrop-blur-xs rounded px-1 py-0.5">
+                    {s.tag}
+                  </span>
                 </button>
               ))}
             </div>
@@ -321,68 +322,62 @@ export const PropertyShowcase: React.FC = () => {
 
           </div>
 
-          {/* Right Column (5 cols): Living Features & Tenancy Dossier Card */}
-          <div className="lg:col-span-5 bg-white text-[#182823] p-6 sm:p-8 rounded-3xl shadow-2xl border-t-4 border-[#D4A359] border-x border-b border-gray-100 space-y-6">
+          {/* Right Column (5 cols): Living Features & Tenancy Dossier Card (No AI Box) */}
+          <div className="lg:col-span-5 bg-[#FCFAF7] border border-[#E2DBD0] text-[#182823] p-6 sm:p-7 rounded-2xl shadow-xl space-y-6">
             
             {/* Dossier Header */}
-            <div>
-              <div className="flex items-center justify-between mb-1.5">
-                <span className="text-xs uppercase tracking-widest font-bold text-[#164E43] block">
+            <div className="border-b border-[#E8E2D7] pb-4">
+              <div className="flex items-center justify-between mb-1">
+                <span className="text-[10px] font-mono uppercase tracking-widest font-bold text-[#164E43] block">
                   Flyer Highlights
                 </span>
-                <span className="px-2.5 py-0.5 rounded-full bg-[#FAF3E7] text-[#9E6C1F] text-[11px] font-bold border border-[#E8D1A7]">
+                <span className="px-2.5 py-0.5 rounded-md bg-[#FAF3E7] text-[#9E6C1F] text-[11px] font-bold border border-[#E8D1A7]">
                   Move-In Ready
                 </span>
               </div>
               <h3 className="font-bold text-2xl text-[#0E352D] tracking-tight leading-tight">
                 1 &amp; 2-Bedroom Units Available Immediately
               </h3>
-              <p className="text-xs sm:text-sm text-gray-600 mt-2 font-medium leading-relaxed">
+              <p className="text-xs sm:text-sm text-stone-600 mt-2 font-medium leading-relaxed">
                 Home and living support with one-bedroom and two-bedroom units available immediately for participants to live independently.
               </p>
             </div>
 
-            {/* 8 Crisp Features Matrix */}
+            {/* 8 Crisp Features Matrix (Open Architectural Checklist - No Boxes in Boxes) */}
             <div>
-              <h4 className="text-[11px] uppercase font-bold tracking-wider text-gray-400 mb-2.5">
+              <h4 className="text-[10px] font-mono uppercase tracking-widest font-bold text-[#164E43] mb-3">
                 What's Included &amp; Built-In
               </h4>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {propertyFeatures.map((feat, fIdx) => {
-                  const Icon = feat.icon;
-                  return (
-                    <div 
-                      key={fIdx} 
-                      className="p-3 rounded-xl bg-[#FAF8F5] border border-gray-200/80 flex items-center gap-2.5 text-xs text-[#0E352D] font-semibold hover:border-[#164E43]/30 transition-colors"
-                    >
-                      <div className="w-7 h-7 rounded-lg bg-[#164E43]/10 text-[#164E43] flex items-center justify-center flex-shrink-0">
-                        <Icon className="w-4 h-4" />
-                      </div>
-                      <span className="leading-snug">{feat.title}</span>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-3">
+                {propertyFeatures.map((feat, fIdx) => (
+                  <div key={fIdx} className="flex items-start gap-2.5 text-xs text-stone-800 font-medium">
+                    <div className="w-5 h-5 rounded-md bg-[#164E43]/10 text-[#164E43] flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <Check className="w-3.5 h-3.5 stroke-[2.5]" />
                     </div>
-                  );
-                })}
+                    <span className="leading-snug">{feat.title}</span>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* NDIS Participants Welcome Banner */}
-            <div className="p-4 rounded-2xl bg-emerald-50/90 border border-emerald-200 text-xs text-emerald-950 space-y-1.5 shadow-xs">
+            <div className="p-4 rounded-xl bg-[#EFF5F0] border border-[#CFE0D3] text-xs text-emerald-950 space-y-1">
               <div className="flex items-center gap-2 font-bold text-[#0E352D]">
                 <Check className="w-4 h-4 text-emerald-600 stroke-[3]" />
                 <span>NDIS Participants Welcome</span>
               </div>
-              <p className="text-gray-600 leading-relaxed text-[11px] sm:text-xs">
+              <p className="text-stone-600 leading-relaxed text-[11px] sm:text-xs">
                 Home and living support, personal care, clinical nursing, cleaning, and yard maintenance can be arranged before moving in.
               </p>
             </div>
 
             {/* Direct Booking & Inspection Card */}
-            <div className="p-5 rounded-2xl bg-[#0E352D] text-white space-y-3.5 shadow-lg">
+            <div className="p-5 rounded-xl bg-[#0E352D] text-white space-y-3.5 shadow-md">
               <div className="flex justify-between items-center">
                 <span className="text-xs text-emerald-200 font-semibold uppercase tracking-wider">
                   Inspections &amp; Move-In
                 </span>
-                <span className="px-2.5 py-0.5 rounded-full bg-[#D4A359] text-[#0A2620] text-[11px] font-bold">
+                <span className="px-2.5 py-0.5 rounded-md bg-[#D4A359] text-[#0A2620] text-[11px] font-bold">
                   By Appointment
                 </span>
               </div>
