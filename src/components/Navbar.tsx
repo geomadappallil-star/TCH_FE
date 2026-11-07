@@ -27,26 +27,27 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   return (
     <header className={`sticky top-0 z-50 transition-all duration-300 ${
       scrolled 
-        ? 'glass-nav bg-[#F6F4EE]/90 backdrop-blur-xl border-b border-teal/15 shadow-sm' 
-        : 'bg-[#F6F4EE]/80 backdrop-blur-md border-b border-teal/10'
+        ? 'glass-nav bg-[#FAF8F5]/95 backdrop-blur-xl border-b border-[#164E43]/15 shadow-sm' 
+        : 'bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#164E43]/10'
     }`}>
       {/* Top micro-bar for quick local credibility */}
-      <div className="hidden md:block bg-gradient-to-r from-teal-900 via-teal-800 to-teal-900 text-teal-100 text-xs py-1.5 px-4 font-sans">
+      <div className="hidden md:block bg-gradient-to-r from-[#0A241F] via-[#0E352D] to-[#0A241F] text-teal-100 text-xs py-2 px-4 font-sans">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="flex items-center gap-1 text-gold">
+            <span className="flex items-center gap-1.5 text-[#E5B56A] font-semibold">
               <Sparkles className="w-3.5 h-3.5" /> Locally Owned &amp; Based in Townsville
             </span>
-            <span className="text-teal-400">|</span>
-            <span>NDIS, Private &amp; VHC Approved</span>
-            <span className="text-teal-400">|</span>
-            <span className="flex items-center gap-1 text-sage-200">
-              <ShieldCheck className="w-3.5 h-3.5 text-sage-pale" /> AHPRA Verified RNs &amp; Screened Crews
+            <span className="text-teal-600">|</span>
+            <span className="text-teal-200">NDIS, Private &amp; VHC Approved</span>
+            <span className="text-teal-600">|</span>
+            <span className="flex items-center gap-1.5 text-emerald-200">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-300" /> AHPRA Verified RNs &amp; Screened Crews
             </span>
           </div>
-          <div className="flex items-center gap-4 text-xs font-medium">
-            <span>Direct Coordinator Hotline:</span>
-            <a href="tel:0431430905" className="text-white hover:text-gold transition-colors font-bold">
+          <div className="flex items-center gap-3 text-xs font-medium">
+            <span className="text-teal-200">Direct Coordinator Hotline:</span>
+            <a href="tel:0431430905" className="text-white hover:text-[#E5B56A] transition-colors font-bold flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
               0431 430 905
             </a>
           </div>
@@ -58,7 +59,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         <div className="flex items-center justify-between h-20">
           
           {/* Brand Logo & Name */}
-          <a href="#top" className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-gold rounded-lg p-1">
+          <a href="#top" className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#D4A359] rounded-xl p-1 transition-transform">
             <div className="w-10 h-10 relative flex-shrink-0">
               <svg viewBox="0 0 96 104.5" className="w-full h-full drop-shadow-sm transition-transform duration-300 group-hover:scale-105" aria-hidden="true">
                 <path fill="#E3A83B" d="M51.01 12.6c0 3.85-5.78 3.85-5.78 0s5.78-3.85 5.78 0z"/>
@@ -70,52 +71,55 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               </svg>
             </div>
             <div>
-              <span className="block font-sans font-bold text-lg leading-tight text-teal-900 group-hover:text-teal tracking-tight">
+              <span className="block font-sans font-bold text-lg leading-tight text-[#0E352D] group-hover:text-[#164E43] tracking-tight">
                 TCH Support Services
               </span>
-              <span className="block font-sans text-[11px] font-semibold uppercase tracking-wider text-sage-700">
+              <span className="block font-sans text-[11px] font-semibold uppercase tracking-wider text-[#566B64]">
                 Nursing · Allied Health · Home &amp; Yard
               </span>
             </div>
           </a>
 
-          {/* Desktop Navigation Links with Glass Pill indicator */}
-          <nav className="hidden lg:flex items-center gap-1 font-sans font-medium text-sm text-muted">
+          {/* Desktop Navigation Links with Colorful Hover & Active Indicator */}
+          <nav className="hidden lg:flex items-center gap-2 font-sans font-bold text-sm">
             {navLinks.map((link) => {
               const isActive = activeSection === link.href.substring(1);
               return (
                 <a
                   key={link.name}
                   href={link.href}
-                  className={`px-3.5 py-2 rounded-full transition-all duration-200 ${
+                  className={`px-4 py-2 rounded-full transition-all duration-200 border flex items-center gap-2 ${
                     isActive
-                      ? 'bg-white/80 text-teal-ink font-semibold shadow-sm border border-teal/15 backdrop-blur-md'
-                      : 'hover:text-teal-deep hover:bg-white/40'
+                      ? 'bg-[#164E43] text-[#E5B56A] border-[#164E43] shadow-md shadow-[#164E43]/20'
+                      : 'text-[#2D453E] border-transparent hover:bg-[#164E43] hover:text-[#E5B56A] hover:border-[#164E43] hover:shadow-md hover:shadow-[#164E43]/20 hover:-translate-y-0.5'
                   }`}
                 >
-                  {link.name}
+                  <span className={`w-1.5 h-1.5 rounded-full transition-colors ${
+                    isActive ? 'bg-[#E5B56A]' : 'bg-[#D4A359]/40 group-hover:bg-[#E5B56A]'
+                  }`} />
+                  <span>{link.name}</span>
                 </a>
               );
             })}
           </nav>
 
           {/* Call & Social CTA Buttons */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          <div className="hidden sm:flex items-center gap-3">
             <a
               href="https://www.facebook.com/share/18R5gx47UT/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="TCH Support Services Facebook Page"
               title="Visit our Facebook Page"
-              className="p-2.5 rounded-full bg-white/80 hover:bg-white text-teal hover:text-[#1877F2] border border-teal/15 shadow-sm transition-all duration-200 hover:-translate-y-0.5"
+              className="p-2.5 rounded-full bg-white hover:bg-gray-50 text-[#1877F2] border border-gray-200 shadow-sm transition-all duration-200 hover:-translate-y-0.5"
             >
-              <Facebook className="w-4 h-4 text-[#1877F2]" />
+              <Facebook className="w-4 h-4 fill-current" />
             </a>
             <a
               href="tel:0431430905"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-teal to-teal-deep text-white font-sans font-semibold text-sm px-4 py-2.5 rounded-full shadow-glass-teal hover:shadow-lg hover:from-teal-deep hover:to-teal transition-all duration-200 hover:-translate-y-0.5"
+              className="btn-press inline-flex items-center gap-2.5 bg-[#164E43] hover:bg-[#0E352D] text-white font-sans font-bold text-sm px-5 py-2.5 rounded-full shadow-md shadow-[#164E43]/15 transition-all duration-200 hover:-translate-y-0.5"
             >
-              <Phone className="w-4 h-4 text-gold" />
+              <Phone className="w-4 h-4 text-[#E5B56A]" />
               <span>0431 430 905</span>
             </a>
           </div>
@@ -124,15 +128,15 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           <div className="flex lg:hidden items-center gap-2">
             <a
               href="tel:0431430905"
-              className="p-2 rounded-full bg-teal text-white sm:hidden"
+              className="p-2.5 rounded-full bg-[#164E43] text-white sm:hidden shadow-sm"
               aria-label="Call TCH Support"
             >
-              <Phone className="w-4 h-4 text-gold" />
+              <Phone className="w-4 h-4 text-[#E5B56A]" />
             </a>
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-xl glass-card text-teal-ink hover:text-teal focus:outline-none focus:ring-2 focus:ring-gold"
+              className="p-2.5 rounded-xl bg-white border border-gray-200 text-[#0E352D] hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-[#D4A359]"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -143,31 +147,41 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
       {/* Mobile Drawer (Frosted Glass Panel) */}
       {mobileMenuOpen && (
-        <div className="lg:hidden glass-nav border-t border-teal/15 bg-[#F6F4EE]/95 backdrop-blur-2xl px-5 pt-3 pb-6 transition-all duration-300">
-          <nav className="flex flex-col gap-1">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-between font-sans font-semibold text-base py-3 px-4 rounded-xl text-teal-ink hover:bg-white/80 hover:text-teal transition-colors"
-              >
-                <span>{link.name}</span>
-                <ArrowRight className="w-4 h-4 text-sage" />
-              </a>
-            ))}
-            <div className="mt-4 pt-4 border-t border-teal/15 flex flex-col gap-3">
+        <div className="lg:hidden border-t border-[#164E43]/15 bg-[#FAF8F5]/98 backdrop-blur-2xl px-5 pt-4 pb-7 transition-all duration-300">
+          <nav className="flex flex-col gap-1.5">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.substring(1);
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`flex items-center justify-between font-sans font-bold text-base py-3 px-4 rounded-xl transition-all duration-200 ${
+                    isActive
+                      ? 'bg-[#164E43] text-[#E5B56A] shadow-sm'
+                      : 'text-[#0E352D] hover:bg-[#164E43] hover:text-[#E5B56A]'
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <span className={`w-2 h-2 rounded-full ${isActive ? 'bg-[#E5B56A]' : 'bg-[#164E43]'}`} />
+                    <span>{link.name}</span>
+                  </span>
+                  <ArrowRight className={`w-4 h-4 ${isActive ? 'text-[#E5B56A]' : 'text-[#D4A359]'}`} />
+                </a>
+              );
+            })}
+            <div className="mt-4 pt-4 border-t border-gray-200 flex flex-col gap-3">
               <a
                 href="tel:0431430905"
-                className="w-full inline-flex items-center justify-center gap-2 bg-teal text-white font-sans font-semibold text-base py-3.5 rounded-xl shadow-glass-teal"
+                className="w-full inline-flex items-center justify-center gap-2 bg-[#164E43] text-white font-sans font-bold text-base py-3.5 rounded-xl shadow-md"
               >
-                <Phone className="w-5 h-5 text-gold" />
+                <Phone className="w-5 h-5 text-[#E5B56A]" />
                 <span>Call Alan: 0431 430 905</span>
               </a>
               <a
                 href="#top"
                 onClick={() => setMobileMenuOpen(false)}
-                className="w-full inline-flex items-center justify-center gap-2 glass-card font-sans font-semibold text-teal-ink py-3 rounded-xl border border-teal/20"
+                className="w-full inline-flex items-center justify-center gap-2 bg-white font-sans font-semibold text-[#0E352D] py-3 rounded-xl border border-gray-200 shadow-sm"
               >
                 <span>Request a Callback</span>
               </a>

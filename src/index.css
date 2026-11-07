@@ -4,26 +4,27 @@
 
 @layer base {
   :root {
-    --teal: #2D6A5D;
-    --teal-deep: #204E44;
-    --teal-ink: #163932;
-    --sage: #8FA89B;
-    --sage-pale: #E2EAE5;
+    --teal: #164E43;
+    --teal-deep: #0E352D;
+    --teal-ink: #0A241F;
+    --sage: #7A9B89;
+    --sage-pale: #E1EBE4;
     --gold: #D4A359;
-    --paper: #F8F7F3;
-    --paper-warm: #EFECE4;
-    --ink: #192B27;
-    --muted: #5C726B;
+    --gold-deep: #B38135;
+    --paper: #FAF8F5;
+    --paper-warm: #F2EFE8;
+    --ink: #182823;
+    --muted: #566B64;
   }
 
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 110px;
+    scroll-padding-top: 100px;
   }
 
   body {
-    background-color: #F8F7F3;
-    color: #192B27;
+    background-color: #FAF8F5;
+    color: #182823;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -32,136 +33,197 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', system-ui, sans-serif;
-    color: #163932;
-    letter-spacing: -0.02em;
+    color: #0E352D;
+    letter-spacing: -0.025em;
   }
 }
 
 @layer components {
   /* ========================================================
-     GLASSMORPHISM DESIGN SYSTEM (Soothing Clean Glassy UI)
+     HUMAN-CRAFTED BESPOKE DESIGN SYSTEM
+     Tactile, editorial, warm, authentic Australian care
      ======================================================== */
 
-  /* Primary Glass Surface */
-  .glass-card {
-    background: rgba(255, 255, 255, 0.78);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border: 1px solid rgba(255, 255, 255, 0.85);
-    box-shadow: 0 10px 30px -10px rgba(22, 57, 50, 0.05), 
-                inset 0 1px 1px 0 rgba(255, 255, 255, 0.85);
+  /* Fine linen / organic subtle pattern for light sections */
+  .pattern-grid-light {
+    background-image: radial-gradient(rgba(22, 78, 67, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Fine stippled dot pattern for dark sections */
+  .pattern-grid-dark {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Bespoke Human Card - Physical, grounded, layered */
+  .care-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(22, 78, 67, 0.12);
+    box-shadow: 0 4px 20px -2px rgba(14, 53, 45, 0.05),
+                0 1px 3px 0 rgba(14, 53, 45, 0.03);
     border-radius: 20px;
     transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .glass-card:hover {
-    background: rgba(255, 255, 255, 0.92);
-    border-color: rgba(45, 106, 93, 0.2);
-    box-shadow: 0 16px 36px -12px rgba(22, 57, 50, 0.1),
-                inset 0 1px 2px 0 rgba(255, 255, 255, 0.95);
-    transform: translateY(-2px);
+  .care-card:hover {
+    border-color: rgba(22, 78, 67, 0.25);
+    box-shadow: 0 8px 24px -4px rgba(14, 53, 45, 0.08);
   }
 
-  /* Deep Glass Surface (for dark/forest sections) */
-  .glass-card-dark {
-    background: rgba(22, 57, 50, 0.68);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 12px 36px 0 rgba(0, 0, 0, 0.15),
-                inset 0 1px 1px 0 rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    transition: all 0.28s ease;
-  }
-
-  .glass-card-dark:hover {
-    background: rgba(22, 57, 50, 0.78);
-    border-color: rgba(212, 163, 89, 0.4);
-    box-shadow: 0 18px 45px 0 rgba(0, 0, 0, 0.22);
-    transform: translateY(-2px);
-  }
-
-  /* Sticky Glass Navbar */
-  .glass-nav {
-    background: rgba(248, 247, 243, 0.88);
+  /* Dark Forest Card - Deep, rich, high contrast */
+  .care-card-dark {
+    background: rgba(14, 53, 45, 0.85);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(45, 106, 93, 0.12);
-    box-shadow: 0 4px 20px -2px rgba(22, 57, 50, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
   }
 
-  /* Form Inputs with Glass finish */
-  .glass-input {
-    background: rgba(255, 255, 255, 0.75);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border: 1.5px solid rgba(45, 106, 93, 0.18);
+  .care-card-dark:hover {
+    border-color: rgba(212, 163, 89, 0.45);
+  }
+
+  /* Sticky Navigation Header with human frosted glass */
+  .glass-nav {
+    background: rgba(250, 248, 245, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(22, 78, 67, 0.12);
+    box-shadow: 0 4px 20px -4px rgba(14, 53, 45, 0.06);
+  }
+
+  /* Tactile form inputs with organic focus states */
+  .tactile-input {
+    background: #FFFFFF;
+    border: 1.5px solid rgba(22, 78, 67, 0.18);
     border-radius: 12px;
     transition: all 0.2s ease;
   }
 
-  .glass-input:focus {
-    background: rgba(255, 255, 255, 0.98);
-    border-color: #2D6A5D;
-    box-shadow: 0 0 0 4px rgba(45, 106, 93, 0.12),
-                inset 0 1px 2px rgba(0, 0, 0, 0.02);
+  .tactile-input:focus {
+    background: #FFFFFF;
+    border-color: #164E43;
+    box-shadow: 0 0 0 3.5px rgba(22, 78, 67, 0.12);
     outline: none;
   }
 
-  /* Glass Badge & Chips */
-  .glass-chip {
-    background: rgba(255, 255, 255, 0.65);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(14, 110, 100, 0.15);
-    border-radius: 9999px;
+  /* Warm editorial badge */
+  .editorial-badge {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(22, 78, 67, 0.15);
+    box-shadow: 0 2px 6px -1px rgba(14, 53, 45, 0.04);
   }
 
-  /* Glowing Aurora Orb effects in background */
-  .aurora-bg {
+  /* Pulse indicator dot */
+  .status-dot {
+    position: relative;
+    display: inline-flex;
+    width: 8px;
+    height: 8px;
+  }
+
+  .status-dot::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 9999px;
+    background-color: currentColor;
+    opacity: 0.35;
+    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes ping {
+    75%, 100% {
+      transform: scale(2.2);
+      opacity: 0;
+    }
+  }
+
+  /* Button active press feel */
+  .btn-press {
+    transition: transform 0.12s ease, box-shadow 0.15s ease;
+  }
+  .btn-press:active {
+    transform: scale(0.98);
+  }
+
+  /* Shimmer gradient animation for attractive interactive badges */
+  @keyframes goldShimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  .shimmer-badge {
+    background: linear-gradient(
+      90deg,
+      rgba(212, 163, 89, 0.15) 0%,
+      rgba(229, 181, 106, 0.45) 50%,
+      rgba(212, 163, 89, 0.15) 100%
+    );
+    background-size: 200% 100%;
+    animation: goldShimmer 3.5s infinite linear;
+  }
+
+  /* Soft glowing pulse for icon orbs */
+  @keyframes iconGlowPulse {
+    0%, 100% {
+      box-shadow: 0 0 0 0 rgba(212, 163, 89, 0.4), 0 0 15px rgba(212, 163, 89, 0.2);
+    }
+    50% {
+      box-shadow: 0 0 0 6px rgba(212, 163, 89, 0), 0 0 25px rgba(212, 163, 89, 0.35);
+    }
+  }
+
+  .glow-orb {
+    animation: iconGlowPulse 3s infinite ease-in-out;
+  }
+
+  /* Animated light sweep */
+  @keyframes lightSweep {
+    0% {
+      transform: translateX(-100%);
+    }
+    50%, 100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .sweep-line {
     position: relative;
     overflow: hidden;
   }
-
-  .aurora-orb-1 {
+  .sweep-line::after {
+    content: '';
     position: absolute;
-    width: 480px;
-    height: 480px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(142, 174, 125, 0.32) 0%, rgba(221, 231, 212, 0.05) 70%, transparent 100%);
-    filter: blur(50px);
-    pointer-events: none;
-    z-index: 0;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, rgba(229, 181, 106, 0.5), transparent);
+    animation: lightSweep 3s infinite ease-in-out;
   }
 
-  .aurora-orb-2 {
-    position: absolute;
-    width: 420px;
-    height: 420px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(14, 110, 100, 0.18) 0%, rgba(10, 84, 76, 0.04) 70%, transparent 100%);
-    filter: blur(60px);
-    pointer-events: none;
-    z-index: 0;
+  /* Seamless cyclic infinite rotation for suburb tickers */
+  @keyframes cyclicMarquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
-  .aurora-orb-gold {
-    position: absolute;
-    width: 320px;
-    height: 320px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(227, 168, 59, 0.22) 0%, rgba(227, 168, 59, 0.03) 70%, transparent 100%);
-    filter: blur(45px);
-    pointer-events: none;
-    z-index: 0;
+  .animate-cyclic {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+    animation: cyclicMarquee 28s linear infinite;
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.98); }
-    to { opacity: 1; transform: scale(1); }
-  }
-
-  .animate-fadeIn {
-    animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  .animate-cyclic:hover {
+    animation-play-state: paused;
   }
 }

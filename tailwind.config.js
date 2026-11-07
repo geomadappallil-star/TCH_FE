@@ -46,6 +46,7 @@ export default {
       fontFamily: {
         sans: ['"Plus Jakarta Sans"', 'Poppins', 'system-ui', '-apple-system', 'sans-serif'],
         display: ['Poppins', 'system-ui', 'sans-serif'],
+        serif: ['Newsreader', 'Georgia', 'serif'],
       },
       backdropBlur: {
         xs: '2px',
@@ -55,7 +56,9 @@ export default {
         glass: '0 8px 32px 0 rgba(8, 58, 52, 0.08), inset 0 1px 1px 0 rgba(255, 255, 255, 0.45)',
         'glass-hover': '0 16px 40px 0 rgba(8, 58, 52, 0.14), inset 0 1px 2px 0 rgba(255, 255, 255, 0.6)',
         'glass-gold': '0 8px 24px -4px rgba(227, 168, 59, 0.25)',
-        'glass-teal': '0 10px 30px -5px rgba(14, 110, 100, 0.25)'
+        'glass-teal': '0 10px 30px -5px rgba(14, 110, 100, 0.25)',
+        'soft-lift': '0 12px 30px -10px rgba(20, 61, 54, 0.12), 0 4px 10px -4px rgba(20, 61, 54, 0.06)',
+        'tactile': '0 4px 14px 0 rgba(22, 57, 50, 0.06), 0 1px 3px 0 rgba(22, 57, 50, 0.04)',
       }
     },
   },

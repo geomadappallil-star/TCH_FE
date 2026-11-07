@@ -7,9 +7,6 @@ import {
   ArrowRight,
   ShieldCheck,
   Clock,
-  Pill,
-  Syringe,
-  ClipboardList,
   Sparkles,
   Phone
 } from 'lucide-react';
@@ -19,6 +16,11 @@ export const ServicesSection: React.FC = () => {
     {
       id: 'nursing',
       icon: Stethoscope,
+      image: './images/service-nursing.jpg',
+      imageAlt: 'Clinical nurse consultation and healthcare support in Townsville',
+      accentTag: 'Clinical Nursing & Assessments',
+      iconBg: 'bg-[#164E43]/10 text-[#164E43]',
+      badgeBg: 'bg-[#164E43]/10 text-[#164E43] border-[#164E43]/20',
       title: 'Nursing Supports & Care',
       tagline: 'Nurse reviews for aged care, clinical treatments & assessments',
       bullets: [
@@ -34,6 +36,11 @@ export const ServicesSection: React.FC = () => {
     {
       id: 'allied-health',
       icon: Activity,
+      image: './images/service-allied-health.jpg',
+      imageAlt: 'Allied health therapist conducting consultation and assessments',
+      accentTag: 'Occupational Therapy & Physio',
+      iconBg: 'bg-[#D4A359]/20 text-[#B38135]',
+      badgeBg: 'bg-[#FAF3E7] text-[#9E6C1F] border-[#E8D1A7]',
       title: 'Allied Health Services',
       tagline: 'OT, Physio, Counselling & 2-week FCA assessment reports',
       bullets: [
@@ -49,6 +56,11 @@ export const ServicesSection: React.FC = () => {
     {
       id: 'home-care',
       icon: Home,
+      image: './images/service-yard-cleaning.jpg',
+      imageAlt: 'Tropical Townsville home lawn mowing, garden care, and cleaning',
+      accentTag: 'Lawn Care, Gardening & Housekeeping',
+      iconBg: 'bg-[#5B8266]/15 text-[#3D6348]',
+      badgeBg: 'bg-[#EFF5F0] text-[#3D6348] border-[#CFE0D3]',
       title: 'Gardening & Cleaning Services',
       tagline: 'Available for Private, NDIS, and VHC (Veterans\' Home Care)',
       bullets: [
@@ -64,114 +76,134 @@ export const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="scroll-mt-20 py-16 md:py-24 bg-[#F8F7F3] relative overflow-hidden">
+    <section id="services" className="scroll-mt-20 py-20 md:py-28 bg-[#FAF8F5] relative overflow-hidden">
       
-      {/* Background Banner with Soft In-Home Care Photo */}
+      {/* Background Atmosphere Wash */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 pointer-events-none mix-blend-multiply"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none opacity-15 mix-blend-multiply"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1920&q=80')`
+          backgroundImage: `url('./images/yard-care-bg.jpg')`
         }}
       />
-      
-      {/* Soft Alabaster Wash Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#F8F7F3] via-[#F8F7F3]/95 to-[#EFECE4]/90 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-b from-[#FAF8F5]/95 via-[#FAF8F5]/85 to-[#F2EFE8]/95 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="max-w-3xl mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#2D6A5D]/10 text-[#2D6A5D] text-xs font-bold uppercase tracking-wider mb-3">
+        <div className="max-w-3xl mb-16 sm:mb-20">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#164E43]/10 text-[#164E43] text-xs font-bold uppercase tracking-wider mb-4 border border-[#164E43]/15">
             <Sparkles className="w-3.5 h-3.5 text-[#D4A359]" />
             <span>Our Core Capabilities</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#163932] leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-bold tracking-tight text-[#0E352D] leading-tight">
             High-standard clinical care, allied health and home supports.
           </h2>
-          <p className="text-base sm:text-lg text-[#3A5049] mt-3 font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-[#3E554E] mt-4 font-normal leading-relaxed">
             From 2-week FCA assessment reports and nurse aged care reviews to gardening and cleaning across Private, NDIS, and VHC, we deliver reliable local care in North Queensland.
           </p>
         </div>
 
-        {/* 3 Prominent Service Pillars */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {servicePillars.map((pillar) => {
+        {/* Zig-Zag Alternating Showcase Rows */}
+        <div className="space-y-16 sm:space-y-24">
+          {servicePillars.map((pillar, index) => {
             const Icon = pillar.icon;
+            // Alternating mode: Even index (0, 2) -> Left Content, Right Image; Odd index (1) -> Left Image, Right Content
+            const isReversed = index % 2 !== 0;
+
             return (
               <div 
                 key={pillar.id}
-                className="bg-white rounded-3xl p-7 sm:p-8 border-2 border-[#2D6A5D]/15 shadow-sm hover:shadow-xl hover:border-[#2D6A5D]/30 transition-all duration-300 flex flex-col justify-between"
+                className={`flex flex-col lg:flex-row items-center gap-10 lg:gap-14 ${
+                  isReversed ? 'lg:flex-row-reverse' : ''
+                }`}
               >
-                <div>
-                  {/* Icon & Badge */}
-                  <div className="flex items-center justify-between mb-5">
-                    <div className="w-14 h-14 rounded-2xl bg-[#2D6A5D]/10 flex items-center justify-center text-[#2D6A5D]">
-                      <Icon className="w-7 h-7" />
+                
+                {/* 1. Content Section */}
+                <div className="w-full lg:w-1/2 space-y-5">
+                  
+                  {/* Icon & Badge Header */}
+                  <div className="flex items-center gap-3">
+                    <div className={`w-13 h-13 sm:w-14 sm:h-14 rounded-2xl ${pillar.iconBg} flex items-center justify-center shadow-sm flex-shrink-0`}>
+                      <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                     </div>
-                    <span className="px-3 py-1 rounded-full bg-[#EFECE4] text-[#163932] text-xs font-bold border border-[#2D6A5D]/20">
-                      {pillar.badge}
-                    </span>
+                    <div>
+                      <span className={`inline-block px-3 py-0.5 rounded-full text-xs font-bold border ${pillar.badgeBg}`}>
+                        {pillar.badge}
+                      </span>
+                      <span className="block text-[11px] uppercase tracking-wider font-semibold text-gray-500 mt-0.5">
+                        {pillar.accentTag}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Title & Tagline */}
-                  <h3 className="text-2xl font-bold text-[#163932] mb-2">
-                    {pillar.title}
-                  </h3>
-                  <p className="text-sm font-medium text-[#2D6A5D] mb-6">
-                    {pillar.tagline}
-                  </p>
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-[#0E352D] tracking-tight">
+                      {pillar.title}
+                    </h3>
+                    <p className="text-sm sm:text-base font-semibold text-[#164E43] mt-1.5">
+                      {pillar.tagline}
+                    </p>
+                  </div>
 
                   {/* Crisp Bullets */}
-                  <ul className="space-y-3 mb-8">
+                  <ul className="space-y-3 pt-1">
                     {pillar.bullets.map((bullet, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-sm text-[#192B27]">
-                        <CheckCircle2 className="w-4 h-4 text-[#2D6A5D] flex-shrink-0 mt-0.5" />
-                        <span className="leading-snug">{bullet}</span>
+                      <li key={idx} className="flex items-start gap-3 text-sm sm:text-base text-[#182823]">
+                        <CheckCircle2 className="w-5 h-5 text-[#164E43] flex-shrink-0 mt-0.5" />
+                        <span className="leading-relaxed">{bullet}</span>
                       </li>
                     ))}
                   </ul>
+
+                  {/* Action Bar */}
+                  <div className="pt-4 flex flex-wrap items-center gap-4 border-t border-gray-200">
+                    <a
+                      href="#top"
+                      className="inline-flex items-center gap-2 bg-[#164E43] hover:bg-[#0E352D] text-white font-bold text-sm px-6 py-3 rounded-full shadow-md transition-colors"
+                    >
+                      <span>{pillar.cta}</span>
+                      <ArrowRight className="w-4 h-4 text-[#D4A359]" />
+                    </a>
+                    <a
+                      href="tel:0431430905"
+                      className="text-xs sm:text-sm font-semibold text-gray-600 hover:text-[#0E352D] flex items-center gap-1.5 transition-colors"
+                    >
+                      <Phone className="w-4 h-4 text-[#164E43]" />
+                      <span>Direct: 0431 430 905</span>
+                    </a>
+                  </div>
+
                 </div>
 
-                {/* Card CTA */}
-                <div className="pt-6 border-t border-gray-100 flex items-center justify-between">
-                  <a
-                    href="#top"
-                    className="inline-flex items-center gap-2 text-sm font-bold text-[#2D6A5D] hover:text-[#163932] group"
-                  >
-                    <span>{pillar.cta}</span>
-                    <ArrowRight className="w-4 h-4 text-[#D4A359] group-hover:translate-x-1 transition-transform" />
-                  </a>
-                  <a
-                    href="tel:0431430905"
-                    className="text-xs font-semibold text-gray-500 hover:text-[#163932] flex items-center gap-1"
-                  >
-                    <Phone className="w-3 h-3 text-[#2D6A5D]" />
-                    <span>0431 430 905</span>
-                  </a>
+                {/* 2. Corresponding Image Section */}
+                <div className="w-full lg:w-1/2">
+                  <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white aspect-[16/11]">
+                    <img 
+                      src={pillar.image} 
+                      alt={pillar.imageAlt}
+                      className="w-full h-full object-cover" 
+                    />
+                    
+                    {/* Subtle Gradient & Bottom Glass Badge on the Image */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs">
+                      <span className="bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full font-bold border border-white/20">
+                        {pillar.badge}
+                      </span>
+                      <span className="text-white/90 font-medium hidden sm:inline-block drop-shadow">
+                        Townsville &amp; North QLD
+                      </span>
+                    </div>
+                  </div>
                 </div>
+
               </div>
             );
           })}
         </div>
 
-        {/* Quick Clinical Assurance Strip */}
-        <div className="mt-12 p-6 rounded-2xl bg-white border border-[#2D6A5D]/15 flex flex-col md:flex-row items-center justify-between gap-4 shadow-sm">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-[#D4A359]/20 flex items-center justify-center text-[#8C631B] flex-shrink-0">
-              <Clock className="w-5 h-5" />
-            </div>
-            <div>
-              <h4 className="font-bold text-[#163932] text-sm">Need urgent nurse visit or discharge cover?</h4>
-              <p className="text-xs text-gray-600">Townsville University Hospital transitions arranged within 24–48 hours.</p>
-            </div>
-          </div>
-          <a
-            href="tel:0431430905"
-            className="inline-flex items-center gap-2 bg-[#2D6A5D] hover:bg-[#204E44] text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all flex-shrink-0"
-          >
-            <span>Call Alan Direct: 0431 430 905</span>
-          </a>
-        </div>
+        
 
       </div>
     </section>

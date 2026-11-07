@@ -3,8 +3,12 @@ import { Phone, Mail, MapPin, Heart, ShieldAlert, Facebook } from 'lucide-react'
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#083A34] text-teal-100/80 pt-16 pb-12 border-t border-white/10 font-sans text-xs sm:text-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer className="bg-[#071F1A] text-teal-100/80 pt-18 pb-14 border-t border-white/10 font-sans text-xs sm:text-sm relative overflow-hidden">
+      
+      {/* Subtle Pattern */}
+      <div className="absolute inset-0 pattern-grid-dark opacity-15 pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-white/10">
           
@@ -23,7 +27,7 @@ export const Footer: React.FC = () => {
               </div>
               <div>
                 <span className="block font-bold text-lg text-white">TCH Support Services</span>
-                <span className="block text-xs uppercase tracking-wider text-sage-pale font-semibold">Townsville &amp; North Queensland</span>
+                <span className="block text-xs uppercase tracking-wider text-emerald-200 font-semibold">Townsville &amp; North Queensland</span>
               </div>
             </div>
 
@@ -41,11 +45,11 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="font-bold text-white uppercase tracking-wider text-xs">Our Services</h4>
             <ul className="space-y-2">
-              <li><a href="#services" className="hover:text-gold transition-colors">FCA Reports (2-Week Turnaround)</a></li>
-              <li><a href="#services" className="hover:text-gold transition-colors">Allied Health (OT, Physio, Counselling)</a></li>
-              <li><a href="#services" className="hover:text-gold transition-colors">Nursing &amp; Aged Care Reviews</a></li>
-              <li><a href="#units" className="hover:text-gold transition-colors">1 &amp; 2-Bedroom Units (Immediate)</a></li>
-              <li><a href="#services" className="hover:text-gold transition-colors">Gardening &amp; Cleaning (NDIS/VHC/Private)</a></li>
+              <li><a href="#services" className="hover:text-[#E5B56A] transition-colors">FCA Reports (2-Week Turnaround)</a></li>
+              <li><a href="#services" className="hover:text-[#E5B56A] transition-colors">Allied Health (OT, Physio, Counselling)</a></li>
+              <li><a href="#services" className="hover:text-[#E5B56A] transition-colors">Nursing &amp; Aged Care Reviews</a></li>
+              <li><a href="#units" className="hover:text-[#E5B56A] transition-colors">1 &amp; 2-Bedroom Units (Immediate)</a></li>
+              <li><a href="#services" className="hover:text-[#E5B56A] transition-colors">Gardening &amp; Cleaning (NDIS/VHC/Private)</a></li>
             </ul>
           </div>
 
@@ -53,11 +57,11 @@ export const Footer: React.FC = () => {
           <div className="space-y-3">
             <h4 className="font-bold text-white uppercase tracking-wider text-xs">Navigation</h4>
             <ul className="space-y-2">
-              <li><a href="#services" className="hover:text-gold transition-colors">Our Services</a></li>
-              <li><a href="#units" className="hover:text-gold transition-colors">1 &amp; 2-Bedroom Units</a></li>
-              <li><a href="#ndis" className="hover:text-gold transition-colors">Funding Pathways (NDIS/VHC)</a></li>
-              <li><a href="#jobs" className="hover:text-gold transition-colors">Careers &amp; Join Our Team</a></li>
-              <li><a href="#top" className="hover:text-gold transition-colors">Request a Callback</a></li>
+              <li><a href="#services" className="hover:text-[#E5B56A] transition-colors">Our Services</a></li>
+              <li><a href="#units" className="hover:text-[#E5B56A] transition-colors">1 &amp; 2-Bedroom Units</a></li>
+              <li><a href="#ndis" className="hover:text-[#E5B56A] transition-colors">Funding Pathways (NDIS/VHC)</a></li>
+              <li><a href="#jobs" className="hover:text-[#E5B56A] transition-colors">Careers &amp; Join Our Team</a></li>
+              <li><a href="#top" className="hover:text-[#E5B56A] transition-colors">Request a Callback</a></li>
             </ul>
           </div>
 
@@ -66,11 +70,11 @@ export const Footer: React.FC = () => {
             <h4 className="font-bold text-white uppercase tracking-wider text-xs">Direct Contact</h4>
             <div className="space-y-2.5">
               <a href="tel:0431430905" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Phone className="w-4 h-4 text-gold" />
+                <Phone className="w-4 h-4 text-[#E5B56A]" />
                 <span className="font-bold text-white">0431 430 905</span>
               </a>
               <a href="mailto:admin@tchservices.com.au" className="flex items-center gap-2 hover:text-white transition-colors">
-                <Mail className="w-4 h-4 text-gold" />
+                <Mail className="w-4 h-4 text-[#E5B56A]" />
                 <span>admin@tchservices.com.au</span>
               </a>
               <a
@@ -79,11 +83,11 @@ export const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 hover:text-white transition-colors group"
               >
-                <Facebook className="w-4 h-4 text-gold group-hover:text-[#1877F2] transition-colors" />
+                <Facebook className="w-4 h-4 text-[#E5B56A] group-hover:text-[#1877F2] transition-colors" />
                 <span className="group-hover:underline">Facebook: TCH Support Services</span>
               </a>
               <div className="flex items-start gap-2 text-teal-200">
-                <MapPin className="w-4 h-4 text-gold flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-[#E5B56A] flex-shrink-0 mt-0.5" />
                 <span>Townsville, QLD 4810, Australia</span>
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { 
   ChevronLeft, 
   ChevronRight, 
@@ -11,11 +11,13 @@ import {
   Wind, 
   ShieldCheck, 
   Car, 
-  Trees, 
   Accessibility, 
   Calendar,
   Layers,
-  ArrowRight
+  MapPin,
+  CheckCircle2,
+  Clock,
+  Eye
 } from 'lucide-react';
 
 interface Slide {
@@ -63,22 +65,37 @@ export const PropertyShowcase: React.FC = () => {
     }
   ];
 
-  // Auto-advance slideshow
+  const prevSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  }, [slides.length]);
+
+  const nextSlide = useCallback(() => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  }, [slides.length]);
+
+  // Auto-advance slideshow with pause on hover
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying || modalImage !== null) return;
     const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
+      nextSlide();
     }, 5000);
     return () => clearInterval(timer);
-  }, [isAutoPlaying, slides.length]);
+  }, [isAutoPlaying, modalImage, nextSlide]);
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  };
+  // Keyboard navigation for carousel & modal
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && modalImage) {
+        setModalImage(null);
+      } else if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'ArrowRight') {
+        nextSlide();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [modalImage, nextSlide, prevSlide]);
 
   const propertyFeatures = [
     { icon: Home, title: '1-Bedroom & 2-Bedroom layouts' },
@@ -92,209 +109,302 @@ export const PropertyShowcase: React.FC = () => {
   ];
 
   return (
-    <section id="units" className="scroll-mt-20 py-16 sm:py-24 relative overflow-hidden bg-[#163932] text-white">
+    <section id="units" className="scroll-mt-20 py-20 sm:py-28 relative overflow-hidden bg-[#0A2620] text-white">
       <div id="housing" className="scroll-mt-20"></div>
       
-      {/* Background Banner Photo with Townsville Exterior Wash */}
+      {/* 1. Real Unit Exterior Photo Atmospheric Layer */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-15 pointer-events-none mix-blend-luminosity"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-25 pointer-events-none mix-blend-luminosity scale-105 transition-transform duration-1000"
         style={{
           backgroundImage: `url('./images/units/unit-exterior.jpg')`
         }}
       />
       
-      {/* Deep Eucalyptus Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#163932] via-[#1A453C] to-[#163932] pointer-events-none" />
+      {/* 2. Deep Eucalyptus Gradient Overlays for High-Contrast Readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#0A2620] via-[#0E352D]/95 to-[#081F1A] pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_20%,rgba(22,78,67,0.35),transparent)] pointer-events-none" />
+      
+      {/* 3. Subtle Tactile Grid Pattern */}
+      <div className="absolute inset-0 pattern-grid-dark opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#D4A359] mb-3">
-            <span className="w-2 h-2 rounded-full bg-[#D4A359] animate-pulse"></span>
+        <div className="text-center max-w-3xl mx-auto mb-14 sm:mb-18">
+          
+          {/* Eyebrow Pill with Pulsing Live Status */}
+          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-[#E5B56A] mb-5 shadow-sm">
+            <span className="w-2 h-2 rounded-full bg-[#E5B56A] animate-pulse"></span>
             <span>1 &amp; 2-Bedroom Units Available Immediately · Townsville</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+          {/* Main Editorial Headline */}
+          <h2 className="text-3xl sm:text-4xl lg:text-[44px] font-bold tracking-tight text-white leading-[1.15]">
             One &amp; two-bedroom units,{' '}
-            <span className="text-[#D4A359]">
+            <span className="font-serif italic font-normal text-[#E5B56A] block sm:inline mt-1 sm:mt-0">
               available immediately.
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-teal-100 mt-3 max-w-2xl mx-auto font-normal leading-relaxed">
+          {/* Subheading / Description */}
+          <p className="text-base sm:text-lg text-teal-100/90 mt-4 max-w-2xl mx-auto font-normal leading-relaxed">
             Home and living support with units available for participants to live independently. One-bedroom and two-bedroom layouts ready for immediate move-in in Townsville. Besser block construction keeps them cool through the tropical build-up, with air conditioning throughout, carpeted living and bedrooms, and modern glass-screen bathrooms.
           </p>
+
+          {/* Architectural Quick Specs Ribbon */}
+          <div className="mt-8 flex flex-wrap justify-center items-center gap-2.5 sm:gap-3 text-xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/15 text-teal-100 font-medium">
+              <Home className="w-3.5 h-3.5 text-[#E5B56A]" />
+              <span>1 &amp; 2-Bed Layouts</span>
+            </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/15 text-teal-100 font-medium">
+              <Wind className="w-3.5 h-3.5 text-[#E5B56A]" />
+              <span>Split A/C &amp; Fans</span>
+            </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/15 text-teal-100 font-medium">
+              <Accessibility className="w-3.5 h-3.5 text-[#E5B56A]" />
+              <span>Step-Free Ramp Access</span>
+            </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/15 text-teal-100 font-medium">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#E5B56A]" />
+              <span>Security Screened</span>
+            </div>
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.08] backdrop-blur-sm border border-white/15 text-teal-100 font-medium">
+              <Car className="w-3.5 h-3.5 text-[#E5B56A]" />
+              <span>Off-Street Parking</span>
+            </div>
+          </div>
+
         </div>
 
-        {/* Main Showcase Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+        {/* Main Showcase Layout: 12-Column Architectural Composition */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
-          {/* Left Column: Interactive Slideshow */}
+          {/* Left Column (7 cols): Interactive Master Photo Stage */}
           <div 
-            className="lg:col-span-7 relative group"
+            className="lg:col-span-7 space-y-4"
             onMouseEnter={() => setIsAutoPlaying(false)}
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
-            {/* Slideshow Frame */}
-            <div className="relative aspect-[16/10] sm:aspect-[16/10] rounded-3xl overflow-hidden bg-black/40 shadow-2xl border-2 border-white/20">
-              <img
-                src={slides[currentSlide].src}
-                alt={slides[currentSlide].title}
-                className="w-full h-full object-cover transition-transform duration-700 ease-out hover:scale-105 cursor-pointer"
-                onClick={() => setModalImage(slides[currentSlide].src)}
-              />
-
-              {/* Floating Overlay with Slide Info */}
-              <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 bg-gradient-to-t from-black/90 via-black/60 to-transparent backdrop-blur-xs text-white">
-                <span className="inline-block px-2.5 py-0.5 rounded-full bg-[#D4A359] text-[#163932] text-[11px] font-bold uppercase tracking-wider mb-1.5">
-                  {slides[currentSlide].tag}
-                </span>
-                <h3 className="font-bold text-base sm:text-xl text-white leading-tight">
-                  {slides[currentSlide].title}
-                </h3>
-                <p className="text-xs sm:text-sm text-teal-100 mt-1 line-clamp-2">
-                  {slides[currentSlide].description}
-                </p>
-              </div>
-
-              {/* Lightbox Maximize Icon */}
-              <button
-                type="button"
-                onClick={() => setModalImage(slides[currentSlide].src)}
-                className="absolute top-3.5 right-3.5 p-2 rounded-xl bg-black/50 backdrop-blur-md text-white hover:bg-black/80 transition-all border border-white/20"
-                aria-label="View Fullscreen"
-              >
-                <Maximize2 className="w-4 h-4 text-[#D4A359]" />
-              </button>
-
-              {/* Prev & Next Floating Buttons */}
-              <button
-                type="button"
-                onClick={prevSlide}
-                className="absolute left-3.5 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-white/80 backdrop-blur-md text-[#163932] hover:bg-white hover:scale-110 transition-all shadow-md"
-                aria-label="Previous Slide"
-              >
-                <ChevronLeft className="w-5 h-5" />
-              </button>
-
-              <button
-                type="button"
-                onClick={nextSlide}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 p-2.5 rounded-full bg-white/80 backdrop-blur-md text-[#163932] hover:bg-white hover:scale-110 transition-all shadow-md"
-                aria-label="Next Slide"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-            </div>
-
-            {/* Thumbnails Strip */}
-            <div className="grid grid-cols-5 gap-2 sm:gap-3 mt-3 sm:mt-4">
+            {/* Quick Room Selector Tabs */}
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
               {slides.map((s, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => setCurrentSlide(idx)}
-                  className={`relative aspect-[16/10] rounded-xl overflow-hidden border-2 transition-all ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all flex items-center gap-1.5 ${
                     currentSlide === idx
-                      ? 'border-[#D4A359] shadow-md ring-2 ring-[#D4A359]/50 scale-105'
-                      : 'border-transparent opacity-60 hover:opacity-100 hover:scale-102'
+                      
                   }`}
                 >
-                  <img src={s.src} alt={s.title} className="w-full h-full object-cover" />
+                  
                 </button>
               ))}
             </div>
 
-            {/* Progress Indicator Dots */}
-            <div className="flex justify-center items-center gap-1.5 mt-3">
-              {slides.map((_, idx) => (
+            {/* Master Photo Frame */}
+            <div className="relative aspect-[16/10] sm:aspect-[16/10] rounded-3xl overflow-hidden bg-[#081F1A] shadow-2xl border-2 border-white/20 group">
+              
+              {/* Active Image */}
+              <img
+                src={slides[currentSlide].src}
+                
+                className="w-full h-full object-cover cursor-pointer transition-transform duration-700 group-hover:scale-105"
+                onClick={() => setModalImage(slides[currentSlide].src)}
+              />
+
+              {/* Top Bar Badges on Image */}
+              <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-[#E5B56A] text-xs font-bold border border-white/15 shadow-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#E5B56A] animate-ping" />
+                  <span>{slides[currentSlide].tag}</span>
+                </span>
+
+                <button
+                  type="button"
+                  onClick={() => setModalImage(slides[currentSlide].src)}
+                  className="pointer-events-auto p-2.5 rounded-xl bg-black/60 backdrop-blur-md text-white hover:bg-black/90 hover:text-[#E5B56A] transition-all border border-white/20 flex items-center gap-1.5 text-xs font-medium"
+                  aria-label="View Fullscreen"
+                >
+                  <Maximize2 className="w-4 h-4 text-[#E5B56A]" />
+                  <span className="hidden sm:inline">Fullscreen</span>
+                </button>
+              </div>
+
+              {/* Floating Architectural Information Plaque (Bottom) */}
+              <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 bg-gradient-to-t from-black/95 via-black/75 to-transparent backdrop-blur-xs text-white">
+                <div className="flex items-start justify-between gap-4">
+                  <div className="space-y-1">
+                    <h3 className="font-bold text-lg sm:text-2xl text-white leading-tight">
+                      {slides[currentSlide].title}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-teal-100/90 leading-relaxed max-w-xl">
+                      {slides[currentSlide].description}
+                    </p>
+                  </div>
+
+                  {/* Room Index Indicator */}
+                  <div className="hidden sm:flex flex-col items-end flex-shrink-0">
+                    <span className="text-xl font-bold text-[#E5B56A] tracking-wider">
+                      0{currentSlide + 1}
+                    </span>
+                    <span className="text-[10px] uppercase tracking-wider text-teal-200/70 font-semibold">
+                      of 0{slides.length}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Prev & Next Floating Navigation Buttons */}
+              <button
+                type="button"
+                onClick={prevSlide}
+                className="btn-press absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/90 backdrop-blur-md text-[#0A2620] hover:bg-white hover:scale-110 transition-all shadow-xl border border-black/10 focus:outline-none"
+                aria-label="Previous Slide"
+              >
+                <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
+              </button>
+
+              <button
+                type="button"
+                onClick={nextSlide}
+                className="btn-press absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/90 backdrop-blur-md text-[#0A2620] hover:bg-white hover:scale-110 transition-all shadow-xl border border-black/10 focus:outline-none"
+                aria-label="Next Slide"
+              >
+                <ChevronRight className="w-5 h-5 stroke-[2.5]" />
+              </button>
+            </div>
+
+            {/* Interactive Thumbnail Gallery Strip */}
+            <div className="grid grid-cols-5 gap-2.5 sm:gap-3">
+              {slides.map((s, idx) => (
                 <button
                   key={idx}
                   type="button"
                   onClick={() => setCurrentSlide(idx)}
-                  className={`h-1.5 rounded-full transition-all ${
-                    currentSlide === idx ? 'w-6 bg-[#D4A359]' : 'w-1.5 bg-white/30'
+                  className={`group relative aspect-[16/11] rounded-2xl overflow-hidden border-2 transition-all ${
+                    currentSlide === idx
+                      ? 'border-[#D4A359] shadow-lg ring-2 ring-[#D4A359]/50 scale-[1.02]'
+                      : 'border-white/15 opacity-65 hover:opacity-100 hover:border-white/40'
                   }`}
-                  aria-label={`Slide ${idx + 1}`}
-                />
+                >
+                  <img src={s.src}  className="w-full h-full object-cover" />
+                  <div className={`absolute inset-0 transition-opacity ${
+                    currentSlide === idx ? 'bg-transparent' : 'bg-black/30 group-hover:bg-transparent'
+                  }`} />
+                 
+                </button>
               ))}
             </div>
+
+            {/* Visual Slide Progress Bar */}
+            <div className="flex items-center justify-between text-xs text-teal-200/70 pt-1">
+              <span className="flex items-center gap-1.5 text-[11px]">
+                <Eye className="w-3.5 h-3.5 text-[#E5B56A]" />
+                <span>Click image or expand button for high-res view</span>
+              </span>
+              <div className="flex items-center gap-1.5">
+                {slides.map((_, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => setCurrentSlide(idx)}
+                    className={`h-1.5 rounded-full transition-all ${
+                      currentSlide === idx ? 'w-6 bg-[#D4A359]' : 'w-2 bg-white/30 hover:bg-white/60'
+                    }`}
+                    aria-label={`Go to slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+            </div>
+
           </div>
 
-          {/* Right Column: Features & Inspection Card (High Contrast White Card) */}
-          <div className="lg:col-span-5 bg-white text-[#192B27] p-6 sm:p-8 rounded-3xl shadow-2xl border border-white space-y-5">
+          {/* Right Column (5 cols): Living Features & Tenancy Dossier Card */}
+          <div className="lg:col-span-5 bg-white text-[#182823] p-6 sm:p-8 rounded-3xl shadow-2xl border-t-4 border-[#D4A359] border-x border-b border-gray-100 space-y-6">
             
+            {/* Dossier Header */}
             <div>
-              <span className="text-xs uppercase tracking-widest font-bold text-[#2D6A5D] block mb-1">
-                Flyer Highlights
-              </span>
-              <h3 className="font-bold text-xl sm:text-2xl text-[#163932]">
+              <div className="flex items-center justify-between mb-1.5">
+                <span className="text-xs uppercase tracking-widest font-bold text-[#164E43] block">
+                  Flyer Highlights
+                </span>
+                <span className="px-2.5 py-0.5 rounded-full bg-[#FAF3E7] text-[#9E6C1F] text-[11px] font-bold border border-[#E8D1A7]">
+                  Move-In Ready
+                </span>
+              </div>
+              <h3 className="font-bold text-2xl text-[#0E352D] tracking-tight leading-tight">
                 1 &amp; 2-Bedroom Units Available Immediately
               </h3>
-              <p className="text-xs text-[#5C726B] mt-1 font-medium">
+              <p className="text-xs sm:text-sm text-gray-600 mt-2 font-medium leading-relaxed">
                 Home and living support with one-bedroom and two-bedroom units available immediately for participants to live independently.
               </p>
             </div>
 
-            {/* 8 Features Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {propertyFeatures.map((feat, fIdx) => {
-                const Icon = feat.icon;
-                return (
-                  <div 
-                    key={fIdx} 
-                    className="p-2.5 rounded-xl bg-[#F8F7F3] border border-gray-200 flex items-center gap-2.5 text-xs text-[#163932] font-semibold"
-                  >
-                    <div className="w-6 h-6 rounded-lg bg-[#2D6A5D]/10 text-[#2D6A5D] flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-3.5 h-3.5" />
+            {/* 8 Crisp Features Matrix */}
+            <div>
+              <h4 className="text-[11px] uppercase font-bold tracking-wider text-gray-400 mb-2.5">
+                What's Included &amp; Built-In
+              </h4>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {propertyFeatures.map((feat, fIdx) => {
+                  const Icon = feat.icon;
+                  return (
+                    <div 
+                      key={fIdx} 
+                      className="p-3 rounded-xl bg-[#FAF8F5] border border-gray-200/80 flex items-center gap-2.5 text-xs text-[#0E352D] font-semibold hover:border-[#164E43]/30 transition-colors"
+                    >
+                      <div className="w-7 h-7 rounded-lg bg-[#164E43]/10 text-[#164E43] flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span className="leading-snug">{feat.title}</span>
                     </div>
-                    <span className="leading-snug">{feat.title}</span>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
 
             {/* NDIS Participants Welcome Banner */}
-            <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-emerald-950 space-y-1">
-              <div className="flex items-center gap-2 font-bold text-[#163932]">
+            <div className="p-4 rounded-2xl bg-emerald-50/90 border border-emerald-200 text-xs text-emerald-950 space-y-1.5 shadow-xs">
+              <div className="flex items-center gap-2 font-bold text-[#0E352D]">
                 <Check className="w-4 h-4 text-emerald-600 stroke-[3]" />
                 <span>NDIS Participants Welcome</span>
               </div>
-              <p className="text-gray-600 leading-relaxed">
+              <p className="text-gray-600 leading-relaxed text-[11px] sm:text-xs">
                 Home and living support, personal care, clinical nursing, cleaning, and yard maintenance can be arranged before moving in.
               </p>
             </div>
 
             {/* Direct Booking & Inspection Card */}
-            <div className="p-4 sm:p-5 rounded-2xl bg-[#163932] text-white space-y-3">
+            <div className="p-5 rounded-2xl bg-[#0E352D] text-white space-y-3.5 shadow-lg">
               <div className="flex justify-between items-center">
                 <span className="text-xs text-emerald-200 font-semibold uppercase tracking-wider">
                   Inspections &amp; Move-In
                 </span>
-                <span className="px-2 py-0.5 rounded-full bg-[#D4A359] text-[#163932] text-[11px] font-bold">
+                <span className="px-2.5 py-0.5 rounded-full bg-[#D4A359] text-[#0A2620] text-[11px] font-bold">
                   By Appointment
                 </span>
               </div>
 
-              <p className="text-xs text-teal-100">
+              <p className="text-xs text-teal-100/90 leading-relaxed">
                 Call Alan directly for a walk-through inspection and tenancy arrangements.
               </p>
 
               <div className="pt-1 flex flex-col sm:flex-row gap-2.5">
                 <a
                   href="tel:0431430905"
-                  className="flex-1 inline-flex items-center justify-center gap-2 bg-[#D4A359] hover:bg-[#c2934a] text-[#163932] font-bold text-xs sm:text-sm py-2.5 px-4 rounded-xl shadow-md transition-all"
+                  className="btn-press flex-1 inline-flex items-center justify-center gap-2 bg-[#D4A359] hover:bg-[#C28F42] text-[#0A2620] font-bold text-xs sm:text-sm py-3 px-4 rounded-xl shadow-md transition-colors"
                 >
-                  <Phone className="w-4 h-4 text-[#163932]" />
+                  <Phone className="w-4 h-4 text-[#0A2620]" />
                   <span>0431 430 905</span>
                 </a>
 
                 <a
                   href="#top"
-                  className="flex-1 inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm py-2.5 px-4 rounded-xl border border-white/20 transition-all"
+                  className="btn-press flex-1 inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm py-3 px-4 rounded-xl border border-white/20 transition-colors"
                 >
-                  <Calendar className="w-4 h-4 text-[#D4A359]" />
+                  <Calendar className="w-4 h-4 text-[#E5B56A]" />
                   <span>Request Callback</span>
                 </a>
               </div>
@@ -306,25 +416,48 @@ export const PropertyShowcase: React.FC = () => {
 
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Enhanced Lightbox Modal */}
       {modalImage && (
         <div 
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/95 backdrop-blur-md transition-opacity animate-in fade-in"
           onClick={() => setModalImage(null)}
         >
-          <div className="relative max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
-            <button
-              type="button"
-              onClick={() => setModalImage(null)}
-              className="absolute -top-12 right-0 p-2 rounded-full bg-white/20 text-white hover:bg-white/40 text-sm font-bold transition-all"
-            >
-              <X className="w-6 h-6" />
-            </button>
-            <img 
-              src={modalImage} 
-              alt="Unit Full View" 
-              className="w-full h-auto max-h-[85vh] object-contain rounded-2xl shadow-2xl border border-white/20" 
-            />
+          <div className="relative max-w-5xl w-full" onClick={(e) => e.stopPropagation()}>
+            {/* Top Modal Controls */}
+            <div className="flex items-center justify-between pb-3 text-white">
+              <div className="flex items-center gap-2">
+                <span className="px-3 py-1 rounded-full bg-[#D4A359] text-[#0A2620] text-xs font-bold uppercase tracking-wider">
+                  {slides[currentSlide].tag}
+                </span>
+                <h4 className="font-bold text-sm sm:text-base text-white">
+                  {slides[currentSlide].title}
+                </h4>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => setModalImage(null)}
+                className="p-2 rounded-full bg-white/10 hover:bg-white/30 text-white transition-all flex items-center gap-1.5 text-xs font-bold"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+                <span className="hidden sm:inline">Close</span>
+              </button>
+            </div>
+
+            {/* Modal Image Box */}
+            <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl bg-black">
+              <img 
+                src={modalImage} 
+                alt="Unit Full View" 
+                className="w-full h-auto max-h-[80vh] object-contain mx-auto" 
+              />
+            </div>
+
+            {/* Bottom Caption */}
+            <p className="text-xs sm:text-sm text-teal-100/90 text-center mt-3 max-w-2xl mx-auto">
+              {slides[currentSlide].description}
+            </p>
           </div>
         </div>
       )}
