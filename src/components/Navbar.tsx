@@ -2,10 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { Phone, Menu, X, ArrowRight, ShieldCheck, Sparkles, Facebook } from 'lucide-react';
 
 interface NavbarProps {
-  activeSection: string;
+  currentPage: string;
+  onNavigate: (pageId: string) => void;
+  isTransitioning?: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
+export const Navbar: React.FC<NavbarProps> = ({ 
+  currentPage, 
+  onNavigate,
+  isTransitioning = false
+}) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -18,10 +24,11 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Our Services', href: '#services' },
-    { name: '1 & 2-Bed Units', href: '#units' },
-    { name: 'NDIS & Funding', href: '#ndis' },
-    { name: 'Careers', href: '#jobs' },
+    { id: 'home', name: 'Overview', href: '#/' },
+    { id: 'services', name: 'Our Services', href: '#/services' },
+    { id: 'units', name: '1 & 2-Bed Units', href: '#/units' },
+    { id: 'funding', name: 'NDIS & Funding', href: '#/funding' },
+    { id: 'careers', name: 'Careers', href: '#/careers' },
   ];
 
   return (
@@ -30,6 +37,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         ? 'glass-nav bg-[#FAF8F5]/95 backdrop-blur-xl border-b border-[#164E43]/15 shadow-sm' 
         : 'bg-[#FAF8F5]/90 backdrop-blur-md border-b border-[#164E43]/10'
     }`}>
+      
+      {/* Serko-style Top Laser Progress Beam when transitioning */}
+      {isTransitioning && (
+        <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-[#D4A359] via-[#E5B56A] to-emerald-400 serko-laser-beam z-50" />
+      )}
+
       {/* Top micro-bar for quick local credibility */}
       <div className="hidden md:block bg-gradient-to-r from-[#0A241F] via-[#0E352D] to-[#0A241F] text-teal-100 text-xs py-2 px-4 font-sans">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
@@ -58,8 +71,12 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           
-          {/* Brand Logo & Name */}
-          <a href="#top" className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#D4A359] rounded-xl p-1 transition-transform">
+          {/* Brand Logo & Name (Clicks to Home Page) */}
+          <button 
+            type="button"
+            onClick={() => onNavigate('home')} 
+            className="flex items-center gap-3 group focus:outline-none focus:ring-2 focus:ring-[#D4A359] rounded-xl p-1 transition-transform text-left"
+          >
             <div className="w-10 h-10 relative flex-shrink-0">
               <svg viewBox="0 0 96 104.5" className="w-full h-full drop-shadow-sm transition-transform duration-300 group-hover:scale-105" aria-hidden="true">
                 <path fill="#E3A83B" d="M51.01 12.6c0 3.85-5.78 3.85-5.78 0s5.78-3.85 5.78 0z"/>
@@ -78,17 +95,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 Nursing · Allied Health · Home &amp; Yard
               </span>
             </div>
-          </a>
+          </button>
 
-          {/* Desktop Navigation Links with Colorful Hover & Active Indicator */}
-          <nav className="hidden lg:flex items-center gap-2 font-sans font-bold text-sm">
+          {/* Desktop Navigation Links with Colorful Hover & Page Transition Trigger */}
+          <nav className="hidden lg:flex items-center gap-1.5 font-sans font-bold text-sm">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
+              const isActive = currentPage === link.id;
               return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={`px-4 py-2 rounded-full transition-all duration-200 border flex items-center gap-2 ${
+                <button
+                  key={link.id}
+                  type="button"
+                  onClick={() => onNavigate(link.id)}
+                  className={`px-4 py-2 rounded-full transition-all duration-300 border flex items-center gap-2 ${
                     isActive
                       ? 'bg-[#164E43] text-[#E5B56A] border-[#164E43] shadow-md shadow-[#164E43]/20'
                       : 'text-[#2D453E] border-transparent hover:bg-[#164E43] hover:text-[#E5B56A] hover:border-[#164E43] hover:shadow-md hover:shadow-[#164E43]/20 hover:-translate-y-0.5'
@@ -98,7 +116,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                     isActive ? 'bg-[#E5B56A]' : 'bg-[#D4A359]/40 group-hover:bg-[#E5B56A]'
                   }`} />
                   <span>{link.name}</span>
-                </a>
+                </button>
               );
             })}
           </nav>
@@ -150,13 +168,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
         <div className="lg:hidden border-t border-[#164E43]/15 bg-[#FAF8F5]/98 backdrop-blur-2xl px-5 pt-4 pb-7 transition-all duration-300">
           <nav className="flex flex-col gap-1.5">
             {navLinks.map((link) => {
-              const isActive = activeSection === link.href.substring(1);
+              const isActive = currentPage === link.id;
               return (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className={`flex items-center justify-between font-sans font-bold text-base py-3 px-4 rounded-xl transition-all duration-200 ${
+                <button
+                  key={link.id}
+                  type="button"
+                  onClick={() => {
+                    onNavigate(link.id);
+                    setMobileMenuOpen(false);
+                  }}
+                  className={`w-full flex items-center justify-between font-sans font-bold text-base py-3 px-4 rounded-xl transition-all duration-200 text-left ${
                     isActive
                       ? 'bg-[#164E43] text-[#E5B56A] shadow-sm'
                       : 'text-[#0E352D] hover:bg-[#164E43] hover:text-[#E5B56A]'
@@ -167,7 +188,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                     <span>{link.name}</span>
                   </span>
                   <ArrowRight className={`w-4 h-4 ${isActive ? 'text-[#E5B56A]' : 'text-[#D4A359]'}`} />
-                </a>
+                </button>
               );
             })}
             <div className="mt-4 pt-4 border-t border-gray-200 flex flex-col gap-3">
@@ -178,13 +199,16 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 <Phone className="w-5 h-5 text-[#E5B56A]" />
                 <span>Call Alan: 0431 430 905</span>
               </a>
-              <a
-                href="#top"
-                onClick={() => setMobileMenuOpen(false)}
+              <button
+                type="button"
+                onClick={() => {
+                  onNavigate('home');
+                  setMobileMenuOpen(false);
+                }}
                 className="w-full inline-flex items-center justify-center gap-2 bg-white font-sans font-semibold text-[#0E352D] py-3 rounded-xl border border-gray-200 shadow-sm"
               >
                 <span>Request a Callback</span>
-              </a>
+              </button>
             </div>
           </nav>
         </div>

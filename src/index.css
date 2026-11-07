@@ -285,4 +285,62 @@
   .backdrop-zoom-subtle {
     animation: depthBackdropZoom 12s ease-in-out infinite alternate;
   }
+
+  /* ========================================================
+     SERKO.AI SPATIAL PAGE TRANSITIONS & MOTION GRAPHICS
+     Fluid stage shifts, laser beams, and interactive curtains
+     ======================================================== */
+
+  @keyframes serkoLaserBeam {
+    0% {
+      width: 0%;
+      opacity: 1;
+    }
+    60% {
+      width: 80%;
+      opacity: 1;
+    }
+    100% {
+      width: 100%;
+      opacity: 0;
+    }
+  }
+
+  .serko-laser-beam {
+    animation: serkoLaserBeam 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Page entering stagger */
+  @keyframes serkoPageEnter {
+    0% {
+      opacity: 0;
+      transform: translateY(24px) scale(0.99);
+      filter: blur(4px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  .animate-serko-page-enter {
+    animation: serkoPageEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Pulse ripple for route nodes */
+  @keyframes nodePulseRipple {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.8;
+    }
+    100% {
+      transform: scale(2.4);
+      opacity: 0;
+    }
+  }
+
+  .node-pulse-ripple {
+    animation: nodePulseRipple 2.2s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
 }
