@@ -1,5 +1,7 @@
 import React from 'react';
 import { NdisSection } from '../components/NdisSection.js';
+import { ServiceAreasSection } from '../components/ServiceAreasSection.js';
+import { ReferralSection } from '../components/ReferralSection.js';
 import { SerkoJourneyBanner } from '../components/SerkoJourneyBanner.js';
 
 interface FundingPageProps {
@@ -12,7 +14,13 @@ export const FundingPage: React.FC<FundingPageProps> = ({ onNavigate }) => {
       {/* 1. NDIS & Funding Pathways with Cyclic Suburb Ticker */}
       <NdisSection />
 
-      {/* 2. Journey Progression to Next Page */}
+      {/* 2. North Queensland 6 Service Areas */}
+      <ServiceAreasSection />
+
+      {/* 3. Dual Referral Pathways */}
+      <ReferralSection />
+
+      {/* 4. Journey Progression to Next Page */}
       <SerkoJourneyBanner
         currentPageIndex={3}
         totalPages={5}

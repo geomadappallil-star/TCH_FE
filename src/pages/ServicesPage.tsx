@@ -1,5 +1,6 @@
 import React from 'react';
 import { ServicesSection } from '../components/ServicesSection.js';
+import { ReferralSection } from '../components/ReferralSection.js';
 import { SerkoJourneyBanner } from '../components/SerkoJourneyBanner.js';
 
 interface ServicesPageProps {
@@ -9,10 +10,13 @@ interface ServicesPageProps {
 export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
   return (
     <div className="animate-serko-page-enter">
-      {/* 1. Core Services Section with Background Motion Depth */}
+      {/* 1. Core Services Section with 5 Capabilities */}
       <ServicesSection />
 
-      {/* 2. Journey Progression to Next Page */}
+      {/* 2. Referral Intake Portal */}
+      <ReferralSection />
+
+      {/* 3. Journey Progression to Next Page */}
       <SerkoJourneyBanner
         currentPageIndex={1}
         totalPages={5}

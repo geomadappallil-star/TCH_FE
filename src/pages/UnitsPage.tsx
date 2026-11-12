@@ -1,5 +1,6 @@
 import React from 'react';
 import { PropertyShowcase } from '../components/PropertyShowcase.js';
+import { ReferralSection } from '../components/ReferralSection.js';
 import { SerkoJourneyBanner } from '../components/SerkoJourneyBanner.js';
 
 interface UnitsPageProps {
@@ -12,7 +13,10 @@ export const UnitsPage: React.FC<UnitsPageProps> = ({ onNavigate }) => {
       {/* 1. Interactive Architectural Units Showcase */}
       <PropertyShowcase />
 
-      {/* 2. Journey Progression to Next Page */}
+      {/* 2. Enquire / Referral Intake */}
+      <ReferralSection />
+
+      {/* 3. Journey Progression to Next Page */}
       <SerkoJourneyBanner
         currentPageIndex={2}
         totalPages={5}

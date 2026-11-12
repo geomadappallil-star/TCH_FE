@@ -3,23 +3,30 @@ import {
   Phone, 
   ArrowRight, 
   CheckCircle2, 
-  Stethoscope,
-  Building2,
+  Stethoscope, 
+  Activity, 
+  Home, 
+  Building2, 
   Send, 
-  Clock,
-  FileText,
-  Sparkles
+  Clock, 
+  FileText, 
+  Sparkles, 
+  Calendar, 
+  ShieldCheck 
 } from 'lucide-react';
 import { submitQuickCallback } from '../services/enquiryService.js';
 
-export const PhotoHero: React.FC = () => {
-  // Quick callback form state
+interface PhotoHeroProps {
+  onNavigate?: (pageId: string) => void;
+}
+
+export const PhotoHero: React.FC<PhotoHeroProps> = ({ onNavigate }) => {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
-    suburb: '',
-    service: 'Clinical nursing care',
+    suburb: 'Townsville',
+    service: 'Allied Health / FCA Report (2 Weeks)',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -42,8 +49,8 @@ export const PhotoHero: React.FC = () => {
         name: '',
         phone: '',
         email: '',
-        suburb: '',
-        service: 'Clinical nursing care',
+        suburb: 'Townsville',
+        service: 'Allied Health / FCA Report (2 Weeks)',
         message: ''
       });
     }
@@ -52,313 +59,281 @@ export const PhotoHero: React.FC = () => {
 
   const coreBullets = [
     {
-      num: '01',
       icon: FileText,
-      tag: '2-Week Turnaround',
-      title: 'FCA Reports in 2 Weeks',
-      detail: 'Functional Capacity Assessment (FCA) reports available in 2 weeks. Fast turnaround by certified OTs.'
+      title: 'FCA in 2 Weeks',
+      badge: 'color-accent',
+      detail: 'Fast Functional Capacity Assessments by certified OTs.'
     },
     {
-      num: '02',
       icon: Building2,
-      tag: 'Move-in Ready',
-      title: '1 & 2-Bed Units Immediate',
-      detail: 'One-bedroom and two-bedroom units available immediately for independent living in Townsville.'
+      title: '1 & 2-Bed Units',
+      badge: 'color-secondary',
+      detail: 'Move-in ready rental units in Townsville available now.'
     },
     {
-      num: '03',
-      icon: Sparkles,
-      tag: 'Private · NDIS · VHC',
-      title: 'Gardening & Cleaning Services',
-      detail: 'Lawn mowing, yard care & housekeeping available for Private, NDIS, and VHC (Veterans\' Home Care).'
-    },
-    {
-      num: '04',
       icon: Stethoscope,
-      tag: 'AHPRA RNs',
-      title: 'Nursing & Allied Health',
-      detail: 'Nurse reviews for aged care & clinical assessments. Allied health services including OT, Physio & Counselling.'
+      title: 'Nursing & Therapies',
+      badge: 'color-blue',
+      detail: 'Clinical nursing, Physio, Speech, Dietetics, EP & Psychology.'
+    },
+    {
+      icon: Sparkles,
+      title: 'Domestic & Garden',
+      badge: 'color-rose',
+      detail: 'Mowing, trimming up to 4m, and general cleaning (NDIS/VHC/Private).'
     }
   ];
 
+  const handleReferralScroll = () => {
+    const el = document.getElementById('referral');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else if (onNavigate) {
+      onNavigate('home');
+      setTimeout(() => {
+        const target = document.getElementById('referral');
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      }, 350);
+    }
+  };
+
   return (
-    <section className="relative min-h-[85vh] flex items-center py-12 md:py-20 lg:py-24 overflow-hidden bg-[#163932] text-white">
+    <section className="relative min-h-[85vh] flex items-center py-12 md:py-20 overflow-hidden bg-gradient-to-b from-[#FFF3E2] via-[#FAF3EA] to-[#FFF3E2] text-[#2B2822]">
       
-      {/* 1. Crystal-Clear Ultra-HD Background Photo */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat pointer-events-none"
-        style={{
-          backgroundImage: `url('./images/clinical-care.jpg')`
-        }}
-      />
-      
-      {/* 2. Signature Eucalyptus Green Wash with High Contrast */}
-      <div className="absolute inset-0 bg-[#163932]/60 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-r from-[#163932]/95 via-[#163932]/75 via-55% to-[#163932]/30 lg:to-transparent pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#163932]/85 via-transparent to-[#163932]/35 pointer-events-none" />
+      {/* 1. Transparent Care Video Loop with Poster Fallback */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1920&q=85"
+        className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none mix-blend-multiply filter brightness-95"
+        aria-hidden="true"
+      >
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-nurse-measuring-the-blood-pressure-of-an-elderly-woman-42611-large.mp4" type="video/mp4" />
+      </video>
+
+      {/* Decorative ATS-style Organic Shapes */}
+      <div className="absolute top-10 right-10 w-96 h-96 rounded-full bg-[#F9B835]/15 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-96 h-96 rounded-full bg-[#94C08E]/20 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
         
-        {/* Dynamic Continuous Horizontal Scrolling Ticker (Right-to-Left / Left-to-Right) */}
-        <div className="relative inline-flex items-center max-w-full sm:max-w-xl h-10 rounded-full bg-white/[0.09] backdrop-blur-md border border-white/20 px-3 overflow-hidden mb-6 shadow-sm group">
-          <div className="flex items-center gap-2 pr-3 border-r border-white/20 flex-shrink-0 z-20 bg-[#163932]/90 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-[#D4A359] animate-pulse"></span>
-            <span className="text-[10px] uppercase font-bold tracking-wider text-[#E5B56A]">Verified</span>
-          </div>
-
-          {/* Left & Right subtle edge fade masks */}
-          <div className="absolute left-20 top-0 bottom-0 w-6 bg-gradient-to-r from-[#163932] to-transparent z-10 pointer-events-none" />
-          <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#163932] to-transparent z-10 pointer-events-none" />
-
-          {/* Scrolling Ticker Track */}
-          <div className="overflow-hidden pl-3 py-1 flex items-center">
-            <div className="animate-ticker-rtl flex items-center gap-8 whitespace-nowrap text-xs font-semibold text-emerald-100 cursor-default">
-              <span className="flex items-center gap-3">
-                <span>Townsville · Ingham · Charters Towers | Private, NDIS &amp; VHC Approved</span>
-                <span className="text-[#D4A359]">✦</span>
-              </span>
-              <span className="flex items-center gap-3">
-                <span>Townsville · Ingham · Charters Towers | Private, NDIS &amp; VHC Approved</span>
-                <span className="text-[#D4A359]">✦</span>
-              </span>
-              <span className="flex items-center gap-3">
-                <span>Townsville · Ingham · Charters Towers | Private, NDIS &amp; VHC Approved</span>
-                <span className="text-[#D4A359]">✦</span>
-              </span>
-              <span className="flex items-center gap-3">
-                <span>Townsville · Ingham · Charters Towers | Private, NDIS &amp; VHC Approved</span>
-                <span className="text-[#D4A359]">✦</span>
-              </span>
-            </div>
-          </div>
+        {/* Top Eyebrow Chip */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-[#0B4F51]/15 text-xs font-semibold text-[#0B4F51] mb-6 shadow-sm fadeInFromTop">
+          <span className="w-2 h-2 rounded-full bg-[#F9B835] animate-pulse"></span>
+          <span>Townsville · Ayr · Ingham · Charters Towers · Mareeba · Mount Isa</span>
         </div>
 
         {/* Hero 2-Column Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Column: Completely Box-Free Editorial Layout */}
-          <div className="lg:col-span-7 space-y-6">
+          {/* Left Column: ATS Organic Pill Headline & Narrative */}
+          <div className="lg:col-span-7 space-y-6 fadeInFromLeft">
             
-            {/* Main Headline */}
             <div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[50px] font-bold tracking-tight leading-[1.12] text-white">
-                Compassionate clinical care and everyday living,{' '}
-                <span className="font-serif italic font-normal text-[#E5B56A] block mt-1">at your doorstep.</span>
+              <div className="text-xs uppercase font-bold tracking-widest text-[#EC7E38] mb-2">
+                Townsville Community Health · North Queensland
+              </div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[54px] font-bold tracking-tight leading-[1.18] text-[#0B4F51]">
+                Locals looking after <br className="hidden sm:inline" />
+                <span className="color-secondary">locals.</span>
               </h1>
-              <p className="text-base sm:text-lg text-teal-100/90 mt-4 max-w-xl font-normal leading-relaxed">
-                Locally owned and based in Townsville. Supporting self-managed, plan-managed NDIS, private, and VHC participants with prompt clinical nursing, 2-week FCA reports, and independent living.
+              <p className="text-base sm:text-lg text-gray-700 mt-4 max-w-2xl font-normal leading-relaxed">
+                TCH Support Services (Townsville Community Health) is a locally owned and operated support provider based in Townsville. We help NDIS participants, older Australians, veterans and private clients across North Queensland live well at home and stay connected to their community.
               </p>
             </div>
 
-            {/* ============================================================== */}
-            {/* COMPLETELY BOX-FREE EDITORIAL SPECIFICATION MATRIX */}
-            {/* Zero card containers, zero glass borders - open architectural typography */}
-            {/* ============================================================== */}
-            <div className="pt-4 border-t border-white/20">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
-                {coreBullets.map((b, idx) => {
-                  const Icon = b.icon;
-                  return (
-                    <div key={idx} className="group space-y-1">
+            {/* ATS Pill Buttons */}
+            <div className="flex flex-wrap items-center gap-3 pt-2">
+              <button
+                type="button"
+                onClick={handleReferralScroll}
+                className="ats-button bg-[#EF85AA] hover:bg-[#f29ab7] text-[#590925] border border-[#590925]/20 shadow-md"
+              >
+                <span>Make a Referral</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              <a
+                href="https://tchservices.splose.com/public-form/2c733ea1-1b3a-41d5-87d7-98ba320cd4f8"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="ats-button bg-[#94C08E] hover:bg-[#a6d1a0] text-[#184013] border border-[#184013]/20 shadow-md"
+              >
+                <Calendar className="w-4 h-4" />
+                <span>Book 2-Week FCA (Splose)</span>
+              </a>
+
+              {onNavigate && (
+                <button
+                  type="button"
+                  onClick={() => onNavigate('units')}
+                  className="ats-button bg-white hover:bg-gray-50 text-[#0B4F51] border border-[#0B4F51]/20 shadow-sm"
+                >
+                  <Building2 className="w-4 h-4 text-[#EC7E38]" />
+                  <span>Enquire About Units</span>
+                </button>
+              )}
+            </div>
+
+            {/* 4 Crisp Highlight Bullets with ATS Colored Pill Accents */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+              {coreBullets.map((b, idx) => {
+                const IconComponent = b.icon;
+                return (
+                  <div 
+                    key={idx} 
+                    className="p-4 rounded-2xl bg-white border border-[#0B4F51]/15 hover:border-[#0B4F51]/30 transition-all shadow-sm hover:shadow-md group"
+                  >
+                    <div className="flex items-center justify-between gap-2 mb-1.5">
                       <div className="flex items-center gap-2">
-                        <span className="text-[11px] font-mono font-bold text-[#E5B56A] tracking-wider">
-                          {b.num}
-                        </span>
-                        <span className="text-[10px] uppercase font-bold tracking-wider text-teal-200/80">
-                          / {b.tag}
-                        </span>
+                        <IconComponent className="w-4 h-4 text-[#0B4F51] group-hover:scale-110 transition-transform" />
+                        <h4 className="font-bold text-sm text-[#0B4F51]">{b.title}</h4>
                       </div>
-                      
-                      <div className="flex items-start gap-2.5 pt-0.5">
-                        <div className="w-6 h-6 rounded-md bg-[#D4A359]/20 border border-[#D4A359]/30 flex items-center justify-center text-[#E5B56A] flex-shrink-0 mt-0.5">
-                          <Icon className="w-3.5 h-3.5" />
-                        </div>
-                        <h3 className="font-bold text-sm sm:text-base text-white group-hover:text-[#E5B56A] transition-colors leading-snug">
-                          {b.title}
-                        </h3>
-                      </div>
-                      
-                      <p className="text-xs text-teal-100/80 leading-relaxed font-normal pl-8">
-                        {b.detail}
-                      </p>
+                      <span className={`${b.badge} text-[10px] font-bold`}>
+                        Active
+                      </span>
                     </div>
-                  );
-                })}
-              </div>
+                    <p className="text-xs text-gray-600 leading-relaxed pl-6">
+                      {b.detail}
+                    </p>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-3.5 pt-2">
-              <a
-                href="tel:0431430905"
-                className="btn-press inline-flex items-center justify-center gap-2.5 bg-[#D4A359] hover:bg-[#C28F42] text-[#0D2E27] font-bold text-sm sm:text-base px-6 py-3.5 rounded-full shadow-lg shadow-[#D4A359]/20 transition-colors"
-              >
-                <Phone className="w-4 h-4 sm:w-5 sm:h-5 text-[#0D2E27]" />
-                <span>Call Alan: 0431 430 905</span>
-              </a>
-
-              <a
-                href="#units"
-                className="inline-flex items-center justify-center gap-2 bg-white/15 hover:bg-white/25 backdrop-blur-md border border-white/30 text-white font-semibold text-sm sm:text-base px-5 py-3.5 rounded-full transition-colors"
-              >
-                <span>View 1 &amp; 2-Bed Units</span>
-                <ArrowRight className="w-4 h-4 text-[#E5B56A]" />
-              </a>
-            </div>
-
-            {/* Trust Footer line with verified badges */}
-            <div className="flex flex-wrap items-center gap-y-2 gap-x-5 text-xs text-teal-200/90 pt-2 border-t border-white/15">
+            {/* Credibility Footer Bar */}
+            <div className="flex flex-wrap items-center gap-4 pt-1 text-xs text-gray-700">
               <span className="flex items-center gap-1.5 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-[#E5B56A]" /> 2-Week FCA Reports
+                <ShieldCheck className="w-4 h-4 text-[#0B4F51]" /> Current NDIS Worker Screening
               </span>
+              <span className="text-gray-400">•</span>
               <span className="flex items-center gap-1.5 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-[#E5B56A]" /> 1 &amp; 2 Bed Units Ready
+                <CheckCircle2 className="w-4 h-4 text-[#94C08E]" /> Plan-Managed &amp; Self-Managed
               </span>
+              <span className="text-gray-400">•</span>
               <span className="flex items-center gap-1.5 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-[#E5B56A]" /> Private, NDIS &amp; VHC
-              </span>
-              <span className="flex items-center gap-1.5 font-medium">
-                <CheckCircle2 className="w-4 h-4 text-[#E5B56A]" /> Nurse Aged Care Reviews
+                <CheckCircle2 className="w-4 h-4 text-[#94C08E]" /> DVA VHC &amp; Private
               </span>
             </div>
 
           </div>
 
-          {/* Right Column: Architectural Intake Desk Console (No AI Box) */}
-          <div className="lg:col-span-5">
-            <div className="bg-[#FCFAF7] border border-[#E2DBD0] p-6 sm:p-7 shadow-xl rounded-2xl text-[#182823] relative">
+          {/* Right Column: Direct Fast-Callback Box with ATS Styling */}
+          <div className="lg:col-span-5 fadeInFromRight">
+            <div className="bg-white text-[#2B2822] rounded-3xl p-6 sm:p-7 shadow-xl border-2 border-[#0B4F51]/15 relative">
               
-              {/* Form Editorial Header */}
-              <div className="border-b border-[#E8E2D7] pb-3.5 mb-4">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono uppercase tracking-widest font-bold text-[#164E43]">
-                    Direct Intake Desk
-                  </span>
-                  <span className="text-[11px] font-bold text-[#B38135] bg-[#FAF3E7] border border-[#E8D1A7] px-2.5 py-0.5 rounded-md">
-                    Fast Response
-                  </span>
+              <div className="mb-4">
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#0B4F51]/10 text-[#0B4F51] text-[11px] font-bold uppercase tracking-wider mb-1.5">
+                  <Sparkles className="w-3 h-3 text-[#F9B835]" /> Direct Local Response
                 </div>
-                <h3 className="font-bold text-xl text-[#0E352D] mt-1 tracking-tight">
-                  Quick Callback Request
+                <h3 className="text-xl font-bold text-[#0B4F51] tracking-tight">
+                  Request a Prompt Callback
                 </h3>
-                <p className="text-xs text-stone-600 mt-0.5 flex items-center gap-1.5 font-medium">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
-                  <span>Alan responds directly to all enquiries</span>
+                <p className="text-xs text-gray-600 mt-1">
+                  Have questions or need local care across North Queensland? Alan responds directly.
                 </p>
               </div>
 
               {feedback && (
-                <div
-                  className={`p-3.5 rounded-xl mb-4 text-xs flex items-start gap-2.5 ${
-                    feedback.success
-                      ? 'bg-emerald-50 text-emerald-900 border border-emerald-200'
-                      : 'bg-rose-50 text-rose-800 border border-rose-200'
-                  }`}
-                >
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-bold">{feedback.message}</p>
-                    {feedback.refId && (
-                      <p className="text-[11px] text-emerald-700 mt-0.5">Reference: {feedback.refId}</p>
-                    )}
-                  </div>
+                <div className={`p-3.5 rounded-xl text-xs mb-4 ${
+                  feedback.success 
+                    ? 'bg-emerald-50 border border-emerald-300 text-emerald-900' 
+                    : 'bg-red-50 border border-red-300 text-red-900'
+                }`}>
+                  <p className="font-bold">{feedback.message}</p>
+                  {feedback.refId && (
+                    <p className="text-[11px] text-emerald-700 mt-0.5">Reference ID: <strong>{feedback.refId}</strong></p>
+                  )}
                 </div>
               )}
 
-              <form onSubmit={handleCallbackSubmit} className="space-y-3.5 text-xs">
+              <form onSubmit={handleCallbackSubmit} className="space-y-3">
+                <div>
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                    Your Name *
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    placeholder="Full name or Coordinator name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    className="tactile-input w-full px-3.5 py-2.5 text-xs sm:text-sm bg-gray-50 focus:bg-white"
+                  />
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-stone-700 mb-1">
-                      Your Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Full name"
-                      className="w-full px-3 py-2.5 rounded-lg border border-[#DCD6CA] bg-white text-stone-900 placeholder-stone-400 font-medium text-xs focus:border-[#164E43] focus:ring-1 focus:ring-[#164E43] outline-none transition-colors"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-stone-700 mb-1">
-                      Phone *
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">
+                      Phone Number *
                     </label>
                     <input
                       type="tel"
                       required
+                      placeholder="0400 000 000"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="0412 345 678"
-                      className="w-full px-3 py-2.5 rounded-lg border border-[#DCD6CA] bg-white text-stone-900 placeholder-stone-400 font-medium text-xs focus:border-[#164E43] focus:ring-1 focus:ring-[#164E43] outline-none transition-colors"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-stone-700 mb-1">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="your.email@example.com"
-                      className="w-full px-3 py-2.5 rounded-lg border border-[#DCD6CA] bg-white text-stone-900 placeholder-stone-400 font-medium text-xs focus:border-[#164E43] focus:ring-1 focus:ring-[#164E43] outline-none transition-colors"
+                      className="tactile-input w-full px-3.5 py-2.5 text-xs sm:text-sm bg-gray-50 focus:bg-white"
                     />
                   </div>
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-stone-700 mb-1">
-                      Townsville Suburb
+                    <label className="block text-xs font-semibold text-gray-700 mb-1">
+                      Town / Suburb *
                     </label>
-                    <input
-                      type="text"
+                    <select
                       value={formData.suburb}
                       onChange={(e) => setFormData({ ...formData, suburb: e.target.value })}
-                      placeholder="e.g. Kirwan or Burdell"
-                      className="w-full px-3 py-2.5 rounded-lg border border-[#DCD6CA] bg-white text-stone-900 placeholder-stone-400 font-medium text-xs focus:border-[#164E43] focus:ring-1 focus:ring-[#164E43] outline-none transition-colors"
-                    />
+                      className="tactile-input w-full px-3.5 py-2.5 text-xs sm:text-sm bg-gray-50 focus:bg-white"
+                    >
+                      <option>Townsville</option>
+                      <option>Ayr (Burdekin)</option>
+                      <option>Ingham (Hinchinbrook)</option>
+                      <option>Charters Towers</option>
+                      <option>Mareeba (Tablelands)</option>
+                      <option>Mount Isa</option>
+                      <option>Other North QLD</option>
+                    </select>
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-wider text-stone-700 mb-1">
-                    Service Needed
+                  <label className="block text-xs font-semibold text-gray-700 mb-1">
+                    Service Required *
                   </label>
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-lg border border-[#DCD6CA] bg-white text-stone-900 font-medium text-xs focus:border-[#164E43] focus:ring-1 focus:ring-[#164E43] outline-none transition-colors"
+                    className="tactile-input w-full px-3.5 py-2.5 text-xs sm:text-sm bg-gray-50 focus:bg-white"
                   >
-                    <option>FCA Report (Functional Capacity Assessment - 2 Weeks)</option>
-                    <option>Allied Health (OT, Physio, Counselling)</option>
-                    <option>Nursing Supports &amp; Aged Care Reviews</option>
-                    <option>One &amp; Two-Bedroom Units (Immediate Move-In)</option>
-                    <option>Gardening &amp; Cleaning (Private, NDIS, VHC)</option>
-                    <option>Home and living support with units available for participants to live independently</option>
-                    <option>Combined clinical &amp; home supports</option>
+                    <option>Allied Health / FCA Report (2 Weeks)</option>
+                    <option>1 &amp; 2-Bedroom Units (Available Now)</option>
+                    <option>NDIS Supports (Personal Care &amp; Community Access)</option>
+                    <option>Nursing Services (Wound, Diabetes, Clinical)</option>
+                    <option>Gardening Services (Mowing, Edging, Pruning)</option>
+                    <option>Domestic and Cleaning Services</option>
+                    <option>Veterans' Home Care (VHC) / Private</option>
                   </select>
                 </div>
 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-press w-full inline-flex items-center justify-center gap-2 bg-[#164E43] hover:bg-[#0E352D] text-white font-bold text-xs sm:text-sm py-3.5 rounded-xl shadow-md transition-colors"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#0B4F51] hover:bg-[#073B3C] text-white font-bold text-sm py-3 rounded-full shadow-md hover:shadow-lg transition-all"
                 >
-                  <Send className="w-4 h-4 text-[#E5B56A]" />
+                  <Send className="w-4 h-4 text-[#F9B835]" />
                   <span>{isSubmitting ? 'Sending Request...' : 'Send Callback Request'}</span>
                 </button>
               </form>
 
-              <div className="mt-4 pt-3 border-t border-[#E8E2D7] flex items-center justify-between text-[11px] text-stone-500">
-                <span className="flex items-center gap-1.5 font-medium">
-                  <Clock className="w-3.5 h-3.5 text-[#164E43]" /> Mon–Sat 7am–7pm
+              <div className="mt-3.5 pt-3 border-t border-gray-200 flex items-center justify-between text-[11px] text-gray-600">
+                <span className="flex items-center gap-1.5">
+                  <Clock className="w-3.5 h-3.5 text-[#0B4F51]" /> Mon–Sat 7am–7pm
                 </span>
-                <span className="font-semibold text-[#164E43]">
-                  Direct: 0431 430 905
-                </span>
+                <a href="tel:0431430905" className="font-bold text-[#0B4F51] hover:underline">
+                  0431 430 905
+                </a>
               </div>
 
             </div>

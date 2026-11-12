@@ -49,20 +49,20 @@ export const SerkoPageDock: React.FC<SerkoPageDockProps> = ({
         {pages.map((p, idx) => {
           const isActive = currentPageId === p.id;
           return (
-            <button
-              key={p.id}
-              type="button"
-              onClick={() => onNavigate(p.id)}
-              className={`px-3 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 ${
-                isActive
-                  ? 'bg-[#D4A359] text-[#09221C] shadow-md font-bold'
-                  : 'text-teal-200/80 hover:text-white hover:bg-white/10'
-              }`}
-            >
-              <span className="font-mono text-[10px] opacity-75">{p.num}</span>
-              <span className="hidden md:inline">{p.name}</span>
-              <span className="md:hidden">{p.shortName}</span>
-            </button>
+              <button
+                key={p.id}
+                type="button"
+                onClick={() => onNavigate(p.id)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold transition-all duration-300 flex items-center gap-1.5 ${
+                  isActive
+                    ? 'bg-[#F9B835] text-[#2B2822] shadow-md font-bold scale-105'
+                    : 'text-teal-100 hover:text-white hover:bg-white/10'
+                }`}
+              >
+                <span className="font-mono text-[10px] opacity-80">{p.num}</span>
+                <span className="hidden md:inline">{p.name}</span>
+                <span className="md:hidden">{p.shortName}</span>
+              </button>
           );
         })}
       </div>

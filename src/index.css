@@ -4,17 +4,26 @@
 
 @layer base {
   :root {
-    --teal: #164E43;
-    --teal-deep: #0E352D;
-    --teal-ink: #0A241F;
-    --sage: #7A9B89;
-    --sage-pale: #E1EBE4;
-    --gold: #D4A359;
-    --gold-deep: #B38135;
-    --paper: #FAF8F5;
-    --paper-warm: #F2EFE8;
-    --ink: #182823;
-    --muted: #566B64;
+    --ats-cream: #FFF3E2;
+    --ats-text: #0B4F51;
+    --ats-secondary: #2B2822;
+    --ats-accent: #94C08E;
+    --ats-gold: #F9B835;
+    --ats-coral: #EC7E38;
+    --ats-rose: #EF85AA;
+    --ats-blue: #C4C9E7;
+    --ats-transition: #FFBC7D;
+    
+    --teal: #0B4F51;
+    --teal-deep: #073B3C;
+    --teal-ink: #042627;
+    --sage: #94C08E;
+    --sage-pale: #DDE7D4;
+    --gold: #F9B835;
+    --paper: #FFF3E2;
+    --paper-warm: #F7EDE1;
+    --ink: #2B2822;
+    --muted: #5A6C65;
   }
 
   html {
@@ -23,8 +32,8 @@
   }
 
   body {
-    background-color: #FAF8F5;
-    color: #182823;
+    background-color: #FFF3E2;
+    color: #2B2822;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -33,288 +42,211 @@
 
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Poppins', system-ui, sans-serif;
-    color: #0E352D;
+    color: #0B4F51;
     letter-spacing: -0.025em;
   }
 }
 
 @layer components {
   /* ========================================================
-     HUMAN-CRAFTED BESPOKE DESIGN SYSTEM
-     Tactile, editorial, warm, authentic Australian care
+     ALLIED THERAPEUTIC SERVICES (ATS) THEME & PILL BADGES
+     Warm, playful, organic, and inviting NDIS design language
      ======================================================== */
 
-  /* Fine linen / organic subtle pattern for light sections */
-  .pattern-grid-light {
-    background-image: radial-gradient(rgba(22, 78, 67, 0.08) 1px, transparent 1px);
-    background-size: 24px 24px;
+  .color-secondary,
+  .color-accent,
+  .color-purple,
+  .color-blue,
+  .color-coral,
+  .color-rose {
+    padding-left: 18px;
+    padding-right: 18px;
+    display: inline-block;
+    line-height: 1.18em;
+    border-radius: 9999px;
+    padding-bottom: 5px;
+    padding-top: 3px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    transition: all 0.25s ease;
   }
 
-  /* Fine stippled dot pattern for dark sections */
-  .pattern-grid-dark {
-    background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
-    background-size: 24px 24px;
+  .color-secondary {
+    background: #F9B835;
+    color: #2B2822;
   }
 
-  /* Bespoke Human Card - Physical, grounded, layered */
-  .care-card {
-    background: #FFFFFF;
-    border: 1px solid rgba(22, 78, 67, 0.12);
-    box-shadow: 0 4px 20px -2px rgba(14, 53, 45, 0.05),
-                0 1px 3px 0 rgba(14, 53, 45, 0.03);
-    border-radius: 20px;
-    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  .color-accent {
+    background: #94C08E;
+    color: #184013;
   }
 
-  .care-card:hover {
-    border-color: rgba(22, 78, 67, 0.25);
-    box-shadow: 0 8px 24px -4px rgba(14, 53, 45, 0.08);
+  .color-blue {
+    background: #C4C9E7;
+    color: #2D3359;
   }
 
-  /* Dark Forest Card - Deep, rich, high contrast */
-  .care-card-dark {
-    background: rgba(14, 53, 45, 0.85);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 16px 36px -8px rgba(0, 0, 0, 0.35);
-    border-radius: 20px;
+  .color-coral {
+    background: #EC7E38;
+    color: #FFFFFF;
   }
 
-  .care-card-dark:hover {
-    border-color: rgba(212, 163, 89, 0.45);
+  .color-rose {
+    background: #EF85AA;
+    color: #590925;
   }
 
-  /* Sticky Navigation Header with human frosted glass */
-  .glass-nav {
-    background: rgba(250, 248, 245, 0.92);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(22, 78, 67, 0.12);
-    box-shadow: 0 4px 20px -4px rgba(14, 53, 45, 0.06);
+  .color-purple {
+    background: #2D3359;
+    color: #C4C9E7;
+  }
+
+  @media (max-width: 768px) {
+    .color-secondary,
+    .color-accent,
+    .color-purple,
+    .color-blue,
+    .color-coral,
+    .color-rose {
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 3px;
+      padding-top: 1px;
+    }
+  }
+
+  /* ATS Pill Buttons */
+  .ats-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 9999px;
+    padding: 12px 24px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+  }
+
+  .ats-button:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 10px 25px -5px rgba(11, 79, 81, 0.25);
+  }
+
+  .ats-button:active {
+    transform: scale(0.98);
+  }
+
+  /* Allied Therapeutic Interactive Animations */
+  @keyframes fadeInFromBottom { 
+    from {
+      opacity: 0; 
+      transform: translateY(32px);
+    }
+    to {
+      opacity: 1; 
+      transform: translateY(0px);
+    }
+  }
+
+  .fadeInFromBottom { 
+    animation: fadeInFromBottom 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes fadeInFromTop { 
+    from {
+      opacity: 0; 
+      transform: translateY(-32px);
+    }
+    to {
+      opacity: 1; 
+      transform: translateY(0px);
+    }
+  }
+
+  .fadeInFromTop { 
+    animation: fadeInFromTop 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes fadeInFromLeft { 
+    from {
+      opacity: 0; 
+      transform: translateX(-32px);
+    }
+    to {
+      opacity: 1; 
+      transform: translateX(0px);
+    }
+  }
+
+  .fadeInFromLeft { 
+    animation: fadeInFromLeft 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes fadeInFromRight { 
+    from {
+      opacity: 0; 
+      transform: translateX(32px);
+    }
+    to {
+      opacity: 1; 
+      transform: translateX(0px);
+    }
+  }
+
+  .fadeInFromRight { 
+    animation: fadeInFromRight 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  /* Butterflow Smooth Transitions */
+  .butterflow-card {
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .butterflow-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -15px rgba(11, 79, 81, 0.15);
   }
 
   /* Tactile form inputs with organic focus states */
   .tactile-input {
     background: #FFFFFF;
-    border: 1.5px solid rgba(22, 78, 67, 0.18);
-    border-radius: 12px;
+    border: 1.5px solid rgba(11, 79, 81, 0.18);
+    border-radius: 14px;
     transition: all 0.2s ease;
   }
 
   .tactile-input:focus {
     background: #FFFFFF;
-    border-color: #164E43;
-    box-shadow: 0 0 0 3.5px rgba(22, 78, 67, 0.12);
+    border-color: #0B4F51;
+    box-shadow: 0 0 0 3.5px rgba(11, 79, 81, 0.14);
     outline: none;
-  }
-
-  /* Warm editorial badge */
-  .editorial-badge {
-    background: rgba(255, 255, 255, 0.88);
-    border: 1px solid rgba(22, 78, 67, 0.15);
-    box-shadow: 0 2px 6px -1px rgba(14, 53, 45, 0.04);
-  }
-
-  /* Pulse indicator dot */
-  .status-dot {
-    position: relative;
-    display: inline-flex;
-    width: 8px;
-    height: 8px;
-  }
-
-  .status-dot::before {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: 9999px;
-    background-color: currentColor;
-    opacity: 0.35;
-    animation: ping 2s cubic-bezier(0, 0, 0.2, 1) infinite;
-  }
-
-  @keyframes ping {
-    75%, 100% {
-      transform: scale(2.2);
-      opacity: 0;
-    }
-  }
-
-  /* Button active press feel */
-  .btn-press {
-    transition: transform 0.12s ease, box-shadow 0.15s ease;
-  }
-  .btn-press:active {
-    transform: scale(0.98);
-  }
-
-  /* Shimmer gradient animation for attractive interactive badges */
-  @keyframes goldShimmer {
-    0% {
-      background-position: -200% 0;
-    }
-    100% {
-      background-position: 200% 0;
-    }
-  }
-
-  .shimmer-badge {
-    background: linear-gradient(
-      90deg,
-      rgba(212, 163, 89, 0.15) 0%,
-      rgba(229, 181, 106, 0.45) 50%,
-      rgba(212, 163, 89, 0.15) 100%
-    );
-    background-size: 200% 100%;
-    animation: goldShimmer 3.5s infinite linear;
-  }
-
-  /* Soft glowing pulse for icon orbs */
-  @keyframes iconGlowPulse {
-    0%, 100% {
-      box-shadow: 0 0 0 0 rgba(212, 163, 89, 0.4), 0 0 15px rgba(212, 163, 89, 0.2);
-    }
-    50% {
-      box-shadow: 0 0 0 6px rgba(212, 163, 89, 0), 0 0 25px rgba(212, 163, 89, 0.35);
-    }
-  }
-
-  .glow-orb {
-    animation: iconGlowPulse 3s infinite ease-in-out;
-  }
-
-  /* Animated light sweep */
-  @keyframes lightSweep {
-    0% {
-      transform: translateX(-100%);
-    }
-    50%, 100% {
-      transform: translateX(100%);
-    }
-  }
-
-  .sweep-line {
-    position: relative;
-    overflow: hidden;
-  }
-  .sweep-line::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent, rgba(229, 181, 106, 0.5), transparent);
-    animation: lightSweep 3s infinite ease-in-out;
   }
 
   /* Seamless cyclic infinite rotation for suburb tickers */
   @keyframes cyclicMarquee {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
   }
 
   .animate-cyclic {
     display: flex;
     width: max-content;
     will-change: transform;
-    animation: cyclicMarquee 28s linear infinite;
+    animation: cyclicMarquee 26s linear infinite;
   }
 
   .animate-cyclic:hover {
     animation-play-state: paused;
   }
 
-  /* Smooth horizontal ticker (Right-to-Left) */
-  @keyframes tickerRTL {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  /* Smooth horizontal ticker (Left-to-Right) */
-  @keyframes tickerLTR {
-    0% {
-      transform: translateX(-50%);
-    }
-    100% {
-      transform: translateX(0%);
-    }
-  }
-
-  .animate-ticker-rtl {
-    display: flex;
-    width: max-content;
-    will-change: transform;
-    animation: tickerRTL 16s linear infinite;
-  }
-  .animate-ticker-rtl:hover {
-    animation-play-state: paused;
-  }
-
-  .animate-ticker-ltr {
-    display: flex;
-    width: max-content;
-    will-change: transform;
-    animation: tickerLTR 16s linear infinite;
-  }
-  .animate-ticker-ltr:hover {
-    animation-play-state: paused;
-  }
-
-  /* Butterflow-style ultra-smooth cubic-bezier transition */
-  .transition-butterflow {
-    transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-
-  /* Depth of field background image animation */
-  @keyframes depthBackdropZoom {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.06);
-    }
-  }
-
-  .backdrop-zoom-subtle {
-    animation: depthBackdropZoom 12s ease-in-out infinite alternate;
-  }
-
-  /* ========================================================
-     SERKO.AI SPATIAL PAGE TRANSITIONS & MOTION GRAPHICS
-     Fluid stage shifts, laser beams, and interactive curtains
-     ======================================================== */
-
-  @keyframes serkoLaserBeam {
-    0% {
-      width: 0%;
-      opacity: 1;
-    }
-    60% {
-      width: 80%;
-      opacity: 1;
-    }
-    100% {
-      width: 100%;
-      opacity: 0;
-    }
-  }
-
-  .serko-laser-beam {
-    animation: serkoLaserBeam 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  }
-
-  /* Page entering stagger */
+  /* Serko Page Enter Stagger */
   @keyframes serkoPageEnter {
     0% {
       opacity: 0;
-      transform: translateY(24px) scale(0.99);
+      transform: translateY(20px) scale(0.99);
       filter: blur(4px);
     }
     100% {
@@ -325,7 +257,7 @@
   }
 
   .animate-serko-page-enter {
-    animation: serkoPageEnter 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: serkoPageEnter 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
 
   /* Pulse ripple for route nodes */

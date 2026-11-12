@@ -382,25 +382,25 @@ export const PropertyShowcase: React.FC = () => {
                 </span>
               </div>
 
-              <p className="text-xs text-teal-100/90 leading-relaxed">
+              <p className="text-xs text-teal-100/90 leading-relaxed font-sans">
                 Call Alan directly for a walk-through inspection and tenancy arrangements.
               </p>
 
               <div className="pt-1 flex flex-col sm:flex-row gap-2.5">
                 <a
                   href="tel:0431430905"
-                  className="btn-press flex-1 inline-flex items-center justify-center gap-2 bg-[#D4A359] hover:bg-[#C28F42] text-[#0A2620] font-bold text-xs sm:text-sm py-3 px-4 rounded-xl shadow-md transition-colors"
+                  className="ats-button flex-1 inline-flex items-center justify-center gap-2 bg-[#F9B835] hover:bg-[#ffc657] text-[#2B2822] font-bold text-xs sm:text-sm py-3 px-4 shadow-md transition-all"
                 >
-                  <Phone className="w-4 h-4 text-[#0A2620]" />
+                  <Phone className="w-4 h-4 text-[#2B2822]" />
                   <span>0431 430 905</span>
                 </a>
 
                 <a
-                  href="#top"
-                  className="btn-press flex-1 inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm py-3 px-4 rounded-xl border border-white/20 transition-colors"
+                  href="#referral"
+                  className="ats-button flex-1 inline-flex items-center justify-center gap-2 bg-[#0B4F51] hover:bg-[#073B3C] text-white font-semibold text-xs sm:text-sm py-3 px-4 border border-white/20 transition-all"
                 >
-                  <Calendar className="w-4 h-4 text-[#E5B56A]" />
-                  <span>Request Callback</span>
+                  <Calendar className="w-4 h-4 text-[#F9B835]" />
+                  <span>Enquire / Referral</span>
                 </a>
               </div>
             </div>

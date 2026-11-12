@@ -78,10 +78,10 @@ export function App() {
   }, [currentPage, isTransitioning]);
 
   return (
-    <div id="top" className="min-h-screen flex flex-col bg-[#FAF8F5] text-[#182823] relative">
+    <div id="top" className="min-h-screen flex flex-col bg-[#FFF3E2] text-[#2B2822] relative font-sans">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-[#164E43] text-white px-4 py-2 rounded-lg font-bold shadow-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-[#0B4F51] text-white px-4 py-2 rounded-full font-bold shadow-lg"
       >
         Skip to main content
       </a>
@@ -93,20 +93,20 @@ export function App() {
         isTransitioning={isTransitioning}
       />
 
-      {/* Serko-Style Spatial Transition Curtain */}
+      {/* Serko-Style Spatial Transition Curtain (ATS Teal + Warm Glow) */}
       <div 
         className={`fixed inset-0 z-50 pointer-events-none transition-all duration-500 ease-in-out ${
           isTransitioning 
-            ? 'opacity-100 backdrop-blur-md bg-[#09221C]/70' 
+            ? 'opacity-100 backdrop-blur-md bg-[#0B4F51]/75' 
             : 'opacity-0 backdrop-blur-none bg-transparent'
         }`}
       >
         {isTransitioning && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex items-center gap-3 px-5 py-2.5 rounded-full bg-[#081F1A]/95 border border-[#D4A359]/40 text-white text-xs font-bold shadow-2xl">
-              <span className="w-2 h-2 rounded-full bg-[#E5B56A] animate-ping" />
-              <span className="font-mono uppercase tracking-widest text-[#E5B56A]">
-                Transitioning · TCH Studio
+            <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-[#FFF3E2] border-2 border-[#F9B835] text-[#0B4F51] text-xs font-bold shadow-2xl">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#EF85AA] animate-ping" />
+              <span className="font-sans uppercase tracking-widest text-[#0B4F51] font-bold">
+                Transitioning · TCH Support Services
               </span>
             </div>
           </div>
