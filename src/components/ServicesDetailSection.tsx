@@ -130,12 +130,15 @@ export const ServicesDetailSection: React.FC = () => {
                     <p className="text-xs font-semibold text-[#3A2A10]">1 and 2-bedroom independent units ready in Townsville.</p>
                   </div>
                 </div>
-                <a 
-                  href="mailto:admin@tchservices.com.au?subject=Enquiry%20about%20Townsville%20Accommodation%20Units"
-                  className="btn-base btn-teal text-xs sm:text-sm px-4 py-2.5 shadow-sm"
+                <button 
+                  type="button"
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent('open-accommodation'));
+                  }}
+                  className="btn-base btn-teal text-xs sm:text-sm px-4 py-2.5 shadow-sm active:scale-95 transition-all"
                 >
                   Enquire about units
-                </a>
+                </button>
               </div>
 
             </div>

@@ -25,7 +25,11 @@ interface Slide {
   description: string;
 }
 
-export const PropertyShowcase: React.FC = () => {
+interface PropertyShowcaseProps {
+  onClose?: () => void;
+}
+
+export const PropertyShowcase: React.FC<PropertyShowcaseProps> = ({ onClose }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [modalImage, setModalImage] = useState<string | null>(null);
@@ -92,8 +96,9 @@ export const PropertyShowcase: React.FC = () => {
   ];
 
   return (
-    <section id="units" className="scroll-mt-20 py-16 sm:py-24 relative overflow-hidden bg-[#163932] text-white">
-      <div id="housing" className="scroll-mt-20"></div>
+    <section id="accommodation" className="scroll-mt-24 rounded-[36px] overflow-hidden border-2 border-white/60 shadow-2xl p-6 sm:p-10 lg:p-12 relative bg-[#163932] text-white">
+      <div id="units" className="scroll-mt-24"></div>
+      <div id="housing" className="scroll-mt-24"></div>
       
       {/* Background Banner Photo with Townsville Exterior Wash */}
       <div 
@@ -106,8 +111,29 @@ export const PropertyShowcase: React.FC = () => {
       {/* Deep Eucalyptus Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#163932] via-[#1A453C] to-[#163932] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto relative z-10">
         
+        {/* Top Header Dismiss Bar */}
+        {onClose && (
+          <div className="flex items-center justify-between pb-6 mb-8 border-b border-white/15">
+            <div className="flex items-center gap-2.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#D4A359] animate-pulse" />
+              <span className="text-xs sm:text-sm font-bold uppercase tracking-wider text-teal-100">
+                Accommodation Details &amp; Inspection
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={onClose}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/15 hover:bg-white/25 text-white text-xs sm:text-sm font-bold transition-all border border-white/25 active:scale-95 shadow-sm"
+              aria-label="Close accommodation details"
+            >
+              <span>Close</span>
+              <X className="w-4 h-4 text-[#D4A359]" />
+            </button>
+          </div>
+        )}
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold uppercase tracking-wider text-[#D4A359] mb-3">
@@ -291,7 +317,12 @@ export const PropertyShowcase: React.FC = () => {
                 </a>
 
                 <a
-                  href="#top"
+                  href="#referral"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.querySelector('#referral');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
                   className="flex-1 inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm py-2.5 px-4 rounded-xl border border-white/20 transition-all"
                 >
                   <Calendar className="w-4 h-4 text-[#D4A359]" />
@@ -303,6 +334,20 @@ export const PropertyShowcase: React.FC = () => {
           </div>
 
         </div>
+
+        {/* Bottom Close Bar */}
+        {onClose && (
+          <div className="mt-10 pt-6 border-t border-white/15 flex justify-center">
+            <button
+              type="button"
+              onClick={onClose}
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs sm:text-sm font-bold transition-all border border-white/20 shadow-sm active:scale-95"
+            >
+              <span>Close Accommodation Details</span>
+              <X className="w-4 h-4 text-[#D4A359]" />
+            </button>
+          </div>
+        )}
 
       </div>
 

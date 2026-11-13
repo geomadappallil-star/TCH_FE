@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   ArrowRight, 
   MapPin, 
@@ -16,14 +16,37 @@ import {
   CheckCircle2, 
   Phone,
   CalendarCheck,
-  ExternalLink
+  ExternalLink,
+  ChevronDown
 } from 'lucide-react';
-import { InteractiveNorthQldMap } from './InteractiveNorthQldMap';
+import { InteractiveNorthQldMap } from './InteractiveNorthQldMap.js';
+import { PropertyShowcase } from './PropertyShowcase.js';
 
 const SPLOSE_FCA_URL = 'https://tchservices.splose.com/public-form/2c733ea1-1b3a-41d5-87d7-98ba320cd4f8';
 
 export const HomeHero: React.FC = () => {
   const [selectedHub, setSelectedHub] = useState<string>('townsville');
+  const [showAccommodation, setShowAccommodation] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleOpenAccommodation = () => {
+      setShowAccommodation(true);
+      setTimeout(() => {
+        const el = document.getElementById('accommodation');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    };
+
+    window.addEventListener('open-accommodation', handleOpenAccommodation);
+
+    if (window.location.hash === '#accommodation' || window.location.hash === '#units') {
+      handleOpenAccommodation();
+    }
+
+    return () => {
+      window.removeEventListener('open-accommodation', handleOpenAccommodation);
+    };
+  }, []);
   const serviceCards = [
     {
       id: 'ndis',
@@ -266,17 +289,35 @@ export const HomeHero: React.FC = () => {
               <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </a>
 
-            <a 
-              href="#accommodation"
-              onClick={(e) => handleSmoothJump(e, '#accommodation')}
-              className="btn-base btn-white text-sm sm:text-base px-5 py-3 shadow-md"
+            <button 
+              type="button"
+              onClick={() => {
+                if (!showAccommodation) {
+                  setShowAccommodation(true);
+                  setTimeout(() => {
+                    const el = document.getElementById('accommodation');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }, 100);
+                } else {
+                  setShowAccommodation(false);
+                }
+              }}
+              className="btn-base btn-white text-sm sm:text-base px-5 py-3 shadow-md flex items-center gap-2 group transition-all"
             >
-              <span>Enquire about units</span>
-            </a>
+              <span>{showAccommodation ? 'Hide unit details' : 'Enquire about units'}</span>
+              <ChevronDown className={`w-4 h-4 text-[#0A3D47] transition-transform duration-300 ${showAccommodation ? 'rotate-180' : ''}`} />
+            </button>
           </div>
 
         </div>
       </div>
+
+      {/* Collapsible Accommodation Showcase Card */}
+      {showAccommodation && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-20 transition-all duration-500">
+          <PropertyShowcase onClose={() => setShowAccommodation(false)} />
+        </div>
+      )}
 
       {/* 3. Services Overview Grid (5 Cards) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-28">
