@@ -316,9 +316,19 @@ export const HomeHero: React.FC = () => {
         </div>
       </div>
 
-      {/* 4. Why Choose TCH (6 Card Grid) */}
-      <div className="w-full bg-white/70 backdrop-blur-xl border-y border-[#EADFCB] py-16 md:py-24 mb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 4. Why Choose TCH (6 Card Grid with Background Image) */}
+      <div className="relative w-full overflow-hidden border-y border-[#EADFCB] py-16 md:py-24 mb-20">
+        {/* Background Image Layer */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35 filter saturate-110"
+          style={{ backgroundImage: `url('/images/why-choose-community.jpg')` }}
+          aria-hidden="true"
+        />
+        {/* Semi-transparent Glass Gradient Wash for crystal clear contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/92 via-[#FBF5EA]/85 to-[#FBF5EA]/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FBF5EA] via-transparent to-[#FBF5EA]" />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           <div className="flex flex-col gap-3 max-w-2xl mb-12">
             <span className="text-xs font-bold tracking-widest uppercase text-[#B5651D]">
@@ -329,11 +339,14 @@ export const HomeHero: React.FC = () => {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
             {whyChooseUs.map((w, idx) => {
               const Icon = w.icon;
               return (
-                <div key={idx} className="flex gap-4 items-start">
+                <div 
+                  key={idx} 
+                  className="flex gap-4 items-start p-5 sm:p-6 rounded-2xl bg-white/85 backdrop-blur-md border border-white/90 shadow-sm hover:bg-white/95 hover:shadow-md hover:-translate-y-0.5 transition-all"
+                >
                   <div className="w-14 h-14 rounded-2xl bg-[#FFF1DA] flex items-center justify-center text-[#B5651D] flex-shrink-0 shadow-xs">
                     <Icon className="w-7 h-7" />
                   </div>
