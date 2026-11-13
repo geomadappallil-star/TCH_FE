@@ -36,46 +36,57 @@ export const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="relative z-10 py-16 md:py-24 border-t border-[#EADFCB]">
+    <section id="about" className="relative z-10 pb-16 md:pb-24 border-t border-[#EADFCB]">
       
-      {/* 1. Main Story Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
-          {/* Left Column: Story */}
-          <div className="lg:col-span-7 space-y-6">
-            <span className="text-xs font-bold tracking-widest uppercase text-[#B5651D]">
-              About us
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0A3D47] leading-tight">
-              We&#8217;re a Townsville business, run by locals.
-            </h2>
-            <p className="text-lg text-[#3E4F55] leading-relaxed">
-              We live and work here, and we hire local people in every community we serve. We know North Queensland: the heat, the distances between towns, and how much it matters to have someone reliable turn up when they say they will.
-            </p>
-            <p className="text-base text-[#4A5A60] leading-relaxed">
-              TCH stands for <strong>Townsville Community Health</strong>, and that&#8217;s exactly what we&#8217;re about. We support NDIS participants (plan-managed and self-managed), people receiving aged care, veterans through DVA&#8217;s Veterans&#8217; Home Care (VHC), and private clients. Our nurses, support workers and allied health practitioners work together, so you get the right help from one team you know.
-            </p>
-          </div>
+      {/* 1. Main Story Grid (About Us: We're a Townsville business, run by locals) */}
+      <div className="relative w-full overflow-hidden border-b border-[#EADFCB] py-16 md:py-24 mb-20">
+        {/* Background Image Layer */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-45 filter saturate-110"
+          style={{ backgroundImage: `url('/images/townsville-beach-huts.jpg')` }}
+          aria-hidden="true"
+        />
+        {/* Semi-transparent Glass Gradient Wash for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/65 backdrop-blur-[2px]" />
 
-          {/* Right Column: Local Team Photo Card */}
-          <div className="lg:col-span-5">
-            <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-br from-[#0B5563]/25 to-[#F4A62A]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
-              <div className="relative overflow-hidden rounded-[32px] lg:rounded-[120px_40px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
-                <img 
-                  src="/images/team-outdoors.jpg" 
-                  alt="The TCH care team outdoors in Townsville" 
-                  className="w-full h-full object-cover object-center transform group-hover:scale-102 transition duration-700 ease-out"
-                />
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/90 shadow-lg text-[#1E2B30]">
-                  <span className="text-xs font-bold text-[#0A3D47] block">TCH Support Team</span>
-                  <p className="text-[11px] text-[#4A5A60]">Real Townsville staff, trained and dedicated to participants.</p>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Column: Story */}
+            <div className="lg:col-span-7 space-y-6">
+              <span className="text-xs font-bold tracking-widest uppercase text-[#B5651D] bg-white/80 px-3 py-1 rounded-full border border-[#B5651D]/20 inline-block backdrop-blur-xs">
+                About us
+              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0A3D47] leading-tight">
+                We&#8217;re a Townsville business, run by locals.
+              </h2>
+              <p className="text-lg text-[#2A3B40] font-medium leading-relaxed">
+                We live and work here, and we hire local people in every community we serve. We know North Queensland: the heat, the distances between towns, and how much it matters to have someone reliable turn up when they say they will.
+              </p>
+              <p className="text-base text-[#3E4F55] leading-relaxed">
+                TCH stands for <strong>Townsville Community Health</strong>, and that&#8217;s exactly what we&#8217;re about. We support NDIS participants (plan-managed and self-managed), people receiving aged care, veterans through DVA&#8217;s Veterans&#8217; Home Care (VHC), and private clients. Our nurses, support workers and allied health practitioners work together, so you get the right help from one team you know.
+              </p>
+            </div>
+
+            {/* Right Column: Local Team Photo Card */}
+            <div className="lg:col-span-5">
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-br from-[#0B5563]/25 to-[#F4A62A]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
+                <div className="relative overflow-hidden rounded-[32px] lg:rounded-[120px_40px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
+                  <img 
+                    src="/images/team-outdoors.jpg" 
+                    alt="The TCH care team outdoors in Townsville" 
+                    className="w-full h-full object-cover object-center transform group-hover:scale-102 transition duration-700 ease-out"
+                  />
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/90 shadow-lg text-[#1E2B30]">
+                    <span className="text-xs font-bold text-[#0A3D47] block">TCH Support Team</span>
+                    <p className="text-[11px] text-[#4A5A60]">Real Townsville staff, trained and dedicated to participants.</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
 
