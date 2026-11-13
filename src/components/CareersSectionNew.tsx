@@ -241,130 +241,141 @@ export const CareersSectionNew: React.FC = () => {
         </div>
       </div>
 
-      {/* 3. Expression of Interest Form (#eoi) */}
-      <div id="eoi" className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="glass-panel p-8 sm:p-12 border border-white shadow-xl space-y-6">
-          
-          <div className="space-y-1">
-            <span className="text-xs font-bold tracking-widest uppercase text-[#B5651D]">
-              Expression of interest
-            </span>
-            <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-[#0A3D47]">
-              Keen to join us? Tell us a bit about you.
-            </h3>
-            <p className="text-sm text-[#4A5A60]">
-              Submissions go straight to our recruitment team at <strong>admin@tchservices.com.au</strong>.
-            </p>
-          </div>
+      {/* 3. Expression of Interest Form (#eoi) with Applicant Background */}
+      <div className="relative w-full overflow-hidden py-16 md:py-24">
+        {/* Background Image behind mat card */}
+        <div 
+          className="absolute inset-0 bg-cover bg-[right_top] sm:bg-center bg-no-repeat opacity-45 filter saturate-110"
+          style={{ backgroundImage: `url('/images/eoi-applicant-profile.jpg')` }}
+          aria-hidden="true"
+        />
+        {/* Ambient Frosted Wash */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/95 via-[#FBF5EA]/85 to-[#FBF5EA]/50 backdrop-blur-[2px]" />
 
-          {submitSuccess ? (
-            <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-3 animate-fadeIn">
-              <div className="flex items-center gap-2 text-emerald-700 font-bold text-lg">
-                <CheckCircle2 className="w-6 h-6" />
-                <span>Expression of Interest Received</span>
-              </div>
-              <p className="text-sm">
-                Thank you, {formData.fullName || 'there'}! We have received your expression of interest (Ref: <strong>{submitSuccess}</strong>). Our team will review your qualifications and reach out for a casual interview.
+        <div id="eoi" className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="glass-panel p-8 sm:p-12 border-2 border-white/80 shadow-2xl space-y-6 bg-white/90 backdrop-blur-xl">
+            
+            <div className="space-y-1">
+              <span className="text-xs font-bold tracking-widest uppercase text-[#B5651D] bg-white/80 px-3 py-1 rounded-full border border-[#B5651D]/20 inline-block backdrop-blur-xs">
+                Expression of interest
+              </span>
+              <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-[#0A3D47]">
+                Keen to join us? Tell us a bit about you.
+              </h3>
+              <p className="text-sm text-[#4A5A60]">
+                Submissions go straight to our recruitment team at <strong>admin@tchservices.com.au</strong>.
               </p>
-              <button
-                type="button"
-                onClick={() => setSubmitSuccess(null)}
-                className="btn-base btn-teal text-xs px-4 py-2 mt-2"
-              >
-                Submit another application
-              </button>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              
-              {errorMessage && (
-                <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-center gap-2">
-                  <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0" />
-                  <span>{errorMessage}</span>
+
+            {submitSuccess ? (
+              <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-3 animate-fadeIn">
+                <div className="flex items-center gap-2 text-emerald-700 font-bold text-lg">
+                  <CheckCircle2 className="w-6 h-6" />
+                  <span>Expression of Interest Received</span>
                 </div>
-              )}
-
-              <label className="text-xs font-bold text-[#0A3D47] flex flex-col gap-1.5">
-                Full name *
-                <input
-                  type="text"
-                  required
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  placeholder="e.g. Jessica Cooper"
-                  className="glass-input text-sm"
-                />
-              </label>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <label className="text-xs font-bold text-[#0A3D47] flex flex-col gap-1.5">
-                  Email address *
-                  <input
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="e.g. jessica@example.com"
-                    className="glass-input text-sm"
-                  />
-                </label>
-
-                <label className="text-xs font-bold text-[#0A3D47] flex flex-col gap-1.5">
-                  Phone number *
-                  <input
-                    type="tel"
-                    required
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="e.g. 0400 987 654"
-                    className="glass-input text-sm"
-                  />
-                </label>
-              </div>
-
-              <label className="text-xs font-bold text-[#0A3D47] flex flex-col gap-1.5">
-                Role of interest
-                <select
-                  value={formData.position}
-                  onChange={(e) => setFormData({ ...formData, position: e.target.value })}
-                  className="glass-input text-sm bg-white"
+                <p className="text-sm">
+                  Thank you, {formData.fullName || 'there'}! We have received your expression of interest (Ref: <strong>{submitSuccess}</strong>). Our team will review your qualifications and reach out for a casual interview.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setSubmitSuccess(null)}
+                  className="btn-base btn-teal text-xs px-4 py-2 mt-2"
                 >
-                  <option>Personal Care Worker</option>
-                  <option>Assistant in Nursing</option>
-                  <option>Registered Nurse</option>
-                  <option>Occupational Therapist</option>
-                  <option>Physiotherapist</option>
-                  <option>Domestic Cleaner & Yard Care</option>
-                </select>
-              </label>
+                  Submit another application
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                
+                {errorMessage && (
+                  <div className="p-3.5 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-amber-600 flex-shrink-0" />
+                    <span>{errorMessage}</span>
+                  </div>
+                )}
 
-              {/* Resume File Upload Box */}
-              <label className="text-xs font-bold text-[#0A3D47] flex flex-col gap-1.5 cursor-pointer">
-                Upload your resume (PDF or Word)
-                <div className="border-2 border-dashed border-[#7FB7B0] rounded-2xl p-5 bg-[#F3FAF9] hover:bg-[#E3F1F1] transition-colors flex items-center justify-center gap-3 text-[#0B5563] text-sm font-semibold">
-                  <Upload className="w-5 h-5 text-[#0B5563]" />
-                  <span>{formData.resumeFileName || 'Choose a file (PDF or Word)'}</span>
+                <label className="text-xs font-bold text-[#0A3D47] flex flex-col gap-1.5">
+                  Full name *
                   <input
-                    type="file"
-                    accept=".pdf,.doc,.docx"
-                    onChange={handleFileChange}
-                    className="sr-only"
+                    type="text"
+                    required
+                    value={formData.fullName}
+                    onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                    placeholder="e.g. Jessica Cooper"
+                    className="glass-input text-sm"
                   />
+                </label>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <label className="text-xs font-bold text-[#0A3D47] flex flex-col gap-1.5">
+                    Email address *
+                    <input
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      placeholder="e.g. jessica@example.com"
+                      className="glass-input text-sm"
+                    />
+                  </label>
+
+                  <label className="text-xs font-bold text-[#0A3D47] flex flex-col gap-1.5">
+                    Phone number *
+                    <input
+                      type="tel"
+                      required
+                      value={formData.phone}
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                      placeholder="e.g. 0400 987 654"
+                      className="glass-input text-sm"
+                    />
+                  </label>
                 </div>
-              </label>
 
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="btn-base btn-mango text-sm sm:text-base px-7 py-3.5 shadow-md flex items-center gap-2 group disabled:opacity-60"
-              >
-                <span>{isSubmitting ? 'Submitting...' : 'Submit'}</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-              </button>
+                <label className="text-xs font-bold text-[#0A3D47] flex flex-col gap-1.5">
+                  Role of interest
+                  <select
+                    value={formData.position}
+                    onChange={(e) => setFormData({ ...formData, position: e.target.value })}
+                    className="glass-input text-sm bg-white"
+                  >
+                    <option>Personal Care Worker</option>
+                    <option>Assistant in Nursing</option>
+                    <option>Registered Nurse</option>
+                    <option>Occupational Therapist</option>
+                    <option>Physiotherapist</option>
+                    <option>Domestic Cleaner & Yard Care</option>
+                  </select>
+                </label>
 
-            </form>
-          )}
+                {/* Resume File Upload Box */}
+                <label className="text-xs font-bold text-[#0A3D47] flex flex-col gap-1.5 cursor-pointer">
+                  Upload your resume (PDF or Word)
+                  <div className="border-2 border-dashed border-[#7FB7B0] rounded-2xl p-5 bg-[#F3FAF9] hover:bg-[#E3F1F1] transition-colors flex items-center justify-center gap-3 text-[#0B5563] text-sm font-semibold">
+                    <Upload className="w-5 h-5 text-[#0B5563]" />
+                    <span>{formData.resumeFileName || 'Choose a file (PDF or Word)'}</span>
+                    <input
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      onChange={handleFileChange}
+                      className="sr-only"
+                    />
+                  </div>
+                </label>
 
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-base btn-mango text-sm sm:text-base px-7 py-3.5 shadow-md flex items-center gap-2 group disabled:opacity-60"
+                >
+                  <span>{isSubmitting ? 'Submitting...' : 'Submit'}</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                </button>
+
+              </form>
+            )}
+
+          </div>
         </div>
       </div>
 
