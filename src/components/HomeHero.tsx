@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   ArrowRight, 
   MapPin, 
@@ -18,10 +18,12 @@ import {
   CalendarCheck,
   ExternalLink
 } from 'lucide-react';
+import { InteractiveNorthQldMap } from './InteractiveNorthQldMap';
 
 const SPLOSE_FCA_URL = 'https://tchservices.splose.com/public-form/2c733ea1-1b3a-41d5-87d7-98ba320cd4f8';
 
 export const HomeHero: React.FC = () => {
+  const [selectedHub, setSelectedHub] = useState<string>('townsville');
   const serviceCards = [
     {
       id: 'ndis',
@@ -94,12 +96,12 @@ export const HomeHero: React.FC = () => {
   ];
 
   const serviceAreas = [
-    { name: 'Townsville', sub: 'Townsville and surrounding suburbs' },
-    { name: 'Ayr', sub: 'Burdekin region' },
-    { name: 'Ingham', sub: 'Hinchinbrook region' },
-    { name: 'Charters Towers', sub: 'Charters Towers and surrounds' },
-    { name: 'Mareeba', sub: 'Atherton Tablelands' },
-    { name: 'Mount Isa', sub: 'North West Queensland' },
+    { id: 'townsville', name: 'Townsville', sub: 'Townsville and surrounding suburbs' },
+    { id: 'ayr', name: 'Ayr', sub: 'Burdekin region' },
+    { id: 'ingham', name: 'Ingham', sub: 'Hinchinbrook region' },
+    { id: 'charters-towers', name: 'Charters Towers', sub: 'Charters Towers and surrounds' },
+    { id: 'mareeba', name: 'Mareeba', sub: 'Atherton Tablelands' },
+    { id: 'mount-isa', name: 'Mount Isa', sub: 'North West Queensland' },
   ];
 
   const handleSmoothJump = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -368,43 +370,18 @@ export const HomeHero: React.FC = () => {
 
       {/* 5. Service Areas Map & Region Cards */}
       <div id="areas" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           
-          {/* Visual Map / Community Showcase Card */}
-          <div className="lg:col-span-5">
-            <div className="glass-panel p-6 sm:p-8 flex flex-col items-center justify-center text-center space-y-4 border-2 border-[#7FB7B0]/40 bg-[#D6EBE8]/50 min-h-[420px]">
-              <div className="w-16 h-16 rounded-full bg-[#0B5563] text-white flex items-center justify-center shadow-md">
-                <MapPin className="w-8 h-8 text-[#F4A62A]" />
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-2xl text-[#0A3D47]">
-                  North Queensland Footprint
-                </h3>
-                <p className="text-xs text-[#3D6B70] font-semibold mt-1">
-                  Active local care teams stationed across regional Queensland
-                </p>
-              </div>
-
-              {/* Visual Region Tags */}
-              <div className="flex flex-wrap gap-2 justify-center pt-2 max-w-sm">
-                {serviceAreas.map((area, idx) => (
-                  <span 
-                    key={idx} 
-                    className="px-3 py-1.5 rounded-full bg-white/90 text-xs font-bold text-[#0A3D47] shadow-xs border border-teal-200"
-                  >
-                    📍 {area.name}
-                  </span>
-                ))}
-              </div>
-
-              <p className="text-xs text-[#4A5A60] italic pt-2">
-                Locals supporting locals throughout coastal and rural QLD.
-              </p>
-            </div>
+          {/* Interactive North QLD Vector Map */}
+          <div className="lg:col-span-6">
+            <InteractiveNorthQldMap
+              selectedHubId={selectedHub}
+              onSelectHub={setSelectedHub}
+            />
           </div>
 
-          {/* Right Column: Copy & Suburb Cards */}
-          <div className="lg:col-span-7 space-y-6">
+          {/* Right Column: Copy & Interactive Suburb Cards */}
+          <div className="lg:col-span-6 space-y-6">
             <div className="space-y-2">
               <span className="text-xs font-bold tracking-widest uppercase text-[#B5651D]">
                 Service areas
@@ -417,26 +394,42 @@ export const HomeHero: React.FC = () => {
               </p>
             </div>
 
-            {/* 6 Region Grid */}
+            {/* 6 Region Grid with interactive synchronization */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
-              {serviceAreas.map((area, idx) => (
-                <div 
-                  key={idx}
-                  className="flex items-center gap-3.5 bg-white/80 backdrop-blur-md border border-white p-3.5 rounded-2xl shadow-xs hover:border-[#0B5563]/30 transition-all"
-                >
-                  <div className="w-8 h-8 rounded-xl bg-[#FFF1DA] flex items-center justify-center text-[#B5651D] flex-shrink-0">
-                    <MapPin className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-base text-[#0A3D47] leading-tight">
-                      {area.name}
-                    </h4>
-                    <span className="text-xs text-[#4A5A60]">
-                      {area.sub}
-                    </span>
-                  </div>
-                </div>
-              ))}
+              {serviceAreas.map((area) => {
+                const isSelected = area.id === selectedHub;
+                return (
+                  <button 
+                    key={area.id}
+                    type="button"
+                    onClick={() => setSelectedHub(area.id)}
+                    className={`flex items-center gap-3.5 p-3.5 rounded-2xl text-left transition-all cursor-pointer ${
+                      isSelected
+                        ? 'bg-[#E3F1F1] border-2 border-[#0B5563] shadow-md -translate-y-0.5'
+                        : 'bg-white/80 hover:bg-white backdrop-blur-md border border-white hover:border-[#0B5563]/30 shadow-xs'
+                    }`}
+                  >
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
+                      isSelected ? 'bg-[#0B5563] text-[#F4A62A]' : 'bg-[#FFF1DA] text-[#B5651D]'
+                    }`}>
+                      <MapPin className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-1.5">
+                        <h4 className="font-bold text-base text-[#0A3D47] leading-tight">
+                          {area.name}
+                        </h4>
+                        {isSelected && (
+                          <span className="inline-block w-2 h-2 rounded-full bg-[#F4A62A] animate-pulse" />
+                        )}
+                      </div>
+                      <span className="text-xs text-[#4A5A60]">
+                        {area.sub}
+                      </span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
 
             <p className="text-xs text-[#4A5A60] pt-1">
