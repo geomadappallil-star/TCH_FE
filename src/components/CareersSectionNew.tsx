@@ -118,65 +118,76 @@ export const CareersSectionNew: React.FC = () => {
   };
 
   return (
-    <section id="careers" className="relative z-10 py-16 md:py-24 border-t border-[#EADFCB]">
+    <section id="careers" className="relative z-10 pb-16 md:pb-24 border-t border-[#EADFCB]">
       
-      {/* 1. Careers Hero */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-28">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-          
-          <div className="lg:col-span-7 space-y-6">
-            <span className="text-xs font-bold tracking-widest uppercase text-[#B5651D]">
-              Careers
-            </span>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0A3D47] leading-tight">
-              Work local. Make a real difference.
-            </h2>
-            <p className="text-lg text-[#3E4F55] leading-relaxed max-w-xl">
-              We hire local people in every community we serve, from Townsville to Mount Isa. Join a friendly team that backs you and puts clients first.
-            </p>
+      {/* 1. Careers Hero with We Are Hiring Background */}
+      <div className="relative w-full overflow-hidden border-b border-[#EADFCB] py-16 md:py-24 mb-20 md:mb-28">
+        {/* Background Image Layer */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35 filter saturate-110"
+          style={{ backgroundImage: `url('/images/we-are-hiring.jpg')` }}
+          aria-hidden="true"
+        />
+        {/* Semi-transparent Glass Gradient Wash for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/65 backdrop-blur-[2px]" />
 
-            {/* Chips */}
-            <div className="flex flex-wrap gap-2.5 pt-1">
-              <span className="glass-chip text-xs font-bold text-[#0B5563]">
-                <MapPin className="w-4 h-4 text-[#0B5563]" /> Work close to home
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            <div className="lg:col-span-7 space-y-6">
+              <span className="text-xs font-bold tracking-widest uppercase text-[#B5651D] bg-white/80 px-3 py-1 rounded-full border border-[#B5651D]/20 inline-block backdrop-blur-xs">
+                Careers
               </span>
-              <span className="glass-chip text-xs font-bold text-[#0B5563]">
-                <Users className="w-4 h-4 text-[#0B5563]" /> Supportive local team
-              </span>
-              <span className="glass-chip text-xs font-bold text-[#0B5563]">
-                <Star className="w-4 h-4 text-[#0B5563]" /> Meaningful work
-              </span>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0A3D47] leading-tight">
+                Work local. Make a real difference.
+              </h2>
+              <p className="text-lg text-[#2A3B40] font-medium leading-relaxed max-w-xl">
+                We hire local people in every community we serve, from Townsville to Mount Isa. Join a friendly team that backs you and puts clients first.
+              </p>
+
+              {/* Chips */}
+              <div className="flex flex-wrap gap-2.5 pt-1">
+                <span className="glass-chip text-xs font-bold text-[#0B5563]">
+                  <MapPin className="w-4 h-4 text-[#0B5563]" /> Work close to home
+                </span>
+                <span className="glass-chip text-xs font-bold text-[#0B5563]">
+                  <Users className="w-4 h-4 text-[#0B5563]" /> Supportive local team
+                </span>
+                <span className="glass-chip text-xs font-bold text-[#0B5563]">
+                  <Star className="w-4 h-4 text-[#0B5563]" /> Meaningful work
+                </span>
+              </div>
+
+              <div className="pt-2">
+                <a
+                  href="#eoi"
+                  onClick={(e) => handleSmoothJump(e, '#eoi')}
+                  className="btn-base btn-mango text-sm sm:text-base px-6 py-3.5 shadow-md flex items-center gap-2 group inline-flex"
+                >
+                  <span>Express your interest</span>
+                  <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+                </a>
+              </div>
             </div>
 
-            <div className="pt-2">
-              <a
-                href="#eoi"
-                onClick={(e) => handleSmoothJump(e, '#eoi')}
-                className="btn-base btn-mango text-sm sm:text-base px-6 py-3.5 shadow-md flex items-center gap-2 group inline-flex"
-              >
-                <span>Express your interest</span>
-                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
-              </a>
-            </div>
-          </div>
-
-          <div className="lg:col-span-5">
-            <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-tr from-[#F4A62A]/25 to-[#0B5563]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
-              <div className="relative overflow-hidden rounded-[32px] lg:rounded-[40px_120px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
-                <img 
-                  src="/images/careers-team-smiling.jpg" 
-                  alt="Smiling TCH support team members in uniform" 
-                  className="w-full h-full object-cover object-center transform group-hover:scale-102 transition duration-700 ease-out"
-                />
-                <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/90 shadow-lg text-[#1E2B30]">
-                  <span className="text-xs font-bold text-[#0A3D47] block">Join Our Local Crew</span>
-                  <p className="text-[11px] text-[#4A5A60]">Flexible shifts, above-award rates, and clinical mentorship.</p>
+            <div className="lg:col-span-5">
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-tr from-[#F4A62A]/25 to-[#0B5563]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
+                <div className="relative overflow-hidden rounded-[32px] lg:rounded-[40px_120px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
+                  <img 
+                    src="/images/careers-team-smiling.jpg" 
+                    alt="Smiling TCH support team members in uniform" 
+                    className="w-full h-full object-cover object-center transform group-hover:scale-102 transition duration-700 ease-out"
+                  />
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/90 shadow-lg text-[#1E2B30]">
+                    <span className="text-xs font-bold text-[#0A3D47] block">Join Our Local Crew</span>
+                    <p className="text-[11px] text-[#4A5A60]">Flexible shifts, above-award rates, and clinical mentorship.</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </div>
 
