@@ -326,35 +326,60 @@ export const ServicesDetailSection: React.FC = () => {
         </div>
 
         {/* ========================================================
-            5. Domestic & Cleaning Services (#cleaning)
+            5. Domestic & Cleaning Services (#cleaning) with Background Banner Video
             ======================================================== */}
-        <div id="cleaning" className="pt-8 border-t border-[#EADFCB]">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div id="cleaning" className="relative rounded-[36px] overflow-hidden border-2 border-white/70 shadow-2xl p-6 sm:p-10 lg:p-12 scroll-mt-24">
+          
+          {/* Background Banner Video Layer */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              poster="/images/cleaning-video-frame.jpg"
+              className="w-full h-full object-cover object-center opacity-85 filter saturate-110 brightness-95"
+            >
+              <source src="/videos/cleaning-banner-care.mp4" type="video/mp4" />
+            </video>
+            {/* Soft Frosted Glass Gradient Wash for crystal clear text readability */}
+            <div className="absolute inset-0 bg-gradient-to-l from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/55 backdrop-blur-[2px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#FBF5EA]/40 via-transparent to-[#FBF5EA]/60" />
+          </div>
+
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Photo */}
             <div className="lg:col-span-5 order-2 lg:order-1">
-              <div className="overflow-hidden rounded-3xl shadow-xl border-4 border-white aspect-[4/3] lg:aspect-[4/5] bg-gray-100">
-                <img 
-                  src="/images/service-cleaner-kitchen.jpg" 
-                  alt="TCH cleaner maintaining a bright, tidy Queensland kitchen" 
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative group">
+                <div className="absolute -inset-2 bg-gradient-to-bl from-[#0B5563]/25 to-[#F4A62A]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
+                <div className="relative overflow-hidden rounded-[32px] lg:rounded-[120px_40px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/3] lg:aspect-[4/5]">
+                  <img 
+                    src="/images/service-cleaner-kitchen.jpg" 
+                    alt="TCH cleaner maintaining a bright, tidy Queensland kitchen" 
+                    className="w-full h-full object-cover transform group-hover:scale-102 transition duration-700 ease-out"
+                  />
+                  <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-white/90 backdrop-blur-md border border-white/90 shadow-lg text-[#1E2B30]">
+                    <span className="text-xs font-bold text-[#0A3D47] block">Reliable Domestic Care</span>
+                    <p className="text-[11px] text-[#4A5A60]">Regular general cleaning, washing and living space maintenance.</p>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Right Content */}
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
-              <div className="w-14 h-14 rounded-2xl bg-[#E3F1F1] flex items-center justify-center text-[#0B5563]">
-                <Sparkles className="w-7 h-7" />
+              <div className="w-14 h-14 rounded-2xl bg-[#0B5563] text-white flex items-center justify-center shadow-md">
+                <Sparkles className="w-7 h-7 text-[#F4A62A]" />
               </div>
               <h3 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#0A3D47]">
                 Domestic and Cleaning Services
               </h3>
-              <p className="text-lg text-[#3E4F55] leading-relaxed">
+              <p className="text-lg text-[#2A3B40] font-medium leading-relaxed">
                 A clean, tidy home makes everyday life safer and more comfortable. Our friendly, reliable cleaners provide regular or as-needed general cleaning.
               </p>
 
-              <ul className="tick-list text-[#1E2B30]">
+              <ul className="tick-list text-[#1E2B30] font-medium">
                 <li>Vacuuming, mopping and dusting</li>
                 <li>Kitchen and bathroom cleaning</li>
                 <li>Laundry, ironing and changing bed linen</li>
@@ -362,7 +387,7 @@ export const ServicesDetailSection: React.FC = () => {
                 <li>External window cleaning at ground level</li>
               </ul>
 
-              <p className="text-xs text-[#4A5A60]">
+              <p className="text-xs text-[#4A5A60] pt-1">
                 Available under the NDIS, Veterans’ Home Care (VHC) and to private clients. We provide general cleaning only, not bond or end-of-lease cleaning.
               </p>
             </div>
