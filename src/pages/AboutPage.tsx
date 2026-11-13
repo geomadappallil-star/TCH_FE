@@ -219,9 +219,6 @@ export const AboutPage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* 6. COMMON CTA BANNER */}
-      <CommonCtaBanner />
     </div>
   );
 };

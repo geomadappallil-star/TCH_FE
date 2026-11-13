@@ -403,9 +403,6 @@ export const CareersPage: React.FC = () => {
           </form>
         </div>
       </section>
-
-      {/* 4. COMMON CTA BANNER */}
-      <CommonCtaBanner />
     </div>
   );
 };

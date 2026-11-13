@@ -391,9 +391,6 @@ export const ReferralPage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      {/* 3. COMMON CTA BANNER */}
-      <CommonCtaBanner />
     </div>
   );
 };

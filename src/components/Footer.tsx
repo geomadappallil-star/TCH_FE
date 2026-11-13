@@ -39,7 +39,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <ul className="space-y-2.5 text-sm text-white/80">
               <li>
                 <a
-                  href="#/about"
+                  href="#about"
                   onClick={(e) => handleNav(e, 'about')}
                   className="hover:text-[#F4A62A] transition-colors"
                 >
@@ -48,7 +48,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
-                  href="#/services"
+                  href="#services"
                   onClick={(e) => handleNav(e, 'services')}
                   className="hover:text-[#F4A62A] transition-colors"
                 >
@@ -57,7 +57,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
-                  href="#/referral"
+                  href="#referral"
                   onClick={(e) => handleNav(e, 'referral')}
                   className="hover:text-[#F4A62A] transition-colors"
                 >
@@ -66,7 +66,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               </li>
               <li>
                 <a
-                  href="#/careers"
+                  href="#careers"
                   onClick={(e) => handleNav(e, 'careers')}
                   className="hover:text-[#F4A62A] transition-colors"
                 >

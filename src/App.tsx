@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/Navbar.js';
 import { Footer } from './components/Footer.js';
+import { CommonCtaBanner } from './components/CommonCtaBanner.js';
 import { UnitEnquiryModal } from './components/UnitEnquiryModal.js';
 
-// 5 Dedicated Pages per November 2026 Client Brief
+// All Sections for the Single Continuous Landing Page
 import { HomePage } from './pages/HomePage.js';
 import { AboutPage } from './pages/AboutPage.js';
 import { ServicesPage } from './pages/ServicesPage.js';
@@ -11,67 +12,72 @@ import { ReferralPage } from './pages/ReferralPage.js';
 import { CareersPage } from './pages/CareersPage.js';
 
 export function App() {
-  const [currentPage, setCurrentPage] = useState<string>('home');
-  const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
+  const [activeSection, setActiveSection] = useState<string>('home');
   const [isUnitModalOpen, setIsUnitModalOpen] = useState<boolean>(false);
 
-  // Map URL hash to page ID (supports deep links and browser navigation)
-  const getPageFromHash = (): string => {
-    const hash = window.location.hash.replace('#/', '').replace('#', '').toLowerCase();
-    if (hash === 'about' || hash === 'about-us') return 'about';
-    if (hash === 'services') return 'services';
-    if (hash === 'referral' || hash === 'refer') return 'referral';
-    if (hash === 'careers' || hash === 'jobs') return 'careers';
-    if (hash === 'units') {
+  // Smooth scroll to section by ID
+  const handleScrollToSection = useCallback((sectionId: string) => {
+    if (sectionId === 'units') {
       setIsUnitModalOpen(true);
-      return 'services';
-    }
-    return 'home';
-  };
-
-  // Synchronize on load and on popstate (browser back/forward button)
-  useEffect(() => {
-    const initialPage = getPageFromHash();
-    setCurrentPage(initialPage);
-
-    const handlePopState = () => {
-      const page = getPageFromHash();
-      setCurrentPage(page);
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    };
-
-    window.addEventListener('popstate', handlePopState);
-    window.addEventListener('hashchange', handlePopState);
-    return () => {
-      window.removeEventListener('popstate', handlePopState);
-      window.removeEventListener('hashchange', handlePopState);
-    };
-  }, []);
-
-  // Fluid Page Transition Navigator
-  const handleNavigate = useCallback((pageId: string) => {
-    if (pageId === currentPage && !isTransitioning) {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const servicesEl = document.getElementById('services');
+      if (servicesEl) {
+        servicesEl.scrollIntoView({ behavior: 'smooth' });
+      }
       return;
     }
 
-    setIsTransitioning(true);
+    const targetId = sectionId.replace('#', '');
+    const element = document.getElementById(targetId);
 
-    // Update browser URL without reloading
-    const newHash = pageId === 'home' ? '#/' : `#/${pageId}`;
-    window.history.pushState(null, '', newHash);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      window.history.pushState(null, '', `#${targetId}`);
+      setActiveSection(targetId);
+    } else if (targetId === 'home') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.history.pushState(null, '', '#home');
+      setActiveSection('home');
+    }
+  }, []);
 
-    // Smooth sweep & instant top scroll
-    setTimeout(() => {
-      setCurrentPage(pageId);
-      window.scrollTo({ top: 0, behavior: 'instant' });
-    }, 240);
+  // Handle URL hash on initial page load and on back/forward
+  useEffect(() => {
+    const handleHash = () => {
+      const hash = window.location.hash.replace('#/', '').replace('#', '');
+      if (hash) {
+        setTimeout(() => {
+          handleScrollToSection(hash);
+        }, 150);
+      }
+    };
 
-    // Complete transition
-    setTimeout(() => {
-      setIsTransitioning(false);
-    }, 550);
-  }, [currentPage, isTransitioning]);
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, [handleScrollToSection]);
+
+  // Scroll spy to automatically update active navbar item as user scrolls
+  useEffect(() => {
+    const sections = ['home', 'about', 'services', 'referral', 'careers'];
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 140;
+
+      for (let i = sections.length - 1; i >= 0; i--) {
+        const sectionEl = document.getElementById(sections[i]);
+        if (sectionEl) {
+          const top = sectionEl.offsetTop;
+          if (scrollPosition >= top) {
+            setActiveSection(sections[i]);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <div id="top" className="min-h-screen flex flex-col bg-[#FBF5EA] text-[#1E2B30] relative font-sans">
@@ -82,60 +88,51 @@ export function App() {
         Skip to main content
       </a>
 
-      {/* Main Header with Top Contact Bar */}
+      {/* Sticky Main Header with Top Contact Bar */}
       <Navbar 
-        currentPage={currentPage} 
-        onNavigate={handleNavigate}
-        isTransitioning={isTransitioning}
+        activeSection={activeSection} 
+        onNavigate={handleScrollToSection}
       />
 
-      {/* Smooth Page Transition Curtain */}
-      <div 
-        className={`fixed inset-0 z-50 pointer-events-none transition-all duration-400 ease-in-out ${
-          isTransitioning 
-            ? 'opacity-100 backdrop-blur-sm bg-[#0A3D47]/70' 
-            : 'opacity-0 backdrop-blur-none bg-transparent'
-        }`}
-      >
-        {isTransitioning && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-[#FBF5EA] border-2 border-[#F4A62A] text-[#0A3D47] text-xs font-bold shadow-2xl">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#F4A62A] animate-ping" />
-              <span className="font-heading uppercase tracking-widest text-[#0A3D47] font-bold">
-                TCH Support Services · Loading
-              </span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Main Content: 5 Pages from the Client Brief */}
-      <main id="main-content" className="flex-grow relative">
-        {currentPage === 'home' && (
+      {/* Single Page Content: All 5 Sections in Continuous Flow */}
+      <main id="main-content" className="flex-grow">
+        {/* 1. Home Section (Hero, Highlight Banner, Services Overview, Why Choose TCH, Service Areas) */}
+        <section id="home" className="scroll-mt-24">
           <HomePage 
-            onNavigate={handleNavigate} 
+            onNavigate={handleScrollToSection} 
             onOpenUnitModal={() => setIsUnitModalOpen(true)} 
           />
-        )}
-        {currentPage === 'about' && (
+        </section>
+
+        {/* 2. About Us Section (Story, Mission & Vision, Values 01-06, Inclusivity, Acknowledgement) */}
+        <section id="about" className="scroll-mt-24 border-t border-[#0B5563]/15">
           <AboutPage />
-        )}
-        {currentPage === 'services' && (
+        </section>
+
+        {/* 3. Services Section (Detailed 5 Services, 2-Week FCA Splose CTA, Accommodation banner) */}
+        <section id="services" className="scroll-mt-24 border-t border-[#0B5563]/15">
           <ServicesPage 
-            onNavigate={handleNavigate} 
+            onNavigate={handleScrollToSection} 
             onOpenUnitModal={() => setIsUnitModalOpen(true)} 
           />
-        )}
-        {currentPage === 'referral' && (
+        </section>
+
+        {/* 4. Make a Referral Section (Option 1 Allied Health Splose + Option 2 In-App Form) */}
+        <section id="referral" className="scroll-mt-24 border-t border-[#0B5563]/15">
           <ReferralPage />
-        )}
-        {currentPage === 'careers' && (
+        </section>
+
+        {/* 5. Careers Section (Careers Hero, 5 Roles, EOI Form with Resume Upload) */}
+        <section id="careers" className="scroll-mt-24 border-t border-[#0B5563]/15">
           <CareersPage />
-        )}
+        </section>
+
+        {/* Universal Single Call-to-Action Banner */}
+        <CommonCtaBanner />
       </main>
 
-      {/* Universal Footer */}
-      <Footer onNavigate={handleNavigate} />
+      {/* Universal 4-Column Footer */}
+      <Footer onNavigate={handleScrollToSection} />
 
       {/* 1 & 2-Bedroom Unit Enquiry Modal */}
       <UnitEnquiryModal 

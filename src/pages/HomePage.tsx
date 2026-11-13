@@ -276,7 +276,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenUnitModal 
 
                 <div className="pt-6">
                   <button
-                    onClick={() => onNavigate('services')}
+                    onClick={() => onNavigate(`${svc.serviceId}-section`)}
                     className="inline-flex items-center gap-1.5 text-sm font-bold text-[#0B5563] group-hover:text-[#F4A62A] transition-colors"
                   >
                     <span>Learn more</span>
@@ -372,9 +372,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate, onOpenUnitModal 
           </div>
         </div>
       </section>
-
-      {/* 6. COMMON CTA BANNER */}
-      <CommonCtaBanner />
     </div>
   );
 };

@@ -535,9 +535,6 @@ export const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate, onOpenUn
           </div>
         </div>
       </section>
-
-      {/* 8. COMMON CTA BANNER */}
-      <CommonCtaBanner />
     </div>
   );
 };

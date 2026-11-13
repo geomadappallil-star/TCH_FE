@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import { Phone, Mail, ArrowRight, Menu, X } from 'lucide-react';
 
 interface NavbarProps {
-  currentPage: string;
-  onNavigate: (pageId: string) => void;
-  isTransitioning?: boolean;
+  activeSection: string;
+  onNavigate: (sectionId: string) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
-  currentPage,
+  activeSection,
   onNavigate,
-  isTransitioning = false,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
@@ -22,13 +20,13 @@ export const Navbar: React.FC<NavbarProps> = ({
     { id: 'careers', label: 'Careers' },
   ];
 
-  const handleNavClick = (pageId: string) => {
-    onNavigate(pageId);
+  const handleNavClick = (sectionId: string) => {
+    onNavigate(sectionId);
     setMobileMenuOpen(false);
   };
 
   return (
-    <header className="sticky top-0 z-40 w-full shadow-sm bg-[#FBF5EA]">
+    <header className="sticky top-0 z-40 w-full shadow-sm bg-[#FBF5EA]/95 backdrop-blur-md">
       {/* Top Contact Micro-Bar */}
       <div className="bg-[#0A3D47] text-white text-xs sm:text-sm py-2 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
@@ -92,12 +90,11 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Desktop Navigation Links */}
         <div className="hidden lg:flex items-center gap-1 xl:gap-2">
           {navLinks.map((link) => {
-            const isActive = currentPage === link.id;
+            const isActive = activeSection === link.id;
             return (
               <button
                 key={link.id}
                 onClick={() => handleNavClick(link.id)}
-                disabled={isTransitioning}
                 className={`px-3.5 py-2 rounded-full font-heading text-sm sm:text-base font-semibold transition-all duration-200 ${
                   isActive
                     ? 'text-[#0A3D47] underline underline-offset-8 decoration-2 decoration-[#F4A62A] font-bold'
@@ -114,7 +111,6 @@ export const Navbar: React.FC<NavbarProps> = ({
         <div className="hidden sm:flex items-center gap-3">
           <button
             onClick={() => handleNavClick('referral')}
-            disabled={isTransitioning}
             className="btn-mango group"
           >
             <span>Make a referral</span>
@@ -144,7 +140,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {mobileMenuOpen && (
         <div className="lg:hidden bg-[#FBF5EA] border-t border-[#0A3D47]/10 px-4 pt-4 pb-6 space-y-2 animate-fadeInFromTop shadow-lg">
           {navLinks.map((link) => {
-            const isActive = currentPage === link.id;
+            const isActive = activeSection === link.id;
             return (
               <button
                 key={link.id}
