@@ -1,20 +1,14 @@
 import React from 'react';
 import { 
   Phone, 
-  Mail,
   ArrowRight, 
-  ExternalLink,
+  ExternalLink, 
   CheckCircle2, 
-  Stethoscope,
-  Activity,
-  Home,
-  Building2,
-  Clock,
-  FileText,
-  Sparkles,
-  Key,
-  ShieldCheck,
-  Heart
+  Stethoscope, 
+  Building2, 
+  Clock, 
+  FileText, 
+  Sparkles 
 } from 'lucide-react';
 
 export const PhotoHero: React.FC = () => {
@@ -175,12 +169,12 @@ export const PhotoHero: React.FC = () => {
                 </span>
               </div>
 
-              {/* Pathway 1: Allied Health & FCA Referral (Splose Form Link) */}
+              {/* Allied Health & FCA Referral (Splose Form Link) */}
               <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F7F3] border border-[#2D6A5D]/20 shadow-xs space-y-3">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2 text-xs font-bold text-[#2D6A5D] uppercase tracking-wider">
                     <Stethoscope className="w-4 h-4 text-[#D4A359]" />
-                    <span>Option 1: Allied Health</span>
+                    <span>Allied Health</span>
                   </div>
                   <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">
                     <Clock className="w-3 h-3 text-emerald-600" /> 2-Week FCA
@@ -209,46 +203,6 @@ export const PhotoHero: React.FC = () => {
                 <p className="text-[11px] text-gray-500 text-center">
                   Opens our secure online Splose referral portal in a new tab.
                 </p>
-              </div>
-
-              {/* Pathway 2: All Other Supports & Housing Units */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-gray-200 shadow-xs space-y-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2 text-xs font-bold text-[#163932] uppercase tracking-wider">
-                    <Heart className="w-4 h-4 text-[#D4A359]" />
-                    <span>Option 2: Nursing &amp; Home Care</span>
-                  </div>
-                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#D4A359]/20 text-[#8C631B] text-[11px] font-bold">
-                    <Key className="w-3 h-3 text-[#D4A359]" /> Units Ready
-                  </span>
-                </div>
-
-                <div>
-                  <h4 className="font-bold text-sm sm:text-base text-[#163932]">
-                    Clinical Nursing, Personal Care &amp; Accommodation
-                  </h4>
-                  <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                    Aged care nurse reviews, wound care, home cleaning, yard maintenance, and 1 &amp; 2-bedroom units in Townsville.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                  <a
-                    href="#units"
-                    className="inline-flex items-center justify-center gap-1.5 bg-[#163932] hover:bg-[#204E44] text-white font-semibold text-xs py-2.5 px-3 rounded-xl shadow-xs transition-all text-center"
-                  >
-                    <Building2 className="w-3.5 h-3.5 text-[#D4A359]" />
-                    <span>1 &amp; 2-Bed Units</span>
-                  </a>
-
-                  <a
-                    href="mailto:admin@tchservices.com.au?subject=TCH%20Referral%20Enquiry&body=Hello%20TCH%20Team%2C%0A%0AI%20would%20like%20to%20refer%20a%20client%20for%20supports...%0A%0AClient%20Name%3A%0APhone%3A%0ASuburb%3A%0AFunding%20(NDIS%2FPrivate%2FVHC)%3A%0AServices%20Needed%3A%0A"
-                    className="inline-flex items-center justify-center gap-1.5 bg-[#F8F7F3] hover:bg-gray-100 text-[#163932] font-semibold text-xs py-2.5 px-3 rounded-xl border border-gray-300 transition-all text-center"
-                  >
-                    <Mail className="w-3.5 h-3.5 text-[#2D6A5D]" />
-                    <span>Email Referral</span>
-                  </a>
-                </div>
               </div>
 
               {/* Direct Help Footer */}
