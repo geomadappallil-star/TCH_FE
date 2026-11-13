@@ -1,35 +1,31 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Navbar } from './components/Navbar.js';
 import { Footer } from './components/Footer.js';
-import { QuickActionBar } from './components/QuickActionBar.js';
-import { SerkoPageDock } from './components/SerkoPageDock.js';
+import { UnitEnquiryModal } from './components/UnitEnquiryModal.js';
 
-// Dedicated Individual Pages
+// 5 Dedicated Pages per November 2026 Client Brief
 import { HomePage } from './pages/HomePage.js';
+import { AboutPage } from './pages/AboutPage.js';
 import { ServicesPage } from './pages/ServicesPage.js';
-import { UnitsPage } from './pages/UnitsPage.js';
-import { FundingPage } from './pages/FundingPage.js';
+import { ReferralPage } from './pages/ReferralPage.js';
 import { CareersPage } from './pages/CareersPage.js';
 
 export function App() {
   const [currentPage, setCurrentPage] = useState<string>('home');
   const [isTransitioning, setIsTransitioning] = useState<boolean>(false);
-
-  const pages = [
-    { id: 'home', name: 'Overview', shortName: 'Home', num: '01' },
-    { id: 'services', name: 'Our Services', shortName: 'Services', num: '02' },
-    { id: 'units', name: '1 & 2-Bed Units', shortName: 'Units', num: '03' },
-    { id: 'funding', name: 'NDIS & Funding', shortName: 'Funding', num: '04' },
-    { id: 'careers', name: 'Careers', shortName: 'Careers', num: '05' },
-  ];
+  const [isUnitModalOpen, setIsUnitModalOpen] = useState<boolean>(false);
 
   // Map URL hash to page ID (supports deep links and browser navigation)
   const getPageFromHash = (): string => {
-    const hash = window.location.hash.replace('#/', '').replace('#', '');
+    const hash = window.location.hash.replace('#/', '').replace('#', '').toLowerCase();
+    if (hash === 'about' || hash === 'about-us') return 'about';
     if (hash === 'services') return 'services';
-    if (hash === 'units') return 'units';
-    if (hash === 'funding' || hash === 'ndis') return 'funding';
+    if (hash === 'referral' || hash === 'refer') return 'referral';
     if (hash === 'careers' || hash === 'jobs') return 'careers';
+    if (hash === 'units') {
+      setIsUnitModalOpen(true);
+      return 'services';
+    }
     return 'home';
   };
 
@@ -52,7 +48,7 @@ export function App() {
     };
   }, []);
 
-  // Serko-Style Fluid Page Transition Navigator
+  // Fluid Page Transition Navigator
   const handleNavigate = useCallback((pageId: string) => {
     if (pageId === currentPage && !isTransitioning) {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -65,75 +61,87 @@ export function App() {
     const newHash = pageId === 'home' ? '#/' : `#/${pageId}`;
     window.history.pushState(null, '', newHash);
 
-    // Step 1: Smooth spatial curtain sweep & instant top scroll
+    // Smooth sweep & instant top scroll
     setTimeout(() => {
       setCurrentPage(pageId);
       window.scrollTo({ top: 0, behavior: 'instant' });
-    }, 280);
+    }, 240);
 
-    // Step 2: Complete transition
+    // Complete transition
     setTimeout(() => {
       setIsTransitioning(false);
-    }, 650);
+    }, 550);
   }, [currentPage, isTransitioning]);
 
   return (
-    <div id="top" className="min-h-screen flex flex-col bg-[#FFF3E2] text-[#2B2822] relative font-sans">
+    <div id="top" className="min-h-screen flex flex-col bg-[#FBF5EA] text-[#1E2B30] relative font-sans">
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-[#0B4F51] text-white px-4 py-2 rounded-full font-bold shadow-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-[#0A3D47] text-white px-5 py-3 rounded-full font-bold shadow-lg"
       >
         Skip to main content
       </a>
 
-      {/* Main Executive Glass Navigation Bar */}
+      {/* Main Header with Top Contact Bar */}
       <Navbar 
         currentPage={currentPage} 
         onNavigate={handleNavigate}
         isTransitioning={isTransitioning}
       />
 
-      {/* Serko-Style Spatial Transition Curtain (ATS Teal + Warm Glow) */}
+      {/* Smooth Page Transition Curtain */}
       <div 
-        className={`fixed inset-0 z-50 pointer-events-none transition-all duration-500 ease-in-out ${
+        className={`fixed inset-0 z-50 pointer-events-none transition-all duration-400 ease-in-out ${
           isTransitioning 
-            ? 'opacity-100 backdrop-blur-md bg-[#0B4F51]/75' 
+            ? 'opacity-100 backdrop-blur-sm bg-[#0A3D47]/70' 
             : 'opacity-0 backdrop-blur-none bg-transparent'
         }`}
       >
         {isTransitioning && (
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-[#FFF3E2] border-2 border-[#F9B835] text-[#0B4F51] text-xs font-bold shadow-2xl">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#EF85AA] animate-ping" />
-              <span className="font-sans uppercase tracking-widest text-[#0B4F51] font-bold">
-                Transitioning · TCH Support Services
+            <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-[#FBF5EA] border-2 border-[#F4A62A] text-[#0A3D47] text-xs font-bold shadow-2xl">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#F4A62A] animate-ping" />
+              <span className="font-heading uppercase tracking-widest text-[#0A3D47] font-bold">
+                TCH Support Services · Loading
               </span>
             </div>
           </div>
         )}
       </div>
 
-      {/* Main Content Area: Dedicated Independent Pages */}
+      {/* Main Content: 5 Pages from the Client Brief */}
       <main id="main-content" className="flex-grow relative">
-        {currentPage === 'home' && <HomePage onNavigate={handleNavigate} />}
-        {currentPage === 'services' && <ServicesPage onNavigate={handleNavigate} />}
-        {currentPage === 'units' && <UnitsPage onNavigate={handleNavigate} />}
-        {currentPage === 'funding' && <FundingPage onNavigate={handleNavigate} />}
-        {currentPage === 'careers' && <CareersPage onNavigate={handleNavigate} />}
+        {currentPage === 'home' && (
+          <HomePage 
+            onNavigate={handleNavigate} 
+            onOpenUnitModal={() => setIsUnitModalOpen(true)} 
+          />
+        )}
+        {currentPage === 'about' && (
+          <AboutPage />
+        )}
+        {currentPage === 'services' && (
+          <ServicesPage 
+            onNavigate={handleNavigate} 
+            onOpenUnitModal={() => setIsUnitModalOpen(true)} 
+          />
+        )}
+        {currentPage === 'referral' && (
+          <ReferralPage />
+        )}
+        {currentPage === 'careers' && (
+          <CareersPage />
+        )}
       </main>
 
-      {/* Serko-Style Floating Page Stepper Dock */}
-      <SerkoPageDock
-        currentPageId={currentPage}
-        pages={pages}
-        onNavigate={handleNavigate}
+      {/* Universal Footer */}
+      <Footer onNavigate={handleNavigate} />
+
+      {/* 1 & 2-Bedroom Unit Enquiry Modal */}
+      <UnitEnquiryModal 
+        isOpen={isUnitModalOpen} 
+        onClose={() => setIsUnitModalOpen(false)} 
       />
-
-      {/* Global Footer */}
-      <Footer />
-
-      {/* Sticky Mobile/Tablet 1-Tap Quick Action Bar */}
-      <QuickActionBar />
     </div>
   );
 }

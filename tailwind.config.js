@@ -7,17 +7,45 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Client Final Brief Colors (Nov 2026)
+        brand: {
+          reef: '#0B5563',      // Reef teal
+          deepTeal: '#0A3D47',  // Deep teal
+          mango: '#F4A62A',     // Mango
+          mangoDark: '#D9880F',
+          sand: '#FBF5EA',      // Sand warm page bg
+          sandLight: '#FFFDF9',
+          sandMuted: '#F2E8D5',
+          text: '#1E2B30',      // Charcoal ink text
+          card: '#FFFFFF'
+        },
+        reef: '#0B5563',
+        deepTeal: '#0A3D47',
+        mango: {
+          DEFAULT: '#F4A62A',
+          hover: '#E09217',
+          dark: '#B87208',
+          light: '#FDEFD6'
+        },
+        sand: {
+          DEFAULT: '#FBF5EA',
+          50: '#FFFFFF',
+          100: '#FFFDF9',
+          200: '#FBF5EA',
+          300: '#F3E8D3',
+          400: '#E7D5B5'
+        },
         // Allied Therapeutic Services (ATS) Theme Colors
         ats: {
-          cream: '#FFF3E2',
+          cream: '#FBF5EA',
           card: '#FFFFFF',
-          text: '#0B4F51',
-          teal: '#0B4F51',
-          deep: '#073B3C',
-          ink: '#042627',
-          charcoal: '#2B2822',
-          gold: '#F9B835',
-          goldDark: '#593C00',
+          text: '#1E2B30',
+          teal: '#0B5563',
+          deep: '#0A3D47',
+          ink: '#1E2B30',
+          charcoal: '#1E2B30',
+          gold: '#F4A62A',
+          goldDark: '#B87208',
           accent: '#94C08E',
           accentDark: '#184013',
           coral: '#EC7E38',
@@ -65,8 +93,9 @@ export default {
         muted: '#5A6C65'
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Poppins', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Poppins', 'system-ui', 'sans-serif'],
+        sans: ['"Nunito Sans"', 'sans-serif'],
+        heading: ['Outfit', 'sans-serif'],
+        display: ['Outfit', 'sans-serif'],
         serif: ['Newsreader', 'Georgia', 'serif'],
       },
       backdropBlur: {
