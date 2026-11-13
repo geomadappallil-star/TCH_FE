@@ -109,10 +109,27 @@ export const HomeHero: React.FC = () => {
   };
 
   return (
-    <section id="home" className="relative z-10 pt-8 md:pt-14 pb-20">
+    <section id="home" className="relative z-10 pt-8 md:pt-14 pb-20 overflow-hidden">
       
+      {/* Background Video Layer for Hero */}
+      <div className="absolute inset-0 h-[840px] lg:h-[760px] overflow-hidden pointer-events-none z-0">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/images/sorinvision-elderly-care.png"
+          className="w-full h-full object-cover object-center opacity-30 filter saturate-110"
+        >
+          <source src="/videos/tch-hero-care.mp4" type="video/mp4" />
+        </video>
+        {/* Soft Sand Overlays to ensure WCAG readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA] via-[#FBF5EA]/85 to-[#FBF5EA]/50" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FBF5EA]/30 to-[#FBF5EA]" />
+      </div>
+
       {/* 1. Hero Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 md:mb-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           
           {/* Left Column Text */}
@@ -177,8 +194,8 @@ export const HomeHero: React.FC = () => {
               
               <div className="relative overflow-hidden rounded-[32px] lg:rounded-[40px_40px_40px_120px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
                 <img 
-                  src="/images/hero-veranda.jpg" 
-                  alt="TCH support worker and client laughing together on a Queenslander veranda in Townsville" 
+                  src="/images/sorinvision-elderly-care.png" 
+                  alt="TCH elderly care and compassionate support in North Queensland" 
                   className="w-full h-full object-cover object-center transform group-hover:scale-102 transition duration-700 ease-out"
                 />
                 
