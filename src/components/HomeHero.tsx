@@ -119,13 +119,13 @@ export const HomeHero: React.FC = () => {
           muted
           playsInline
           poster="/images/sorinvision-elderly-care.png"
-          className="w-full h-full object-cover object-center opacity-30 filter saturate-110"
+          className="w-full h-full object-cover object-center opacity-80 filter saturate-115 brightness-95"
         >
           <source src="/videos/tch-hero-care.mp4" type="video/mp4" />
         </video>
-        {/* Soft Sand Overlays to ensure WCAG readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA] via-[#FBF5EA]/85 to-[#FBF5EA]/50" />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#FBF5EA]/30 to-[#FBF5EA]" />
+        {/* Transparent gradient on left, progressively increasing opacity to the right */}
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FBF5EA]/35 to-[#FBF5EA]/90" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#FBF5EA]" />
       </div>
 
       {/* 1. Hero Section */}
@@ -142,12 +142,12 @@ export const HomeHero: React.FC = () => {
             </span>
 
             {/* Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0A3D47] leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#0A3D47] leading-[1.1] drop-shadow-xs">
               Locals looking after locals.
             </h1>
 
             {/* Lead Copy */}
-            <p className="text-lg sm:text-xl text-[#3E4F55] font-normal leading-relaxed max-w-2xl">
+            <p className="text-lg sm:text-xl text-[#1E2B30] font-medium leading-relaxed max-w-2xl">
               TCH Support Services (Townsville Community Health) helps NDIS participants, older Australians, veterans and private clients across North Queensland live well at home and stay connected to their community.
             </p>
 
