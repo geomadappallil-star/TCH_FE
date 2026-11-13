@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Compass, CheckCircle2, Shield, Users, Sparkles, MapPin } from 'lucide-react';
+import { Heart, Compass, CheckCircle2, Shield, Users, Sparkles } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   const values = [
@@ -79,40 +79,7 @@ export const AboutSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 2. Scenic Townsville Marina Banner */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-24">
-        <div className="relative overflow-hidden rounded-[32px] shadow-2xl border-4 border-white h-64 sm:h-80 md:h-[380px] group bg-[#0A3D47]">
-          <img 
-            src="/images/about-townsville-marina.jpg" 
-            alt="Townsville Breakwater Marina with yachts and tropical blue waters" 
-            className="w-full h-full object-cover object-center transform group-hover:scale-102 transition duration-700 ease-out"
-          />
-          {/* Subtle gradient wash */}
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0A3D47]/85 via-transparent to-black/20" />
-          
-          {/* Floating Glass Banner Caption */}
-          <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 right-6 flex flex-wrap items-end justify-between gap-4 text-white">
-            <div className="space-y-1.5 max-w-xl">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/20 backdrop-blur-md border border-white/30 text-xs font-bold uppercase tracking-wider text-teal-100">
-                <MapPin className="w-3.5 h-3.5 text-[#F4A62A]" />
-                <span>Our Coastal Roots</span>
-              </span>
-              <h3 className="font-heading font-extrabold text-2xl sm:text-3xl text-white drop-shadow-sm leading-tight">
-                Proudly based in Townsville, caring across our regions.
-              </h3>
-              <p className="text-xs sm:text-sm text-teal-100/90 hidden sm:block">
-                From Cleveland Bay across the Burdekin, Hinchinbrook, and the Tablelands.
-              </p>
-            </div>
-
-            <div className="hidden md:flex items-center gap-2 px-4 py-2 rounded-xl bg-white/15 backdrop-blur-md border border-white/25 text-xs font-semibold text-white">
-              <span>Townsville, North Queensland</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 3. Mission & Vision (2 Big Glass Cards from brief) */}
+      {/* 2. Mission & Vision (2 Big Glass Cards from brief) */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-28">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           
