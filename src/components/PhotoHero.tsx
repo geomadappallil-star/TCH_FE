@@ -46,7 +46,7 @@ export const PhotoHero: React.FC = () => {
         loop
         muted
         playsInline
-        poster="/images/hero-veranda.jpg"
+        poster="./images/hero-veranda.jpg"
         className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none mix-blend-luminosity filter brightness-95"
         aria-hidden="true"
       >
@@ -57,7 +57,7 @@ export const PhotoHero: React.FC = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none mix-blend-multiply"
         style={{
-          backgroundImage: `url('/images/hero-veranda.jpg')`
+          backgroundImage: `url('./images/hero-veranda.jpg')`
         }}
       />
       

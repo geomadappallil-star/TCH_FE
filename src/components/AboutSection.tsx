@@ -43,7 +43,7 @@ export const AboutSection: React.FC = () => {
         {/* Background Image Layer */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-45 filter saturate-110"
-          style={{ backgroundImage: `url('/images/townsville-beach-huts.jpg')` }}
+          style={{ backgroundImage: `url('./images/townsville-beach-huts.jpg')` }}
           aria-hidden="true"
         />
         {/* Semi-transparent Glass Gradient Wash for text readability */}
@@ -74,7 +74,7 @@ export const AboutSection: React.FC = () => {
                 <div className="absolute -inset-2 bg-gradient-to-br from-[#0B5563]/25 to-[#F4A62A]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
                 <div className="relative overflow-hidden rounded-[32px] lg:rounded-[120px_40px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
                   <img 
-                    src="/images/team-outdoors.jpg" 
+                    src="./images/team-outdoors.jpg" 
                     alt="The TCH care team outdoors in Townsville" 
                     className="w-full h-full object-cover object-center transform group-hover:scale-102 transition duration-700 ease-out"
                   />
@@ -166,7 +166,7 @@ export const AboutSection: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-5 overflow-hidden rounded-2xl aspect-[4/3] bg-gray-100">
               <img 
-                src="/images/diverse-community.jpg" 
+                src="./images/diverse-community.jpg" 
                 alt="Diverse participants and support staff interacting in North Queensland" 
                 className="w-full h-full object-cover"
               />
@@ -190,7 +190,7 @@ export const AboutSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-8">
             <div className="w-40 sm:w-52 h-32 sm:h-36 rounded-2xl overflow-hidden flex-shrink-0 border border-gray-200 shadow-xs">
               <img 
-                src="/images/indigenous-art.jpg" 
+                src="./images/indigenous-art.jpg" 
                 alt="Artwork by a local Aboriginal or Torres Strait Islander artist" 
                 className="w-full h-full object-cover"
               />

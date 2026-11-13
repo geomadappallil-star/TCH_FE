@@ -169,7 +169,7 @@ export const ChatBannerAndFooter: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
               <div className="w-24 h-16 rounded-xl overflow-hidden flex-shrink-0 border border-teal-700/60 shadow-xs bg-[#134B56]">
                 <img 
-                  src="/images/indigenous-art.jpg" 
+                  src="./images/indigenous-art.jpg" 
                   alt="Traditional First Nations artwork" 
                   className="w-full h-full object-cover"
                 />

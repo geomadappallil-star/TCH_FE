@@ -125,7 +125,7 @@ export const CareersSectionNew: React.FC = () => {
         {/* Background Image Layer */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35 filter saturate-110"
-          style={{ backgroundImage: `url('/images/we-are-hiring.jpg')` }}
+          style={{ backgroundImage: `url('./images/we-are-hiring.jpg')` }}
           aria-hidden="true"
         />
         {/* Semi-transparent Glass Gradient Wash for text readability */}
@@ -175,7 +175,7 @@ export const CareersSectionNew: React.FC = () => {
                 <div className="absolute -inset-2 bg-gradient-to-tr from-[#F4A62A]/25 to-[#0B5563]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
                 <div className="relative overflow-hidden rounded-[32px] lg:rounded-[40px_120px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
                   <img 
-                    src="/images/careers-team-smiling.jpg" 
+                    src="./images/careers-team-smiling.jpg" 
                     alt="Smiling TCH support team members in uniform" 
                     className="w-full h-full object-cover object-center transform group-hover:scale-102 transition duration-700 ease-out"
                   />
@@ -246,7 +246,7 @@ export const CareersSectionNew: React.FC = () => {
         {/* Background Image behind mat card */}
         <div 
           className="absolute inset-0 bg-cover bg-[right_top] sm:bg-center bg-no-repeat opacity-45 filter saturate-110"
-          style={{ backgroundImage: `url('/images/eoi-applicant-profile.jpg')` }}
+          style={{ backgroundImage: `url('./images/eoi-applicant-profile.jpg')` }}
           aria-hidden="true"
         />
         {/* Ambient Frosted Wash */}

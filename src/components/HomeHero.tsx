@@ -120,10 +120,10 @@ export const HomeHero: React.FC = () => {
           loop
           muted
           playsInline
-          poster="/images/sorinvision-elderly-care.png"
+          poster="./images/sorinvision-elderly-care.png"
           className="w-full h-full object-cover object-center opacity-80 filter saturate-115 brightness-95"
         >
-          <source src="/videos/tch-hero-care.mp4" type="video/mp4" />
+          <source src="./videos/tch-hero-care.mp4" type="video/mp4" />
         </video>
         {/* Transparent gradient on left, progressively increasing opacity to the right */}
         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FBF5EA]/35 to-[#FBF5EA]/90" />
@@ -196,7 +196,7 @@ export const HomeHero: React.FC = () => {
               
               <div className="relative overflow-hidden rounded-[32px] lg:rounded-[40px_40px_40px_120px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/5] sm:aspect-[4/3] lg:aspect-[4/5]">
                 <img 
-                  src="/images/sorinvision-elderly-care.png" 
+                  src="./images/sorinvision-elderly-care.png" 
                   alt="TCH elderly care and compassionate support in North Queensland" 
                   className="w-full h-full object-cover object-center transform group-hover:scale-102 transition duration-700 ease-out"
                 />
@@ -323,7 +323,7 @@ export const HomeHero: React.FC = () => {
         {/* Background Image Layer */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35 filter saturate-110"
-          style={{ backgroundImage: `url('/images/why-choose-community.jpg')` }}
+          style={{ backgroundImage: `url('./images/why-choose-community.jpg')` }}
           aria-hidden="true"
         />
         {/* Semi-transparent Glass Gradient Wash for crystal clear contrast */}

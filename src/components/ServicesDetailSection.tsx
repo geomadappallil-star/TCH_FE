@@ -79,10 +79,10 @@ export const ServicesDetailSection: React.FC = () => {
               loop
               muted
               playsInline
-              poster="/images/ndis-video-frame.jpg"
+              poster="./images/ndis-video-frame.jpg"
               className="w-full h-full object-cover object-center opacity-85 filter saturate-110 brightness-95"
             >
-              <source src="/videos/ndis-banner-care.mp4" type="video/mp4" />
+              <source src="./videos/ndis-banner-care.mp4" type="video/mp4" />
             </video>
             {/* Soft Frosted Glass Gradient Wash for crystal clear text readability */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/55 backdrop-blur-[2px]" />
@@ -146,7 +146,7 @@ export const ServicesDetailSection: React.FC = () => {
                 <div className="absolute -inset-2 bg-gradient-to-br from-[#0B5563]/25 to-[#F4A62A]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
                 <div className="relative overflow-hidden rounded-[32px] lg:rounded-[40px_120px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/3] lg:aspect-[4/5]">
                   <img 
-                    src="/images/service-community-ndis.jpg" 
+                    src="./images/service-community-ndis.jpg" 
                     alt="Young adult participant out actively in the community with a TCH worker" 
                     className="w-full h-full object-cover transform group-hover:scale-102 transition duration-700 ease-out"
                   />
@@ -173,10 +173,10 @@ export const ServicesDetailSection: React.FC = () => {
               loop
               muted
               playsInline
-              poster="/images/allied-video-frame.jpg"
+              poster="./images/allied-video-frame.jpg"
               className="w-full h-full object-cover object-center opacity-85 filter saturate-110 brightness-95"
             >
-              <source src="/videos/allied-banner-care.mp4" type="video/mp4" />
+              <source src="./videos/allied-banner-care.mp4" type="video/mp4" />
             </video>
             {/* Soft Frosted Glass Gradient Wash for crystal clear text readability */}
             <div className="absolute inset-0 bg-gradient-to-l from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/55 backdrop-blur-[2px]" />
@@ -191,7 +191,7 @@ export const ServicesDetailSection: React.FC = () => {
                 <div className="absolute -inset-2 bg-gradient-to-bl from-[#0B5563]/25 to-[#F4A62A]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
                 <div className="relative overflow-hidden rounded-[32px] lg:rounded-[120px_40px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/3] lg:aspect-[4/5]">
                   <img 
-                    src="/images/service-allied-home.jpg" 
+                    src="./images/service-allied-home.jpg" 
                     alt="Physio or occupational therapist working with client at home in Townsville" 
                     className="w-full h-full object-cover transform group-hover:scale-102 transition duration-700 ease-out"
                   />
@@ -265,10 +265,10 @@ export const ServicesDetailSection: React.FC = () => {
               loop
               muted
               playsInline
-              poster="/images/nursing-video-frame.jpg"
+              poster="./images/nursing-video-frame.jpg"
               className="w-full h-full object-cover object-center opacity-85 filter saturate-110 brightness-95"
             >
-              <source src="/videos/nursing-banner-care.mp4" type="video/mp4" />
+              <source src="./videos/nursing-banner-care.mp4" type="video/mp4" />
             </video>
             {/* Soft Frosted Glass Gradient Wash for crystal clear text readability */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/55 backdrop-blur-[2px]" />
@@ -310,7 +310,7 @@ export const ServicesDetailSection: React.FC = () => {
                 <div className="absolute -inset-2 bg-gradient-to-br from-[#0B5563]/25 to-[#F4A62A]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
                 <div className="relative overflow-hidden rounded-[32px] lg:rounded-[40px_120px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/3] lg:aspect-[4/5]">
                   <img 
-                    src="/images/service-nurse-visit.jpg" 
+                    src="./images/service-nurse-visit.jpg" 
                     alt="TCH nurse checking blood pressure at a client's home in Townsville" 
                     className="w-full h-full object-cover transform group-hover:scale-102 transition duration-700 ease-out"
                   />
@@ -337,10 +337,10 @@ export const ServicesDetailSection: React.FC = () => {
               loop
               muted
               playsInline
-              poster="/images/cleaning-video-frame.jpg"
+              poster="./images/cleaning-video-frame.jpg"
               className="w-full h-full object-cover object-center opacity-85 filter saturate-110 brightness-95"
             >
-              <source src="/videos/cleaning-banner-care.mp4" type="video/mp4" />
+              <source src="./videos/cleaning-banner-care.mp4" type="video/mp4" />
             </video>
             {/* Soft Frosted Glass Gradient Wash for crystal clear text readability */}
             <div className="absolute inset-0 bg-gradient-to-l from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/55 backdrop-blur-[2px]" />
@@ -355,7 +355,7 @@ export const ServicesDetailSection: React.FC = () => {
                 <div className="absolute -inset-2 bg-gradient-to-bl from-[#0B5563]/25 to-[#F4A62A]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
                 <div className="relative overflow-hidden rounded-[32px] lg:rounded-[120px_40px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/3] lg:aspect-[4/5]">
                   <img 
-                    src="/images/service-cleaner-kitchen.jpg" 
+                    src="./images/service-cleaner-kitchen.jpg" 
                     alt="TCH cleaner maintaining a bright, tidy Queensland kitchen" 
                     className="w-full h-full object-cover transform group-hover:scale-102 transition duration-700 ease-out"
                   />
@@ -407,10 +407,10 @@ export const ServicesDetailSection: React.FC = () => {
               loop
               muted
               playsInline
-              poster="/images/gardening-video-frame.jpg"
+              poster="./images/gardening-video-frame.jpg"
               className="w-full h-full object-cover object-center opacity-85 filter saturate-110 brightness-95"
             >
-              <source src="/videos/gardening-banner-care.mp4" type="video/mp4" />
+              <source src="./videos/gardening-banner-care.mp4" type="video/mp4" />
             </video>
             {/* Soft Frosted Glass Gradient Wash for crystal clear text readability */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/55 backdrop-blur-[2px]" />
@@ -450,7 +450,7 @@ export const ServicesDetailSection: React.FC = () => {
                 <div className="absolute -inset-2 bg-gradient-to-br from-[#0B5563]/25 to-[#F4A62A]/25 rounded-[44px] blur-xl opacity-70 group-hover:opacity-100 transition duration-500" />
                 <div className="relative overflow-hidden rounded-[32px] lg:rounded-[40px_120px_40px_40px] shadow-2xl border-4 border-white/80 bg-white aspect-[4/3] lg:aspect-[4/5]">
                   <img 
-                    src="/images/service-lawn-mowing.jpg" 
+                    src="./images/service-lawn-mowing.jpg" 
                     alt="Mowing a green tropical lawn in North Queensland" 
                     className="w-full h-full object-cover transform group-hover:scale-102 transition duration-700 ease-out"
                   />
