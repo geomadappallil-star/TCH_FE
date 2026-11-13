@@ -1,56 +1,24 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { 
   Phone, 
+  Mail,
   ArrowRight, 
+  ExternalLink,
   CheckCircle2, 
   Stethoscope,
   Activity,
   Home,
   Building2,
-  Send, 
   Clock,
   FileText,
-  Sparkles
+  Sparkles,
+  Key,
+  ShieldCheck,
+  Heart
 } from 'lucide-react';
-import { submitQuickCallback } from '../services/enquiryService.js';
 
 export const PhotoHero: React.FC = () => {
-  // Quick callback form state
-  const [formData, setFormData] = useState({
-    name: '',
-    phone: '',
-    email: '',
-    suburb: '',
-    service: 'Clinical nursing care',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [feedback, setFeedback] = useState<{ success: boolean; message: string; refId?: string } | null>(null);
-
-  const handleCallbackSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setFeedback(null);
-
-    const result = await submitQuickCallback(formData);
-    setFeedback({
-      success: result.success,
-      message: result.message,
-      refId: result.referenceId
-    });
-
-    if (result.success) {
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        suburb: '',
-        service: 'Clinical nursing care',
-        message: ''
-      });
-    }
-    setIsSubmitting(false);
-  };
+  const SPLOSE_FCA_URL = 'https://tchservices.splose.com/public-form/2c733ea1-1b3a-41d5-87d7-98ba320cd4f8';
 
   const coreBullets = [
     {
@@ -76,17 +44,30 @@ export const PhotoHero: React.FC = () => {
   ];
 
   return (
-    <section className="relative min-h-[82vh] flex items-center py-12 md:py-20 overflow-hidden bg-[#163932] text-white">
+    <section className="relative min-h-[85vh] flex items-center py-12 md:py-20 overflow-hidden bg-[#163932] text-white">
       
-      {/* Background Photo Banner with High-Contrast Eucalyptus Overlay */}
+      {/* 1. Transparent Background Video Loop with Poster Fallback */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        poster="/images/hero-veranda.jpg"
+        className="absolute inset-0 w-full h-full object-cover opacity-25 pointer-events-none mix-blend-luminosity filter brightness-95"
+        aria-hidden="true"
+      >
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-nurse-measuring-the-blood-pressure-of-an-elderly-woman-42611-large.mp4" type="video/mp4" />
+      </video>
+
+      {/* 2. Fallback Transparent Background Banner Photo */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none mix-blend-luminosity"
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 pointer-events-none mix-blend-multiply"
         style={{
-          backgroundImage: `url('https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?auto=format&fit=crop&w=1920&q=85')`
+          backgroundImage: `url('/images/hero-veranda.jpg')`
         }}
       />
       
-      {/* Gradient Wash */}
+      {/* 3. Deep Eucalyptus Gradient Wash */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#163932] via-[#163932]/95 to-[#163932]/80 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
@@ -94,7 +75,7 @@ export const PhotoHero: React.FC = () => {
         {/* Top Eyebrow Chip */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-emerald-200 mb-6 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-[#D4A359] animate-pulse"></span>
-          <span>Townsville · Ingham · Charters Towers | Private, NDIS &amp; VHC Approved</span>
+          <span>Townsville · Ayr · Ingham · Charters Towers · Mareeba · Mount Isa | Private, NDIS &amp; VHC Approved</span>
         </div>
 
         {/* Hero 2-Column Grid */}
@@ -169,132 +150,118 @@ export const PhotoHero: React.FC = () => {
                 <CheckCircle2 className="w-4 h-4 text-[#D4A359]" /> Private, NDIS &amp; VHC
               </span>
               <span className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-[#D4A359]" /> Nurse Aged Care Reviews
+                <CheckCircle2 className="w-4 h-4 text-[#D4A359]" /> Screened Local Staff
               </span>
             </div>
 
           </div>
 
-          {/* Right Column: Frosted Glass Callback Card */}
+          {/* Right Column: Fast-Track Referral Redirect Console (Replacing Old Callback Form) */}
           <div className="lg:col-span-5">
-            <div className="bg-white/95 backdrop-blur-xl p-6 sm:p-7 border border-white shadow-2xl rounded-3xl text-[#192B27]">
+            <div className="bg-white/95 backdrop-blur-xl p-6 sm:p-7 border border-white shadow-2xl rounded-3xl text-[#192B27] space-y-5">
               
-              <div className="flex items-center justify-between border-b border-teal/15 pb-3 mb-4">
+              {/* Header */}
+              <div className="flex items-center justify-between border-b border-gray-200 pb-3.5">
                 <div>
-                  <h3 className="font-bold text-base text-[#163932]">
-                    Quick Callback Request
+                  <h3 className="font-bold text-lg sm:text-xl text-[#163932]">
+                    Make a Referral
                   </h3>
                   <p className="text-xs text-gray-600 mt-0.5">
-                    Alan responds directly to all enquiries
+                    Fast-track intake for participants, coordinators &amp; doctors
                   </p>
                 </div>
-                <span className="px-2.5 py-1 rounded-full bg-[#D4A359]/20 text-[#8C631B] text-[11px] font-bold border border-[#D4A359]/40">
-                  Fast Response
+                <span className="px-3 py-1 rounded-full bg-[#D4A359]/20 text-[#8C631B] text-xs font-bold border border-[#D4A359]/40">
+                  Fast Intake
                 </span>
               </div>
 
-              {feedback && (
-                <div
-                  className={`p-3 rounded-xl mb-4 text-xs flex items-start gap-2.5 ${
-                    feedback.success
-                      ? 'bg-emerald-50 text-emerald-900 border border-emerald-200'
-                      : 'bg-rose-50 text-rose-800 border border-rose-200'
-                  }`}
-                >
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-bold">{feedback.message}</p>
-                    {feedback.refId && (
-                      <p className="text-[11px] text-emerald-700 mt-0.5">Reference: {feedback.refId}</p>
-                    )}
+              {/* Pathway 1: Allied Health & FCA Referral (Splose Form Link) */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-[#F8F7F3] border border-[#2D6A5D]/20 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#2D6A5D] uppercase tracking-wider">
+                    <Stethoscope className="w-4 h-4 text-[#D4A359]" />
+                    <span>Option 1: Allied Health</span>
                   </div>
-                </div>
-              )}
-
-              <form onSubmit={handleCallbackSubmit} className="space-y-3 text-xs">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-gray-700 font-bold uppercase tracking-wider mb-1">Your Name *</label>
-                    <input
-                      type="text"
-                      required
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Full name"
-                      className="w-full p-2.5 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-bold uppercase tracking-wider mb-1">Phone *</label>
-                    <input
-                      type="tel"
-                      required
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="0412 345 678"
-                      className="w-full p-2.5 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                  <div>
-                    <label className="block text-gray-700 font-bold uppercase tracking-wider mb-1">Email *</label>
-                    <input
-                      type="email"
-                      required
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="your.email@example.com"
-                      className="w-full p-2.5 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-gray-700 font-bold uppercase tracking-wider mb-1">Townsville Suburb</label>
-                    <input
-                      type="text"
-                      value={formData.suburb}
-                      onChange={(e) => setFormData({ ...formData, suburb: e.target.value })}
-                      placeholder="e.g. Kirwan or Burdell"
-                      className="w-full p-2.5 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
-                    />
-                  </div>
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold">
+                    <Clock className="w-3 h-3 text-emerald-600" /> 2-Week FCA
+                  </span>
                 </div>
 
                 <div>
-                  <label className="block text-gray-700 font-bold uppercase tracking-wider mb-1">Service Needed</label>
-                  <select
-                    value={formData.service}
-                    onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full p-2.5 rounded-xl border border-gray-300 focus:border-[#2D6A5D] focus:ring-2 focus:ring-[#2D6A5D]/20 text-[#163932] bg-white font-medium outline-none transition-all"
-                  >
-                    <option>FCA Report (Functional Capacity Assessment - 2 Weeks)</option>
-                    <option>Allied Health (OT, Physio, Counselling)</option>
-                    <option>Nursing Supports &amp; Aged Care Reviews</option>
-                    <option>One &amp; Two-Bedroom Units (Immediate Move-In)</option>
-                    <option>Gardening &amp; Cleaning (Private, NDIS, VHC)</option>
-                    <option>Home and living support with units available for participants to live independently</option>
-                    <option>Combined clinical &amp; home supports</option>
-                  </select>
+                  <h4 className="font-bold text-sm sm:text-base text-[#163932]">
+                    Functional Capacity Assessments (FCA) &amp; Therapies
+                  </h4>
+                  <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                    OT assessments, physiotherapy, speech pathology, dietetics, exercise physiology, and psychology. Fast reports with no waiting lists.
+                  </p>
                 </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#2D6A5D] hover:bg-[#204E44] text-white font-bold text-sm py-3 rounded-xl shadow-md hover:shadow-lg transition-all"
+                <a
+                  href={SPLOSE_FCA_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-[#D4A359] hover:bg-[#c49245] text-[#163932] font-bold text-sm py-3 px-4 rounded-xl shadow-md hover:shadow-lg transition-all group"
                 >
-                  <Send className="w-4 h-4 text-[#D4A359]" />
-                  <span>{isSubmitting ? 'Sending Request...' : 'Send Callback Request'}</span>
-                </button>
-              </form>
+                  <span>Open Allied Health Referral Form</span>
+                  <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                </a>
 
-              <div className="mt-3.5 pt-3 border-t border-gray-200 flex items-center justify-between text-[11px] text-gray-600">
+                <p className="text-[11px] text-gray-500 text-center">
+                  Opens our secure online Splose referral portal in a new tab.
+                </p>
+              </div>
+
+              {/* Pathway 2: All Other Supports & Housing Units */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-white border border-gray-200 shadow-xs space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-bold text-[#163932] uppercase tracking-wider">
+                    <Heart className="w-4 h-4 text-[#D4A359]" />
+                    <span>Option 2: Nursing &amp; Home Care</span>
+                  </div>
+                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#D4A359]/20 text-[#8C631B] text-[11px] font-bold">
+                    <Key className="w-3 h-3 text-[#D4A359]" /> Units Ready
+                  </span>
+                </div>
+
+                <div>
+                  <h4 className="font-bold text-sm sm:text-base text-[#163932]">
+                    Clinical Nursing, Personal Care &amp; Accommodation
+                  </h4>
+                  <p className="text-xs text-gray-600 mt-1 leading-relaxed">
+                    Aged care nurse reviews, wound care, home cleaning, yard maintenance, and 1 &amp; 2-bedroom units in Townsville.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                  <a
+                    href="#units"
+                    className="inline-flex items-center justify-center gap-1.5 bg-[#163932] hover:bg-[#204E44] text-white font-semibold text-xs py-2.5 px-3 rounded-xl shadow-xs transition-all text-center"
+                  >
+                    <Building2 className="w-3.5 h-3.5 text-[#D4A359]" />
+                    <span>1 &amp; 2-Bed Units</span>
+                  </a>
+
+                  <a
+                    href="mailto:admin@tchservices.com.au?subject=TCH%20Referral%20Enquiry&body=Hello%20TCH%20Team%2C%0A%0AI%20would%20like%20to%20refer%20a%20client%20for%20supports...%0A%0AClient%20Name%3A%0APhone%3A%0ASuburb%3A%0AFunding%20(NDIS%2FPrivate%2FVHC)%3A%0AServices%20Needed%3A%0A"
+                    className="inline-flex items-center justify-center gap-1.5 bg-[#F8F7F3] hover:bg-gray-100 text-[#163932] font-semibold text-xs py-2.5 px-3 rounded-xl border border-gray-300 transition-all text-center"
+                  >
+                    <Mail className="w-3.5 h-3.5 text-[#2D6A5D]" />
+                    <span>Email Referral</span>
+                  </a>
+                </div>
+              </div>
+
+              {/* Direct Help Footer */}
+              <div className="pt-2 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs text-gray-600">
                 <span className="flex items-center gap-1.5">
                   <Clock className="w-3.5 h-3.5 text-[#2D6A5D]" /> Mon–Sat 7am–7pm
                 </span>
-                <a href="tel:0431430905" className="font-bold text-[#2D6A5D] hover:underline">
-                  0431 430 905
-                </a>
+                <div className="flex items-center gap-3">
+                  <span className="text-gray-400">Need help?</span>
+                  <a href="tel:0431430905" className="font-bold text-[#163932] hover:text-[#2D6A5D] hover:underline">
+                    0431 430 905
+                  </a>
+                </div>
               </div>
 
             </div>
