@@ -1,25 +1,32 @@
 import React from 'react';
-import { Phone, CalendarPlus } from 'lucide-react';
+import { Phone, ArrowRight } from 'lucide-react';
 
 export const QuickActionBar: React.FC = () => {
+  const handleReferralClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const el = document.querySelector('#referral');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="fixed bottom-3 inset-x-3 z-40 lg:hidden">
-      <div className="glass-card bg-[#F6F4EE]/90 backdrop-blur-2xl p-2.5 rounded-2xl border border-teal/20 shadow-2xl flex items-center justify-between gap-2.5">
+      <div className="bg-white/90 backdrop-blur-2xl p-2 rounded-2xl border border-white/80 shadow-2xl flex items-center justify-between gap-2">
         
         <a
           href="tel:0431430905"
-          className="flex-1 inline-flex items-center justify-center gap-2 bg-gradient-to-r from-teal to-teal-deep text-white font-sans font-bold text-xs sm:text-sm py-3 px-3 rounded-xl shadow-glass-teal active:scale-95 transition-all"
+          className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#0A3D47] text-white font-bold text-xs sm:text-sm py-3 px-3 rounded-xl shadow-sm active:scale-95 transition-all"
         >
-          <Phone className="w-4 h-4 text-gold" />
-          <span>Call: 0431 430 905</span>
+          <Phone className="w-4 h-4 text-[#F4A62A]" />
+          <span>0431 430 905</span>
         </a>
 
         <a
-          href="#top"
-          className="flex-1 inline-flex items-center justify-center gap-2 bg-white/90 hover:bg-white text-teal-ink font-sans font-bold text-xs sm:text-sm py-3 px-3 rounded-xl border border-teal/20 active:scale-95 transition-all shadow-sm"
+          href="#referral"
+          onClick={handleReferralClick}
+          className="flex-1 inline-flex items-center justify-center gap-1.5 bg-[#F4A62A] hover:bg-[#E8951A] text-[#1E2B30] font-bold text-xs sm:text-sm py-3 px-3 rounded-xl shadow-sm active:scale-95 transition-all"
         >
-          <CalendarPlus className="w-4 h-4 text-teal" />
-          <span>Request Callback</span>
+          <span>Referral</span>
+          <ArrowRight className="w-4 h-4" />
         </a>
 
       </div>

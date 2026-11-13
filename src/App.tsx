@@ -1,20 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import { BackgroundMotion } from './components/BackgroundMotion.js';
 import { Navbar } from './components/Navbar.js';
-import { PhotoHero } from './components/PhotoHero.js';
-import { ServicesSection } from './components/ServicesSection.js';
-import { PropertyShowcase } from './components/PropertyShowcase.js';
-import { NdisSection } from './components/NdisSection.js';
-import { CareersSection } from './components/CareersSection.js';
-import { Footer } from './components/Footer.js';
+import { HomeHero } from './components/HomeHero.js';
+import { AboutSection } from './components/AboutSection.js';
+import { ServicesDetailSection } from './components/ServicesDetailSection.js';
+import { ReferralSection } from './components/ReferralSection.js';
+import { CareersSectionNew } from './components/CareersSectionNew.js';
+import { ChatBannerAndFooter } from './components/ChatBannerAndFooter.js';
 import { QuickActionBar } from './components/QuickActionBar.js';
 
 export function App() {
-  const [activeSection, setActiveSection] = useState('top');
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['top', 'services', 'units', 'ndis', 'jobs'];
-      const scrollPosition = window.scrollY + 200;
+      const sections = ['home', 'about', 'services', 'referral', 'careers'];
+      const scrollPosition = window.scrollY + 240;
 
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
@@ -34,39 +35,45 @@ export function App() {
   }, []);
 
   return (
-    <div id="top" className="min-h-screen flex flex-col bg-[#F8F7F3] text-[#192B27]">
+    <div className="relative min-h-screen flex flex-col bg-[#FBF5EA] text-[#1E2B30] overflow-x-hidden selection:bg-[#F4A62A]/40 selection:text-[#0A3D47]">
+      {/* 1. Ambient Moving Graphics Background Layer */}
+      <BackgroundMotion />
+
+      {/* Skip to Content for Accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-[#2D6A5D] text-white px-4 py-2 rounded-lg font-bold shadow-lg"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 z-50 bg-[#0B5563] text-white px-4 py-2 rounded-lg font-bold shadow-lg"
       >
         Skip to main content
       </a>
 
-      {/* Main Navigation Bar */}
+      {/* 2. Glassmorphic Navigation Bar */}
       <Navbar activeSection={activeSection} />
 
-      {/* Main Content Area: Alternating Background Banners */}
-      <main id="main-content" className="flex-grow">
-        {/* 1. [DARK BANNER] High-Contrast Photo Hero with Quick Callback Card */}
-        <PhotoHero />
+      {/* 3. Main Content Sections */}
+      <main id="main-content" className="flex-grow relative z-10 pb-16 lg:pb-0">
+        
+        {/* Home: Hero, Highlights, Service Overview, Why Choose TCH, Service Areas */}
+        <HomeHero />
 
-        {/* 2. [LIGHT BANNER] Core Clinical, Allied Health & Home Services */}
-        <ServicesSection />
+        {/* About Us: Story, Mission & Vision, 6 Values, Diversity & Indigenous Acknowledgement */}
+        <AboutSection />
 
-        {/* 3. [DARK BANNER] Townsville 4 Move-In Units Photo Showcase & Flyer Highlights */}
-        <PropertyShowcase />
+        {/* Services: In-depth NDIS, Allied Health (FCA), Nursing, Cleaning & Gardening */}
+        <ServicesDetailSection />
 
-        {/* 4. [LIGHT BANNER] NDIS Plan Funding Pathways & Suburb Coverage Strip */}
-        <NdisSection />
+        {/* Make a Referral: Option 1 Splose link & Option 2 Direct Interactive Referral */}
+        <ReferralSection />
 
-        {/* 5. [DARK BANNER] Careers Section with Mentorship Prospects & PDF Resume Upload */}
-        <CareersSection />
+        {/* Careers: Local hiring benefits, 5 Open positions & EOI form */}
+        <CareersSectionNew />
+
       </main>
 
-      {/* Global Footer */}
-      <Footer />
+      {/* 4. "Let's have a chat" Banner + Deep Teal Global Footer */}
+      <ChatBannerAndFooter />
 
-      {/* Sticky Mobile/Tablet 1-Tap Quick Action Bar */}
+      {/* 5. Mobile Quick Action Bar (1-Tap Call & Referral) */}
       <QuickActionBar />
     </div>
   );
