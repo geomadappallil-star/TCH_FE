@@ -26,7 +26,7 @@ export const NdisSection: React.FC = () => {
   ];
 
   const suburbs = [
-    'Townsville City', 'Kirwan', 'Thuringowa', 'Burdell', 'Douglas', 
+    'Townsville City', 'Cairns', 'Mackay', 'Kirwan', 'Thuringowa', 'Burdell', 'Douglas', 
     'Annandale', 'Bushland Beach', 'Kelso', 'Ingham', 'Charters Towers'
   ];
 

@@ -35,7 +35,7 @@ export const StaffingSection: React.FC = () => {
             Support at home, delivered by a qualified local team.
           </h2>
           <p className="text-base sm:text-lg text-teal-100 font-serif mt-3 leading-relaxed">
-            From clinical nursing to occupational therapy, physiotherapy, and psychology — our multidisciplinary team coordinates closely with participants, families, and support coordinators across Townsville, Ingham, and Charters Towers.
+            From clinical nursing to occupational therapy, physiotherapy, and psychology — our multidisciplinary team coordinates closely with participants, families, and support coordinators across Townsville, Cairns, Mackay, Ingham, and Charters Towers.
           </p>
         </div>
 

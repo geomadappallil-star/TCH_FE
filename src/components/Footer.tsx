@@ -28,7 +28,7 @@ export const Footer: React.FC = () => {
             </div>
 
             <p className="font-serif text-teal-200/90 text-sm leading-relaxed max-w-sm">
-              Delivering high-standard clinical nursing, allied health therapies, home &amp; yard care, and housing support. Local team based in Townsville, Ingham &amp; Charters Towers.
+              Delivering high-standard clinical nursing, allied health therapies, home &amp; yard care, and housing support. Local team based in Townsville, Cairns, Mackay, Ingham &amp; Charters Towers.
             </p>
 
             <div className="pt-2 text-xs text-teal-300">

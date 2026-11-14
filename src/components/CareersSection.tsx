@@ -139,7 +139,7 @@ export const CareersSection: React.FC = () => {
     {
       icon: Users,
       title: 'Community Impact & Practice Autonomy',
-      detail: 'Make a tangible difference for Townsville, Ingham, and Charters Towers families where your clinical judgment is respected.'
+      detail: 'Make a tangible difference for Townsville, Cairns, Mackay, Ingham, and Charters Towers families where your clinical judgment is respected.'
     }
   ];
 

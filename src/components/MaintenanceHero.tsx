@@ -93,7 +93,7 @@ export const MaintenanceHero: React.FC = () => {
             {/* Header Content */}
             <div className="text-center space-y-3">
               <span className="text-xs uppercase tracking-widest font-sans font-bold text-sage-700">
-                TCH Support Services · Townsville | Ingham | Charters Towers
+                TCH Support Services · Townsville | Cairns | Mackay | Ingham | Charters Towers
               </span>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold font-sans text-teal-ink tracking-tight">
                 We’re putting the finishing touches on{' '}
@@ -104,7 +104,7 @@ export const MaintenanceHero: React.FC = () => {
                 .
               </h1>
               <p className="font-serif text-base sm:text-lg text-muted max-w-2xl mx-auto leading-relaxed">
-                Our main website is currently in maintenance mode for system upgrades. In the meantime, <strong>our everyday allied health, nursing care, and home care operations are 100% active</strong> across Townsville, Ingham, and Charters Towers.
+                Our main website is currently in maintenance mode for system upgrades. In the meantime, <strong>our everyday allied health, nursing care, and home care operations are 100% active</strong> across Townsville, Cairns, Mackay, Ingham, and Charters Towers.
               </p>
             </div>
 

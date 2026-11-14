@@ -69,7 +69,7 @@ export const PhotoHero: React.FC = () => {
         {/* Top Eyebrow Chip */}
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs font-semibold text-emerald-200 mb-6 shadow-sm">
           <span className="w-2 h-2 rounded-full bg-[#D4A359] animate-pulse"></span>
-          <span>Townsville · Ayr · Ingham · Charters Towers · Mareeba · Mount Isa | Private, NDIS &amp; VHC Approved</span>
+          <span>Townsville · Cairns · Mackay · Ayr · Ingham · Charters Towers · Mareeba · Mount Isa | Private, NDIS &amp; VHC Approved</span>
         </div>
 
         {/* Hero 2-Column Grid */}

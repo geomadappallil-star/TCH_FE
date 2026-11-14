@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
 
             {/* Lede text */}
             <p className="text-base sm:text-lg md:text-xl text-muted font-serif leading-relaxed max-w-2xl">
-              TCH Support Services is a dedicated local team delivering clinical nursing, allied health therapies, home &amp; yard maintenance, and housing supports across Townsville, Ingham, and Charters Towers.
+              TCH Support Services is a dedicated local team delivering clinical nursing, allied health therapies, home &amp; yard maintenance, and housing supports across Townsville, Cairns, Mackay, Ingham, and Charters Towers.
             </p>
 
             {/* Action Buttons with Glass finish */}

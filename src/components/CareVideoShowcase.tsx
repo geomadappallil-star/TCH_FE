@@ -170,7 +170,7 @@ export const CareVideoShowcase: React.FC = () => {
                 No National Call Centers. Direct Coordinator Accountability.
               </h4>
               <p className="font-serif text-xs sm:text-sm text-teal-100 mt-0.5 max-w-2xl">
-                When you call TCH Support Services, Alan answers directly. We know Townsville streets, local ferry schedules to Magnetic Island, and regional travel to Ingham and Charters Towers.
+                When you call TCH Support Services, Alan answers directly. We know Townsville streets, local ferry schedules to Magnetic Island, and regional travel to Ingham, Charters Towers, Cairns, and Mackay.
               </p>
             </div>
           </div>

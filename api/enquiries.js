@@ -146,7 +146,7 @@ function generateForwardingEmailHtml(data) {
     </div>
 
     <div class="footer">
-      <p style="margin:0;">TCH Support Services · Alan Jomon (0431 430 905) · Townsville | Ingham | Charters Towers</p>
+      <p style="margin:0;">TCH Support Services · Alan Jomon (0431 430 905) · Townsville | Cairns | Mackay | Ingham | Charters Towers</p>
     </div>
   </div>
 </body>
@@ -173,7 +173,7 @@ function generateClientAcknowledgmentHtml(data) {
   <div class="container">
     <div class="header">
       <h1 style="margin:0; font-size:20px;">TCH Support Services</h1>
-      <p style="margin:6px 0 0; font-size:13px; color:#DDE7D4;">Townsville · Ingham · Charters Towers</p>
+      <p style="margin:6px 0 0; font-size:13px; color:#DDE7D4;">Townsville · Cairns · Mackay · Ingham · Charters Towers</p>
     </div>
     <div class="content">
       <p>Hello <strong>${data.name}</strong>,</p>
@@ -181,7 +181,7 @@ function generateClientAcknowledgmentHtml(data) {
       <p>We have received your callback request regarding <strong>${data.service}</strong> (Reference: <strong>${data.referenceId}</strong>). Our local team will contact you shortly at <strong>${data.phone}</strong>.</p>
       <p>If your enquiry is urgent, you can also reach Alan directly at <a href="tel:0431430905" style="color:#0E6E64; font-weight:700;">0431 430 905</a>.</p>
       <br>
-      <p style="margin:0;">Warm regards,<br><strong>TCH Support Services Team</strong><br>Townsville · Ingham · Charters Towers</p>
+      <p style="margin:0;">Warm regards,<br><strong>TCH Support Services Team</strong><br>Townsville · Cairns · Mackay · Ingham · Charters Towers</p>
     </div>
     <div class="footer">
       &copy; 2026 TCH Support Services · Townsville QLD · <a href="https://www.tchservices.com.au" style="color:#E3A83B;">www.tchservices.com.au</a>
