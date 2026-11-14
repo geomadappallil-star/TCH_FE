@@ -149,7 +149,7 @@ export const ChatBannerAndFooter: React.FC = () => {
                 We cover
               </h4>
               <p className="text-xs sm:text-sm text-[#D5E6E6] leading-relaxed">
-                Townsville, Ayr, Ingham, Charters Towers, Mareeba and Mount Isa
+                Townsville, Cairns, Mackay, Ayr, Ingham, Charters Towers, Mareeba and Mount Isa
               </p>
               <div className="pt-2">
                 <a

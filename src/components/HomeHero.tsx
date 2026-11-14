@@ -89,7 +89,7 @@ export const HomeHero: React.FC = () => {
     {
       icon: MapPin,
       title: 'Local team',
-      desc: 'Based in Townsville, working across Ayr, Ingham, Charters Towers, Mareeba and Mount Isa.'
+      desc: 'Based in Townsville, working across Cairns, Mackay, Ayr, Ingham, Charters Towers, Mareeba and Mount Isa.'
     },
     {
       icon: Users,
@@ -120,6 +120,8 @@ export const HomeHero: React.FC = () => {
 
   const serviceAreas = [
     { id: 'townsville', name: 'Townsville', sub: 'Townsville and surrounding suburbs' },
+    { id: 'cairns', name: 'Cairns', sub: 'Far North Queensland & Tropical Coast' },
+    { id: 'mackay', name: 'Mackay', sub: 'Mackay & Whitsunday region' },
     { id: 'ayr', name: 'Ayr', sub: 'Burdekin region' },
     { id: 'ingham', name: 'Ingham', sub: 'Hinchinbrook region' },
     { id: 'charters-towers', name: 'Charters Towers', sub: 'Charters Towers and surrounds' },

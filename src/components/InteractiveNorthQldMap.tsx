@@ -24,6 +24,24 @@ export const NORTH_QLD_HUBS: ServiceArea[] = [
     suburbs: 'North Ward, Annandale, Kirwan, Douglas, Kelso & Magnetic Island'
   },
   {
+    id: 'cairns',
+    name: 'Cairns',
+    sub: 'Far North Queensland & Tropical Coast',
+    x: 335,
+    y: 75,
+    services: ['Allied Health', 'Clinical Nursing', 'NDIS Supports', 'Personal Care', 'Capacity Building'],
+    suburbs: 'Cairns City, Northern Beaches, Edmonton, Gordonvale & Kuranda corridor'
+  },
+  {
+    id: 'mackay',
+    name: 'Mackay',
+    sub: 'Mackay & Whitsunday region',
+    x: 475,
+    y: 310,
+    services: ['In-Home Care', 'Domestic & Cleaning', 'NDIS Supports', 'Community Access', 'Yard Care'],
+    suburbs: 'Mackay Central, Northern Beaches, Walkerston, Sarina & Pioneer Valley'
+  },
+  {
     id: 'ayr',
     name: 'Ayr',
     sub: 'Burdekin region',
@@ -54,8 +72,8 @@ export const NORTH_QLD_HUBS: ServiceArea[] = [
     id: 'mareeba',
     name: 'Mareeba',
     sub: 'Atherton Tablelands',
-    x: 300,
-    y: 85,
+    x: 290,
+    y: 95,
     services: ['Support Workers', 'Daily Living', 'Community Outings', 'In-Home Help'],
     suburbs: 'Mareeba, Kuranda, Atherton & Tablelands region'
   },
@@ -186,18 +204,18 @@ export const InteractiveNorthQldMap: React.FC<MapProps> = ({
             strokeDasharray="4 4"
             opacity="0.8"
           />
-          {/* Bruce Highway North: Townsville -> Ingham -> Mareeba */}
+          {/* Bruce Highway North: Townsville -> Ingham -> Cairns -> Mareeba */}
           <path
-            d="M 395,205 L 360,160 L 300,85"
+            d="M 395,205 L 360,160 L 335,75 L 290,95"
             fill="none"
             stroke="#0B5563"
             strokeWidth="2"
             strokeDasharray="4 4"
             opacity="0.75"
           />
-          {/* Bruce Highway South: Townsville -> Ayr */}
+          {/* Bruce Highway South: Townsville -> Ayr -> Mackay */}
           <path
-            d="M 395,205 L 440,245"
+            d="M 395,205 L 440,245 L 475,310"
             fill="none"
             stroke="#0B5563"
             strokeWidth="2"

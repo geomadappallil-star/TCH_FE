@@ -329,7 +329,7 @@ export const ReferralSection: React.FC = () => {
                       type="text"
                       value={formData.suburb}
                       onChange={(e) => setFormData({ ...formData, suburb: e.target.value })}
-                      placeholder="e.g. Ayr, Townsville"
+                      placeholder="e.g. Townsville, Cairns, Mackay"
                       className="glass-input text-sm"
                     />
                   </label>

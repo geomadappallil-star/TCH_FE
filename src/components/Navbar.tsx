@@ -33,7 +33,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection = 'home' }) => {
           <div className="flex items-center gap-2 text-teal-100 font-medium">
             <span className="w-2 h-2 rounded-full bg-[#F4A62A] animate-pulse" />
             <span className="truncate">
-              Proudly local in North Queensland · Townsville · Ayr · Ingham · Charters Towers · Mareeba · Mount Isa
+              Proudly local in North Queensland · Townsville · Cairns · Mackay · Ayr · Ingham · Charters Towers · Mareeba · Mount Isa
             </span>
           </div>
           

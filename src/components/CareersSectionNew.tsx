@@ -142,7 +142,7 @@ export const CareersSectionNew: React.FC = () => {
                 Work local. Make a real difference.
               </h2>
               <p className="text-lg text-[#16272C] font-semibold leading-relaxed max-w-xl">
-                We hire local people in every community we serve, from Townsville to Mount Isa. Join a friendly team that backs you and puts clients first.
+                We hire local people in every community we serve, from Townsville to Mount Isa, Cairns and Mackay. Join a friendly team that backs you and puts clients first.
               </p>
 
               {/* Chips */}

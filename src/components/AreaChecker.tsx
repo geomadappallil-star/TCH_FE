@@ -26,7 +26,7 @@ export const AreaChecker: React.FC = () => {
     {
       name: 'Further Afield & Islands',
       tag: 'Regional Coverage',
-      suburbs: ['Magnetic Island', 'Alligator Creek', 'Nome', 'Julago', 'Ayr & Home Hill', 'Ingham', 'Charters Towers', 'Woodstock'],
+      suburbs: ['Magnetic Island', 'Alligator Creek', 'Nome', 'Julago', 'Ayr & Home Hill', 'Ingham', 'Charters Towers', 'Cairns', 'Mackay', 'Mareeba', 'Mount Isa', 'Woodstock'],
       notes: 'Magnetic Island visits coordinated around the Nelly Bay ferry. Regional travel agreed in writing upfront with zero surprise billing.'
     }
   ];
