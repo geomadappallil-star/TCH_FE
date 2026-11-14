@@ -129,7 +129,7 @@ export const CareersSectionNew: React.FC = () => {
           aria-hidden="true"
         />
         {/* Semi-transparent Glass Gradient Wash for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/65 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FBF5EA]/96 via-[#FBF5EA]/90 to-[#FBF5EA]/70 lg:bg-gradient-to-r lg:from-[#FBF5EA]/96 lg:via-[#FBF5EA]/88 lg:to-[#FBF5EA]/65 backdrop-blur-[2px]" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -141,19 +141,19 @@ export const CareersSectionNew: React.FC = () => {
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0A3D47] leading-tight">
                 Work local. Make a real difference.
               </h2>
-              <p className="text-lg text-[#2A3B40] font-medium leading-relaxed max-w-xl">
+              <p className="text-lg text-[#16272C] font-semibold leading-relaxed max-w-xl">
                 We hire local people in every community we serve, from Townsville to Mount Isa. Join a friendly team that backs you and puts clients first.
               </p>
 
               {/* Chips */}
               <div className="flex flex-wrap gap-2.5 pt-1">
-                <span className="glass-chip text-xs font-bold text-[#0B5563]">
+                <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white text-xs font-bold text-[#0B5563] shadow-xs">
                   <MapPin className="w-4 h-4 text-[#0B5563]" /> Work close to home
                 </span>
-                <span className="glass-chip text-xs font-bold text-[#0B5563]">
+                <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white text-xs font-bold text-[#0B5563] shadow-xs">
                   <Users className="w-4 h-4 text-[#0B5563]" /> Supportive local team
                 </span>
-                <span className="glass-chip text-xs font-bold text-[#0B5563]">
+                <span className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white text-xs font-bold text-[#0B5563] shadow-xs">
                   <Star className="w-4 h-4 text-[#0B5563]" /> Meaningful work
                 </span>
               </div>

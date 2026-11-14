@@ -127,34 +127,46 @@ export const AboutSection: React.FC = () => {
         </div>
       </div>
 
-      {/* 3. Our Values (6 Glass Cards) */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 md:mb-28">
-        <div className="flex flex-col gap-2 max-w-2xl mb-10">
-          <span className="text-xs font-bold tracking-widest uppercase text-[#B5651D]">
-            Our values
-          </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0A3D47]">
-            What we stand for.
-          </h2>
-        </div>
+      {/* 3. Our Values (What we stand for) with Background Image */}
+      <div className="relative w-full overflow-hidden border-y border-[#EADFCB] py-16 md:py-24 mb-20 md:mb-28">
+        {/* Background Image Layer */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35 filter saturate-110"
+          style={{ backgroundImage: `url('./images/what-we-stand-for-bg.jpg')` }}
+          aria-hidden="true"
+        />
+        {/* Semi-transparent Glass Gradient Wash for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/96 via-[#FBF5EA]/90 to-[#FBF5EA]/80 backdrop-blur-[2px]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[#FBF5EA]/50 via-transparent to-[#FBF5EA]/70 pointer-events-none" />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {values.map((v, idx) => (
-            <div 
-              key={idx}
-              className="glass-panel p-7 flex flex-col gap-3 group hover:-translate-y-1"
-            >
-              <span className="font-heading font-extrabold text-sm text-[#B5651D]">
-                {v.num}
-              </span>
-              <h3 className="font-heading font-bold text-xl text-[#0A3D47]">
-                {v.title}
-              </h3>
-              <p className="text-sm text-[#4A5A60] leading-relaxed">
-                {v.desc}
-              </p>
-            </div>
-          ))}
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col gap-2 max-w-2xl mb-10">
+            <span className="text-xs font-bold tracking-widest uppercase text-[#B5651D] bg-white/80 px-3 py-1 rounded-full border border-[#B5651D]/20 inline-block w-fit backdrop-blur-xs">
+              Our values
+            </span>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0A3D47]">
+              What we stand for.
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {values.map((v, idx) => (
+              <div 
+                key={idx}
+                className="bg-white/85 backdrop-blur-md p-7 rounded-3xl border border-white/90 shadow-lg flex flex-col gap-3 group hover:-translate-y-1 transition duration-300"
+              >
+                <span className="font-heading font-extrabold text-sm text-[#B5651D]">
+                  {v.num}
+                </span>
+                <h3 className="font-heading font-bold text-xl text-[#0A3D47]">
+                  {v.title}
+                </h3>
+                <p className="text-sm font-medium text-[#2A3B40] leading-relaxed">
+                  {v.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 

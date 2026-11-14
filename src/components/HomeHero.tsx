@@ -144,12 +144,12 @@ export const HomeHero: React.FC = () => {
           muted
           playsInline
           poster="./images/sorinvision-elderly-care.png"
-          className="w-full h-full object-cover object-center opacity-80 filter saturate-115 brightness-95"
+          className="w-full h-full object-cover object-center opacity-70 filter saturate-110 brightness-95"
         >
           <source src="./videos/tch-hero-care.mp4" type="video/mp4" />
         </video>
-        {/* Transparent gradient on left, progressively increasing opacity to the right */}
-        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FBF5EA]/35 to-[#FBF5EA]/90" />
+        {/* Translucent white layer beneath text so text is visible and video motion can be seen */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/35 lg:bg-gradient-to-r lg:from-white/75 lg:via-white/55 lg:to-white/25 backdrop-blur-[1.5px]" />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#FBF5EA]" />
       </div>
 
@@ -161,7 +161,7 @@ export const HomeHero: React.FC = () => {
           <div className="lg:col-span-7 space-y-6">
             
             {/* Eyebrow Chip */}
-            <span className="glass-chip inline-flex items-center gap-2 text-[#0A3D47]">
+            <span className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white text-[#0A3D47] shadow-xs">
               <MapPin className="w-4 h-4 text-[#B5651D]" />
               <span className="font-bold text-xs sm:text-sm">Townsville based · North Queensland proud</span>
             </span>
@@ -172,7 +172,7 @@ export const HomeHero: React.FC = () => {
             </h1>
 
             {/* Lead Copy */}
-            <p className="text-lg sm:text-xl text-[#1E2B30] font-medium leading-relaxed max-w-2xl">
+            <p className="text-lg sm:text-xl text-[#112429] font-bold leading-relaxed max-w-2xl">
               TCH Support Services (Townsville Community Health) helps NDIS participants, older Australians, veterans and private clients across North Queensland live well at home and stay connected to their community.
             </p>
 
@@ -198,13 +198,13 @@ export const HomeHero: React.FC = () => {
 
             {/* Trust Chips */}
             <div className="flex flex-wrap gap-2.5 pt-4">
-              <span className="glass-chip text-xs font-bold text-[#0B5563]">
+              <span className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white text-xs font-bold text-[#0B5563] shadow-xs">
                 <ShieldCheck className="w-4 h-4 text-[#0B5563]" /> NDIS Worker Screened
               </span>
-              <span className="glass-chip text-xs font-bold text-[#0B5563]">
+              <span className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white text-xs font-bold text-[#0B5563] shadow-xs">
                 <Wallet className="w-4 h-4 text-[#0B5563]" /> Plan &amp; self-managed NDIS
               </span>
-              <span className="glass-chip text-xs font-bold text-[#0B5563]">
+              <span className="inline-flex items-center gap-2 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white text-xs font-bold text-[#0B5563] shadow-xs">
                 <Heart className="w-4 h-4 text-[#0B5563]" /> Aged care · VHC · Private
               </span>
             </div>

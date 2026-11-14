@@ -80,18 +80,18 @@ export const ServicesDetailSection: React.FC = () => {
               muted
               playsInline
               poster="./images/ndis-video-frame.jpg"
-              className="w-full h-full object-cover object-center opacity-85 filter saturate-110 brightness-95"
+              className="w-full h-full object-cover object-center opacity-70 filter saturate-110 brightness-95"
             >
               <source src="./videos/ndis-banner-care.mp4" type="video/mp4" />
             </video>
-            {/* Soft Frosted Glass Gradient Wash for crystal clear text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/55 backdrop-blur-[2px]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FBF5EA]/40 via-transparent to-[#FBF5EA]/60" />
+            {/* Translucent white layer beneath text so text is visible and video motion can be seen */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/35 lg:bg-gradient-to-r lg:from-white/75 lg:via-white/55 lg:to-white/25 backdrop-blur-[1.5px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/40 pointer-events-none" />
           </div>
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Left Content */}
+            {/* Left Content (Transparent, no solid white box) */}
             <div className="lg:col-span-7 space-y-6">
               <div className="w-14 h-14 rounded-2xl bg-[#0B5563] text-white flex items-center justify-center shadow-md">
                 <Heart className="w-7 h-7 text-[#F4A62A]" />
@@ -99,22 +99,22 @@ export const ServicesDetailSection: React.FC = () => {
               <h3 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#0A3D47]">
                 NDIS Supports
               </h3>
-              <p className="text-lg text-[#2A3B40] font-medium leading-relaxed">
+              <p className="text-lg text-[#16272C] font-semibold leading-relaxed">
                 We help NDIS participants use their plan the way they choose. Our support workers get to know you, your routines and your goals, and work alongside you to build skills and confidence.
               </p>
 
-              <ul className="tick-list text-[#1E2B30] font-medium">
-                <li><strong>Personal care:</strong> showering, dressing, grooming and daily routines, delivered with dignity</li>
-                <li><strong>Community access:</strong> appointments, shopping, social outings, sport, work or study</li>
-                <li><strong>Daily living support:</strong> meal preparation, household tasks and independent living skills</li>
-                <li><strong>Housing and accommodation supports:</strong> help to find, set up and keep a home, including our own rental units in Townsville</li>
+              <ul className="tick-list text-[#16272C] font-semibold">
+                <li><strong className="text-[#0A3D47] font-bold">Personal care:</strong> showering, dressing, grooming and daily routines, delivered with dignity</li>
+                <li><strong className="text-[#0A3D47] font-bold">Community access:</strong> appointments, shopping, social outings, sport, work or study</li>
+                <li><strong className="text-[#0A3D47] font-bold">Daily living support:</strong> meal preparation, household tasks and independent living skills</li>
+                <li><strong className="text-[#0A3D47] font-bold">Housing and accommodation supports:</strong> help to find, set up and keep a home, including our own rental units in Townsville</li>
               </ul>
 
               {/* Funding Info Card */}
-              <div id="accommodation" className="p-6 rounded-2xl bg-white/85 backdrop-blur-md border border-white shadow-sm space-y-2 text-sm text-[#1E2B30]">
+              <div id="accommodation" className="p-6 rounded-2xl bg-white/75 backdrop-blur-md border border-white/80 shadow-sm space-y-2 text-sm text-[#16272C] font-medium">
                 <h4 className="font-bold text-base text-[#0A3D47]">NDIS and funding</h4>
-                <p className="text-[#4A5A60]">
-                  We work with <strong>plan-managed</strong> and <strong>self-managed</strong> NDIS participants. Plan-managed? We invoice your plan manager directly. Self-managing? We send you clear, itemised statements. We also support aged care clients, veterans through DVA’s Veterans’ Home Care (VHC), and private clients.
+                <p className="text-[#3E4F55]">
+                  We work with <strong className="text-[#0A3D47]">plan-managed</strong> and <strong className="text-[#0A3D47]">self-managed</strong> NDIS participants. Plan-managed? We invoice your plan manager directly. Self-managing? We send you clear, itemised statements. We also support aged care clients, veterans through DVA’s Veterans’ Home Care (VHC), and private clients.
                 </p>
                 <p className="font-bold text-[#0A3D47]">
                   Not sure how your funding works? Give us a call and we’ll walk you through it.
@@ -177,13 +177,13 @@ export const ServicesDetailSection: React.FC = () => {
               muted
               playsInline
               poster="./images/allied-video-frame.jpg"
-              className="w-full h-full object-cover object-center opacity-85 filter saturate-110 brightness-95"
+              className="w-full h-full object-cover object-center opacity-70 filter saturate-110 brightness-95"
             >
               <source src="./videos/allied-banner-care.mp4" type="video/mp4" />
             </video>
-            {/* Soft Frosted Glass Gradient Wash for crystal clear text readability */}
-            <div className="absolute inset-0 bg-gradient-to-l from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/55 backdrop-blur-[2px]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FBF5EA]/40 via-transparent to-[#FBF5EA]/60" />
+            {/* Translucent white layer beneath text so text is visible and video motion can be seen */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/35 lg:bg-gradient-to-l lg:from-white/75 lg:via-white/55 lg:to-white/25 backdrop-blur-[1.5px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/40 pointer-events-none" />
           </div>
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -206,7 +206,7 @@ export const ServicesDetailSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Content */}
+            {/* Right Content (Transparent, no solid white box) */}
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
               <div className="w-14 h-14 rounded-2xl bg-[#0B5563] text-white flex items-center justify-center shadow-md">
                 <Stethoscope className="w-7 h-7 text-[#F4A62A]" />
@@ -214,20 +214,20 @@ export const ServicesDetailSection: React.FC = () => {
               <h3 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#0A3D47]">
                 Allied Health Services
               </h3>
-              <p className="text-lg text-[#2A3B40] font-medium leading-relaxed">
+              <p className="text-lg text-[#16272C] font-semibold leading-relaxed">
                 Our qualified allied health practitioners come to you, at home or in the community, to help you build capacity and reach your goals.
               </p>
 
-              <ul className="tick-list text-[#1E2B30] font-medium">
-                <li><strong>Occupational therapy:</strong> Functional Capacity Assessments (FCA), home modifications, equipment and assistive technology</li>
-                <li><strong>Physiotherapy:</strong> mobility, strength, balance, falls prevention and recovery</li>
-                <li><strong>Speech pathology:</strong> communication, speech, language and safe swallowing</li>
-                <li><strong>Dietetics:</strong> nutrition advice and meal planning</li>
-                <li><strong>Exercise physiology:</strong> tailored exercise programs for fitness and function</li>
-                <li><strong>Psychology and counselling:</strong> emotional wellbeing, mental health and coping strategies</li>
+              <ul className="tick-list text-[#16272C] font-semibold">
+                <li><strong className="text-[#0A3D47] font-bold">Occupational therapy:</strong> Functional Capacity Assessments (FCA), home modifications, equipment and assistive technology</li>
+                <li><strong className="text-[#0A3D47] font-bold">Physiotherapy:</strong> mobility, strength, balance, falls prevention and recovery</li>
+                <li><strong className="text-[#0A3D47] font-bold">Speech pathology:</strong> communication, speech, language and safe swallowing</li>
+                <li><strong className="text-[#0A3D47] font-bold">Dietetics:</strong> nutrition advice and meal planning</li>
+                <li><strong className="text-[#0A3D47] font-bold">Exercise physiology:</strong> tailored exercise programs for fitness and function</li>
+                <li><strong className="text-[#0A3D47] font-bold">Psychology and counselling:</strong> emotional wellbeing, mental health and coping strategies</li>
               </ul>
 
-              <p className="text-xs text-[#4A5A60]">
+              <p className="text-xs text-[#2A3B40] font-semibold">
                 All practitioners are qualified, registered where required, and hold a current NDIS Worker Screening Check. Available to NDIS participants and private clients.
               </p>
 
@@ -269,18 +269,18 @@ export const ServicesDetailSection: React.FC = () => {
               muted
               playsInline
               poster="./images/nursing-video-frame.jpg"
-              className="w-full h-full object-cover object-center opacity-85 filter saturate-110 brightness-95"
+              className="w-full h-full object-cover object-center opacity-70 filter saturate-110 brightness-95"
             >
               <source src="./videos/nursing-banner-care.mp4" type="video/mp4" />
             </video>
-            {/* Soft Frosted Glass Gradient Wash for crystal clear text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/55 backdrop-blur-[2px]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FBF5EA]/40 via-transparent to-[#FBF5EA]/60" />
+            {/* Translucent white layer beneath text so text is visible and video motion can be seen */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/35 lg:bg-gradient-to-r lg:from-white/75 lg:via-white/55 lg:to-white/25 backdrop-blur-[1.5px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/40 pointer-events-none" />
           </div>
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Left Content */}
+            {/* Left Content (Transparent, no solid white box) */}
             <div className="lg:col-span-7 space-y-6">
               <div className="w-14 h-14 rounded-2xl bg-[#0B5563] text-white flex items-center justify-center shadow-md">
                 <ShieldCheck className="w-7 h-7 text-[#F4A62A]" />
@@ -288,21 +288,21 @@ export const ServicesDetailSection: React.FC = () => {
               <h3 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#0A3D47]">
                 Nursing Services
               </h3>
-              <p className="text-lg text-[#2A3B40] font-medium leading-relaxed">
+              <p className="text-lg text-[#16272C] font-semibold leading-relaxed">
                 Our qualified nurses provide professional clinical care in the comfort of your own home, helping you stay well and avoid unnecessary hospital visits.
               </p>
 
-              <ul className="tick-list text-[#1E2B30] font-medium">
-                <li>Medication management and administration</li>
-                <li>Wound care and sterile dressings</li>
-                <li>Diabetes management and blood glucose monitoring</li>
-                <li>Continence and catheter care</li>
-                <li>Post-hospital and post-surgery care</li>
-                <li>Health monitoring and clinical assessments</li>
-                <li>Support for complex and chronic health needs</li>
+              <ul className="tick-list text-[#16272C] font-semibold">
+                <li><strong className="text-[#0A3D47] font-bold">Medication management</strong> and administration</li>
+                <li><strong className="text-[#0A3D47] font-bold">Wound care</strong> and sterile dressings</li>
+                <li><strong className="text-[#0A3D47] font-bold">Diabetes management</strong> and blood glucose monitoring</li>
+                <li><strong className="text-[#0A3D47] font-bold">Continence</strong> and catheter care</li>
+                <li><strong className="text-[#0A3D47] font-bold">Post-hospital</strong> and post-surgery care</li>
+                <li><strong className="text-[#0A3D47] font-bold">Health monitoring</strong> and clinical assessments</li>
+                <li><strong className="text-[#0A3D47] font-bold">Complex care:</strong> support for chronic and complex health needs</li>
               </ul>
 
-              <p className="text-xs text-[#4A5A60] pt-1">
+              <p className="text-xs text-[#2A3B40] font-semibold pt-1">
                 We work closely with your GP, specialists and support team so your care is coordinated and consistent.
               </p>
             </div>
@@ -341,13 +341,13 @@ export const ServicesDetailSection: React.FC = () => {
               muted
               playsInline
               poster="./images/cleaning-video-frame.jpg"
-              className="w-full h-full object-cover object-center opacity-85 filter saturate-110 brightness-95"
+              className="w-full h-full object-cover object-center opacity-70 filter saturate-110 brightness-95"
             >
               <source src="./videos/cleaning-banner-care.mp4" type="video/mp4" />
             </video>
-            {/* Soft Frosted Glass Gradient Wash for crystal clear text readability */}
-            <div className="absolute inset-0 bg-gradient-to-l from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/55 backdrop-blur-[2px]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FBF5EA]/40 via-transparent to-[#FBF5EA]/60" />
+            {/* Translucent white layer beneath text so text is visible and video motion can be seen */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/35 lg:bg-gradient-to-l lg:from-white/75 lg:via-white/55 lg:to-white/25 backdrop-blur-[1.5px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/40 pointer-events-none" />
           </div>
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -370,7 +370,7 @@ export const ServicesDetailSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Content */}
+            {/* Right Content (Transparent, no solid white box) */}
             <div className="lg:col-span-7 order-1 lg:order-2 space-y-6">
               <div className="w-14 h-14 rounded-2xl bg-[#0B5563] text-white flex items-center justify-center shadow-md">
                 <Sparkles className="w-7 h-7 text-[#F4A62A]" />
@@ -378,19 +378,19 @@ export const ServicesDetailSection: React.FC = () => {
               <h3 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#0A3D47]">
                 Domestic and Cleaning Services
               </h3>
-              <p className="text-lg text-[#2A3B40] font-medium leading-relaxed">
+              <p className="text-lg text-[#16272C] font-semibold leading-relaxed">
                 A clean, tidy home makes everyday life safer and more comfortable. Our friendly, reliable cleaners provide regular or as-needed general cleaning.
               </p>
 
-              <ul className="tick-list text-[#1E2B30] font-medium">
-                <li>Vacuuming, mopping and dusting</li>
-                <li>Kitchen and bathroom cleaning</li>
-                <li>Laundry, ironing and changing bed linen</li>
-                <li>Tidying living areas and taking out the rubbish</li>
-                <li>External window cleaning at ground level</li>
+              <ul className="tick-list text-[#16272C] font-semibold">
+                <li><strong className="text-[#0A3D47] font-bold">Vacuuming, mopping and dusting:</strong> thorough floor and surface care</li>
+                <li><strong className="text-[#0A3D47] font-bold">Kitchen and bathroom cleaning:</strong> hygiene and deep sanitisation</li>
+                <li><strong className="text-[#0A3D47] font-bold">Laundry and linen:</strong> washing, ironing and changing bed linen</li>
+                <li><strong className="text-[#0A3D47] font-bold">Tidying living areas:</strong> rubbish removal and decluttering</li>
+                <li><strong className="text-[#0A3D47] font-bold">Windows:</strong> external window cleaning at ground level</li>
               </ul>
 
-              <p className="text-xs text-[#4A5A60] pt-1">
+              <p className="text-xs text-[#2A3B40] font-semibold pt-1">
                 Available under the NDIS, Veterans’ Home Care (VHC) and to private clients. We provide general cleaning only, not bond or end-of-lease cleaning.
               </p>
             </div>
@@ -411,18 +411,18 @@ export const ServicesDetailSection: React.FC = () => {
               muted
               playsInline
               poster="./images/gardening-video-frame.jpg"
-              className="w-full h-full object-cover object-center opacity-85 filter saturate-110 brightness-95"
+              className="w-full h-full object-cover object-center opacity-70 filter saturate-110 brightness-95"
             >
               <source src="./videos/gardening-banner-care.mp4" type="video/mp4" />
             </video>
-            {/* Soft Frosted Glass Gradient Wash for crystal clear text readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#FBF5EA]/96 via-[#FBF5EA]/88 to-[#FBF5EA]/55 backdrop-blur-[2px]" />
-            <div className="absolute inset-0 bg-gradient-to-b from-[#FBF5EA]/40 via-transparent to-[#FBF5EA]/60" />
+            {/* Translucent white layer beneath text so text is visible and video motion can be seen */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/60 to-white/35 lg:bg-gradient-to-r lg:from-white/75 lg:via-white/55 lg:to-white/25 backdrop-blur-[1.5px]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/40 pointer-events-none" />
           </div>
 
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
-            {/* Left Content */}
+            {/* Left Content (Transparent, no solid white box) */}
             <div className="lg:col-span-7 space-y-6">
               <div className="w-14 h-14 rounded-2xl bg-[#0B5563] text-white flex items-center justify-center shadow-md">
                 <Trees className="w-7 h-7 text-[#F4A62A]" />
@@ -430,19 +430,19 @@ export const ServicesDetailSection: React.FC = () => {
               <h3 className="font-heading font-extrabold text-3xl sm:text-4xl text-[#0A3D47]">
                 Gardening Services
               </h3>
-              <p className="text-lg text-[#2A3B40] font-medium leading-relaxed">
+              <p className="text-lg text-[#16272C] font-semibold leading-relaxed">
                 Keep your yard neat, safe and easy to enjoy, even through the wet season. Our gardening team offers regular or one-off maintenance.
               </p>
 
-              <ul className="tick-list text-[#1E2B30] font-medium">
-                <li>Lawn mowing</li>
-                <li>Edging and whipper snipping</li>
-                <li>Hedge and shrub trimming</li>
-                <li>Light pruning and chainsaw work up to 4 metres</li>
-                <li>General yard tidy-ups</li>
+              <ul className="tick-list text-[#16272C] font-semibold">
+                <li><strong className="text-[#0A3D47] font-bold">Lawn mowing:</strong> regular cuts and manicuring</li>
+                <li><strong className="text-[#0A3D47] font-bold">Edging:</strong> whipper snipping around paths and fences</li>
+                <li><strong className="text-[#0A3D47] font-bold">Hedges &amp; shrubs:</strong> precise trimming and shaping</li>
+                <li><strong className="text-[#0A3D47] font-bold">Pruning:</strong> light pruning and chainsaw work up to 4 metres</li>
+                <li><strong className="text-[#0A3D47] font-bold">Yard tidy-ups:</strong> tropical storm clearing and debris collection</li>
               </ul>
 
-              <p className="text-xs text-[#4A5A60] pt-1">
+              <p className="text-xs text-[#2A3B40] font-semibold pt-1">
                 Available under the NDIS, Veterans’ Home Care (VHC) and to private clients. For safety we work up to 4 metres high only and don’t do tree lopping. Green waste removal can be arranged at extra cost.
               </p>
             </div>
